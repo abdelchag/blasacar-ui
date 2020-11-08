@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.facebook-style {
+    font-size: 48px;
+    color: blue;
+}

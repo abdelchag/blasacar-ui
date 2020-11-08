@@ -145,8 +145,15 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      "blasacar",
       "kebab-case"
-    ]
+    ],
+    "no-unbound-method": true,
+    "no-conditional-assignment": true,
+    "no-sparse-arrays": true,
+    "restrict-plus-operands": true,
+    "no-invalid-template-strings": true,
+    "no-boolean-literal-compare": true,
+    "cyclomatic-complexity": [true, 10]
   }
 }
