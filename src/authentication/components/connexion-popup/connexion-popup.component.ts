@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FacebookLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { StringUtils } from 'src/utils/string-utils';
 import { ActionCodeEnum, ACTION_CONNEXION_LIST, ConnexionAction } from '../../models/connexion-action';
@@ -12,11 +13,14 @@ import { ActionCodeEnum, ACTION_CONNEXION_LIST, ConnexionAction } from '../../mo
 })
 export class ConnexionPopupComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ConnexionPopupComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<ConnexionPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public action: ConnexionAction,
-    private socialAuthService: SocialAuthService) { }
-
-    
+    private socialAuthService: SocialAuthService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
+   
   ngOnInit(): void {
   }
 
@@ -34,6 +38,7 @@ export class ConnexionPopupComponent implements OnInit {
   public launchEmailAction(): void {
     switch (this.action.actionCode) {
       case ActionCodeEnum.CONNEXION:
+        this.router.navigate(['/membre']);
       case ActionCodeEnum.INSCRIPTION:
     }
   }
