@@ -1,21 +1,21 @@
-<h2 mat-dialog-title>{{action.title}}</h2>
+<h2 mat-dialog-title>{{action.title | translate}}</h2>
 
 <div mat-dialog-content>
     <ul>
         <li>
             <span type="button" class="btn btn-hovered" (click)="launchFacebookAction()">
-                Continuer avec Facebook
+                {{'account.continue-facebook' | translate}}
                 <i class="fa fa-facebook-official facebook-style"></i>
             </span>
         </li>
         <hr />
         <li>
             <span type="button" class="btn btn-hovered" (click)="launchEmailAction()">
-                Continuer avec Email
+                {{'account.continue-email' | translate}}
             </span>
         </li>
     </ul>
     <br />
-    <p><label>{{action.question}}</label><button class="btn btn-link"
-            (click)="switchAction()">{{action.otherActionLabel}}</button></p>
+    <p><label>{{action.question | translate}}</label><button class="btn btn-link"
+            (click)="switchAction()">{{action.otherActionLabel | translate}}</button></p>
 </div>

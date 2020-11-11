@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MemberFormComponent } from './member/member-form/member-form.component';
+import { MemberFormComponent } from './account/components/member-form/member-form.component';
 
 const routes: Routes = [{
   path: 'membre',

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ConnexionPopupComponent } from 'src/authentication/components/connexion-popup/connexion-popup.component';
-import { ACTION_CONNEXION, ACTION_INSCRIPTION } from 'src/authentication/models/connexion-action';
+import { ConnexionPopupComponent } from 'src/app/account/components/connexion-popup/connexion-popup.component';
+import { ACTION_CONNEXION, ACTION_INSCRIPTION } from 'src/app/account/models/connexion-action';
 
 @Component({
   selector: 'blasacar-header',

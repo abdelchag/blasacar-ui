@@ -1,5 +1,4 @@
 <header>
-
   <div class="toolbar" role="banner">
     <img width="40" alt="BlasaCar" src="assets/img/blasacar-icon.ico" />
     <span>BlasaCar</span>
@@ -8,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <button class="nav-link btn btn-link" (click)="Inscription()">Inscription</button>
+            <button class="nav-link btn btn-link" (click)="Inscription()">{{'account.inscription' | translate}}</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link btn btn-link" (click)="Connexion()">Connexion</button>
+            <button class="nav-link btn btn-link" (click)="Connexion()">{{'account.connexion' | translate}}</button>
           </li>
         </ul>
       </div>

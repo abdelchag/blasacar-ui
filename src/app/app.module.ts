@@ -5,22 +5,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AppRoutingModule } from './app/app-routing.module';
-import { AppComponent } from './app/app.component';
-import { MemberFormComponent } from './app/member/member-form/member-form.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { ConnexionPopupComponent } from './account/components/connexion-popup/connexion-popup.component';
+import { MemberFormComponent } from './account/components/member-form/member-form.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './material.module';
 import { SocialModule } from './social.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    ConnexionPopupComponent
   ],
   imports: [
+    LayoutModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -29,19 +31,19 @@ import { SocialModule } from './social.module';
     BrowserAnimationsModule,
     SocialModule,
     HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        })
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (httpTranslateLoader),
+        deps: [HttpClient],
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

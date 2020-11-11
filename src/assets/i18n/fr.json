@@ -1,0 +1,12 @@
+{
+    "account": {
+        "connexion": "Connexion",
+        "inscription": "Inscription",
+        "connexion-question": "Vous n'avez pas de compte ?",
+        "inscription-question": "Vous avez déjà un compte ?",
+        "go-to-connexion": "Connecter vous",
+        "go-to-inscription": "Créer un compte",
+        "continue-facebook": "Continuer avec Facebook",
+        "continue-email": "Continuer avec Email"
+    }
+}

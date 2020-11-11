@@ -55,16 +55,16 @@ export enum ActionCodeEnum {
 
 export const ACTION_INSCRIPTION = ConnexionAction.builder()
     .actionCode(ActionCodeEnum.INSCRIPTION)
-    .title("Inscription")
-    .question("Vous avez déjà un compte ?")
-    .otherActionLabel("Connecter vous")
+    .title("account.inscription")
+    .question("account.inscription-question")
+    .otherActionLabel("account.go-to-connexion")
     .switchAction(ActionCodeEnum.CONNEXION)
     .build();
 export const ACTION_CONNEXION = ConnexionAction.builder()
     .actionCode(ActionCodeEnum.CONNEXION)
-    .title("Connexion")
-    .question("Vous n'avez pas de compte ?")
-    .otherActionLabel("Créer un compte")
+    .title("account.connexion")
+    .question("account.connexion-question")
+    .otherActionLabel("account.go-to-inscription")
     .switchAction(ActionCodeEnum.INSCRIPTION)
     .build();
 
