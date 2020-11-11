@@ -13,4 +13,4 @@ import { ConnexionPopupComponent } from './components/connexion-popup/connexion-
     ConnexionPopupComponent
   ]
 })
-export class AppModule { }
+export class AutheticationModule { }
