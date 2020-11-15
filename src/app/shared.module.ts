@@ -1,16 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Inject, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateCompiler, TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
     ],
-    exports: [
+    exports:[
+        FormsModule,
+        CommonModule,
         TranslateModule,
+        ReactiveFormsModule
     ],
     imports: [
-        CommonModule,
-        TranslateModule
     ]
 })
 export class SharedModule { 

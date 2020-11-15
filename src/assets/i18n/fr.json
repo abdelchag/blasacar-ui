@@ -7,6 +7,16 @@
         "go-to-connexion": "Connecter vous",
         "go-to-inscription": "Créer un compte",
         "continue-facebook": "Continuer avec Facebook",
-        "continue-email": "Continuer avec Email"
+        "continue-email": "Continuer avec Email",
+        "sexe": "Sexe",
+        "sexe-choice": {
+            "mr": "Mr.",
+            "mrs": "Mrs",
+            "other": "Undefined"
+        },
+        "birthday-date": "Date de naissance",
+        "face-info-supp": {
+            "validate": "Valider"
+        }
     }
 }

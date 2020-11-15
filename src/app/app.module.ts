@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AccountModule } from './account/account.module';
 import { ConnexionPopupComponent } from './account/components/connexion-popup/connexion-popup.component';
 import { MemberFormComponent } from './account/components/member-form/member-form.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,19 +14,18 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './material.module';
+import { SharedModule } from './shared.module';
 import { SocialModule } from './social.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MemberFormComponent,
-    ConnexionPopupComponent
+    AppComponent
   ],
   imports: [
+    AccountModule,
     LayoutModule,
+    SharedModule,
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,

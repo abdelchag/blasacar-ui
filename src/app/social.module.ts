@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
-import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login'; 
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+
+const fbLoginOptions = {
+  scope: 'user_birthday,user_gender',
+  return_scopes: true,
+  enable_profile_selector: true
+}
 
 @NgModule({
   declarations: [],
@@ -11,7 +17,7 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
       providers: [
         {
           id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('772865753446348'),
+          provider: new FacebookLoginProvider('772865753446348')
         }
       ]
     } as SocialAuthServiceConfig
