@@ -20,21 +20,15 @@ export class HeaderComponent implements OnInit {
 
   Inscription(): void {
     const connexionAction = ACTION_INSCRIPTION;
-    let dialogRef = this.dialog.open(ConnexionPopupComponent, {
+    this.dialog.open(ConnexionPopupComponent, {
       data: connexionAction
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
   Connexion(): void {
     const connexionAction = ACTION_CONNEXION;
-    let dialogRef = this.dialog.open(ConnexionPopupComponent, {
+    this.dialog.open(ConnexionPopupComponent, {
       data: connexionAction
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 

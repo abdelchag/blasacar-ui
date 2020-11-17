@@ -18,5 +18,11 @@
         "face-info-supp": {
             "validate": "Valider"
         }
+    },
+    "shared": {
+        "error": {
+            "sexe-mondatory": "Vous devez choisir votre sexe",
+            "birthday-mondatory": "Vous devez sélectionner votre date de naissance"
+        }
     }
 }

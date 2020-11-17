@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/cor
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SocialUser } from 'angularx-social-login';
 import { SexeEnum } from 'src/app/shared/models/sexe.enum';
+import { Utils } from 'src/utils/utils';
 import { BlasacarSocialUser } from '../../models/blasacar-social-user';
 import { FacebookService } from '../services/facebook.service';
 
@@ -12,6 +13,8 @@ import { FacebookService } from '../services/facebook.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FaceInfoSuppPopupComponent implements OnInit {
+
+  errors: string[] = [];
 
   sexeEnum = SexeEnum;
   user: BlasacarSocialUser;
@@ -26,8 +29,18 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   }
 
   registerFacebook(): void {
-    this.facebookService.facebookInscription(this.user);
-    this.dialogRef.close();
+    this.errors = [];
+    if (Utils.isNullOrUndefined(this.user.sexe)) {
+      this.errors.push("shared.error.sexe-mondatory");
+    }
+
+    if (Utils.isNullOrUndefined(this.user.birthdayDate)) {
+      this.errors.push("shared.error.birthday-mondatory");
+    }
+    if (Utils.isArrayEmpty(this.errors)) {
+      this.facebookService.facebookInscription(this.user);
+      this.dialogRef.close();
+    }
   }
 
   putSexe(sexe: SexeEnum): void {

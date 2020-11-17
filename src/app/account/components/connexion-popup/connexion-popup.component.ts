@@ -55,12 +55,8 @@ export class ConnexionPopupComponent implements OnInit {
   }
 
   private openFaceInfoSupp(socialUser: SocialUser): void {
-    let dialogRef = this.dialog.open(FaceInfoSuppPopupComponent, {
+    this.dialog.open(FaceInfoSuppPopupComponent, {
       data: socialUser
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('FaceInfoSupp The dialog was closed');
     });
   }
 
