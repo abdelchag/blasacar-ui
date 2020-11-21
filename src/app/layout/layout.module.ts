@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     FooterComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     SharedModule

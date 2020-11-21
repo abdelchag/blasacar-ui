@@ -2,6 +2,7 @@
     "account": {
         "connexion": "Connexion",
         "inscription": "Inscription",
+        "deconnexion": "Déconnexion",
         "connexion-question": "Vous n'avez pas de compte ?",
         "inscription-question": "Vous avez déjà un compte ?",
         "go-to-connexion": "Connecter vous",
