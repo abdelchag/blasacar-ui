@@ -26,12 +26,12 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.currentUser = this.currentUserService.currentUser
     this.currentUserService.currentUserSubscription().subscribe(user => {
-      this.currentUser = this.currentUserService.currentUser;
+      this.currentUser = user;
       this.isUserConnected = !Utils.isNullOrUndefined(this.currentUser);
       this.changeDetectorRef.detectChanges();
-    })
+    });
+    this.currentUserService.performCurrentUser();
   }
 
   inscription(): void {

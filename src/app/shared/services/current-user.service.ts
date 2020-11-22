@@ -22,6 +22,11 @@ export class CurrentUserService {
     this.currentUserSubject.next(this.currentUser);
   }
 
+  public performCurrentUser(): void {
+    const currentUser = JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER))
+    this.currentUserSubject.next(this.currentUser);
+  }
+
   public deconnectCurrentUser(): void {
     localStorage.removeItem(this.SESSION_CURRENT_USER);
     this.currentUserSubject.next(this.currentUser);
