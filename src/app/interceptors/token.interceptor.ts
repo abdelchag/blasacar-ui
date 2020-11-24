@@ -11,14 +11,16 @@ import { CurrentUserService } from '../shared/services/current-user.service';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private readonly currentUserService: CurrentUserService) {}
+  constructor(private readonly currentUserService: CurrentUserService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    request = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${this.currentUserService.currentUser.token}`
-      }
-    });
+    if (this.currentUserService.isUserConnected) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${this.currentUserService.currentUser.token}`
+        }
+      });
+    }
     return next.handle(request);
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BlasaCarUser } from 'src/app/account/models/blasa-car-user';
 import { Observable, Subject, Subscription } from 'rxjs';
+import { Utils } from 'src/utils/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class CurrentUserService {
   private currentUserSubject = new Subject<BlasaCarUser>();
 
   constructor() { }
+
+  get isUserConnected(): boolean {
+    return !Utils.isNullOrUndefined(this.currentUser);
+  }
 
   get currentUser(): BlasaCarUser {
     return JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER));
