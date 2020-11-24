@@ -12,7 +12,7 @@ export class ConnexionActionBuilder {
     }
 
     public title(title: string): ConnexionActionBuilder {
-        this.connexionAction.title = title
+        this.connexionAction.title = title;
         return this;
     }
 
@@ -22,7 +22,7 @@ export class ConnexionActionBuilder {
     }
 
     public otherActionLabel(otherActionLabel: string): ConnexionActionBuilder {
-        this.connexionAction.otherActionLabel = otherActionLabel
+        this.connexionAction.otherActionLabel = otherActionLabel;
         return this;
     }
 
@@ -41,7 +41,7 @@ export class ConnexionAction {
     title: string;
     question: string;
     otherActionLabel: string;
-    switchAction: ActionCodeEnum
+    switchAction: ActionCodeEnum;
 
     public static builder(): ConnexionActionBuilder {
         return new ConnexionActionBuilder();
@@ -55,16 +55,16 @@ export enum ActionCodeEnum {
 
 export const ACTION_INSCRIPTION = ConnexionAction.builder()
     .actionCode(ActionCodeEnum.INSCRIPTION)
-    .title("account.inscription")
-    .question("account.inscription-question")
-    .otherActionLabel("account.go-to-connexion")
+    .title('account.inscription')
+    .question('account.inscription-question')
+    .otherActionLabel('account.go-to-connexion')
     .switchAction(ActionCodeEnum.CONNEXION)
     .build();
 export const ACTION_CONNEXION = ConnexionAction.builder()
     .actionCode(ActionCodeEnum.CONNEXION)
-    .title("account.connexion")
-    .question("account.connexion-question")
-    .otherActionLabel("account.go-to-inscription")
+    .title('account.connexion')
+    .question('account.connexion-question')
+    .otherActionLabel('account.go-to-inscription')
     .switchAction(ActionCodeEnum.INSCRIPTION)
     .build();
 

@@ -19,7 +19,8 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   sexeEnum = SexeEnum;
   user: BlasacarSocialUser;
 
-  constructor(public dialogRef: MatDialogRef<FaceInfoSuppPopupComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<FaceInfoSuppPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public socialUser: SocialUser,
     private readonly facebookService: FacebookService) {
     this.user = socialUser;
@@ -31,11 +32,11 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   registerFacebook(): void {
     this.errors = [];
     if (Utils.isNullOrUndefined(this.user.sexe)) {
-      this.errors.push("shared.error.sexe-mondatory");
+      this.errors.push('shared.error.sexe-mondatory');
     }
 
     if (Utils.isNullOrUndefined(this.user.birthdayDate)) {
-      this.errors.push("shared.error.birthday-mondatory");
+      this.errors.push('shared.error.birthday-mondatory');
     }
     if (Utils.isArrayEmpty(this.errors)) {
       this.facebookService.facebookInscription(this.user);

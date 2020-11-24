@@ -16,24 +16,23 @@ export class FacebookService {
   ) { }
 
   public facebookConnexion(): void {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(user => {
-      return this.accountManagementProxy.connectFacebookUser(user).subscribe(user => {
-        this.currentUserService.emitCurrentUser(user);
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(faceUser => {
+      return this.accountManagementProxy.connectFacebookUser(faceUser).subscribe(blasaCarUSer => {
+        this.currentUserService.emitCurrentUser(blasaCarUSer);
       });
     });
   }
 
-  public facebookInscription(user: BlasacarSocialUser): void {
-    this.accountManagementProxy.registerFacebookUser(user).subscribe(user => {
-      this.currentUserService.emitCurrentUser(user);
+  public facebookInscription(faceUser: BlasacarSocialUser): void {
+    this.accountManagementProxy.registerFacebookUser(faceUser).subscribe(blasaCarUSer => {
+      this.currentUserService.emitCurrentUser(blasaCarUSer);
     });
   }
 
   public facebookDeconnexion(): void {
     this.accountManagementProxy.deconnectFacebookUser().subscribe(() => {
       this.currentUserService.deconnectCurrentUser();
-    })
-
+    });
   }
 
   public getFacebookUser(): Promise<SocialUser> {

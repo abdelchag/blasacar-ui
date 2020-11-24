@@ -8,7 +8,7 @@ import { Utils } from 'src/utils/utils';
 })
 export class CurrentUserService {
 
-  private readonly SESSION_CURRENT_USER: string = "currentUser";
+  private readonly SESSION_CURRENT_USER: string = 'currentUser';
 
   private currentUserSubject = new Subject<BlasaCarUser>();
 
@@ -28,7 +28,7 @@ export class CurrentUserService {
   }
 
   public performCurrentUser(): void {
-    const currentUser = JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER))
+    const currentUser = JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER));
     this.currentUserSubject.next(this.currentUser);
   }
 

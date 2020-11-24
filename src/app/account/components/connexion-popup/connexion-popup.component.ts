@@ -45,6 +45,7 @@ export class ConnexionPopupComponent implements OnInit {
     switch (this.action.actionCode) {
       case ActionCodeEnum.CONNEXION:
         this.router.navigate(['/membre']);
+        break;
       case ActionCodeEnum.INSCRIPTION:
     }
     this.dialogRef.close();

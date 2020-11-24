@@ -1,10 +1,10 @@
 export class StringUtils {
 
-    public static equals(value1: string, value2: string) {
+    public static equals(value1: string, value2: string): boolean {
         return value1 === value2;
     }
 
-    public static equalsIgnoreCase(value1: string, value2: string) {
+    public static equalsIgnoreCase(value1: string, value2: string): boolean {
         return value1.toUpperCase() === value2.toUpperCase();
     }
 

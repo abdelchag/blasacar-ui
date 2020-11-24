@@ -14,7 +14,7 @@ export class AccountManagementProxyService {
 
   public connectFacebookUser(socialUser: SocialUser): Observable<BlasaCarUser> {
     // TODO : call api
-    console.log("connect : ", socialUser);
+    console.log('connect : ', socialUser);
     return of({
       token: socialUser.authToken,
       firstName: socialUser.firstName,
@@ -24,7 +24,7 @@ export class AccountManagementProxyService {
 
   public registerFacebookUser(socialUser: BlasacarSocialUser): Observable<BlasaCarUser> {
     // TODO : call api
-    console.log("register : ", socialUser);
+    console.log('register : ', socialUser);
     return of({
       token: socialUser.authToken,
       firstName: socialUser.firstName,
@@ -33,7 +33,7 @@ export class AccountManagementProxyService {
   }
 
   public deconnectFacebookUser(): Observable<any> {
-    console.log("deconnecte");
+    console.log('deconnecte');
     return of(null);
   }
 

@@ -46,6 +46,6 @@ import { SocialModule } from './social.module';
 })
 export class AppModule { }
 
-export function httpTranslateLoader(http: HttpClient) {
+export function httpTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

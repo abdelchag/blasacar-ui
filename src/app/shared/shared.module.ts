@@ -20,6 +20,4 @@ import { ErrorBlockComponent } from './components/error-block/error-block.compon
         TranslateModule
     ]
 })
-export class SharedModule {
-
-}
+export class SharedModule {}

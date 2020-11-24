@@ -5,7 +5,7 @@ const fbLoginOptions = {
   scope: 'user_birthday,user_gender',
   return_scopes: true,
   enable_profile_selector: true
-}
+};
 
 @NgModule({
   declarations: [],
