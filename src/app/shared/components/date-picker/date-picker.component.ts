@@ -16,7 +16,7 @@ export class DatePickerComponent implements OnInit {
   isBirthDate: boolean;
 
   @Input()
-  placeholder: string = '';
+  placeholder = '';
 
   @Output()
   dateSelected = new EventEmitter<Date>();
