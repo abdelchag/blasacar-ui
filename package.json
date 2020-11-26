@@ -3,7 +3,7 @@
   "version": "1.0.0-beta",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --watch",
+    "start": "ng serve --proxy-config proxy.conf.json --watch",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -27,6 +27,7 @@
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "ngx-bootstrap": "^6.2.0",
     "popper.js": "^1.16.1",
     "rxjs": "^6.6.3",
     "tslib": "^2.0.0",

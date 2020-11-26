@@ -31,11 +31,11 @@ export class FaceInfoSuppPopupComponent implements OnInit {
 
   registerFacebook(): void {
     this.errors = [];
-    if (Utils.isNullOrUndefined(this.user.sexe)) {
+    if (Utils.isNullOrUndefined(this.user.sex)) {
       this.errors.push('shared.error.sexe-mondatory');
     }
 
-    if (Utils.isNullOrUndefined(this.user.birthdayDate)) {
+    if (Utils.isNullOrUndefined(this.user.birthDate)) {
       this.errors.push('shared.error.birthday-mondatory');
     }
     if (Utils.isArrayEmpty(this.errors)) {
@@ -45,6 +45,10 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   }
 
   putSexe(sexe: SexeEnum): void {
-    this.user.sexe = sexe;
+    this.user.sex = sexe;
+  }
+
+  putBirthDate(birthDate: Date): void {
+    this.user.birthDate = birthDate;
   }
 }
