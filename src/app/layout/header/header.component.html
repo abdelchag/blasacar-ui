@@ -8,10 +8,12 @@
     <div class="collapse navbar-collapse my-2 my-lg-0" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li *ngIf="!isUserConnected" class="nav-item">
-          <button class="nav-link btn btn-link" (click)="inscription()">{{'account.inscription' | translate}}</button>
+          <button class="nav-link btn btn-link"
+            (click)="openConnexionPopup(action_inscription)">{{'account.inscription' | translate}}</button>
         </li>
         <li *ngIf="!isUserConnected" class="nav-item">
-          <button class="nav-link btn btn-link" (click)="connexion()">{{'account.connexion' | translate}}</button>
+          <button class="nav-link btn btn-link"
+            (click)="openConnexionPopup(action_connexion)">{{'account.connexion' | translate}}</button>
         </li>
         <li *ngIf="isUserConnected" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

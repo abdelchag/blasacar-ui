@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FacebookLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SocialUser } from 'angularx-social-login';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StringUtils } from 'src/utils/string-utils';
 import { ActionCodeEnum, ACTION_CONNEXION_LIST, ConnexionAction } from '../../models/connexion-action';
 import { FaceInfoSuppPopupComponent } from '../face-info-supp-popup/face-info-supp-popup.component';
@@ -15,13 +15,13 @@ import { FacebookService } from '../services/facebook.service';
 })
 export class ConnexionPopupComponent implements OnInit {
 
+  action: ConnexionAction;
+
   constructor(
-    public dialogRef: MatDialogRef<ConnexionPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public action: ConnexionAction,
-    private dialog: MatDialog,
+    private readonly modalRef: BsModalRef,
+    private readonly modalService: BsModalService,
     private readonly facebookService: FacebookService,
-    private router: Router,
-    private route: ActivatedRoute
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class ConnexionPopupComponent implements OnInit {
         });
         break;
     }
-    this.dialogRef.close();
+    this.modalRef.hide();
   }
 
   public launchEmailAction(): void {
@@ -48,7 +48,7 @@ export class ConnexionPopupComponent implements OnInit {
         break;
       case ActionCodeEnum.INSCRIPTION:
     }
-    this.dialogRef.close();
+    this.modalRef.hide();
   }
 
   public switchAction(): void {
@@ -56,8 +56,11 @@ export class ConnexionPopupComponent implements OnInit {
   }
 
   private openFaceInfoSupp(socialUser: SocialUser): void {
-    this.dialog.open(FaceInfoSuppPopupComponent, {
-      data: socialUser
+    this.modalService.show(
+      FaceInfoSuppPopupComponent, {
+      initialState: {
+        user: socialUser
+      }
     });
   }
 

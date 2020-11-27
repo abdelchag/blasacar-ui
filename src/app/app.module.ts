@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { LayoutModule } from './layout/layout.module';
-import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { SocialModule } from './social.module';
 
@@ -23,7 +22,6 @@ import { SocialModule } from './social.module';
     SharedModule,
     BrowserModule,
     AppRoutingModule,
-    MaterialModule,
     BrowserAnimationsModule,
     SocialModule,
     HttpClientModule,

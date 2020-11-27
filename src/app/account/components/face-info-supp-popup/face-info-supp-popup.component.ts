@@ -1,6 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { SocialUser } from 'angularx-social-login';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { SexeEnum } from 'src/app/shared/models/sexe.enum';
 import { Utils } from 'src/utils/utils';
 import { BlasacarSocialUser } from '../../models/blasacar-social-user';
@@ -20,11 +19,9 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   user: BlasacarSocialUser;
 
   constructor(
-    public dialogRef: MatDialogRef<FaceInfoSuppPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public socialUser: SocialUser,
-    private readonly facebookService: FacebookService) {
-    this.user = socialUser;
-  }
+    private readonly modalRef: BsModalRef,
+    private readonly facebookService: FacebookService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -40,7 +37,7 @@ export class FaceInfoSuppPopupComponent implements OnInit {
     }
     if (Utils.isArrayEmpty(this.errors)) {
       this.facebookService.facebookInscription(this.user);
-      this.dialogRef.close();
+      this.modalRef.hide();
     }
   }
 
