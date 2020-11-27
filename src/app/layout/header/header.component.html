@@ -15,14 +15,19 @@
           <button class="nav-link btn btn-link"
             (click)="openConnexionPopup(action_connexion)">{{'account.connexion' | translate}}</button>
         </li>
-        <li *ngIf="isUserConnected" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            {{currentUser.lastName | uppercase}} {{currentUser.firstName | titlecase}}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <div class="dropdown-divider"></div>
-            <button class="nav-link btn btn-link" (click)="deconnexion()">{{'account.deconnexion' | translate}}</button>
+        <li *ngIf="isUserConnected">
+          <div class="btn-group" dropdown>
+            <a id="connected-menu" dropdownToggle type="button" class="nav-link dropdown-toggle"
+              aria-controls="connected-menu-list">
+              {{currentUser.lastName | uppercase}} {{currentUser.firstName | titlecase}}
+            </a>
+            <ul id="connected-menu-list" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem">
+                <button class="nav-link btn btn-link"
+                  (click)="deconnexion()">{{'account.deconnexion' | translate}}</button>
+              </li>
+            </ul>
           </div>
         </li>
       </ul>
