@@ -42,9 +42,12 @@ export class HeaderComponent implements OnInit {
   openConnexionPopup(connexionAction: ConnexionAction): void {
     this.action = connexionAction;
     this.modalRef = this.modalService.show(
-      ConnexionPopupComponent, {initialState: {
+      ConnexionPopupComponent, {
+      animated: true,
+      initialState: {
         action: connexionAction
-      }}
+      }
+    }
     );
   }
 

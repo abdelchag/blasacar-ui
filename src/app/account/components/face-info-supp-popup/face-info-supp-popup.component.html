@@ -1,4 +1,7 @@
 <div class="modal-body">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
     <blasacar-error-block [errors]="errors"></blasacar-error-block>
     <div class="form-group">
         <label for="inputSexe">{{'account.sexe' | translate}} : </label><br />

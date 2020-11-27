@@ -58,6 +58,7 @@ export class ConnexionPopupComponent implements OnInit {
   private openFaceInfoSupp(socialUser: SocialUser): void {
     this.modalService.show(
       FaceInfoSuppPopupComponent, {
+      animated: true,
       initialState: {
         user: socialUser
       }
