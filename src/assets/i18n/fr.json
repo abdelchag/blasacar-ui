@@ -9,8 +9,8 @@
         "go-to-inscription": "Créer un compte",
         "continue-facebook": "Continuer avec Facebook",
         "continue-email": "Continuer avec Email",
-        "sexe": "Sexe",
-        "sexe-choice": {
+        "gender": "Sexe",
+        "gender-choice": {
             "mr": "Mr.",
             "mrs": "Mrs",
             "other": "Indéterminé"
@@ -22,7 +22,7 @@
     },
     "shared": {
         "error": {
-            "sexe-mondatory": "Vous devez choisir votre sexe",
+            "gender-mondatory": "Vous devez choisir votre sexe",
             "birthday-mondatory": "Vous devez sélectionner votre date de naissance"
         }
     }

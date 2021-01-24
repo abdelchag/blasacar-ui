@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { SexeEnum } from 'src/app/shared/models/sexe.enum';
+import { GenderEnum } from 'src/app/shared/models/gender.enum';
 import { Utils } from 'src/utils/utils';
 import { BlasacarSocialUser } from '../../models/blasacar-social-user';
 import { FacebookService } from '../services/facebook.service';
@@ -15,7 +15,7 @@ export class FaceInfoSuppPopupComponent implements OnInit {
 
   errors: string[] = [];
 
-  sexeEnum = SexeEnum;
+  genderEnum = GenderEnum;
   user: BlasacarSocialUser;
 
   constructor(
@@ -26,10 +26,14 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  closeModal(): void {
+    this.modalRef.hide();
+  }
+
   registerFacebook(): void {
     this.errors = [];
-    if (Utils.isNullOrUndefined(this.user.sex)) {
-      this.errors.push('shared.error.sexe-mondatory');
+    if (Utils.isNullOrUndefined(this.user.gender)) {
+      this.errors.push('shared.error.gender-mondatory');
     }
 
     if (Utils.isNullOrUndefined(this.user.birthDate)) {
@@ -41,8 +45,8 @@ export class FaceInfoSuppPopupComponent implements OnInit {
     }
   }
 
-  putSexe(sexe: SexeEnum): void {
-    this.user.sex = sexe;
+  putGender(gender: GenderEnum): void {
+    this.user.gender = gender;
   }
 
   putBirthDate(birthDate: Date): void {

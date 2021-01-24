@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { SocialUser } from 'angularx-social-login';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { StringUtils } from 'src/utils/string-utils';
-import { ActionCodeEnum, ACTION_CONNEXION_LIST, ConnexionAction } from '../../models/connexion-action';
-import { FaceInfoSuppPopupComponent } from '../face-info-supp-popup/face-info-supp-popup.component';
-import { FacebookService } from '../services/facebook.service';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {SocialUser} from 'angularx-social-login';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {StringUtils} from 'src/utils/string-utils';
+import {ACTION_CONNEXION_LIST, ActionCodeEnum, ConnexionAction} from '../../models/connexion-action';
+import {FaceInfoSuppPopupComponent} from '../face-info-supp-popup/face-info-supp-popup.component';
+import {FacebookService} from '../services/facebook.service';
 
 @Component({
   selector: 'blasacar-connexion-popup',
@@ -22,9 +22,14 @@ export class ConnexionPopupComponent implements OnInit {
     private readonly modalService: BsModalService,
     private readonly facebookService: FacebookService,
     private readonly router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
+  }
+
+  closeModal(): void {
+    this.modalRef.hide();
   }
 
   public launchFacebookAction(): void {
@@ -58,11 +63,16 @@ export class ConnexionPopupComponent implements OnInit {
   private openFaceInfoSupp(socialUser: SocialUser): void {
     this.modalService.show(
       FaceInfoSuppPopupComponent, {
-      animated: true,
-      initialState: {
-        user: socialUser
-      }
-    });
+        animated: true,
+        initialState: {
+          user: {
+            ...socialUser,
+            birthDate: null,
+            gender: null,
+            providerLabel: socialUser.provider
+          },
+        }
+      });
   }
 
 }
