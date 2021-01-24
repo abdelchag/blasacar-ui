@@ -3,7 +3,6 @@ import {FacebookLoginProvider, SocialAuthService, SocialUser} from 'angularx-soc
 import {AccountManagementProxyService} from 'src/app/shared/proxy-services/account-management.proxy.service';
 import {CurrentUserService} from 'src/app/shared/services/current-user.service';
 import {BlasacarSocialUser} from '../../models/blasacar-social-user';
-import {SocialLoginUser} from '../../models/social-login-user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +18,7 @@ export class FacebookService {
 
   public facebookConnexion(): void {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(faceUser => {
-      const faceLoginUser: SocialLoginUser = {
-        email: faceUser.email,
-        providerLabel: faceUser.provider
-      };
-      return this.accountManagementProxy.connectFacebookUser(faceLoginUser).subscribe(blasaCarUser => {
+      return this.accountManagementProxy.connectFacebookUser(faceUser).subscribe(blasaCarUser => {
         this.currentUserService.emitCurrentUser(blasaCarUser);
       });
     });

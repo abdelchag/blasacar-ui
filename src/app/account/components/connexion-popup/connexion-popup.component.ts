@@ -68,8 +68,7 @@ export class ConnexionPopupComponent implements OnInit {
           user: {
             ...socialUser,
             birthDate: null,
-            gender: null,
-            providerLabel: socialUser.provider
+            gender: null
           },
         }
       });
