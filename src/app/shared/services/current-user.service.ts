@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BlasaCarUser } from 'src/app/account/models/blasa-car-user';
+import {BlasaCarUser, ExternalUserResponse} from 'src/app/account/models/blasa-car-user';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { Utils } from 'src/utils/utils';
 
@@ -10,7 +10,7 @@ export class CurrentUserService {
 
   private readonly SESSION_CURRENT_USER: string = 'currentUser';
 
-  private currentUserSubject = new Subject<BlasaCarUser>();
+  private currentUserSubject = new Subject<ExternalUserResponse>();
 
   constructor() { }
 
@@ -18,17 +18,16 @@ export class CurrentUserService {
     return !Utils.isNullOrUndefined(this.currentUser);
   }
 
-  get currentUser(): BlasaCarUser {
+  get currentUser(): ExternalUserResponse {
     return JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER));
   }
 
-  public emitCurrentUser(user: BlasaCarUser): void {
+  public emitCurrentUser(user: ExternalUserResponse): void {
     localStorage.setItem(this.SESSION_CURRENT_USER, JSON.stringify(user));
     this.currentUserSubject.next(this.currentUser);
   }
 
   public performCurrentUser(): void {
-    const currentUser = JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER));
     this.currentUserSubject.next(this.currentUser);
   }
 
@@ -37,7 +36,7 @@ export class CurrentUserService {
     this.currentUserSubject.next(this.currentUser);
   }
 
-  public currentUserSubscription(): Observable<BlasaCarUser> {
+  public currentUserSubscription(): Observable<ExternalUserResponse> {
     return this.currentUserSubject;
   }
 

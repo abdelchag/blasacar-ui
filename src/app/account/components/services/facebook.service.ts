@@ -18,15 +18,15 @@ export class FacebookService {
 
   public facebookConnexion(): void {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(faceUser => {
-      return this.accountManagementProxy.connectFacebookUser(faceUser).subscribe(blasaCarUser => {
-        this.currentUserService.emitCurrentUser(blasaCarUser);
+      return this.accountManagementProxy.connectFacebookUser(faceUser).subscribe(externalUserResponse => {
+        this.currentUserService.emitCurrentUser(externalUserResponse);
       });
     });
   }
 
   public facebookInscription(faceUser: BlasacarSocialUser): void {
-    this.accountManagementProxy.registerFacebookUser(faceUser).subscribe(blasaCarUSer => {
-      this.currentUserService.emitCurrentUser(blasaCarUSer);
+    this.accountManagementProxy.registerFacebookUser(faceUser).subscribe(externalUserResponse => {
+      this.currentUserService.emitCurrentUser(externalUserResponse);
     });
   }
 
