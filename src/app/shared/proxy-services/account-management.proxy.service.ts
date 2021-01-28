@@ -1,9 +1,9 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {BlasaCarUser, ExternalUserResponse} from 'src/app/account/models/blasa-car-user';
-import {BlasacarSocialUser} from 'src/app/account/models/blasacar-social-user';
-import {SocialUser} from 'angularx-social-login/entities/social-user';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { SocialUser } from 'angularx-social-login/entities/social-user';
+import { Observable, of } from 'rxjs';
+import { ExternalUserResponse } from 'src/app/account/models/blasa-car-user';
+import { BlasacarSocialUser } from 'src/app/account/models/blasacar-social-user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,20 +19,27 @@ export class AccountManagementProxyService {
     return this.http.post<ExternalUserResponse>(`${this.ACCOUNT_MANAGEMENT_URL}/external-user/login`, socialLoginUser);
     /*console.log('connect : ', socialLoginUser);
     return of({
-      token: socialLoginUser.authToken,
-      firstName: socialLoginUser.firstName,
-      lastName: socialLoginUser.lastName
-    });*/
+      data: {
+        firstName: socialLoginUser.firstName,
+        lastName: socialLoginUser.lastName,
+        email: socialLoginUser.email
+      },
+      token: socialLoginUser.authToken
+    }
+    );*/
   }
 
   public registerFacebookUser(socialUser: BlasacarSocialUser): Observable<ExternalUserResponse> {
     return this.http.post<ExternalUserResponse>(`${this.ACCOUNT_MANAGEMENT_URL}/external-user/register`, socialUser);
-    /*console.log('connect : ', socialUser);
-    return of({
-      token: socialUser.authToken,
-      firstName: socialUser.firstName,
-      lastName: socialUser.lastName
-    });*/
+    /*return of({
+      data: {
+        firstName: socialUser.firstName,
+        lastName: socialUser.lastName,
+        email: socialUser.email
+      },
+      token: socialUser.authToken
+    }
+    );*/
   }
 
   public deconnectFacebookUser(): Observable<any> {

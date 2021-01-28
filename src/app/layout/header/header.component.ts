@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUserService.currentUserSubscription().subscribe(user => {
-      this.currentUser = user.data;
+      this.currentUser = Utils.isNullOrUndefined(user) ? null : user.data;
       this.isUserConnected = this.currentUserService.isUserConnected;
       this.changeDetectorRef.detectChanges();
     });

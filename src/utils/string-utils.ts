@@ -1,5 +1,7 @@
 export class StringUtils {
 
+    public static readonly EMPTY = '';
+
     public static equals(value1: string, value2: string): boolean {
         return value1 === value2;
     }
