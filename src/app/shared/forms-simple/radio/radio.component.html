@@ -1,0 +1,31 @@
+<div class="form-group" [class.form-error]="error">
+
+  <p *ngIf="label">
+    {{ label }}
+  </p>
+
+  <ng-container *ngIf="vertical">
+    <div *ngFor="let option of options">
+      <label class="radio">
+        <input type="radio" [checked]="initialValue === option.code" [formControl]="formControl" [name]="controlName"
+          [value]="option.code">
+        {{ option.libelle }}
+        <span class="checkmark"></span>
+      </label>
+      <span class="error-block" *ngIf="error">{{ error }}</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!vertical">
+    <div>
+      <label class="radio" *ngFor="let option of options">
+        <input type="radio" [checked]="initialValue === option.code" [formControl]="formControl" [name]="controlName"
+          [value]="option.code">
+        {{ option.libelle }}
+        <span class="checkmark"></span>
+      </label>
+      <span class="error-block" *ngIf="error">{{ error }}</span>
+    </div>
+  </ng-container>
+
+</div>

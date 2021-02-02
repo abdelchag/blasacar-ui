@@ -1,0 +1,282 @@
+header {
+  .navbar {
+    padding: 0;
+    width: 100%;
+    color: $white;
+    background-color: $principale-groupama;
+    .navbar-brand {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-left: 1rem;
+      .logo-link {
+        display: inline-block;
+      }
+      .logo-img {
+        max-width: 13.2rem;
+        box-shadow: 0 3px 6px $placeholder;
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        height: 5rem;
+        border-left: 1px solid $white;
+        max-width: 13rem;
+        @include transition(all .5s);
+        >a {
+          height: 5rem;
+          color: inherit;
+          display: block;
+          padding: .6rem 1rem;
+          .icon {
+            display: block;
+          }
+        }
+        .dropdown {
+          >a {
+            height: 5rem;
+            color: inherit;
+            display: block;
+            padding: .6rem 1rem;
+            text-align: center;
+            .icon {
+              display: block;
+            }
+          }
+          .dropdown-menu {
+            width: 14.9rem;
+            padding: 0;
+            color: $white;
+            border: 0;
+            border-top: 1px solid rgba(0, 0, 0, .15);
+            border-radius: 0;
+            background-color: $principale-groupama-hover;
+            a {
+              display: block;
+              color: inherit;
+              padding: 1rem 2rem;
+              @include transition(all .5s);
+              &:last-child {
+                background-color: #004536;
+              }
+              &:hover {
+                background-color: $principale-groupama;
+              }
+            }
+            button {
+              display: block;
+              color: inherit;
+              padding: 1rem 2rem;
+              text-align: left;
+              @include transition(all .5s);
+              &:last-child {
+                background-color: #004536;
+              }
+              &:hover {
+                background-color: $principale-groupama;
+              }
+            }
+          }
+          &.show {
+            background-color: $principale-groupama-hover;
+          }
+        }
+        &.user-info {
+          padding: 0;
+          .user-name{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 15ch;
+            display: inline-block;
+          }
+          .dropdown-toggle::after{
+            vertical-align: 0.565em;
+          }
+        }
+        &:hover {
+          background-color: $principale-groupama-hover;
+        }
+      }
+    }
+    .navbar-toggler {
+      color: $white;
+      padding: 1vh 1vw 0;
+    }
+  }
+  .navbar-small {
+    width: 100%;
+    border-top: 1px solid $white;
+    background-color: $principale-groupama;
+    .navbar-nav {
+      padding: 1vh 0;
+      .nav-item {
+        padding: 0 1vw;
+        .nav-link {
+          color: $white;
+          &.nav-arrow {
+            &:after {
+              content: '';
+              position: relative;
+              float: right;
+              top: 0.7rem;
+              width: .6rem;
+              height: .6rem;
+              border-top: .1rem solid $white;
+              border-right: .1rem solid $white;
+              transform: translate3d(0, -50%, 0) rotate(45deg);
+              border-radius: 0;
+              transition: all .2s;
+            }
+          }
+        }
+        &.nav-item-sub {
+          .nav {
+            height: 0;
+            opacity: 0;
+            display: none;
+            @include transition(opacity 0.3s ease);
+            .nav-item {
+              padding-left: 2vw;
+              .nav-link {
+                .fa {
+                  font-size: 0.8rem;
+                }
+              }
+            }
+          }
+          &:hover {
+            .nav {
+              height: auto;
+              opacity: 1;
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-ganeur {
+  header {
+    .navbar {
+      background-color: $principale-ganeur;
+      .navbar-brand {
+        .logo-img {
+          box-shadow: none;
+        }
+        .logo-desktop {
+          img {
+            box-sizing: border-box;
+            background: transparenturl('../../images/logo/logo-ganeur.png') left center no-repeat;
+            width: 13.2rem;
+            height: 5rem;
+            padding-left: 13.2rem;
+          }
+        }
+        .logo-mobile {
+          img {
+            box-sizing: border-box;
+            background: transparenturl('../../images/logo/logo-ganeur-mobile.png') left center no-repeat;
+            width: 0.2rem;
+            height: 6rem;
+            padding-left: 8.2rem;
+          }
+        }
+      }
+      .navbar-nav {
+        .nav-item {
+          .dropdown {
+            .dropdown-menu {
+              background-color: $principale-ganeur-hover;
+              a {
+                &:last-child {
+                  background-color: $principale-ganeur-hover;
+                }
+                &:hover {
+                  background-color: $principale-ganeur;
+                }
+              }
+            }
+            &.show {
+              background-color: $principale-ganeur-hover;
+            }
+          }
+          &:hover {
+            background-color: $principale-ganeur-hover;
+          }
+        }
+      }
+    }
+    .navbar-small {
+      background-color: $principale-ganeur;
+    }
+  }
+}
+
+.theme-ganass {
+  header {
+    .navbar {
+      background-color: $principale-ganass;
+      .navbar-brand {
+        .logo-img {
+          box-shadow: none;
+        }
+        .logo-desktop {
+          img {
+            box-sizing: border-box;
+            background: transparent url('../../images/logo/logo-ganass.png') left center no-repeat;
+            width: 13.2rem;
+            height: 5rem;
+            padding-left: 13.2rem;
+          }
+        }
+        .logo-mobile {
+          img {
+            box-sizing: border-box;
+            background: transparenturl('../../images/logo/logo-ganass-mobile.png') left center no-repeat;
+            width: 0.2rem;
+            height: 6rem;
+            padding-left: 8.2rem;
+          }
+        }
+      }
+      .navbar-nav {
+        .nav-item {
+          .dropdown {
+            .dropdown-menu {
+              background-color: $principale-ganass-hover;
+              right: 0;
+              left: auto;
+              a {
+                &:last-child {
+                  background-color: $principale-ganass-hover;
+                }
+                &:hover {
+                  background-color: $principale-ganass;
+                }
+              }
+              button {
+                &:last-child {
+                  background-color: $principale-ganass-hover;
+                }
+                &:hover {
+                  background-color: $principale-ganass;
+                }
+              }
+            }
+            &.show {
+              background-color: $principale-ganass-hover;
+            }
+          }
+          &:hover {
+            background-color: $principale-ganass-hover;
+          }
+        }
+      }
+    }
+    .navbar-small {
+      background-color: $principale-ganass;
+    }
+  }
+}

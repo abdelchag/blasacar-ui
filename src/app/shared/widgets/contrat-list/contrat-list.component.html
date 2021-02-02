@@ -1,0 +1,19 @@
+<ul class="list-block list-contrat">
+  <li *ngFor="let contrat of sortedContrats">
+    <a [routerLink]="getRouterLink(contrat)">
+      <app-icon klass="icon icon-medium mr-2" name="{{ contrat.codeRisque | risqueIcon }}"></app-icon>
+      <p class="mt-1 mb-0">
+        <span>
+          {{ contrat.codeRisque | risque }}
+          <ng-container *ngIf="showCollege">{{ contrat.collegeCode | college }}</ng-container>
+        </span>
+        <span class="text-small text-grey">
+          N° {{ contrat.numeroContrat }}
+          <em *ngIf="contrat.isPortabilite">• Portabilité</em>
+          <em *ngIf="contrat.isSuspendu">• Suspendu</em>
+          <em *ngIf="contrat.isMiseEnDemeure">• Mis en demeure</em>
+        </span>
+      </p>
+    </a>
+  </li>
+</ul>

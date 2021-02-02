@@ -1,0 +1,21 @@
+<div class="row">
+
+  <div class="col-sm-4">
+    <app-select #regime label="Grand Régime" [formGroup]="formGroup" controlName="codeRegime"
+      [options]="regimes" [required]="required" [disabled]="disabled" (valueChanged)="regimeChanges(regime.value)">
+    </app-select>
+  </div>
+
+  <div class="col-sm-4">
+    <app-select #caisse label="Caisse" [formGroup]="formGroup" controlName="codeCaisse"
+      [options]="caisses" [required]="required" [disabled]="disabled"
+      (valueChanged)="caisseChanges(regime.value, caisse.value)">
+    </app-select>
+  </div>
+
+  <div class="col-sm-4">
+    <app-select #centre label="Centre" [formGroup]="formGroup" controlName="codeCentre"
+      [options]="centres" [required]="required" [disabled]="disabled"></app-select>
+  </div>
+
+</div>

@@ -13,7 +13,7 @@ export class MembreService {
   ) { }
 
   saveMembre(user: UserModel) {
-    const url = `${environment.apiUrl}/UserEmail/register`;
+    const url = `${environment.apiUrl}/User/register`;
     return this.httpClient.post(url, user);
   }
 }

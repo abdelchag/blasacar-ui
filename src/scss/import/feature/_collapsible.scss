@@ -1,0 +1,35 @@
+.collapsible {
+  margin-bottom: 1.2rem 0;
+  .collapsible-title {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #444444;
+    background-color: $lighter-grey;
+    border: 1px solid #dcdcdc;
+    padding: 2rem;
+  }
+  .collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+    .content-inner {
+      border: .1rem solid #dcdcdc;
+      padding: 2rem;
+    }
+  }
+  &.active {
+    .collapsible-title {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #444444;
+      background-color: $lighter-grey;
+      border: 1px solid #dcdcdc;
+      padding: 2rem;
+    }
+    .collapsible-content {
+      max-height: 1000rem;
+    }
+  }
+}

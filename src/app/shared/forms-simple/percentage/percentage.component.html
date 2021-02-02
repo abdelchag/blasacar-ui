@@ -1,0 +1,9 @@
+<div class="form-group" [class.form-error]="error && formControl.touched">
+  <label>
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+  </label>
+  <input class="form-control" type="text" [textMask]="{mask: mask, keepCharPositions: true, guide: false }"
+    [formControl]="formControl" [required]="required">
+  <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>
+</div>

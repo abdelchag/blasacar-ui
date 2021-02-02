@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
+    NgbModule,
     SharedModule
   ],
   exports: [

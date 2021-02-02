@@ -1,0 +1,415 @@
+button.btn + button.btn {
+  margin-left: 1rem;
+}
+
+button.btn:not(button.btn-link):not(button.btn-block),
+a.btn:not(a.btn-link):not(a.btn-block) {
+  min-width: 12rem;
+}
+
+.btn {
+  white-space: initial;
+  &.btn-default {
+    color: $white;
+    border-color: $button-default;
+    background-color: $button-default;
+    &:hover {
+      background-color: $button-default-hover;
+    }
+    &:focus {
+      outline: 0;
+      color: $white;
+      @include box-shadow(0, 0, 3px, 1px, $button-default-focus);
+    }
+  }
+  &.btn-default-reverse {
+    color: $button-default;
+    border-color: $button-default;
+    background-color: $white;
+    &:hover {
+      background-color: $white;
+    }
+    &:focus {
+      outline: none;
+      color: $button-default;
+      @include box-shadow(0, 0, 3px, 1px, $button-default-focus);
+    }
+  }
+  &.btn-primary {
+    color: $white;
+    border-color: $button-primary;
+    background-color: $button-primary;
+    &:hover {
+      background-color: $button-primary-hover;
+    }
+    &:active {
+      outline: none;
+      color: $white;
+      background-color: $button-primary-hover;
+      @include box-shadow(0, 0, 3px, 1px, $button-primary-focus);
+    }
+    &:focus {
+      outline: none;
+      color: $white;
+      @include box-shadow(0, 0, 3px, 1px, $button-primary-focus);
+    }
+  }
+  &.btn-primary-dark {
+    color: $white;
+    border-color: $principale-groupama;
+    background-color: $principale-groupama;
+    &:hover {
+      background-color: $principale-groupama;
+    }
+    &:active {
+      outline: none;
+      color: $white;
+      background-color: $principale-groupama;
+      @include box-shadow(0, 0, 3px, 1px, $principale-groupama);
+    }
+    &:focus {
+      outline: none;
+      color: $white;
+      @include box-shadow(0, 0, 3px, 1px, $principale-groupama);
+    }
+  }
+  &.btn-primary-light {
+    font-weight: 600;
+    padding: 1rem 2rem;
+    color: $principale-groupama;
+    border: 1px solid $principale-groupama;
+    &:hover {
+      color: $white !important;
+      background-color: $principale-groupama;
+    }
+  }
+  &.btn-secondary {
+    color: $white !important;
+    border-color: $button-grey;
+    background-color: $button-grey;
+    &:hover {
+      background-color: $button-grey-hover;
+    }
+    &:focus {
+      outline: none;
+      color: $white;
+      @include box-shadow(0, 0, 3px, 1px, $button-grey-focus);
+    }
+  }
+  &.btn-outline-secondary {
+    color: $button-grey;
+    border-color: $button-grey;
+    background-color: $white;
+    &:hover {
+      background-color: $white;
+    }
+    &:focus {
+      outline: none;
+      color: $button-grey;
+      @include box-shadow(0, 0, 3px, 1px, $button-grey-focus);
+    }
+  }
+  &.btn-grey {
+    color: $white !important;
+    border-color: $button-grey;
+    background-color: $button-grey;
+    &:hover {
+      background-color: $button-grey-hover;
+    }
+    &:focus {
+      outline: none;
+      color: $white;
+      @include box-shadow(0, 0, 3px, 1px, $button-grey-focus);
+    }
+  }
+  &.btn-grey-reverse {
+    color: $button-grey;
+    border-color: $button-grey;
+    background-color: $white;
+    &:hover {
+      background-color: $white;
+    }
+    &:focus {
+      outline: none;
+      color: $button-grey;
+      @include box-shadow(0, 0, 3px, 1px, $button-grey-focus);
+    }
+  }
+  &.btn-link {
+    padding: 0;
+    margin-top: -0.2rem;
+    color: $link-blue;
+    &.big {
+      .fa {
+        font-size: 2rem;
+      }
+    }
+    &:hover {
+      color: $principale-groupama;
+      text-decoration: none;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    .fa {
+      font-size: 1.3rem;
+    }
+    .card-garantie-title {
+      color: $dark-grey;
+    }
+  }
+  &.btn-circle {
+    width: 1.6rem;
+    height: 1rem;
+    text-align: center;
+    padding: 0px 3px 24px 3px;
+    border-radius: 50%;
+    .icon-medium {
+      font-size: 1rem;
+      margin-top: -0.5rem;
+    }
+  }
+  &.btn-loading {
+    &:after {
+      content: " ";
+      display: inline-flex;
+      width: 1.3rem;
+      height: 1.3rem;
+      margin: 0 0 0 0.5rem;
+      position: inherit;
+      border-radius: 50%;
+      border: 3px solid $water-green;
+      border-color: $water-green transparent $water-green transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+  }
+  &.btn-sm {
+    padding: .25rem .5rem;
+  }
+  &.btn-xs {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+  }
+}
+
+.theme-ganeur {
+  .btn {
+    &.btn-default {
+      color: $white;
+      border-color: $button-default-ganeur;
+      background-color: $button-default-ganeur;
+      &:hover {
+        background-color: $button-default-hover-ganeur;
+      }
+    }
+    &.btn-default-reverse {
+      color: $button-default-ganeur;
+      border-color: $button-default-ganeur;
+    }
+    &.btn-primary {
+      color: $white;
+      border-color: $button-primary-ganeur;
+      background-color: $button-primary-ganeur;
+      &:hover {
+        background-color: $button-primary-hover-ganeur;
+      }
+      &:active {
+        background-color: $button-primary-hover-ganeur;
+        @include box-shadow(0, 0, 3px, 1px, $button-primary-focus-ganeur);
+      }
+      &:focus {
+        outline: none;
+        color: $white;
+        @include box-shadow(0, 0, 3px, 1px, $button-primary-focus-ganeur);
+      }
+    }
+    &.btn-primary-dark {
+      color: $white;
+      border-color: $principale-ganeur;
+      background-color: $principale-ganeur;
+      &:hover {
+        background-color: $principale-ganeur;
+      }
+      &:active {
+        background-color: $principale-ganeur;
+        @include box-shadow(0, 0, 3px, 1px, $principale-ganeur);
+      }
+      &:focus {
+        @include box-shadow(0, 0, 3px, 1px, $principale-ganeur);
+      }
+    }
+    &.btn-primary-light {
+      font-weight: 600;
+      padding: 1rem 2rem;
+      color: $button-primary-ganeur;
+      border: 1px solid $button-primary-ganeur;
+      &:hover {
+        color: $white !important;
+        background-color: $button-primary-ganeur;
+      }
+    }
+    &.btn-link {
+      color: $link-ganeur;
+      &:hover {
+        color: $principale-ganeur;
+      }
+    }
+    &.btn-loading {
+      &:after {
+        border: 3px solid $white;
+        border-color: $white transparent;
+      }
+    }
+  }
+  ~.modal {
+    .modal-content {
+      .modal-footer {
+        .btn {
+          &.btn-default {
+            color: $white;
+            border-color: $button-default-ganeur;
+            background-color: $button-default-ganeur;
+            &:hover {
+              background-color: $button-default-hover-ganeur;
+            }
+          }
+          &.btn-link {
+            &:hover {
+              color: $principale-ganeur;
+            }
+          }
+        }
+      }
+      .btn {
+        &.btn-primary-dark {
+          color: $white;
+          border-color: $button-default-ganeur;
+          background-color: $button-default-ganeur;
+          &:hover {
+            background-color: $principale-ganeur;
+          }
+          &:active {
+            background-color: $principale-ganeur;
+            @include box-shadow(0, 0, 3px, 1px, $principale-ganeur);
+          }
+          &:focus {
+            @include box-shadow(0, 0, 3px, 1px, $principale-ganeur);
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-ganass {
+  .btn {
+    &.btn-default {
+      color: $white;
+      border-color: $button-default-ganass;
+      background-color: $button-default-ganass;
+      &:hover {
+        background-color: $button-default-hover-ganass;
+      }
+    }
+    &.btn-default-reverse {
+      color: $button-default-ganass;
+      border-color: $button-default-ganass;
+    }
+    &.btn-primary {
+      color: $white;
+      border-color: $button-primary-ganass;
+      background-color: $button-primary-ganass;
+      &:hover {
+        background-color: $button-primary-hover-ganass;
+      }
+      &:active {
+        background-color: $button-primary-hover-ganass;
+        @include box-shadow(0, 0, 3px, 1px, $button-primary-focus-ganass);
+      }
+      &:focus {
+        outline: none;
+        color: $white;
+        @include box-shadow(0, 0, 3px, 1px, $button-primary-focus-ganass);
+      }
+    }
+    &.btn-primary-light {
+      font-weight: 600;
+      padding: 1rem 2rem;
+      color: $button-primary-ganass;
+      border: 1px solid $button-primary-ganass;
+      &:hover {
+        color: $white !important;
+        background-color: $button-primary-ganass;
+      }
+    }
+    &.btn-primary-dark {
+      color: $white;
+      border-color: $principale-ganass;
+      background-color: $principale-ganass;
+      &:hover {
+        background-color: $principale-ganass;
+      }
+      &:active {
+        background-color: $principale-ganass;
+        @include box-shadow(0, 0, 3px, 1px, $principale-ganass);
+      }
+      &:focus {
+        @include box-shadow(0, 0, 3px, 1px, $principale-ganass);
+      }
+    }
+    &.btn-link {
+      color: $link-ganass;
+      &:hover {
+        color: $principale-ganass;
+      }
+    }
+    &.btn-loading {
+      &:after {
+        border: 3px solid $white;
+        border-color: $white transparent;
+      }
+    }
+  }
+  ~.modal {
+    .modal-content {
+      .modal-footer {
+        .btn {
+          &.btn-default {
+            color: $white;
+            border-color: $button-default-ganass;
+            background-color: $button-default-ganass;
+            &:hover {
+              background-color: $button-default-hover-ganass;
+            }
+          }
+          &.btn-link {
+            &:hover {
+              color: $principale-ganass;
+            }
+          }
+        }
+      }
+      .btn {
+        &.btn-primary-dark {
+          color: $white;
+          border-color: $button-default-ganass;
+          background-color: $button-default-ganass;
+          &:hover {
+            background-color: $principale-ganass;
+          }
+          &:active {
+            background-color: $principale-ganass;
+            @include box-shadow(0, 0, 3px, 1px, $principale-ganass);
+          }
+          &:focus {
+            @include box-shadow(0, 0, 3px, 1px, $principale-ganass);
+          }
+        }
+      }
+    }
+  }
+}
+
+.btn.btn-link.btn-link-hover:hover {
+  text-decoration: underline;
+}

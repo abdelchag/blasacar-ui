@@ -1,10 +1,10 @@
 export class UserModel {
-    nom: string;
-    prenom: string;
-    dateNaissance: string;
-    civilite: string;
+    lastName: string;
+    firstName: string;
+    birthDate: Date;
+    gender: string;
     telephone: string;
-    adresse: string;
+    address: string;
     email: string;
-    motDePasse: string;
+    password: string;
 }

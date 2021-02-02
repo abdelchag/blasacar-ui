@@ -15,4 +15,5 @@ export interface ExternalUserResponse {
   message: string;
   succeeded: boolean;
   token: string;
+  expiration: Date;
 }

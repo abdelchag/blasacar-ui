@@ -1,0 +1,27 @@
+<div class="card-iban" *ngIf="cb">
+  <label class="card-detail">
+
+    <button *ngIf="editButton" class="btn btn-link text-primary float-right" type="button"
+      (click)="editButtonClick.emit()">
+      <app-icon klass="icon icon-small" name="edit"></app-icon>
+    </button>
+
+    <p class="text-uppercase text-left text-small text-grey text-truncate">
+      Titulaire
+      <span class="text-primary">{{ cb.titulaire }}</span>
+    </p>
+
+    <p *ngIf="cb.banque" class="text-uppercase text-left text-small text-grey text-truncate">
+      Etablissement
+      <span class="text-primary">{{ cb.banque }}</span>
+    </p>
+
+    <p class="text-uppercase text-left text-small text-grey text-truncate">
+      Compte
+      <span class="text-primary">
+        {{ cb.iban | slice:0:4 }} •••• •••• {{ cb.extraitNumeroCompte }}
+      </span>
+    </p>
+
+  </label>
+</div>

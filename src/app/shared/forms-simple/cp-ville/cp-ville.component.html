@@ -1,0 +1,22 @@
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="formatter(r)" [term]="t"></ngb-highlight>
+</ng-template>
+
+<div class="form-group" [class.form-error]="error && formControl.touched">
+  <label>
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+
+    <button type="button" class="btn btn-link text-grey info" placement="auto"
+      [ngbPopover]="'Pour modifier votre code postal ou la ville, merci de contacter votre conseiller'" container="body"
+      triggers="mouseenter:mouseleave" *ngIf="disableCodePostalVille">
+      <app-icon klass="icon icon-medium icon-info" name="infos"></app-icon>
+    </button>
+
+  </label>
+
+  <input type="text" class="form-control" [formControl]="formControl" [required]="required" [readonly]="inputReadonly"
+    >
+
+  <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>
+</div>

@@ -1,20 +1,42 @@
 <div class="view-content">
   <div class="view-title">
   </div>
-  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <form [formGroup]="form" (ngSubmit)="submit()">
     <fieldset>
       <div class="card mb-0">
         <div class="card-header">
           <div class="card-title">
-            <h2 class="text-primary">  
-              
+            <h2 class="text-primary">
+
             </h2>
           </div>
         </div>
         <div class="card-body">
 
           <ng-container  *ngIf="step===0">
+
             <div class="col text-center">
+              <div>
+                <h1 class="title">Votre e-mail ?</h1>
+              </div>
+            </div>
+            <br>
+
+            <div class="container">
+              <div class="justify-content-md-center">
+
+
+                  <div class="col-sm-6">
+                    <blasacar-email [formGroup]="form" controlName="email" [required]="true" label="E-mail"
+                    ></blasacar-email>
+                  </div>
+
+
+              </div>
+            </div>
+
+
+            <!-- <div class="col text-center">
               <div>
                 <h1 class="title">Votre adresse e-mail ?</h1>
               </div>
@@ -24,13 +46,12 @@
               <div class="justify-content-md-center">
                 <div class="col-6">
                   <div class="form-group" [class.form-error]="error && formControl.touched">
-                    <!-- <label>email</label> -->
                     <input type="email" class="form-control" formControlName="email" placeholder="E-mail" [formGroup]="formGroup" required="required">
                     <span class="error-block" *ngIf="formControlEmail.invalid">Votre mail n'est pas valide</span>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </ng-container>
 
 
@@ -43,18 +64,30 @@
             <br>
             <div class="container">
               <div class="justify-content-md-center">
-                <div class="col-6">
+                <!-- <div class="col-6">
                   <div class="form-group">
-                    <input type="text" class="form-control"  formControlName="nom" placeholder="mon nom"  [formGroup]="formGroup" required="required">
+                    <input type="text" class="form-control"  formControlName="lastName" placeholder="mon nom"  [formGroup]="formGroup" required="required">
                     <span class="error-block" *ngIf="formControlNom.invalid">Votre nom n'est pas valide</span>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" formControlName="prenom" placeholder="mon prénom" [formGroup]="formGroup" required="required">
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="mon prénom" [formGroup]="formGroup" required="required">
                     <span class="error-block" *ngIf="formControlPrenom.invalid">Votre prenom n'est pas valide</span>
                   </div>
-                </div>
+                </div> -->
+
+                  <div class="col-sm-6">
+                    <app-text-noun [formGroup]="form" controlName="lastName" label="Nom" [required]="true"
+                      >
+                    </app-text-noun>
+                  </div>
+                  <div class="col-sm-6">
+                    <app-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [required]="true"
+                      >
+                    </app-text-noun>
+                  </div>
+
               </div>
             </div>
           </ng-container>
@@ -70,8 +103,11 @@
               <div class="justify-content-md-center">
                 <div class="col-6">
                   <div class="form-group">
-                    <input type="text" class="form-control"  formControlName="dateNaissance" placeholder="JJ/MM/YYYY" maxlength="=10"  [formGroup]="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlDateNaissance.invalid">Votre date de naissance n'est pas valide</span>
+                    <blasacar-date-picker id="birthday" [isBirthDate]="true" controlName="birthDate" [placeholder]="'account.birthday-date' | translate"
+                    (dateSelected)="putBirthDate($event)"></blasacar-date-picker>
+
+                    <!-- <input type="text" class="form-control"  formControlName="birthDate" placeholder="JJ/MM/YYYY" maxlength="=10"  [formGroup]="formGroup" required="required">
+                    <span class="error-block" *ngIf="formControlDateNaissance.invalid">Votre date de naissance n'est pas valide</span> -->
                   </div>
                 </div>
               </div>
@@ -86,11 +122,16 @@
             <br>
             <div class="container">
               <div class="justify-content-md-center">
-                <div class="col-6">
+                <!-- <div class="col-6">
                   <div class="form-group">
                     <input type="text" class="form-control" formControlName="telephone"  placeholder="mon numéro de téléphone" form="formGroup" required="required">
                     <span class="error-block" *ngIf="formControlTelephone.invalid">Votre numéro de téléphone n'est pas valide</span>
                   </div>
+                </div> -->
+                <div class="col-md-6">
+                  <app-phone label="Téléphone" controlName="telephone" [formGroup]="form"
+                    [required]="true">
+                  </app-phone>
                 </div>
               </div>
             </div>
@@ -106,9 +147,16 @@
             <div class="container">
               <div class="justify-content-md-center">
                 <div class="col-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" formControlName="adresse"  placeholder="mon adresse domicile" form="formGroup" required="required">
+                  <!-- <div class="form-group">
+                    <input type="text" class="form-control" formControlName="address"  placeholder="mon adresse domicile" form="formGroup" required="required">
                     <span class="error-block" *ngIf="formControlAdresse.invalid">Votre numéro de téléphone n'est pas valide</span>
+                  </div> -->
+                  <div class="row">
+                    <div class="col">
+                      <app-adresse controlName="adresse" [parentformGroup]="form" [isAdresseRequired]="true"
+                        [isPaysRequired]="true">
+                      </app-adresse>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -124,25 +172,28 @@
             <div class="container">
               <div class="justify-content-md-center">
                 <div class="col-6">
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <div class = "radio">
                       <label>
-                         <input type = "radio" formControlName="civilite" id = "mme" value="mme" checked> Mme
+                         <input type = "radio" formControlName="gender" id = "mme" value="mme" checked> Mme
                       </label>
                    </div>
                    <div class = "radio">
                       <label>
-                         <input type = "radio" formControlName="civilite" id = "mr"  value="M.">
+                         <input type = "radio" formControlName="gender" id = "mr"  value="M.">
                             M.
                       </label>
                    </div>
                    <div class = "radio">
                     <label>
-                       <input type = "radio" formControlName="civilite" id = "Indetermine"  value="Indetermine">
+                       <input type = "radio" formControlName="gender" id = "Indetermine"  value="Indetermine">
                           Indeterminé
                     </label>
                  </div>
-                  </div>
+                  </div> -->
+                  <app-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites"
+                   >
+                </app-radio>
                 </div>
               </div>
             </div>
@@ -158,10 +209,13 @@
             <div class="container">
               <div class="justify-content-md-center">
                 <div class="col-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" formControlName="motDePasse"  placeholder="mon mot de passe" [formGroup]="formGroup" required="required">
+                  <!-- <div class="form-group">
+                    <input type="password" class="form-control" formControlName="password"  placeholder="mon mot de passe" [formGroup]="formGroup" required="required">
                     <span class="error-block" *ngIf="formControlmotDePasse.invalid">Votre mot de passe n'est pas valide</span>
-                  </div>
+                  </div> -->
+                  <app-password [formGroup]="form" controlName="password" label="Mot de passe" [required]="true">
+                </app-password>
+
                 </div>
               </div>
             </div>
@@ -197,7 +251,7 @@
                 <label>date de naissance</label>
                 <input type="text" class="form-control" formControlName="dateNaissance" [formGroup]="formGroup">
               </div>
-              
+
             </div>
           </div>
           <div class="row">
@@ -206,7 +260,7 @@
                 <label>téléphone</label>
                 <input type="text" class="form-control" formControlName="telephone" form="formGroup">
               </div>
-              
+
             </div>
           </div>
           <div class="row">
@@ -215,7 +269,7 @@
                 <label>adresse domicile</label>
                 <input type="text" class="form-control" formControlName="adresse" [formGroup]="formGroup">
               </div>
-              
+
             </div>
           </div>
           <div class="row">
@@ -224,11 +278,11 @@
                 <label>mot de passe</label>
                 <input type="text" class="form-control" formControlName="motDePasse" [formGroup]="formGroup">
               </div>
-              
+
             </div>
           </div> -->
-        <div class="col-12 col-sm-3 offset-sm-4 mb-2 order-1 order-sm-2"  [formGroup]="formGroup">
-          <button type="submit" class="btn btn-block btn-primary" [disabled]="disableSubmit" >
+        <div class="col-12 col-sm-3 offset-sm-4 mb-2 order-1 order-sm-2"  >
+          <button type="submit" class="btn btn-block btn-primary"  >
             Suivant
           </button>
         </div>

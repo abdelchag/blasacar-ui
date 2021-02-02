@@ -1,0 +1,202 @@
+.notification {
+  color: $light-black;
+  padding: 10px;
+  &.notification-success {
+    background-color: $light-green;
+    .fa {
+      color: $notification-success-color;
+    }
+    background-color: $notification-success-background;
+    .icon {
+      @include icon-colors($notification-success-color !important, $white !important);
+    }
+    .btn-primary {
+      border-color: $notification-success-color;
+      background-color: $notification-success-color;
+      &:hover {
+        background-color: $notification-success-color-hover;
+      }
+    }
+  }
+  &.notification-danger {
+    background-color: $light-red;
+    .fa {
+      color: $notification-danger-color;
+    }
+    background-color: $notification-danger-background;
+    .icon {
+      @include icon-colors($notification-danger-color !important, $white !important);
+    }
+    .btn-primary {
+      border-color: $notification-danger-color;
+      background-color: $notification-danger-color;
+      &:hover {
+        background-color: $notification-danger-color-hover;
+      }
+    }
+  }
+  &.notification-information {
+    .fa {
+      color: $notification-information-color;
+    }
+    background-color: $notification-information-background;
+    .icon {
+      @include icon-colors($secondary-groupama !important, $white !important);
+    }
+    .btn-primary {
+      border-color: $notification-information-color;
+      background-color: $notification-information-color;
+      &:hover {
+        background-color: $notification-information-color-hover;
+      }
+    }
+  }
+  &.notification-warning {
+    .fa {
+      color: $notification-warning-color;
+    }
+    background-color: $notification-warning-background;
+    .icon {
+      @include icon-colors($notification-warning-color !important, $white !important);
+    }
+    .btn-primary {
+      border-color: $notification-warning-color;
+      background-color: $notification-warning-color;
+      &:hover {
+        background-color: $notification-warning-color-hover;
+      }
+    }
+  }
+  p {
+    margin: 0;
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+  }
+  .row {
+    margin-top: 0 !important;
+  }
+}
+
+.notification-none {
+  height: 9rem;
+  position: relative;
+  background: transparenturl('../../images/smiley.png') no-repeat right top;
+  background-size: contain;
+  p {
+    text-align: center;
+  }
+}
+
+.alert {
+  border: 0;
+  &.alert-fixed {
+    .icon {
+      display: inline-block;
+    }
+    p {
+      color: #444444;
+      margin-bottom: 0;
+      display: inline-block;
+    }
+  }
+}
+
+.scroll {
+  app-toast-notifications {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 57%;
+    margin: 1rem 17.5%;
+    z-index: 9999;
+  }
+}
+
+app-notification {
+  .list-block {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    .notification {
+      display: inline-block;
+      margin-left: -2.2rem;
+      border-radius: 50%;
+      background-color: $orange;
+      padding: .1rem .3rem .3rem .35rem;
+      position: relative;
+      top: -.4rem;
+      margin-right: .8rem;
+      height: 20px;
+      width: 20px;
+      .number {
+        color: $white;
+        font-size: .9rem;
+        position: relative;
+        top: -.2rem;
+      }
+    }
+  }
+}
+
+app-ayant-droit-detail {
+  .notification {
+    padding: 10px 15px;
+  }
+}
+
+.theme-ganeur {
+  .notification {
+    &.notification-success {
+      .icon {
+        @include icon-colors($ganeur-green !important,
+        $white !important);
+      }
+    }
+    &.notification-danger {
+      .icon {
+        @include icon-colors($ganeur-red !important,
+        $white !important);
+      }
+    }
+    &.notification-information {
+      .icon {
+        @include icon-colors($ganeur-yellow !important,
+        $white !important);
+      }
+    }
+    &.notification-warning {
+      .icon {
+        @include icon-colors($ganeur-red !important,
+        $white !important);
+      }
+    }
+  }
+}
+
+.theme-ganass {
+  .notification {
+    &.notification-success {
+      .icon {
+        @include icon-colors($ganass-green !important,
+        $white !important);
+      }
+    }
+    &.notification-danger {
+      .icon {
+        @include icon-colors($ganass-red !important,
+        $white !important);
+      }
+    }
+    &.notification-information {
+      .icon {
+        @include icon-colors($ganass-yellow !important,
+        $white !important);
+      }
+    }
+    &.notification-warning {
+      .icon {
+        @include icon-colors($ganass-yellow !important,
+        $white !important);
+      }
+    }
+  }
+}

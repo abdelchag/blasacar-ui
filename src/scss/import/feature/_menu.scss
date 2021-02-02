@@ -1,0 +1,175 @@
+.sidebar {
+  height: 100%;
+  margin-bottom: 2rem;
+  background: rgb(0, 109, 82);
+  background: -moz-linear-gradient(left, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
+  background: -webkit-linear-gradient(left, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
+  background: linear-gradient(to right, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006d52', endColorstr='#008561', GradientType=1);
+  .nav {
+    .nav-item {
+      display: block;
+      .nav-link {
+        padding: 2vh 1vw;
+        color: $white;
+        transition: all 0.5s;
+        .menu-arrow {
+          content: '';
+          position: relative;
+          top: -0.8vh;
+          right: -6vw;
+          margin: auto;
+          display: block;
+          width: .6rem;
+          height: .6rem;
+          border-top: .1rem solid $white;
+          border-right: .1rem solid $white;
+          transform: translate3d(0, -50%, 0) rotate(45deg);
+          border-radius: 0;
+          transition: all .2s;
+        }
+        &:hover {
+          background-color: $principale-groupama;
+        }
+        &.nav-arrow {
+          &:after {
+            content: '';
+            position: relative;
+            float: right;
+            top: .7rem;
+            width: .6rem;
+            height: .6rem;
+            border-top: .1rem solid $white;
+            border-right: .1rem solid $white;
+            transform: translate3d(0, -50%, 0) rotate(45deg);
+            border-radius: 0;
+            transition: all .2s;
+          }
+        }
+      }
+      .nav {
+        height: 100%;
+        display: none;
+        position: absolute;
+        z-index: 51;
+        left: 93%;
+        width: 20vw;
+        top: 0;
+        background: rgb(0, 109, 82);
+        background: -moz-linear-gradient(left, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
+        background: -webkit-linear-gradient(left, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
+        background: linear-gradient(to right, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006d52', endColorstr='#008561', GradientType=1);
+        transform: translateX(-.1rem);
+        .nav-item {
+          .nav {
+            height: 100%;
+            display: none;
+            position: absolute;
+            z-index: 45;
+            left: 100%;
+            width: 20vw;
+            top: 0;
+          }
+          &:first-child {
+            border-left: none;
+            background-color: transparent;
+          }
+          &:last-child {
+            border-top: none;
+          }
+        }
+      }
+      &.nav-item-sub {
+        &:hover {
+          >.nav {
+            display: block;
+            .nav-item {
+              &.nav-item-sub {
+                &:hover {
+                  >.nav {
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &:last-child {
+        border-top: 1px solid $white;
+      }
+    }
+  }
+  button {
+    color: $white;
+    padding: 1rem 1.3rem;
+    text-align: left;
+    background-color: transparent;
+    text-decoration: none !important;
+  }
+}
+
+.theme-ganeur {
+  .sidebar {
+    background: $ganeur-gradient-first;
+    background: -moz-linear-gradient(left, $ganeur-gradient-first 0%, $ganeur-gradient-second 100%);
+    background: -webkit-linear-gradient(left, $ganeur-gradient-first 0%, $ganeur-gradient-second 100%);
+    background: linear-gradient(to right, $ganeur-gradient-first 0%, $ganeur-gradient-second 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$ganeur-gradient-first', endColorstr='$ganeur-gradient-second', GradientType=1);
+    .nav {
+      .nav-item {
+        .nav-link {
+          &:hover {
+            background-color: $principale-ganeur;
+          }
+        }
+        .nav {
+          background: $ganeur-gradient-first;
+          background: -moz-linear-gradient(left, $ganeur-gradient-first 0%, $ganeur-gradient-second 100%);
+          background: -webkit-linear-gradient(left, $ganeur-gradient-first 0%, $ganeur-gradient-second 100%);
+          background: linear-gradient(to right, $ganeur-gradient-first 0%, $ganeur-gradient-second 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$ganeur-gradient-first', endColorstr='$ganeur-gradient-second', GradientType=1);
+        }
+        button {
+          @include transition(all .5s);
+          &:hover {
+            background-color: $principale-ganeur;
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-ganass {
+  .sidebar {
+    background: $ganass-gradient-first;
+    background: -moz-linear-gradient(left, $ganass-gradient-first 0%, $ganass-gradient-second 100%);
+    background: -webkit-linear-gradient(left, $ganass-gradient-first 0%, $ganass-gradient-second 100%);
+    background: linear-gradient(to right, $ganass-gradient-first 0%, $ganass-gradient-second 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$ganass-gradient-first', endColorstr='$ganass-gradient-second', GradientType=1);
+    .nav {
+      .nav-item {
+        .nav-link {
+          &:hover {
+            background-color: $principale-ganass;
+          }
+        }
+        .nav {
+          background: $ganass-gradient-first;
+          background: -moz-linear-gradient(left, $ganass-gradient-first 0%, $ganass-gradient-second 100%);
+          background: -webkit-linear-gradient(left, $ganass-gradient-first 0%, $ganass-gradient-second 100%);
+          background: linear-gradient(to right, $ganass-gradient-first 0%, $ganass-gradient-second 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$ganass-gradient-first', endColorstr='$ganass-gradient-second', GradientType=1);
+        }
+        button {
+          @include transition(all .5s);
+          &:hover {
+            background-color: $principale-ganass;
+          }
+        }
+      }
+    }
+  }
+}

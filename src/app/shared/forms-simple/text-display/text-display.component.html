@@ -1,0 +1,10 @@
+<div>
+  <p>
+    {{ label }}
+    <button type="button" class="btn btn-link text-grey info" [ngbPopover]="popoverContent" container="body"
+      placement="auto" triggers="mouseenter:mouseleave" *ngIf="popoverContent">
+      <app-icon klass="icon icon-medium icon-popover icon-info" name="infos"></app-icon>
+    </button>
+  </p>
+  <p>{{ value }}</p>
+</div>

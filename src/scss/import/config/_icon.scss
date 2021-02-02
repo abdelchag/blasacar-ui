@@ -1,0 +1,140 @@
+.icon-remove {
+  color: #ff000082;
+}
+
+.icon {
+  @include icon-colors($principale-groupama, $secondary-groupama);
+  &.icon-smallest {
+    width: 1rem;
+    height: 1rem;
+  }
+  &.icon-smaller {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  &.icon-small {
+    width: 2rem;
+    height: 2rem;
+  }
+  &.icon-medium {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  &.icon-normal {
+    width: 3rem;
+    height: 3rem;
+  }
+  &.icon-large {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  &.icon-big {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  &.icon-bigger {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  &.icon-white {
+    @include icon-colors($white !important, $white !important);
+  }
+  &.icon-grey {
+    @include icon-colors($placeholder !important, $placeholder !important);
+  }
+  &.icon-info {
+    @include icon-colors(#ff7400 !important, $white !important);
+  }
+  &.icon-clos {
+    @include icon-colors(#44a993 !important, $white !important);
+  }
+  &.icon-alerte {
+    @include icon-colors(#bf433c !important, $white !important);
+  }
+}
+
+.icon {
+  @include icon-colors($principale-groupama, $secondary-groupama);
+  &.icon-smallest svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  &.icon-custom-smaller svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  &.icon-smaller svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  &.icon-small svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  &.icon-medium svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  &.icon-normal svg {
+    width: 3rem;
+    height: 3rem;
+  }
+  &.icon-large svg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  &.icon-big svg {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  &.icon-bigger svg {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  &.icon-white svg {
+    @include icon-colors($white !important, $white !important);
+  }
+  &.icon-grey svg {
+    @include icon-colors($placeholder !important, $placeholder !important);
+  }
+  &.icon-info svg {
+    @include icon-colors(#ff7400 !important, $white !important);
+  }
+  &.icon-clos svg {
+    @include icon-colors(#44a993 !important, $white !important);
+  }
+  &.icon-alerte svg {
+    @include icon-colors(#bf433c !important, $white !important);
+  }
+}
+
+.icon.icon-medium.icon-popover svg {
+  margin: -.75rem 0;
+}
+
+.icon-circle {
+  display: inline-block;
+  border-radius: 50%;
+  padding: .5em .6em;
+  background-color: $principale-groupama;
+  color: $white;
+}
+
+.theme-ganeur {
+  .icon {
+    @include icon-colors($principale-ganeur, $secondary-ganeur);
+    &.icon-info {
+      @include icon-colors(#ffba0c !important, $white !important);
+    }
+  }
+}
+
+.theme-ganass {
+  .icon {
+    @include icon-colors($principale-ganass, $secondary-ganass);
+    &.icon-info {
+      @include icon-colors(#ffba0c !important, $white !important);
+    }
+  }
+}
+

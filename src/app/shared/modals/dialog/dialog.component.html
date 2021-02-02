@@ -1,0 +1,21 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header"></div>
+    <div class="modal-body">
+
+      <ng-container>
+        <div class="text-center">
+          <app-icon *ngIf="isSuccess" name="clos" klass="icon icon-big icon-clos"></app-icon>
+          <app-icon *ngIf="isError" name="alerte" klass="icon icon-big icon-alerte"></app-icon>
+          <h3>{{messageDialog}}</h3>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="modal-footer">
+      <ng-container>
+        <button type="button" class="btn btn-default" (click)="close()">Ok</button>
+      </ng-container>
+    </div>
+  </div>
+</div>

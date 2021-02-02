@@ -1,0 +1,64 @@
+<div class="card border-grey h-100 mb-0">
+  <div class="card-header">
+    <div class="card-title">
+      <h2 class="text-primary">
+        Mes services santé
+      </h2>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="list-block">
+      <li>
+        <button *ngIf="!isApporteur" type="button" (click)="gotoRemboursementsEcliUrl()" class="btn btn-link"
+          title=" Mes remboursements">
+          <app-icon klass="icon icon-medium mr-2" name="document"></app-icon>
+          Mes remboursements
+        </button>
+
+        <button *ngIf="isApporteur" type="button" class="btn btn-link" title="Mes remboursements"
+          appPreventApporteurClick>
+          <app-icon klass="icon icon-medium mr-2" name="document"></app-icon>
+          Mes remboursements
+        </button>
+      </li>
+      <li>
+        <button *ngIf="!isApporteur" type="button" (click)="gotoCarteAtpgEcliUrl()" class="btn btn-link"
+          title=" Ma carte tiers payant">
+          <app-icon klass="icon icon-medium mr-2" name="carte"></app-icon>
+          Ma carte tiers payant
+        </button>
+
+        <button *ngIf="isApporteur" type="button" class="btn btn-link" title=" Ma carte tiers payant"
+          appPreventApporteurClick>
+          <app-icon klass="icon icon-medium mr-2" name="carte"></app-icon>
+          Ma carte tiers payant
+        </button>
+      </li>
+      <li *ngIf="!isGanEuro">
+        <ng-template [ngTemplateOutlet]="partenairesSanteRef"></ng-template>
+      </li>
+      <li *ngIf="isGanEuro && hasContratSeveane">
+        <ng-template [ngTemplateOutlet]="partenairesSanteRef"></ng-template>
+      </li>
+      <li>
+        <button [routerLink]="['/contact/contacteznous']"
+          [queryParams]="{ objet: 'DEMANDE_PRESTATIONS_SANTE',sousObjet:'DEMANDE_ENVOI_FACTURE', numeroContrat :contratSante.numeroContrat }"
+          type="button" class="btn btn-link" title=" Demander un remboursement">
+          <app-icon klass="icon icon-medium mr-2" name="remboursement"></app-icon>
+          Demander un remboursement
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+<ng-template #partenairesSanteRef>
+  <button *ngIf="!isApporteur" type="button" (click)="gotoPartenairesSanteEcliUrl()" class="btn btn-link"
+    title=" Mes partenaires santé">
+    <app-icon klass="icon icon-medium mr-2" name="sante"></app-icon>
+    Mes partenaires santé
+  </button>
+  <button *ngIf="isApporteur" type="button" class="btn btn-link" title="Mes partenaires santé" appPreventApporteurClick>
+    <app-icon klass="icon icon-medium mr-2" name="sante"></app-icon>
+    Mes partenaires santé
+  </button>
+</ng-template>

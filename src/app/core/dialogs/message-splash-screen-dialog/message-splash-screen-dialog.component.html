@@ -1,0 +1,13 @@
+<div class="modal-body text-center">
+  <div class="col-12 row">
+    <app-icon klass="icon icon-medium float-left" name="{{icon}}" *ngIf="icon"></app-icon>
+    <h2 class="modal-title float-left"><strong>{{title | uppercase }}</strong></h2>
+  </div>
+  <p></p>
+  <div [innerHTML]="message"></div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary btn-block" (click)="close()">
+    Ok
+  </button>
+</div>

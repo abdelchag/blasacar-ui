@@ -1,0 +1,10 @@
+<div class="popin-sc {{styleDialog}} active">
+  <div class="popin-c">
+    <div (click)="closed.emit()" class="popin-close"></div>
+    <div class="popin-b">
+      <div class="popin-b2">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

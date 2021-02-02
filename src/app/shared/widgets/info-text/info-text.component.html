@@ -1,0 +1,13 @@
+<p class="font-weight-bold mb-0">
+  {{ label }}
+  <button *ngIf="popoverContent" type="button" class="btn btn-link" [ngbPopover]="popoverContent"
+    triggers="mouseenter:mouseleave">
+    <app-icon klass="icon icon-medium icon-popover icon-info" name="infos"></app-icon>
+  </button>
+</p>
+<p *ngIf="value">
+  {{ value }}
+</p>
+<p *ngIf="!value" class="font-italic">
+  Non renseigné
+</p>

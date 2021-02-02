@@ -1,6 +1,13 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserModel } from '../../models/user.model';
+import { MembreService } from '../services/membre.service';
+
+import { of } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+import { Helpers } from 'src/app/helpers';
+import { AdresseModel, ListItemModel } from 'src/app/shared/models';
+import { civilites } from 'src/app/constants';
 
 @Component({
   selector: 'blasacar-member-form',
@@ -12,21 +19,27 @@ export class MemberFormComponent implements OnInit {
   formGroup: FormGroup;
   user: UserModel;
   step = 0;
+  form: FormGroup;
+  civilites: ListItemModel[] = [];
+  userToAdd: UserModel = new UserModel();
 
-  constructor() { }
+  constructor(
+    private membreService: MembreService,
+  ) { }
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      nom: new FormControl(''),
-      prenom: new FormControl(''),
-      civilite: new FormControl(''),
-      dateNaissance: new FormControl(''),
+      lastName: new FormControl(''),
+      firstName: new FormControl(''),
+      gender: new FormControl(''),
+      birthDate: new FormControl(''),
       telephone: new FormControl(''),
-      adresse: new FormControl(''),
+      address: new FormControl(''),
       email: new FormControl(''),
-      motDePasse: new FormControl(''),
+      password: new FormControl(''),
     });
-
+    this.form = new FormGroup({});
+    this.civilites = civilites;
   }
 
   get disableSubmit() {
@@ -34,7 +47,7 @@ export class MemberFormComponent implements OnInit {
     if (this.step === 0 && this.formControlEmail.invalid) {
       return true;
     }
-    
+
     if (this.step === 2 && this.formControlDateNaissance.invalid ) {
       return true;
     }
@@ -57,41 +70,100 @@ export class MemberFormComponent implements OnInit {
   }
 
   get formControlEmail() {
-    return this.formGroup.get('email');
+    return this.form.get('email');
   }
 
   get formControlNom() {
-    return this.formGroup.get('nom');
+    return this.form.get('lastName');
   }
 
   get formControlPrenom() {
-    return this.formGroup.get('prenom');
+    return this.form.get('firstName');
   }
 
   get formControlDateNaissance() {
-    return this.formGroup.get('dateNaissance');
+    return this.form.get('birthDate');
   }
 
   get formControlTelephone() {
-    return this.formGroup.get('telephone');
+    return this.form.get('telephone');
   }
 
   get formControlAdresse() {
-    return this.formGroup.get('adresse');
+    return this.form.get('address');
   }
 
   get formControlmotDePasse() {
-    return this.formGroup.get('motDePasse');
+    return this.form.get('password');
+  }
+
+  get formControlGender() {
+    return this.form.get('gender');
+  }
+
+  putBirthDate(birthDate: Date): void {
+    this.userToAdd.birthDate = birthDate;
   }
 
   submit(): void {
 
+
+    if (this.form.invalid) {
+      Helpers.showErrors(this.form);
+      return;
+    }
+
     this.step++;
+
+
+
+    switch (this.step) {
+      case 1:
+        this.userToAdd.email = this.form.value.email;
+        break;
+      case 2:
+        this.userToAdd.firstName = this.form.value.firstName;
+        this.userToAdd.lastName = this.form.value.lastName;
+        break;
+      case 3:
+        this.userToAdd.birthDate = this.formControlDateNaissance.value;
+        break;
+      case 4:
+        this.userToAdd.telephone = this.form.value.telephone;
+        break;
+      case 5:
+        let adressePrincipale: AdresseModel = new AdresseModel();
+
+        Object.assign(adressePrincipale, this.form.value.adresse);
+        this.userToAdd.address = adressePrincipale.adresse;
+        break;
+      case 6:
+        this.userToAdd.gender = this.form.value.gender;
+        break;
+      case 7:
+        this.userToAdd.password = this.form.value.password;
+        break;
+      default:
+        break;
+
+    }
 
     if (this.step === 7) {
       this.user = Object.assign(new UserModel(), this.formGroup.value);
-      console.log(this.user);
+      console.log(this.userToAdd);
+      //this.membreService.saveMembre(this.user);
 
+      this.membreService
+      .saveMembre(this.userToAdd)
+      .pipe(
+        finalize(() => console.log(this.userToAdd))
+      )
+      .subscribe(
+        () => {
+          console.log(this.userToAdd);
+        },
+        erreur => console.log(erreur)
+      );
     }
 
 

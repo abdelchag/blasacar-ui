@@ -1,5 +1,24 @@
 <blasacar-header></blasacar-header>
-<main>
-  <router-outlet></router-outlet>
-</main>
+
+
+<main role="main">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="d-none d-xl-block col-xl-2 mb-2">
+        <!-- <app-menu></app-menu> -->
+      </div>
+
+      <div class="col-sm-12 col-md-12 col-xl-7 mb-2 main-content">
+
+        <app-toast-notifications></app-toast-notifications>
+
+        <router-outlet></router-outlet>
+
+      </div>
+
+    </div>
+  </div>
+    </main>
+
 <blasacar-footer></blasacar-footer>

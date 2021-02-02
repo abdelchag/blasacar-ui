@@ -34,7 +34,8 @@
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.css",
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/scss/main.scss"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -101,7 +102,8 @@
               "src/assets/img"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/scss/main.scss"
             ],
             "scripts": []
           }

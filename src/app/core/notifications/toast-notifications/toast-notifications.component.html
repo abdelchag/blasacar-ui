@@ -1,0 +1,6 @@
+<div *ngFor="let notification of notifications">
+  <app-toast-notifications-display *ngIf="!notification.isSelfClosing"
+   [notification]="notification" (notifyParent)="delete(notification)"></app-toast-notifications-display>
+  <app-toast-notifications-display-selfclosing *ngIf="notification.isSelfClosing"
+   [notification]="notification" (notifyParent)="delete(notification)"></app-toast-notifications-display-selfclosing>
+</div>

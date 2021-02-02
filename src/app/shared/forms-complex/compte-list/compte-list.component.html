@@ -1,0 +1,73 @@
+<div *ngIf="hasComptes" class="label-list-c m-0 mb-3" style="height: 9rem;">
+
+  <ul class="label-list" [formGroup]="formGroup">
+
+    <li *ngIf="hasComptes && canCreateCompte">
+      <label class="label-custom">
+        <input type="radio" formControlName="id" value="" (click)="selectedCompteChanged.emit(0)">
+        <span class="label-container">
+          <span class="label-round">
+            <span class="label-check"></span>
+          </span>
+          <span class="label-icon">
+            <app-icon klass="icon icon-medium" name="ajout-compte"></app-icon>
+          </span>
+          <span class="label-text" style="font-size: 1rem;">Saisir un nouveau compte</span>
+        </span>
+      </label>
+    </li>
+
+    <li *ngFor="let compte of comptes">
+      <label class="label-custom">
+        <input type="radio" formControlName="id" [value]="compte.id" (click)="selectedCompteChanged.emit(compte.id)">
+        <span class="label-container">
+          <span class="label-round">
+            <span class="label-check"></span>
+          </span>
+          <span class="label-text">
+            <p>Titulaire : {{ compte.titulaire }}</p>
+            <p>Etablissement : {{ compte.banque }}</p>
+            <p>Compte : FR76 •••• •••• •••• {{ compte.extraitNumeroCompte }}</p>
+          </span>
+        </span>
+      </label>
+    </li>
+
+  </ul>
+
+</div>
+
+<div *ngIf="!canCreateCompte" class="alert alert-warning alert-icon">
+  <app-icon klass="icon icon-medium" name="infos"></app-icon>
+  <div>
+    Vous avez déjà 4 comptes bancaires. Pour en ajouter un autre, merci de contacter votre
+    <a class="alert-link" routerLink="/contact/contacteznous" title="Contacter mon service de gestion">
+      service de gestion.
+    </a>
+  </div>
+</div>
+
+<div [hidden]="hideForm" class="mb-3">
+
+  <h3 class="text-primary">Informations du compte</h3>
+
+  <div class="row">
+    <div class="col-md-6">
+      <app-text [formGroup]="formGroup" label="Titulaire" controlName="titulaire" [toUpperNormalize]="true"
+        [required]="true" [initialValue]="compte?.titulaire">
+      </app-text>
+    </div>
+    <div class="col-md-6">
+      <app-iban [formGroup]="formGroup" label="IBAN" controlName="iban" [required]="true" [initialValue]="compte?.iban">
+      </app-iban>
+    </div>
+  </div>
+
+  <app-file-upload *ngIf="needRib" [fileUploadModel]="rib" (fileUploaded)="ribSelected($event)">
+  </app-file-upload>
+
+  <app-checkbox *ngIf="needDeclaration" [formGroup]="formGroup" [required]="true" controlName="declarationTitulaire"
+    label="Je déclare sur l'honneur être le titulaire ou ayant mandat sur le compte saisi">
+  </app-checkbox>
+
+</div>

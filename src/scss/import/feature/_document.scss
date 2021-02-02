@@ -1,0 +1,37 @@
+.table-document {
+  thead {
+    tr {
+      th {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  tbody {
+    background-color: $lighter-grey;
+    tr {
+      border-bottom: 8px solid $white;
+    }
+  }
+  td {
+    vertical-align: middle;
+    span {
+      margin-top: 0.5rem;
+    }
+    .icon {
+      margin-right: 1rem;
+    }
+  }
+}
+
+app-document-categorie-detail {
+  .box {
+    .box-title {
+      margin-top: 0;
+    }
+    .box-content {
+      .row {
+        margin-top: 0;
+      }
+    }
+  }
+}

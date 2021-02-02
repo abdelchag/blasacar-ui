@@ -1,0 +1,15 @@
+<div class="form-group" [class.form-error]="error && formControl.touched">
+
+  <label *ngIf="label">
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+    <app-icon *ngIf="popoverContent" klass="icon icon-small icon-info" name="infos" [ngbPopover]="popoverContent">
+    </app-icon>
+  </label>
+
+  <input type="text" class="form-control" [formControl]="formControl" [required]="required"
+    [maxlength]="nbrMaxCaractere">
+
+  <span *ngIf="error && formControl.touched" class="error-block">{{ error }}</span>
+
+</div>

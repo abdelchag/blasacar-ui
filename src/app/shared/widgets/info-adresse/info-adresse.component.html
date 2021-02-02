@@ -1,0 +1,21 @@
+<div class="mb-3">
+  <div *ngIf="label" class="font-weight-bold">{{ label }}</div>
+  <div>
+    {{ adresse.adresse }}
+  </div>
+  <div *ngIf="adresse.complementAdresse1 || adresse.complementAdresse2">
+    {{ adresse.complementAdresse1 }} {{ adresse.complementAdresse2 }}
+  </div>
+  <div *ngIf="adresse.lieuDit">
+    {{ adresse.lieuDit }}
+  </div>
+  <div *ngIf="adresse.codePostalVille">
+    {{ adresse.codePostalVille.codePostal }} {{ adresse.codePostalVille.ville }}
+  </div>
+  <div *ngIf="adresse?.codePostalVilleAdresseEtrangere">
+    {{ adresse?.codePostalVilleAdresseEtrangere }}
+  </div>
+  <div *ngIf="adresse?.pays?.pays">
+    {{ adresse?.pays?.pays }}
+  </div>
+</div>

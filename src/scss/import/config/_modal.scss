@@ -1,0 +1,121 @@
+.modal-backdrop.show {
+ opacity:.3;
+}
+
+.modal {
+  .modal-content {
+    border: none;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, .15);
+    .modal-dialog {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .modal-header {
+      border: none;
+      .modal-title {
+        font-size: 1.2rem !important;
+        color: $principale-groupama;
+      }
+    }
+    .modal-body {
+      border: none;
+    }
+    .modal-footer {
+      border: none;
+      .btn {
+        min-width: 5rem;
+      }
+    }
+  }
+  .modal-error {
+    .modal-header {
+      border-bottom: none;
+    }
+    .modal-body {
+      .col-12 {
+        margin-bottom: 0;
+        &:first-child {
+          margin-bottom: 1rem;
+        }
+        img {
+          width: 20%;
+        }
+      }
+    }
+    .modal-footer {
+      border-top: none;
+    }
+  }
+}
+
+.theme-ganeur {
+  .modal {
+    .modal-content {
+      .modal-header {
+        .modal-title {
+          color: $principale-ganeur;
+        }
+      }
+      .accordion {
+        .card {
+          .card-header {
+            .row {
+              .col-10 {
+                color: $principale-ganeur;
+              }
+              .col-11 {
+                color: $principale-ganeur;
+              }
+            }
+          }
+        }
+      }
+      .link-download {
+        &:before {
+          color: $principale-ganeur;
+        }
+      }
+      .spinner {
+        >div {
+          background-color: $ganeur-arrow;
+        }
+      }
+    }
+  }
+}
+
+.theme-ganass {
+  .modal {
+    .modal-content {
+      .modal-header {
+        .modal-title {
+          color: $principale-ganass;
+        }
+      }
+      .accordion {
+        .card {
+          .card-header {
+            .row {
+              .col-10 {
+                color: $principale-ganass;
+              }
+              .col-11 {
+                color: $principale-ganass;
+              }
+            }
+          }
+        }
+      }
+      .link-download {
+        &:before {
+          color: $principale-ganass;
+        }
+      }
+      .spinner {
+        >div {
+          background-color: $ganass-arrow;
+        }
+      }
+    }
+  }
+}

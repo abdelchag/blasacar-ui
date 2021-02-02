@@ -1,0 +1,22 @@
+<div class="page-error-c">
+  <h1>Page introuvable</h1>
+  <p>
+    Retourner à
+    <a (click)="goBack()" title="Page précédente">la page précédente</a>.
+  </p>
+</div>
+
+<div *ngIf="0" class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h2>
+      <app-icon klass="icon icon-medium icon-alerte" name="alerte"></app-icon>
+      Page not found
+      <small>404 error</small>
+    </h2>
+    <p>Cette page n'existe pas.</p>
+    <p>Nous vous prions de nous excuser pour la gêne occasionnée.</p>
+    <p>
+      Nous vous invitons à revenir à <a (click)="goBack()">la page précédente</a>.
+    </p>
+  </div>
+</div>

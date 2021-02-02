@@ -1,0 +1,20 @@
+<div class="form-group" [class.form-error]="error && formControl.touched">
+
+  <label>
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+    <button *ngIf="popoverContent" type="button" class="btn btn-link text-grey" [ngbPopover]="popoverContent"
+      container="body" placement="auto" triggers="mouseenter:mouseleave">
+      <app-icon klass="icon icon-medium icon-info" name="infos"></app-icon>
+    </button>
+  </label>
+
+  <textarea class="form-control" [formControl]="formControl" [required]="required" [maxlength]="nbrMaxCaractere"
+    cdkTextareaAutosize cdkAutosizeMinRows="{{autosizeMinRows}}" cdkAutosizeMaxRows="{{autosizeMaxRows}}" #text
+    style="overflow: hidden;"></textarea>
+
+  <span *ngIf="nbrMaxCaractere">{{ text.value.length }}/{{ nbrMaxCaractere }} caractères</span>
+
+  <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>
+
+</div>

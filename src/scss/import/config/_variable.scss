@@ -1,0 +1,81 @@
+@import 'reseaux/variable-ganeur';
+@import 'reseaux/variable-ganass';
+//primary
+$principale-groupama: #006a53;
+$principale-groupama-hover: #005240;
+$secondary-groupama: #ff7400;
+$blue: #0765a8;
+$black: #222222;
+$orange: #ff7400;
+$white: #ffffff;
+//secondary
+$water-green: #24ad94;
+$yellow-green: #bdd820;
+$placeholder: #d1d1cf;
+$accordeon-bg: #f5f5f5;
+$light-green: #dbefea;
+$light-blue: #dbedff;
+$light-orange: #efe9db;
+$light-red: #efdbdb;
+$light-black: #434343;
+$light-grey: #b2b2b2;
+$lighter-grey: #f5f5f5;
+$medium-grey:#999999;
+$medium-black: #989898;
+$normal-grey: #9B9B9B;
+$dark-grey: #444444;
+$link-blue: #0765A8;
+$link-blue-hover: #0056b3;
+$card-selected: azure;
+$card-hover: azure;
+//notification
+$notification-success-color: #006a53;
+$notification-success-color-hover: #006a53;
+$notification-success-background: #e0fdda;
+$notification-warning-color: #ff962a;
+$notification-warning-color-hover: #ff962a;
+$notification-warning-background: #fdeec5;
+$notification-information-color: #43aadc;
+$notification-information-color-hover: #43aadc;
+$notification-information-background: #dbedff;
+$notification-danger-color: #ff6969;
+$notification-danger-color-hover: #d33333;
+$notification-danger-background: #f9dbdc;
+//badge
+$badge-info: #ffffff;
+$badge-background-success: #44a993;
+$badge-background-danger: #d85050;
+$badge-background-info: #43aadc;
+//input
+$input-grey: #757980;
+$input-button-grey: #999999;
+$input-button-light-grey: #dddddd;
+$input-toggle-green-shadow: rgba(0, 132, 104, 0.7);
+$input-readonly: #e9ecef;
+$error-typo: #d85050;
+//border
+$border-grey: #d2d2d0;
+$border-light-grey: #dddddd;
+$border-lighter-grey: #d6d6d5;
+//button
+$button-default: #FC8C44;
+$button-default-hover: #EE7400;
+$button-default-focus: rgba(255, 116, 0, .7);
+$button-primary: #009e7c;
+$button-primary-hover: #008468;
+$button-primary-focus: rgba(0, 132, 104, 0.7);
+$button-grey: #B5B5B5;
+$button-grey-hover: #9B9B9B;
+$button-grey-focus: rgba(181, 181, 181, 0.7);
+//progress
+$background-progress: #e3e2de;
+$h1-font-size: 2rem;
+$h2-font-size: 1.375rem;
+$h3-font-size: 1.125rem;
+$h4-font-size: 1rem;
+$h5-font-size: .75rem;
+$h6-font-size: .625rem;
+$label-check-color: #009e7c;
+$scroll-color: #009e7c;
+//table
+$lighter-green: rgba(0, 106, 83, 0.14);

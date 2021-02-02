@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: '/api/Access-Management',
+  apiUrl: 'https://localhost:44388/api/Access-Management',
 };
 
 /*

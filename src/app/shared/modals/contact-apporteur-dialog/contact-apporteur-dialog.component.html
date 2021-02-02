@@ -1,0 +1,65 @@
+<div>
+  <div class="modal-header">
+
+    <h2 *ngIf="apporteurs.length < 2" class="modal-title">Votre apporteur</h2>
+    <h2 *ngIf="apporteurs.length > 1" class="modal-title">Vos apporteurs</h2>
+
+    <button type="button" class="close" (click)="close()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <app-box-loader [class.hidden]="!isLoading"></app-box-loader>
+
+    <div class="card no-border" *ngIf="apporteurs.length === 0">
+      <div class="card-body">
+        Vous n'avez pas d'apporteurs sur vos contrats.
+      </div>
+    </div>
+    <div class="card border-grey" *ngFor="let apporteur of apporteurs">
+
+      <div class="card-header">
+        <div class="card-title">
+          <h2 class="text-primary"> {{ apporteur.nom }} {{ apporteur.prenom }} </h2>
+        </div>
+      </div>
+
+      <div class="card-body" *ngIf="apporteur.telephoneProfessionnel || getAdresse(apporteur.adresses) ">
+        <div class="card-body">
+          <div class="row" *ngIf="apporteur.telephoneProfessionnel">
+            <div class="col-4">
+              Téléphone :
+            </div>
+            <div class="col-8">
+              <p>
+                {{apporteur.telephoneProfessionnel | phone}}
+              </p>
+            </div>
+          </div>
+          <div class="row" *ngIf="getAdresse(apporteur.adresses); let adresse">
+            <div class="col-4">
+              Adresse :
+            </div>
+            <div class="col-8">
+
+              <p>{{adresse.adresse}}</p>
+              <p *ngIf="adresse.complementAdresse1">{{adresse.complementAdresse1}}</p>
+              <p *ngIf="adresse.complementAdresse2">{{adresse.complementAdresse2}}</p>
+              <p *ngIf="adresse.lieuDit">{{adresse.lieuDit}}</p>
+              <p>{{adresse.codePostalVille.codePostal}} {{adresse.codePostalVille.ville}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <a class="btn" (click)="close()">Fermer</a>
+    <button type="button" class="btn btn-default" (click)="redirectToContactApporteur()">Envoyer un message</button>
+  </div>
+
+</div>

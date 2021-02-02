@@ -1,0 +1,11 @@
+<div class="form-group checkbox" [class.form-error]="error">
+  <label class="checkbox">
+    <input type="checkbox" [formControl]="formControl">
+    <span class="checkmark"></span>
+    <div class="checkbody">
+      <app-icon klass="icon icon-small" name="{{icon}}" *ngIf="icon"></app-icon>
+      <span class="checklabel">{{ label }}</span>
+      <p class="error-block" *ngIf="error">{{ error }}</p>
+    </div>
+  </label>
+</div>

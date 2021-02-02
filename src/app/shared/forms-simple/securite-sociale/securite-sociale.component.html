@@ -1,0 +1,9 @@
+<div class="form-group" [class.form-error]="error && formControl.touched">
+  <label>
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+  </label>
+  <input type="text" class="form-control" [textMask]="maskOptions" [formControl]="formControl" [required]="required">
+  <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>
+  <span class="error-block" *ngIf="formGroup?.errors">{{ crossFieldError }}</span>
+</div>

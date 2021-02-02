@@ -1,0 +1,14 @@
+<div class="toggle-checkbox row">
+  <div class="col-12 col-sm-10 col-md-9">
+    <span>{{ label }}</span>
+  </div>
+  <div class="col-12 col-sm-2 col-md-3 text-right">
+    <label class="input-wrapper" [class.disabled]="disabled">
+      <span class="toggle-checkbox-left">Non</span>
+      <input class="toggle-round" type="checkbox" [formControl]="formControl" [required]="required" />
+      <span class="toggle-text"></span>
+      <span class="toggle-checkbox-right">Oui</span>
+    </label>
+  </div>
+  <div class="w-100"></div>
+</div>

@@ -1,0 +1,9 @@
+<footer>
+  <div class="container-fluid">
+    <ul *ngIf="footerLinks$| async as footerLinks">
+      <li *ngFor="let footerLink of footerLinks">
+        <a [href]="footerLink.link" title="{{footerLink.libelle}}" target="_blank">{{footerLink.libelle}}</a>
+      </li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,11 @@
+<div class="alert alert-fixed alert-{{notification.type}}" *ngIf="!staticAlertClosed">
+  <a class="close" data-dismiss="alert" aria-label="close" (click)="close()">&times;</a>
+  <h4 class="alert-heading" *ngIf="notification.title">{{notification.title}}</h4>
+  <p>{{notification.message}}</p>
+
+  <div *ngIf="notification.listMessages != null && notification.listMessages.length > 0">
+    <li *ngFor="let oneMessage of notification.listMessages">
+      <p> {{oneMessage}}</p>
+    </li>
+  </div>
+</div>

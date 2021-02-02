@@ -1,0 +1,11 @@
+<div class="form-group" [class.form-error]="error">
+  <label *ngIf="label">
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+  </label>
+  <select class="form-control custom-select" [formControl]="formControl" [required]="required">
+    <option value=""></option>
+    <option *ngFor="let option of options" [value]="option.code">{{ option.libelle }}</option>
+  </select>
+  <span class="error-block" *ngIf="error">{{ error }}</span>
+</div>

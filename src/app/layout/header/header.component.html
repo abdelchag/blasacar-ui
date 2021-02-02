@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav class="navbar navbar-expand-lg navbar-light toolbar">
     <div class="navbar-brand" href="#">
       <img width="40" alt="BlasaCar" src="assets/img/blasacar-icon.ico" />
@@ -33,4 +33,76 @@
       </ul>
     </div>
   </nav>
+</header> -->
+
+<header>
+  <nav class="navbar navbar-expand" aria-label="Menu bureau">
+  <a class="navbar-brand" routerLink="/" title="Accueil">
+    <span class="d-block d-lg-none d-xl-none logo-mobile">
+      <img class="logo-img" src="assets/images/logo/blasacar.png" alt="Groupama">
+    </span>
+    <span class="d-none d-lg-block d-xl-block logo-desktop">
+      <img class="logo-img" src="assets/images/logo/blasacar.png" alt="Groupama">
+    </span>
+  </a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+    </ul>
+
+    <ul class="navbar-nav my-2 my-lg-0 d-none d-xl-flex">
+
+      <ng-container >
+
+        <li class="nav-item">
+          <a  title="Contacts" class="text-center">
+            <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="user-pro">
+            </app-icon>
+            Contacts
+          </a>
+        </li>
+
+        <li  class="nav-item">
+          <a routerLink="/contact" class="text-center">
+            <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="faq"></app-icon>
+            Besoin d'une info ?
+          </a>
+        </li>
+
+        <li  class="nav-item" *ngIf="!isUserConnected">
+          <a routerLink="/contact" class="text-center" (click)="openConnexionPopup(action_inscription)">
+            {{'account.inscription' | translate}}
+          </a>
+        </li>
+
+        <li  class="nav-item" *ngIf="!isUserConnected">
+          <a routerLink="/contact" class="text-center" (click)="openConnexionPopup(action_connexion)">
+            {{'account.connexion' | translate}}
+          </a>
+
+        <li class="nav-item user-info" *ngIf="isUserConnected" >
+          <div ngbDropdown>
+            <a id="dropdownMenuButton" ngbDropdownToggle aria-haspopup=" true" aria-expanded="false">
+              <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="login-pro">
+              </app-icon>
+              <span class="user-name">
+                {{currentUser.lastName | uppercase}} {{currentUser.firstName | titlecase}}
+              </span>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownMenuButton" class="mt-0">
+              <a ngbDropdownItem  routerLink="/mon-compte" title="Mon compte">
+                Mon compte
+              </a>
+              <a  title="Me déconnecter" #deconnecter>Me déconnecter</a>
+
+            </div>
+          </div>
+        </li>
+
+      </ng-container>
+
+    </ul>
+
+  </div>
+</nav>
 </header>

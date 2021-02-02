@@ -1,0 +1,8 @@
+<div class="form-group" [class.form-error]="error">
+  <label class="radio" *ngFor="let genre of genres">
+    {{ genre.libelle }}
+    <input type="radio" [formControl]="formControl" [value]="genre.code" name="genre">
+    <span class="checkmark"></span>
+  </label>
+  <span class="error-block" *ngIf="error">{{ error }}</span>
+</div>

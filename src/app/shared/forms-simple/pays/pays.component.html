@@ -1,0 +1,13 @@
+<div class="form-group" [class.form-error]="error && formControl.touched">
+  <label>
+    {{ label }}
+    <span *ngIf="!required"> (facultatif)</span>
+  </label>
+  <input type="text" class="form-control" [formControl]="formControl" [required]="required" [ngbTypeahead]="search"
+    [resultTemplate]="rt" [inputFormatter]="formatter" autocomplete="off">
+  <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>
+</div>
+
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="formatter(r)" [term]="t"></ngb-highlight>
+</ng-template>
