@@ -8,6 +8,7 @@ import { catchError, finalize } from 'rxjs/operators';
 import { Helpers } from 'src/app/helpers';
 import { AdresseModel, ListItemModel } from 'src/app/shared/models';
 import { civilites } from 'src/app/constants';
+import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 
 @Component({
   selector: 'blasacar-member-form',
@@ -24,7 +25,8 @@ export class MemberFormComponent implements OnInit {
   userToAdd: UserModel = new UserModel();
 
   constructor(
-    private membreService: MembreService,
+    private readonly membreService: MembreService,
+    private readonly currentUserService: CurrentUserService
   ) { }
 
   ngOnInit(): void {
@@ -159,7 +161,8 @@ export class MemberFormComponent implements OnInit {
         finalize(() => console.log(this.userToAdd))
       )
       .subscribe(
-        () => {
+        externalUserResponse => {
+          this.currentUserService.emitCurrentUser(externalUserResponse);
           console.log(this.userToAdd);
         },
         erreur => console.log(erreur)
