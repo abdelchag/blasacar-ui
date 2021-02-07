@@ -3,11 +3,13 @@
   "version": "1.0.0-beta",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --watch",
-    "build": "ng build",
+    "start": "npm run merge:i18n && ng serve --proxy-config proxy.conf.json --watch",
+    "build": "npm run merge:i18n && ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "merge:i18n": "node i18n-merge.js",
+    "merge:i18n:debug": "node i18n-merge.js --debug"
   },
   "private": true,
   "dependencies": {
@@ -27,14 +29,14 @@
     "angular2-text-mask": "^9.0.0",
     "angularx-social-login": "^3.5.4",
     "bootstrap": "^4.6.0",
-    "font-awesome": "^4.7.0",
     "file-saver": "^2.0.2",
-    "xlsx": "^0.14.3",
+    "font-awesome": "^4.7.0",
     "moment": "^2.29.1",
     "ngx-bootstrap": "^6.2.0",
     "rxjs": "^6.6.3",
     "text-mask-addons": "^3.8.0",
     "tslib": "^2.1.0",
+    "xlsx": "^0.14.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
