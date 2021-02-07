@@ -1,0 +1,10 @@
+{
+    "gender": "Sexe",
+    "gender-choice": {
+        "mr": "Mr.",
+        "mrs": "Mrs",
+        "other": "Indéterminé"
+    },
+    "birthday-date": "Date de naissance",
+    "validate": "Valider"
+}

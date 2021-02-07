@@ -1,25 +1,25 @@
- <div class="modal-body">
+<div class="modal-body">
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
         <span aria-hidden="true">&times;</span>
     </button>
     <blasacar-error-block [errors]="errors"></blasacar-error-block>
     <div class="form-group">
-        <label for="inputGender">{{'account.gender' | translate}} : </label><br />
+        <label for="inputGender">{{'face-info-supp.gender' | translate}} : </label><br />
         <span id="inputGender" class="btn-group" role="group" aria-label="gender">
             <button type="button" class="btn btn-light"
-                (click)="putGender(genderEnum.Mrs)">{{'account.gender-choice.mrs' | translate}}</button>
+                (click)="putGender(genderEnum.Mrs)">{{'face-info-supp.gender-choice.mrs' | translate}}</button>
             <button type="button" class="btn btn-light"
-                (click)="putGender(genderEnum.Mr)">{{'account.gender-choice.mr' | translate}}</button>
+                (click)="putGender(genderEnum.Mr)">{{'face-info-supp.gender-choice.mr' | translate}}</button>
             <button type="button" class="btn btn-light"
-                (click)="putGender(genderEnum.Undefined)">{{'account.gender-choice.other' | translate}}</button>
+                (click)="putGender(genderEnum.Undefined)">{{'face-info-supp.gender-choice.other' | translate}}</button>
         </span>
     </div>
     <div class="form-group">
-        <label for="birthday">{{'account.birthday-date' | translate}} : </label><br />
-        <blasacar-date-picker id="birthday" [isBirthDate]="true" [placeholder]="'account.birthday-date' | translate"
-            (dateSelected)="putBirthDate($event)"></blasacar-date-picker>
+        <label for="birthday">{{'face-info-supp.birthday-date' | translate}} : </label><br />
+        <blasacar-date-picker id="birthday" [isBirthDate]="true"
+            [placeholder]="'face-info-supp.birthday-date' | translate" (dateSelected)="putBirthDate($event)">
+        </blasacar-date-picker>
     </div>
-    <button class="btn btn-primary"
-        (click)="registerFacebook()">{{'account.face-info-supp.validate' | translate}}</button>
+    <button class="btn btn-primary" (click)="registerFacebook()">{{'face-info-supp.validate' | translate}}</button>
 
 </div>
