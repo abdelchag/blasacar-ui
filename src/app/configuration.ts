@@ -7,6 +7,9 @@ export const configuration = {
     noun: {
       pattern: 'Veuillez supprimer les caractères spéciaux'
     },
+    password: {
+      pattern: 'Veuillez respecter le format du mot passe'
+    },
     nounAndNumber: {
       pattern: 'Veuillez supprimer les caractères spéciaux'
     },

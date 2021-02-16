@@ -4,6 +4,7 @@ import { SocialUser } from 'angularx-social-login/entities/social-user';
 import { Observable, of } from 'rxjs';
 import { ExternalUserResponse } from 'src/app/account/models/blasa-car-user';
 import { BlasacarSocialUser } from 'src/app/account/models/blasacar-social-user';
+import { UserModel } from 'src/app/account/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -47,5 +48,9 @@ export class AccountManagementProxyService {
     return of(null);
   }
 
+  public saveMembre(user: UserModel) {
+    const url = `${this.ACCOUNT_MANAGEMENT_URL}/User/register`;
+    return this.http.post<ExternalUserResponse>(url, user);
+  }
 
 }

@@ -5,6 +5,8 @@ const letterPattern = 'A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u0
 export const nounPattern = `^[${letterPattern}]+([. '’-]{0,2}[${letterPattern}]+)*`;
 export const nounAndNumberPattern = `^[0-9${letterPattern}]+([. '’-]{0,2}[0-9${letterPattern}\d]+)*`;
 
+export const passwordPattern = `^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$`;
+
 export const cotisationStatus = {
   PAID: 'PAID',
   PAYING: 'PAYING',

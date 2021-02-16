@@ -3,11 +3,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserModel } from '../../models/user.model';
 import { MembreService } from '../services/membre.service';
 
-import { of } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
 import { Helpers } from 'src/app/helpers';
 import { AdresseModel, ListItemModel } from 'src/app/shared/models';
 import { civilites } from 'src/app/constants';
+import { ToastNotificationService } from 'src/app/core/services';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
+import { AccountManagementProxyService } from 'src/app/shared/proxy-services/account-management.proxy.service';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 
 @Component({
@@ -23,10 +25,15 @@ export class MemberFormComponent implements OnInit {
   form: FormGroup;
   civilites: ListItemModel[] = [];
   userToAdd: UserModel = new UserModel();
+  labelBtn: string;
+  isBirthDateValid = true;
 
   constructor(
     private readonly membreService: MembreService,
-    private readonly currentUserService: CurrentUserService
+    private readonly currentUserService: CurrentUserService,
+    private toastNotificationService: ToastNotificationService,
+    private readonly router: Router,
+    private readonly accountManagementProxy: AccountManagementProxyService,
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +49,7 @@ export class MemberFormComponent implements OnInit {
     });
     this.form = new FormGroup({});
     this.civilites = civilites;
+    this.labelBtn = 'Suivant';
   }
 
   get disableSubmit() {
@@ -104,10 +112,18 @@ export class MemberFormComponent implements OnInit {
   }
 
   putBirthDate(birthDate: Date): void {
+    this.isBirthDateValid = true;
     this.userToAdd.birthDate = birthDate;
   }
 
+  retour(): void {
+    console.log(this.step);
+    this.step = this.step - 1;
+    console.log(this.step);
+  }
+
   submit(): void {
+
 
 
     if (this.form.invalid) {
@@ -115,9 +131,12 @@ export class MemberFormComponent implements OnInit {
       return;
     }
 
+      this.isBirthDateValid = this.step === 2 && !!this.userToAdd.birthDate;
+    if(this.step === 2 && !this.isBirthDateValid){
+      return;
+    }
+
     this.step++;
-
-
 
     switch (this.step) {
       case 1:
@@ -126,9 +145,6 @@ export class MemberFormComponent implements OnInit {
       case 2:
         this.userToAdd.firstName = this.form.value.firstName;
         this.userToAdd.lastName = this.form.value.lastName;
-        break;
-      case 3:
-        this.userToAdd.birthDate = this.formControlDateNaissance.value;
         break;
       case 4:
         this.userToAdd.telephone = this.form.value.telephone;
@@ -150,12 +166,20 @@ export class MemberFormComponent implements OnInit {
 
     }
 
+
+
+    if (this.step === 6) {
+      this.labelBtn = 'Terminer l\'inscription';
+    }
+
     if (this.step === 7) {
       this.user = Object.assign(new UserModel(), this.formGroup.value);
       console.log(this.userToAdd);
-      //this.membreService.saveMembre(this.user);
 
-      this.membreService
+      this.membreService.saveMembre(this.user);
+
+
+      this.accountManagementProxy
       .saveMembre(this.userToAdd)
       .pipe(
         finalize(() => console.log(this.userToAdd))
@@ -163,9 +187,13 @@ export class MemberFormComponent implements OnInit {
       .subscribe(
         externalUserResponse => {
           this.currentUserService.emitCurrentUser(externalUserResponse);
-          console.log(this.userToAdd);
+          this.toastNotificationService.notify({
+            type: 'success',
+            message: 'votre inscription est validée'
+          });
+          this.router.navigate(['/']);
         },
-        erreur => console.log(erreur)
+        erreur => this.toastNotificationService.notifyHttpError(erreur)
       );
     }
 

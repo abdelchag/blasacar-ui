@@ -27,7 +27,7 @@
 
 
                   <div class="col-sm-6">
-                    <blasacar-email [formGroup]="form" controlName="email" [required]="true" label="E-mail"
+                    <blasacar-email [formGroup]="form" controlName="email" [required]="true" label="E-mail" [initialValue]="userToAdd.email"
                     ></blasacar-email>
                   </div>
 
@@ -78,12 +78,12 @@
                 </div> -->
 
                   <div class="col-sm-6">
-                    <app-text-noun [formGroup]="form" controlName="lastName" label="Nom" [required]="true"
+                    <app-text-noun [formGroup]="form" controlName="lastName" label="Nom" [required]="true" [initialValue]="userToAdd.lastName"
                       >
                     </app-text-noun>
                   </div>
                   <div class="col-sm-6">
-                    <app-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [required]="true"
+                    <app-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [required]="true" [initialValue]="userToAdd.firstName"
                       >
                     </app-text-noun>
                   </div>
@@ -105,9 +105,8 @@
                   <div class="form-group">
                     <blasacar-date-picker id="birthday" [isBirthDate]="true" controlName="birthDate" [placeholder]="'account.birthday-date' | translate"
                     (dateSelected)="putBirthDate($event)"></blasacar-date-picker>
-
-                    <!-- <input type="text" class="form-control"  formControlName="birthDate" placeholder="JJ/MM/YYYY" maxlength="=10"  [formGroup]="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlDateNaissance.invalid">Votre date de naissance n'est pas valide</span> -->
+                    <!-- <input type="text" class="form-control"  formControlName="birthDate" placeholder="JJ/MM/YYYY" maxlength="=10"  [formGroup]="formGroup" required="required">-->
+                    <span class="error-block" *ngIf="!isBirthDateValid">Votre date de naissance n'est pas valide</span>
                   </div>
                 </div>
               </div>
@@ -129,8 +128,7 @@
                   </div>
                 </div> -->
                 <div class="col-md-6">
-                  <app-phone label="Téléphone" controlName="telephone" [formGroup]="form"
-                    [required]="true">
+                  <app-phone label="Téléphone" controlName="telephone" [formGroup]="form" [initialValue]="userToAdd.telephone">
                   </app-phone>
                 </div>
               </div>
@@ -153,8 +151,8 @@
                   </div> -->
                   <div class="row">
                     <div class="col">
-                      <app-adresse controlName="adresse" [parentformGroup]="form" [isAdresseRequired]="true"
-                        [isPaysRequired]="true">
+                      <app-adresse controlName="adresse" [parentformGroup]="form" [isAdresseRequired]="false" [initialValue]="userToAdd.address"
+                        >
                       </app-adresse>
                     </div>
                   </div>
@@ -191,7 +189,7 @@
                     </label>
                  </div>
                   </div> -->
-                  <app-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites"
+                  <app-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites" [initialValue]="userToAdd.gender"
                    >
                 </app-radio>
                 </div>
@@ -221,71 +219,23 @@
             </div>
           </ng-container>
 
-          <!-- <div class="row">
-            <div class="col-4 text-center">
-              <div class="form-group">
-                <label>email</label>
-                <input type="text" class="form-control" formControlName="email" [formGroup]="formGroup">
-              </div>
-            </div>
-          </div> -->
-          <!-- <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>nom</label>
-                <input type="text" class="form-control"  formControlName="nom" [formGroup]="formGroup">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>prénom</label>
-                <input type="text" class="form-control"  formControlName="prenom" [formGroup]="formGroup">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>date de naissance</label>
-                <input type="text" class="form-control" formControlName="dateNaissance" [formGroup]="formGroup">
-              </div>
 
-            </div>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-secondary" (click)="retour()" *ngIf="step != 0">
+              Précedent
+            </button>
+            <button type="submit" class="btn btn-primary"  >
+              {{ labelBtn }}
+            </button>
           </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>téléphone</label>
-                <input type="text" class="form-control" formControlName="telephone" form="formGroup">
-              </div>
-
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>adresse domicile</label>
-                <input type="text" class="form-control" formControlName="adresse" [formGroup]="formGroup">
-              </div>
-
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>mot de passe</label>
-                <input type="text" class="form-control" formControlName="motDePasse" [formGroup]="formGroup">
-              </div>
-
-            </div>
-          </div> -->
-        <div class="col-12 col-sm-3 offset-sm-4 mb-2 order-1 order-sm-2"  >
-          <button type="submit" class="btn btn-block btn-primary"  >
-            Suivant
+        <!-- <div class="col-12 col-sm-3 offset-sm-4 mb-2 order-1 order-sm-2"  >
+          <button class="btn btn-secondary" (click)="retour()">
+            Retour
           </button>
-        </div>
+          <button type="submit" class="btn btn-block btn-primary"  >
+            {{ labelBtn }}
+          </button>
+        </div> -->
         </div>
       </div>
     </fieldset>
