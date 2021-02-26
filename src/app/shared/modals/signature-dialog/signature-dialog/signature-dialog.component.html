@@ -11,7 +11,7 @@
       </ng-container>
 
       <ng-container *ngIf="state === states.CREATED">
-        <app-icon name="clos" klass="icon icon-big icon-clos"></app-icon>
+        <blasacar-icon name="clos" klass="icon icon-big icon-clos"></blasacar-icon>
         <h2 class="pb-4">La signature électronique est prête.</h2>
       </ng-container>
 
@@ -23,14 +23,14 @@
       </ng-container>
 
       <ng-container *ngIf="state === states.PROCESSED">
-        <app-icon name="clos" klass="icon icon-big icon-clos"></app-icon>
+        <blasacar-icon name="clos" klass="icon icon-big icon-clos"></blasacar-icon>
         <h2>Félicitations !</h2>
         <p *ngIf="options?.successMessage">{{ options?.successMessage }}</p>
         <a class="btn btn-primary" (click)="success()">Terminer</a>
       </ng-container>
 
       <ng-container *ngIf="state === states.ERROR">
-        <app-icon name="alerte" klass="icon icon-big icon-alerte"></app-icon>
+        <blasacar-icon name="alerte" klass="icon icon-big icon-alerte"></blasacar-icon>
         <h2>Une erreur technique est survenue</h2>
         <p *ngIf="options?.errorMessage">{{ options?.errorMessage }}</p>
         <a class="btn btn-primary" (click)="error()">Fermer</a>
@@ -48,7 +48,7 @@
       </a>
 
       <div *ngIf="help" class="alert alert-info alert-icon text-left mb-0">
-        <app-icon name="infos" klass="icon icon-medium"></app-icon>
+        <blasacar-icon name="infos" klass="icon icon-medium"></blasacar-icon>
         <p>
           Il se peut qu'un bloqueur de fenêtres pop-up empêche l'application d'ouvrir la page.
           Si vous utilisez une telle fonction, essayez de la désactiver afin d'ouvrir la fenêtre.

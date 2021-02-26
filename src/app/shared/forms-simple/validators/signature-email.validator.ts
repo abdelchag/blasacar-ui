@@ -4,7 +4,7 @@ export class SignatureEmailValidator {
   static validate(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.value) {
-        return { 'requiredEmailSignature': true };
+        return { requiredEmailSignature: true };
       }
       return null;
     };

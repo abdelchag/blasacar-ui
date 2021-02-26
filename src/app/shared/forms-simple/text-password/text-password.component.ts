@@ -8,7 +8,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-password',
+  selector: 'blasacar-password',
   templateUrl: './text-password.component.html',
   styles: []
 })
@@ -20,7 +20,7 @@ export class TextPasswordComponent extends BaseSimpleComponent implements OnInit
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validators.push(Validators.pattern(passwordPattern));
     this.validationMessages = configuration.validationMessages.password;
     // this.toUpperNormalize = true;

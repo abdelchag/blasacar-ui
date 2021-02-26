@@ -8,7 +8,7 @@ import { DateValidator } from '../validators/date.validator';
 import { DateNaissanceValidator } from './date-naissance.validator';
 
 @Component({
-  selector: 'app-date-naissance',
+  selector: 'blasacar-date-naissance',
   templateUrl: './date-naissance.component.html',
   styles: []
 })
@@ -20,7 +20,7 @@ export class DateNaissanceComponent extends BaseSimpleComponent implements OnIni
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     if (this.validators) {
       this.validators.push(DateValidator.future);
@@ -32,7 +32,7 @@ export class DateNaissanceComponent extends BaseSimpleComponent implements OnIni
 
   }
 
-  protected addValidationMessages(customsErrorMessages: any) {
+  protected addValidationMessages(customsErrorMessages: any): void {
     Object.keys(customsErrorMessages).forEach(
       key => (this.validationMessages[key] = customsErrorMessages[key])
     );

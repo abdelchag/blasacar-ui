@@ -48,7 +48,7 @@ export class AccountManagementProxyService {
     return of(null);
   }
 
-  public saveMembre(user: UserModel) {
+  public saveMembre(user: UserModel): Observable<any> {
     const url = `${this.ACCOUNT_MANAGEMENT_URL}/User/register`;
     return this.http.post<ExternalUserResponse>(url, user);
   }

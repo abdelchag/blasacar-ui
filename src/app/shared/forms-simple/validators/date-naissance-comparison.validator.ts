@@ -8,7 +8,7 @@ export class DateNaissanceComparisonValidator {
       if (control.value) {
         const selectedDate = moment(control.value, 'DD/MM/YYYY', true);
         if (!selectedDate.isValid()) {
-          return { 'notValid': true };
+          return { notValid: true };
         }
 
         const selectedDateEmbauche = moment(dateEmbauche, 'DD/MM/YYYY', true);

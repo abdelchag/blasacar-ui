@@ -12,7 +12,7 @@ export abstract class Mask implements ControlValueAccessor, AfterViewInit {
 
   abstract transformValueOnChanges(value: any): any;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
 
     this.control.valueChanges
       .subscribe(value => {
@@ -22,19 +22,19 @@ export abstract class Mask implements ControlValueAccessor, AfterViewInit {
 
   }
 
-  registerOnChange(fn: (phone: any) => {}) {
+  registerOnChange(fn: (phone: any) => {}): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => {}) {
+  registerOnTouched(fn: () => {}): void {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean) {
+  setDisabledState?(isDisabled: boolean): void {
     isDisabled ? this.control.disable() : this.control.enable();
   }
 
-  writeValue(value: any) {
+  writeValue(value: any): void {
     const newValue = this.transformValueOnWrite(value);
     this.control.setValue(newValue);
   }

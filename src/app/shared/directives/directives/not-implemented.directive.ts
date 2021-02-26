@@ -34,18 +34,18 @@ export class NotImplementedDirective implements OnInit {
 
 
   @HostListener('click', ['$event'])
-  onClick(event: Event) {
+  onClick(event: Event): void {
     if (this._active) {
       event.preventDefault();
       event.stopPropagation();
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.applyChange(this._active);
   }
 
-  applyChange(val: boolean) {
+  applyChange(val: boolean): void {
     this._active = val;
     if (this._active) {
       this._elementClass.push('fa');

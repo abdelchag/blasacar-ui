@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-page-not-found',
+  selector: 'blasacar-page-not-found',
   templateUrl: './page-not-found.component.html',
   styles: []
 })
@@ -12,7 +12,7 @@ export class PageNotFoundComponent {
     private location: Location
   ) { }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 

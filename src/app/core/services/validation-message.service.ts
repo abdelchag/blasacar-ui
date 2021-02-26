@@ -9,7 +9,7 @@ export class ValidationMessageService {
   private showMessages: Subject<boolean> = new Subject<boolean>();
   showMessages$: Observable<boolean> = this.showMessages.asObservable();
 
-  notifyShowMessage(value: boolean) {
+  notifyShowMessage(value: boolean): void {
     this.showMessages.next(value);
   }
 

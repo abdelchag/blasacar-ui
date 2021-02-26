@@ -5,7 +5,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-number',
+  selector: 'blasacar-number',
   templateUrl: './number.component.html'
 })
 export class NumberComponent extends BaseSimpleComponent {

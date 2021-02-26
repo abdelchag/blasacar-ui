@@ -8,7 +8,7 @@ export class DateLessThanLegalAgeValidator {
       if (control.value) {
         const selectedDate = moment(control.value, 'DD/MM/YYYY', true);
         if (!selectedDate.isValid()) {
-          return { 'valid': true };
+          return { valid: true };
         }
         const dateReferenceControl = formGroup.get(formControlName);
         if (!dateReferenceControl || !dateReferenceControl.value) {
@@ -18,7 +18,7 @@ export class DateLessThanLegalAgeValidator {
         const momentDateNaissance = moment(dateReferenceControl.value, 'DD/MM/YYYY', true);
 
         if (selectedDate.diff(momentDateNaissance, 'years', true) < 16) {
-          return { 'lessThanTheLegalAge': true };
+          return { lessThanTheLegalAge: true };
         }
 
         return null;

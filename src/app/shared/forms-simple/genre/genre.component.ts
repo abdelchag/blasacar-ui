@@ -6,7 +6,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
 
 @Component({
-  selector: 'app-genre',
+  selector: 'blasacar-genre',
   templateUrl: './genre.component.html',
   styles: []
 })
@@ -20,7 +20,7 @@ export class GenreComponent extends BaseWithoutDebounceComponent implements OnIn
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     super.ngOnInit();
   }
 

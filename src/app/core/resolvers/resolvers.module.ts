@@ -8,8 +8,6 @@ import { CompteBancaireListResolver } from './compte-bancaire-list.resolver';
 import { InvalidContratCanActivate } from './invalid-contract-can-activate';
 import { PageNotFoundGuard } from './page-not-found-guard';
 import { PersonneAsTnsResolver } from './personne-as-tns.resolver';
-import { PersonneConnecteeResolver } from './personne-connectee.resolver';
-import { PersonneHasTeletransmissionResolver } from './personne-has-teletransmission.resolver';
 import { UtilisateurGuard } from './utilisateur.guard';
 
 const resolvers = [
@@ -19,8 +17,6 @@ const resolvers = [
   InvalidContratCanActivate,
   PageNotFoundGuard,
   PersonneAsTnsResolver,
-  PersonneConnecteeResolver,
-  PersonneHasTeletransmissionResolver,
   UtilisateurGuard
 ];
 

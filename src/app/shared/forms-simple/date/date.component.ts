@@ -7,7 +7,7 @@ import { BaseSimpleComponent } from '../base-simple.component';
 import { DateValidator } from './date.validator';
 
 @Component({
-  selector: 'app-date',
+  selector: 'blasacar-date',
   templateUrl: './date.component.html',
   styles: []
 })
@@ -19,7 +19,7 @@ export class DateComponent extends BaseSimpleComponent implements OnInit {
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.validators) {
       this.validators.push(DateValidator.valid);
       this.addValidationMessages(configuration.validationMessages.date);
@@ -27,7 +27,7 @@ export class DateComponent extends BaseSimpleComponent implements OnInit {
     super.ngOnInit();
   }
 
-  protected addValidationMessages(customsErrorMessages: any) {
+  protected addValidationMessages(customsErrorMessages: any): void {
     Object.keys(customsErrorMessages).forEach(
       key => (this.validationMessages[key] = customsErrorMessages[key])
     );

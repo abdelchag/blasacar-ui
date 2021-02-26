@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-page-loader',
+  selector: 'blasacar-page-loader',
   templateUrl: './page-loader.component.html',
   styles: []
 })
 export class PageLoaderComponent implements OnInit {
 
   _isLoading = false;
-  get isLoading() {
+  get isLoading(): boolean {
     return this._isLoading;
   }
 
@@ -16,8 +16,9 @@ export class PageLoaderComponent implements OnInit {
     if (value) {
       window.scrollTo(0, 0);
     }
-     this._isLoading = value;
+    this._isLoading = value;
   }
 
-  ngOnInit() { }
+  ngOnInit(): void { { }
+  }
 }

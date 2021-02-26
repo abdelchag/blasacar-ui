@@ -5,7 +5,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-text',
+  selector: 'blasacar-text',
   templateUrl: './text.component.html',
   styles: []
 })

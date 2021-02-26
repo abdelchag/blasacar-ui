@@ -6,7 +6,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
 
 @Component({
-  selector: 'app-civilite',
+  selector: 'blasacar-civilite',
   templateUrl: './civilite.component.html',
   styles: []
 })
@@ -20,7 +20,7 @@ export class CiviliteComponent extends BaseWithoutDebounceComponent implements O
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     super.ngOnInit();
   }
 

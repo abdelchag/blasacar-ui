@@ -7,7 +7,7 @@ import { BaseSimpleComponent } from '../base-simple.component';
 import { mobilePhoneValidator } from '../validators';
 
 @Component({
-  selector: 'app-mobile-phone',
+  selector: 'blasacar-mobile-phone',
   templateUrl: './mobile-phone.component.html'
 })
 export class MobilePhoneComponent extends BaseSimpleComponent implements OnInit {
@@ -18,7 +18,7 @@ export class MobilePhoneComponent extends BaseSimpleComponent implements OnInit 
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     this.validators.push(mobilePhoneValidator());
     this.validationMessages.pattern = configuration.validationMessages.telephoneMobile.pattern;

@@ -8,7 +8,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-text-noun-number',
+  selector: 'blasacar-text-noun-number',
   templateUrl: './text-noun-number.component.html',
   styles: []
 })
@@ -20,7 +20,7 @@ export class TextNounNumberComponent extends BaseSimpleComponent implements OnIn
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validators.push(Validators.pattern(nounAndNumberPattern));
     this.validationMessages = configuration.validationMessages.nounAndNumber;
     this.toUpperNormalize = true;

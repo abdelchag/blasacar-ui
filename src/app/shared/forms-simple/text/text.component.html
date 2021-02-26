@@ -3,8 +3,8 @@
   <label *ngIf="label">
     {{ label }}
     <span *ngIf="!required"> (facultatif)</span>
-    <app-icon *ngIf="popoverContent" klass="icon icon-small icon-info" name="infos" [ngbPopover]="popoverContent">
-    </app-icon>
+    <blasacar-icon *ngIf="popoverContent" klass="icon icon-small icon-info" name="infos" [ngbPopover]="popoverContent">
+    </blasacar-icon>
   </label>
 
   <input type="text" class="form-control" [formControl]="formControl" [required]="required"

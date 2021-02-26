@@ -1,7 +1,6 @@
 export * from './affilie-type.pipe';
 export * from './age.pipe';
 export * from './civilite.pipe';
-export * from './clause-beneficiaire.pipe';
 export * from './college.pipe';
 export * from './contrat-label.pipe';
 export * from './formule.pipe';
@@ -17,4 +16,3 @@ export * from './siret.pipe';
 export * from './situation-familiale.pipe';
 export * from './statut-ayantdroit.pipe';
 export * from './teletransmission.pipe';
-export * from './etat-paiement.pipe';

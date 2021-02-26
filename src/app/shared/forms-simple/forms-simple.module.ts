@@ -12,19 +12,15 @@ import { WidgetsModule } from '../widgets';
 import { CheckboxCardComponent } from './checkbox-card/checkbox-card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { CiviliteComponent } from './civilite/civilite.component';
-import { CpVilleComponent } from './cp-ville/cp-ville.component';
 import { DateNaissanceComponent } from './date-naissance/date-naissance.component';
 import { DateComponent } from './date/date.component';
 import { EmailComponent } from './email/email.component';
 import { GenreComponent } from './genre/genre.component';
-import { IbanComponent } from './iban/iban.component';
 import { MobilePhoneComponent } from './mobile-phone/mobile-phone.component';
 import { NumberComponent } from './number/number.component';
-import { PaysComponent } from './pays/pays.component';
 import { PercentageComponent } from './percentage/percentage.component';
 import { PhoneComponent } from './phone/phone.component';
 import { RadioComponent } from './radio/radio.component';
-import { SecuriteSocialeComponent } from './securite-sociale/securite-sociale.component';
 import { SelectComponent } from './select/select.component';
 import { TextDisplayComponent } from './text-display/text-display.component';
 import { TextNounNumberComponent } from './text-noun-number/text-noun-number.component';
@@ -38,18 +34,15 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 const components = [
   CheckboxCardComponent,
   CheckboxComponent,
-  CpVilleComponent,
   DateComponent,
   DateNaissanceComponent,
   EmailComponent,
   GenreComponent,
-  IbanComponent,
   MobilePhoneComponent,
   NumberComponent,
   PercentageComponent,
   PhoneComponent,
   RadioComponent,
-  SecuriteSocialeComponent,
   SelectComponent,
   TextareaComponent,
   TextComponent,
@@ -60,7 +53,6 @@ const components = [
   TextDisplayComponent,
   ToggleButtonComponent,
   CiviliteComponent,
-  PaysComponent,
 ];
 
 @NgModule({

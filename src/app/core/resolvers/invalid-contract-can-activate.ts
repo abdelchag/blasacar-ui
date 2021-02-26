@@ -23,14 +23,12 @@ export class InvalidContratCanActivate implements CanActivate {
 
   ) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     const numeroContrat = route.params['numeroContrat'];
-    
-
     return null;
   }
 
-  private redirectToRoute(profilTypeCode: string, utilisateur: UtilisateurModel, route: ActivatedRouteSnapshot) {
+  private redirectToRoute(profilTypeCode: string, utilisateur: UtilisateurModel, route: ActivatedRouteSnapshot): void {
 
     if (Helpers.isAuthorizedProfile(profilTypeCode)) {
 

@@ -5,7 +5,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
 
 @Component({
-  selector: 'app-toggle-button',
+  selector: 'blasacar-toggle-button',
   templateUrl: './toggle-button.component.html',
   styles: []
 })
@@ -29,7 +29,7 @@ export class ToggleButtonComponent extends BaseWithoutDebounceComponent implemen
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     super.ngOnInit();
 
     if (!this.initialValue) {

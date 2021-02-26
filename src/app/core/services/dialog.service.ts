@@ -15,7 +15,7 @@ export class DialogService {
     private router: Router
   ) { }
 
-  openDialogSuccess(messageDialog: string, routepath: string, route: ActivatedRoute) {
+  openDialogSuccess(messageDialog: string, routepath: string, route: ActivatedRoute): void {
     const modalReference = this.modalService.open(DialogComponent, { centered: true, backdrop: 'static' });
     modalReference.componentInstance.typeDialog = typeDialog.SUCCESS;
     modalReference.componentInstance.messageDialog = messageDialog;
@@ -29,7 +29,7 @@ export class DialogService {
   }
 
 
-  openDialogError() {
+  openDialogError(): void {
     const modalReference = this.modalService.open(DialogComponent, { centered: true, backdrop: 'static' });
     modalReference.componentInstance.typeDialog = typeDialog.ERROR;
     modalReference.componentInstance.messageDialog = 'Votre demande n\'a pas pu être traitée. Veuillez réessayer ultérieurement.';

@@ -8,6 +8,6 @@ export function sameValueValidator(formGroup: FormGroup, formControlName: string
     }
 
     const isSameValue = control.value === otherControl.value;
-    return isSameValue ? null : { 'sameValue': true };
+    return isSameValue ? null : { sameValue: true };
   };
 }

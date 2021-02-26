@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
 
-          <ng-container  *ngIf="step===0">
+          <ng-container  *ngIf="stepEmail===true">
 
             <div class="col text-center">
               <div>
@@ -24,38 +24,15 @@
 
             <div class="container">
               <div class="justify-content-md-center">
-
-
                   <div class="col-sm-6">
                     <blasacar-email [formGroup]="form" controlName="email" [required]="true" label="E-mail" [initialValue]="userToAdd.email"
                     ></blasacar-email>
                   </div>
-
-
               </div>
             </div>
-
-
-            <!-- <div class="col text-center">
-              <div>
-                <h1 class="title">Votre adresse e-mail ?</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                <div class="col-6">
-                  <div class="form-group" [class.form-error]="error && formControl.touched">
-                    <input type="email" class="form-control" formControlName="email" placeholder="E-mail" [formGroup]="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlEmail.invalid">Votre mail n'est pas valide</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </ng-container>
 
-
-          <ng-container *ngIf="step===1">
+          <ng-container *ngIf="stepNomPrenom===true">
             <div class="col text-center">
               <div>
                 <h1 class="title">Votre nom et prénom ?</h1>
@@ -64,35 +41,22 @@
             <br>
             <div class="container">
               <div class="justify-content-md-center">
-                <!-- <div class="col-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control"  formControlName="lastName" placeholder="mon nom"  [formGroup]="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlNom.invalid">Votre nom n'est pas valide</span>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" formControlName="firstName" placeholder="mon prénom" [formGroup]="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlPrenom.invalid">Votre prenom n'est pas valide</span>
-                  </div>
-                </div> -->
-
                   <div class="col-sm-6">
-                    <app-text-noun [formGroup]="form" controlName="lastName" label="Nom" [required]="true" [initialValue]="userToAdd.lastName"
+                    <blasacar-text-noun [formGroup]="form" controlName="lastName" label="Nom" [required]="true" [initialValue]="userToAdd.lastName"
                       >
-                    </app-text-noun>
+                    </blasacar-text-noun>
                   </div>
                   <div class="col-sm-6">
-                    <app-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [required]="true" [initialValue]="userToAdd.firstName"
+                    <blasacar-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [required]="true" [initialValue]="userToAdd.firstName"
                       >
-                    </app-text-noun>
+                    </blasacar-text-noun>
                   </div>
 
               </div>
             </div>
           </ng-container>
 
-          <ng-container *ngIf="step===2">
+          <ng-container *ngIf="stepBirthDate===true">
             <div class="col text-center">
               <div>
                 <h1 class="title">Quelle est votre date de naissance ?</h1>
@@ -105,14 +69,13 @@
                   <div class="form-group">
                     <blasacar-date-picker id="birthday" [isBirthDate]="true" controlName="birthDate" [placeholder]="'account.birthday-date' | translate"
                     (dateSelected)="putBirthDate($event)"></blasacar-date-picker>
-                    <!-- <input type="text" class="form-control"  formControlName="birthDate" placeholder="JJ/MM/YYYY" maxlength="=10"  [formGroup]="formGroup" required="required">-->
                     <span class="error-block" *ngIf="!isBirthDateValid">Votre date de naissance n'est pas valide</span>
                   </div>
                 </div>
               </div>
             </div>
           </ng-container>
-          <ng-container *ngIf="step===3">
+          <ng-container *ngIf="stepTelephone===true">
             <div class="col text-center">
               <div>
                 <h1 class="title">Quel est votre numéro de téléphone ?</h1>
@@ -135,7 +98,7 @@
             </div>
           </ng-container>
 
-          <ng-container *ngIf="step===4">
+          <ng-container *ngIf="stepAdresse===true">
             <div class="col text-center">
               <div>
                 <h1 class="title">Quel est votre adresse domicile ?</h1>
@@ -160,7 +123,7 @@
               </div>
             </div>
           </ng-container>
-          <ng-container *ngIf="step===5">
+          <ng-container *ngIf="stepGender===true">
             <div class="col text-center">
               <div>
                 <h1 class="title">Comment préférez-vous qu'on vous appelle ?</h1>
@@ -170,25 +133,6 @@
             <div class="container">
               <div class="justify-content-md-center">
                 <div class="col-6">
-                  <!-- <div class="form-group">
-                    <div class = "radio">
-                      <label>
-                         <input type = "radio" formControlName="gender" id = "mme" value="mme" checked> Mme
-                      </label>
-                   </div>
-                   <div class = "radio">
-                      <label>
-                         <input type = "radio" formControlName="gender" id = "mr"  value="M.">
-                            M.
-                      </label>
-                   </div>
-                   <div class = "radio">
-                    <label>
-                       <input type = "radio" formControlName="gender" id = "Indetermine"  value="Indetermine">
-                          Indeterminé
-                    </label>
-                 </div>
-                  </div> -->
                   <app-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites" [initialValue]="userToAdd.gender"
                    >
                 </app-radio>
@@ -197,7 +141,7 @@
             </div>
 
           </ng-container>
-          <ng-container *ngIf="step===6">
+          <ng-container *ngIf="stepPassword===true">
             <div class="col text-center">
               <div>
                 <h1 class="title">Choisissez votre mot de passe</h1>
@@ -207,10 +151,6 @@
             <div class="container">
               <div class="justify-content-md-center">
                 <div class="col-6">
-                  <!-- <div class="form-group">
-                    <input type="password" class="form-control" formControlName="password"  placeholder="mon mot de passe" [formGroup]="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlmotDePasse.invalid">Votre mot de passe n'est pas valide</span>
-                  </div> -->
                   <app-password [formGroup]="form" controlName="password" label="Mot de passe" [required]="true">
                 </app-password>
 
@@ -219,23 +159,15 @@
             </div>
           </ng-container>
 
-
           <div class="d-flex justify-content-between">
-            <button class="btn btn-secondary" (click)="retour()" *ngIf="step != 0">
+            <button class="btn btn-secondary" (click)="retour()" *ngIf="stepEmail===false">
               Précedent
             </button>
             <button type="submit" class="btn btn-primary"  >
               {{ labelBtn }}
             </button>
           </div>
-        <!-- <div class="col-12 col-sm-3 offset-sm-4 mb-2 order-1 order-sm-2"  >
-          <button class="btn btn-secondary" (click)="retour()">
-            Retour
-          </button>
-          <button type="submit" class="btn btn-block btn-primary"  >
-            {{ labelBtn }}
-          </button>
-        </div> -->
+
         </div>
       </div>
     </fieldset>

@@ -6,13 +6,13 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-percentage',
+  selector: 'blasacar-percentage',
   templateUrl: './percentage.component.html'
 })
 export class PercentageComponent extends BaseSimpleComponent implements OnInit {
   @Input() updateOn: AbstractControlOptions['updateOn'] = 'change';
 
-  mask = function (rawValue: { length: number; }) {
+  mask = function(rawValue: { length: number; }): any {
     if (rawValue.length === 3) {
       return [/[1]/, /[0]/, /[0]/];
     } else if (rawValue.length === 2) {
@@ -28,7 +28,7 @@ export class PercentageComponent extends BaseSimpleComponent implements OnInit {
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formControl = new FormControl('', { updateOn: this.updateOn });
     super.ngOnInit();
   }

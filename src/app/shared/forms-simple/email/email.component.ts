@@ -21,7 +21,7 @@ export class EmailComponent extends BaseSimpleComponent implements OnInit {
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validationMessages = configuration.validationMessages.email;
     this.validators.push(Validators.email);
 

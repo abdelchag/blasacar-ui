@@ -56,15 +56,15 @@
 
           <li class="nav-item">
             <a title="Contacts" class="text-center">
-              <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="user-pro">
-              </app-icon>
+              <blasacar-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="user-pro">
+              </blasacar-icon>
               {{'header.contacts' | translate}}
             </a>
           </li>
 
           <li class="nav-item">
             <a routerLink="/contact" class="text-center">
-              <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="faq"></app-icon>
+              <blasacar-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="faq"></blasacar-icon>
               {{'header.need-info-question' | translate}}
             </a>
           </li>
@@ -83,8 +83,8 @@
           <li class="nav-item user-info" *ngIf="isUserConnected">
             <div ngbDropdown>
               <a id="dropdownMenuButton" ngbDropdownToggle aria-haspopup=" true" aria-expanded="false">
-                <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="login-pro">
-                </app-icon>
+                <blasacar-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="login-pro">
+                </blasacar-icon>
                 <span class="user-name">
                   {{currentUser.lastName | uppercase}} {{currentUser.firstName | titlecase}}
                 </span>

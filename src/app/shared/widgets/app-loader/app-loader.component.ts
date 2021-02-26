@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-loader',
+  selector: 'blasacar-loader',
   templateUrl: './app-loader.component.html',
   styles: []
 })
 export class AppLoaderComponent implements OnInit {
 
   _isLoading = false;
-  get isLoading() {
+  get isLoading(): boolean {
     return this._isLoading;
   }
 
@@ -19,5 +19,5 @@ export class AppLoaderComponent implements OnInit {
     this._isLoading = value;
   }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 }

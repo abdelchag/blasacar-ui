@@ -5,7 +5,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-textarea',
+  selector: 'blasacar-textarea',
   templateUrl: './textarea.component.html',
   styles: []
 })

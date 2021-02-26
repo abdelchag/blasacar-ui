@@ -8,7 +8,7 @@ import { MenuItemModel } from 'src/app/shared/models';
 import { MenuService } from '../../services/menu.service';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'blasacar-menu',
   templateUrl: './menu.component.html',
   styles: []
 })
@@ -41,7 +41,7 @@ export class MenuComponent implements OnDestroy {
     this.subcriptions.unsubscribe();
   }
 
-  redirectToEcli() {
+  redirectToEcli(): void {
     window.location.href = this.urlTableauDeBordEcli;
   }
 

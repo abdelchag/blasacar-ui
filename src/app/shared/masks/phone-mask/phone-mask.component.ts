@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Mask } from '../mask';
 
 @Component({
-  selector: 'app-phone-mask',
+  selector: 'blasacar-phone-mask',
   templateUrl: './phone-mask.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -19,11 +19,11 @@ export class PhoneMaskComponent extends Mask {
     guide: false
   };
 
-  transformValueOnWrite(phone: any) {
+  transformValueOnWrite(phone: any): any {
     return phone ? phone.replace('+33', '0') : phone;
   }
 
-  transformValueOnChanges(phone: any) {
+  transformValueOnChanges(phone: any): any {
     return phone ? phone.replace(/ /g, '').replace(/^0/, '+33') : phone;
   }
 

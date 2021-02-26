@@ -72,5 +72,5 @@ export class UtilisateurService {
   //   } else {
   //     window.location.href = environment.urls.logout.client;
   //   }
-  //}
+  // }
 }

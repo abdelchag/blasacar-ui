@@ -2,7 +2,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-text-display',
+  selector: 'blasacar-text-display',
   templateUrl: './text-display.component.html',
   styles: []
 })

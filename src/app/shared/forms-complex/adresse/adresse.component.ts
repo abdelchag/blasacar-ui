@@ -7,7 +7,7 @@ import { AdresseModel, PaysModel } from 'src/app/shared/models';
 import { BaseComplexComponent } from '../base-complex.component';
 
 @Component({
-  selector: 'app-adresse',
+  selector: 'blasacar-adresse',
   templateUrl: './adresse.component.html',
   styles: []
 })
@@ -24,7 +24,7 @@ export class AdresseComponent extends BaseComplexComponent implements OnInit {
   isFrenchAdress = true;
   france: PaysModel = { code: isoCountryCodes.FRANCE, pays: isoCountrylibelle.FRANCE };
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     if (this.initialValue) {
       this.isFrenchAdress = this.initialValue.codePays === isoCountryCodes.FRANCE;
@@ -32,12 +32,15 @@ export class AdresseComponent extends BaseComplexComponent implements OnInit {
 
     super.ngOnInit();
 
-    this.formGroup.addControl('codePays', new FormControl(this.initialValue != null ? this.initialValue.codePays : isoCountryCodes.FRANCE));
-    this.formGroup.addControl('isAdressePrincipale', new FormControl(this.initialValue != null ? this.initialValue.isAdressePrincipale : true));
-    this.formGroup.addControl('typologieCode', new FormControl(this.initialValue != null ? this.initialValue.typologieCode : typeAdresseCode.DOMICILE));
+    this.formGroup.addControl('codePays', new FormControl(
+      this.initialValue != null ? this.initialValue.codePays : isoCountryCodes.FRANCE));
+    this.formGroup.addControl('isAdressePrincipale', new FormControl(
+      this.initialValue != null ? this.initialValue.isAdressePrincipale : true));
+    this.formGroup.addControl('typologieCode', new FormControl(
+      this.initialValue != null ? this.initialValue.typologieCode : typeAdresseCode.DOMICILE));
   }
 
-  paysChanges(pays: PaysModel) {
+  paysChanges(pays: PaysModel): void {
     this.isFrenchAdress = (pays.code === isoCountryCodes.FRANCE || !pays);
 
     if (!this.initialValue || !this.isFrenchAdress) {
