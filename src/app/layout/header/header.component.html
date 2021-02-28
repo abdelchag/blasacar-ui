@@ -55,7 +55,7 @@
         <ng-container>
 
           <li class="nav-item">
-            <a title="Contacts" class="text-center">
+            <a class="text-center">
               <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="user-pro">
               </app-icon>
               {{'header.contacts' | translate}}
@@ -66,6 +66,12 @@
             <a routerLink="/contact" class="text-center">
               <app-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="faq"></app-icon>
               {{'header.need-info-question' | translate}}
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/travel-propose" class="text-center" name="travel-propose">
+              {{'header.travel.propose' | translate}}
             </a>
           </li>
 
@@ -90,10 +96,10 @@
                 </span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownMenuButton" class="mt-0">
-                <a ngbDropdownItem routerLink="/mon-compte" title="Mon compte">
+                <a ngbDropdownItem routerLink="/mon-compte">
                   {{'header.my-account' | translate}}
                 </a>
-                <a title="Me déconnecter" (click)="deconnexion()">{{'header.deconnexion' | translate}}</a>
+                <a (click)="deconnexion()">{{'header.deconnexion' | translate}}</a>
 
               </div>
             </div>

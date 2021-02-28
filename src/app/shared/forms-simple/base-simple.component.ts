@@ -69,7 +69,6 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
 
     this.subscriptions.push(
       this.formControl.valueChanges
-        .pipe(debounceTime(this.debounceTime))
         .subscribe(value => {
           this.error = this.getError();
           this.valueChanged.emit(value);
@@ -86,6 +85,10 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
     }
 
     this.onChanges();
+  }
+
+  get hadError(): boolean {
+    return this.error && (this.formControl.dirty || this.formControl.touched);
   }
 
   protected updateValidator(isRequired: boolean) {

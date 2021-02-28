@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ValidationMessageService } from 'src/app/core/services';
 
@@ -11,6 +11,7 @@ import { BaseSimpleComponent } from '../base-simple.component';
 })
 export class TextComponent extends BaseSimpleComponent {
   @Input() nbrMaxCaractere: number;
+
   constructor(
     validationMessageService: ValidationMessageService
   ) {

@@ -1,4 +1,4 @@
-export class Utils {
+export class BlasaUtils {
 
     public static isNullOrUndefined<T>(object: T | undefined | null): boolean {
         return object === undefined || object === null;

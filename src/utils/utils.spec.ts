@@ -1,7 +1,7 @@
-import { Utils } from './utils';
+import { BlasaUtils } from './blasa-utils';
 
 describe('Utils', () => {
   it('should create an instance', () => {
-    expect(new Utils()).toBeTruthy();
+    expect(new BlasaUtils()).toBeTruthy();
   });
 });

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { GenderEnum } from 'src/app/shared/models/gender.enum';
-import { Utils } from 'src/utils/utils';
+import { BlasaUtils } from 'src/utils/blasa-utils';
 import { BlasacarSocialUser } from '../../models/blasacar-social-user';
 import { FacebookService } from '../services/facebook.service';
 
@@ -32,14 +32,14 @@ export class FaceInfoSuppPopupComponent implements OnInit {
 
   registerFacebook(): void {
     this.errors = [];
-    if (Utils.isNullOrUndefined(this.user.gender)) {
+    if (BlasaUtils.isNullOrUndefined(this.user.gender)) {
       this.errors.push('shared.error.gender-mondatory');
     }
 
-    if (Utils.isNullOrUndefined(this.user.birthDate)) {
+    if (BlasaUtils.isNullOrUndefined(this.user.birthDate)) {
       this.errors.push('shared.error.birthday-mondatory');
     }
-    if (Utils.isArrayEmpty(this.errors)) {
+    if (BlasaUtils.isArrayEmpty(this.errors)) {
       this.facebookService.facebookInscription(this.user);
       this.modalRef.hide();
     }

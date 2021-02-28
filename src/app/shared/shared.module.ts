@@ -2,9 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { TextMaskModule } from 'angular2-text-mask';
-
-
+import { NgxBootstrapModule } from '../ngx-bootstrap.module';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ErrorBlockComponent } from './components/error-block/error-block.component';
 import { DirectivesModule } from './directives';
 import { FormsComplexModule } from './forms-complex';
 import { FormsSimpleModule } from './forms-simple';
@@ -13,50 +15,43 @@ import { PagesModule } from './pages';
 import { PipesModule } from './pipes';
 import { WidgetsModule } from './widgets';
 
-import { TranslateModule } from '@ngx-translate/core';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { NgxBootstrapModule } from '../ngx-bootstrap.module';
-import { ErrorBlockComponent } from './components/error-block/error-block.component';
-import { DatePickerComponent } from './components/date-picker/date-picker.component';
+
+
+
+
+const importExportModules = [
+  CommonModule,
+  DirectivesModule,
+  FormsComplexModule,
+  FormsModule,
+  FormsSimpleModule,
+  ModalModule,
+  PagesModule,
+  PipesModule,
+  ReactiveFormsModule,
+  WidgetsModule,
+  TranslateModule,
+  NgxBootstrapModule,
+  RouterModule
+];
+
+const component = [
+  ErrorBlockComponent,
+  DatePickerComponent
+];
 
 @NgModule({
   imports: [
-    CommonModule,
-    DirectivesModule,
-    FormsComplexModule,
-    FormsModule,
-    FormsSimpleModule,
-    ModalModule,
-    PagesModule,
-    PipesModule,
-    ReactiveFormsModule,
-    RouterModule,
-    RouterModule,
+    ...importExportModules,
     TextMaskModule,
-    WidgetsModule,
-    TranslateModule,
-    NgxBootstrapModule
   ],
   exports: [
-    DirectivesModule,
-    FormsComplexModule,
-    FormsModule,
-    FormsSimpleModule,
-    ModalModule,
-    PagesModule,
-    PipesModule,
-    ReactiveFormsModule,
-    WidgetsModule,
-    CommonModule,
-    TranslateModule,
-    NgxBootstrapModule,
-    ErrorBlockComponent,
-    DatePickerComponent
+    ...importExportModules,
+    ...component
   ],
   declarations: [
-    ErrorBlockComponent,
-    DatePickerComponent
-],
+    ...component
+  ],
 })
 export class SharedModule {
 }

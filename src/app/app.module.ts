@@ -13,6 +13,7 @@ import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { SocialModule } from './social.module';
 import { CoreModule } from './core/core.module';
+import { TravelModule } from './travel/travel.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CoreModule } from './core/core.module';
     NgbPopoverModule,
     AccountModule,
     LayoutModule,
+    TravelModule,
     CoreModule,
     SharedModule,
     BrowserModule,

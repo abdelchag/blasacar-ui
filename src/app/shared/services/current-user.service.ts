@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BlasaCarUser, ExternalUserResponse} from 'src/app/account/models/blasa-car-user';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Utils } from 'src/utils/utils';
+import { BlasaUtils } from 'src/utils/blasa-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class CurrentUserService {
   constructor() { }
 
   get isUserConnected(): boolean {
-    return !Utils.isNullOrUndefined(this.currentUser);
+    return !BlasaUtils.isNullOrUndefined(this.currentUser);
   }
 
   get currentUser(): ExternalUserResponse {

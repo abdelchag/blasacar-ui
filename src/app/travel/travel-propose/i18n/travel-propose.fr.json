@@ -1,0 +1,18 @@
+{
+    "next-step": "Suivant",
+    "previous-step": "Précédent",
+    "question": {
+        "departure-city": "Vous partez de quelle ville ?",
+        "arrival-city": "Vous allez à quelle ville ?",
+        "departure-date": "Vous partez quand ?",
+        "departure-hour": "A quelle heure ?",
+        "number-place": "Vous prenez combien de personnes ?",
+        "automatique-acceptance": "L'acceptation est automatique ?",
+        "price": "A quel prix ?",
+        "phone-number": "Numéro de téléphone"
+    },
+    "automatique-acceptance": {
+        "yes": "Oui",
+        "no": "Non"
+    }
+}

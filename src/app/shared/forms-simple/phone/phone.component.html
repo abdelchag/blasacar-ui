@@ -1,8 +1,8 @@
-<div class="form-group" [class.form-error]="error && formControl.touched">
+<div class="form-group" [class.form-error]="hadError">
   <label>
     {{ label }}
     <span *ngIf="!required"> (facultatif)</span>
   </label>
   <app-phone-mask [formControl]="formControl"></app-phone-mask>
-  <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>
+  <span class="error-block" *ngIf="hadError">{{ error }}</span>
 </div>

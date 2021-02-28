@@ -4,5 +4,8 @@
     "my-account": "Mon compte",
     "connexion": "Connexion",
     "inscription": "Inscription",
-    "deconnexion": "Me déconnecter"
+    "deconnexion": "Me déconnecter",
+    "travel": {
+        "propose": "Proposer un voyage"
+    }
 }

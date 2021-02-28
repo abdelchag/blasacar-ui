@@ -146,5 +146,7 @@ export const configuration = {
       atLeastOnePrevoyance: 'L\'affiliation au contrat prévoyance est obligatoire',
     }
   },
-  genericMessageForRequire: 'Champ requis'
+  genericMessageForRequire: 'Champ requis',
+  genericMessageForMaxValue: 'Valeur maximum : ',
+  genericMessageForMinValue: 'Valeur minimum : '
 };

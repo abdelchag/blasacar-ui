@@ -5,7 +5,7 @@ import { FacebookService } from 'src/app/account/components/services/facebook.se
 import { BlasaCarUser } from 'src/app/account/models/blasa-car-user';
 import { ACTION_CONNEXION, ACTION_INSCRIPTION, ConnexionAction } from 'src/app/account/models/connexion-action';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
-import { Utils } from 'src/utils/utils';
+import { BlasaUtils } from 'src/utils/blasa-utils';
 
 @Component({
   selector: 'blasacar-header',
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUserService.currentUserSubscription().subscribe(user => {
-      this.currentUser = Utils.isNullOrUndefined(user) ? null : user.data;
+      this.currentUser = BlasaUtils.isNullOrUndefined(user) ? null : user.data;
       this.isUserConnected = this.currentUserService.isUserConnected;
       this.changeDetectorRef.detectChanges();
     });

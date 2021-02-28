@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
+import { NgxBootstrapModule } from 'src/app/ngx-bootstrap.module';
 
 
 import { NgbModule } from '../../../../node_modules/@ng-bootstrap/ng-bootstrap';
@@ -15,6 +16,7 @@ import { CiviliteComponent } from './civilite/civilite.component';
 import { CpVilleComponent } from './cp-ville/cp-ville.component';
 import { DateNaissanceComponent } from './date-naissance/date-naissance.component';
 import { DateComponent } from './date/date.component';
+import { DatepickerFormComponent } from './datepicker-form/datepicker-form.component';
 import { EmailComponent } from './email/email.component';
 import { GenreComponent } from './genre/genre.component';
 import { IbanComponent } from './iban/iban.component';
@@ -32,6 +34,7 @@ import { TextNounComponent } from './text-noun/text-noun.component';
 import { TextPasswordComponent } from './text-password/text-password.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
+import { TimepickerComponent } from './timepicker/timepicker.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 
 
@@ -61,6 +64,8 @@ const components = [
   ToggleButtonComponent,
   CiviliteComponent,
   PaysComponent,
+  DatepickerFormComponent,
+  TimepickerComponent
 ];
 
 @NgModule({
@@ -73,7 +78,8 @@ const components = [
     NgbModule,
     MasksModule,
     TextFieldModule,
-    WidgetsModule
+    WidgetsModule,
+    NgxBootstrapModule
   ],
   declarations: [
     ...components,
