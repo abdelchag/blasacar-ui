@@ -1,10 +1,10 @@
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from './base-simple.component';
+import { BaseSimpleDirective } from './base-simple.directive';
 import { Directive } from '@angular/core';
 
 @Directive()
-export class BaseWithoutDebounceComponent extends BaseSimpleComponent {
+export class BaseWithoutDebounceDirective extends BaseSimpleDirective {
 
   constructor(
     validationMessageService: ValidationMessageService

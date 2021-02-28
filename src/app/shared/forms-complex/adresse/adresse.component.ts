@@ -4,14 +4,14 @@ import { FormControl } from '@angular/forms';
 import { isoCountryCodes, isoCountrylibelle, typeAdresseCode } from 'src/app/constants';
 import { AdresseModel, PaysModel } from 'src/app/shared/models';
 
-import { BaseComplexComponent } from '../base-complex.component';
+import { BaseComplexDirective } from '../base-complex.directive';
 
 @Component({
   selector: 'blasacar-adresse',
   templateUrl: './adresse.component.html',
   styles: []
 })
-export class AdresseComponent extends BaseComplexComponent implements OnInit {
+export class AdresseComponent extends BaseComplexDirective implements OnInit {
 
   @Input() initialValue: AdresseModel;
   @Input() isAdresseRequired: boolean;

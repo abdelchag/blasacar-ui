@@ -5,14 +5,14 @@ import { configuration } from 'src/app/configuration';
 import { nounAndNumberPattern } from 'src/app/constants';
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-text-noun-number',
   templateUrl: './text-noun-number.component.html',
   styles: []
 })
-export class TextNounNumberComponent extends BaseSimpleComponent implements OnInit {
+export class TextNounNumberComponent extends BaseSimpleDirective implements OnInit {
 
   constructor(
     validationMessageService: ValidationMessageService

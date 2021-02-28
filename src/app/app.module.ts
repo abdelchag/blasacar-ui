@@ -9,7 +9,6 @@ import { AccountModule } from './account/account.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { SocialModule } from './social.module';
 import { CoreModule } from './core/core.module';
@@ -22,7 +21,6 @@ import { TravelModule } from './travel/travel.module';
   imports: [
     NgbPopoverModule,
     AccountModule,
-    LayoutModule,
     TravelModule,
     CoreModule,
     SharedModule,

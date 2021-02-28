@@ -2,14 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-textarea',
   templateUrl: './textarea.component.html',
   styles: []
 })
-export class TextareaComponent extends BaseSimpleComponent implements OnInit {
+export class TextareaComponent extends BaseSimpleDirective implements OnInit {
 
   @Input() autosizeMinRows = 2;
   @Input() autosizeMaxRows = 5;

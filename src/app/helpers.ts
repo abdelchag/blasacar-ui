@@ -178,12 +178,12 @@ export class Helpers {
   /*permet de convertir un code civilité en code de genre
   */
   static convertCiviliteCodeToGenreCode(civiliteCode: string): string {
-      switch (civiliteCode) {
-        case civilite.MONSIEUR:
-          return genre.MASCULIN;
-        case civilite.MADAME:
-          return genre.FEMININ;
-      }
+    switch (civiliteCode) {
+      case civilite.MONSIEUR:
+        return genre.MASCULIN;
+      case civilite.MADAME:
+        return genre.FEMININ;
+    }
   }
 
   static convertGenreCodeToCiviliteCode(genreCode: string): string {
@@ -369,8 +369,11 @@ export class Helpers {
     }
   }
 
-  static doShowNotification(information: InformationModel, contrats: ContratModel[],
-    currentURL: string, currentEntite: string): boolean {
+  static doShowNotification(
+    information: InformationModel,
+    contrats: ContratModel[],
+    currentURL: string,
+    currentEntite: string): boolean {
     const hasContratAFN = contrats.some(c => !c.isFromMigration);
     const hasContratMigre = contrats.some(c => c.isFromMigration);
     const hasContratSante = contrats.some(c => c.codeRisque === risque.SANTE);

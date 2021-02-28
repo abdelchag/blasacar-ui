@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
-import { Mask } from '../mask';
+import { MaskDirective } from '../mask.directive';
 
 const numberMask = createNumberMask({
   prefix: '',
@@ -19,7 +19,7 @@ const numberMask = createNumberMask({
     multi: true
   }]
 })
-export class NumberMaskComponent extends Mask {
+export class NumberMaskComponent extends MaskDirective {
 
   @Input()
   maxValue: number;

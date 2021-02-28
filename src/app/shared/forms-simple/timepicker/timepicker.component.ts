@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { ValidationMessageService } from 'src/app/core/services';
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-timepicker',
@@ -8,7 +8,7 @@ import { BaseSimpleComponent } from '../base-simple.component';
   styleUrls: ['./timepicker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimepickerComponent extends BaseSimpleComponent implements OnInit, OnChanges {
+export class TimepickerComponent extends BaseSimpleDirective implements OnInit, OnChanges {
 
   valueTP: Date;
 

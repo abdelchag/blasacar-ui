@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { configuration } from 'src/app/configuration';
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 import { DateValidator } from '../validators/date.validator';
 import { DateNaissanceValidator } from './date-naissance.validator';
 
@@ -12,7 +12,7 @@ import { DateNaissanceValidator } from './date-naissance.validator';
   templateUrl: './date-naissance.component.html',
   styles: []
 })
-export class DateNaissanceComponent extends BaseSimpleComponent implements OnInit {
+export class DateNaissanceComponent extends BaseSimpleDirective implements OnInit {
 
   constructor(
     validationMessageService: ValidationMessageService
@@ -23,6 +23,7 @@ export class DateNaissanceComponent extends BaseSimpleComponent implements OnIni
   ngOnInit(): void {
 
     if (this.validators) {
+      // tslint:disable-next-line
       this.validators.push(DateValidator.future);
       this.validators.push(DateNaissanceValidator.valid());
       this.addValidationMessages(configuration.validationMessages.date);

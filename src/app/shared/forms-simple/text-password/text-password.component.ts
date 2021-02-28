@@ -5,14 +5,14 @@ import { configuration } from 'src/app/configuration';
 import { nounPattern, passwordPattern } from 'src/app/constants';
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-password',
   templateUrl: './text-password.component.html',
   styles: []
 })
-export class TextPasswordComponent extends BaseSimpleComponent implements OnInit {
+export class TextPasswordComponent extends BaseSimpleDirective implements OnInit {
 
   constructor(
     validationMessageService: ValidationMessageService

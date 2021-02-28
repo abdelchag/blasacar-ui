@@ -2,7 +2,7 @@ import { Input, OnDestroy, OnInit, Directive } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Directive()
-export class BaseComplexComponent implements OnInit, OnDestroy {
+export class BaseComplexDirective implements OnInit, OnDestroy {
 
   @Input() disabled: boolean;
   @Input() controlName: string;

@@ -9,7 +9,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
 
 @Directive()
-export class BaseSimpleComponent implements OnInit, OnDestroy {
+export class BaseSimpleDirective implements OnInit, OnDestroy {
 
   private _required = new BehaviorSubject<boolean>(false);
 
@@ -96,6 +96,7 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
     const newvalidators = this.validators ? [...this.validators] : [];
 
     if (isRequired) {
+      // tslint:disable-next-line
       newvalidators.push(Validators.required);
 
       if (!this.validationMessages['required']) {

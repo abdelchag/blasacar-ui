@@ -3,16 +3,16 @@ import { AbstractControlOptions, FormControl } from '@angular/forms';
 
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-percentage',
   templateUrl: './percentage.component.html'
 })
-export class PercentageComponent extends BaseSimpleComponent implements OnInit {
+export class PercentageComponent extends BaseSimpleDirective implements OnInit {
   @Input() updateOn: AbstractControlOptions['updateOn'] = 'change';
 
-  mask = function(rawValue: { length: number; }): any {
+  mask = (rawValue: { length: number; }): any => {
     if (rawValue.length === 3) {
       return [/[1]/, /[0]/, /[0]/];
     } else if (rawValue.length === 2) {
@@ -20,7 +20,7 @@ export class PercentageComponent extends BaseSimpleComponent implements OnInit {
     } else {
       return [/\d/];
     }
-  };
+  }
 
   constructor(
     validationMessageService: ValidationMessageService

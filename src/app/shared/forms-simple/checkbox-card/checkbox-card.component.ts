@@ -2,13 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
+import { BaseWithoutDebounceDirective } from '../base-without-debounce.directive';
 
 @Component({
   selector: 'blasacar-checkbox-card',
   templateUrl: './checkbox-card.component.html'
 })
-export class CheckboxCardComponent extends BaseWithoutDebounceComponent implements OnInit {
+export class CheckboxCardComponent extends BaseWithoutDebounceDirective implements OnInit {
 
   @Input() description: string;
 

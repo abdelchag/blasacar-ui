@@ -1,16 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
+import { civilites } from 'src/app/constants';
+import { ToastNotificationService } from 'src/app/core/services';
+import { Helpers } from 'src/app/helpers';
+import { AdresseModel, ListItemModel } from 'src/app/shared/models';
+import { AccountManagementProxyService } from 'src/app/shared/proxy-services/account-management.proxy.service';
+import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 import { UserModel } from '../../models/user.model';
 import { MembreService } from '../services/membre.service';
 
-import { Helpers } from 'src/app/helpers';
-import { AdresseModel, ListItemModel } from 'src/app/shared/models';
-import { civilites } from 'src/app/constants';
-import { ToastNotificationService } from 'src/app/core/services';
-import { Router } from '@angular/router';
-import { finalize } from 'rxjs/operators';
-import { AccountManagementProxyService } from 'src/app/shared/proxy-services/account-management.proxy.service';
-import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 
 @Component({
   selector: 'blasacar-member-form',
@@ -114,7 +114,7 @@ export class MemberFormComponent implements OnInit {
       return;
     }
 
-    this.isBirthDateValid = this.stepBirthDate === true && !!this.userToAdd.birthDate;
+    this.isBirthDateValid = this.stepBirthDate && !!this.userToAdd.birthDate;
     if (this.stepBirthDate && !this.isBirthDateValid) {
       return;
     }
@@ -202,21 +202,21 @@ export class MemberFormComponent implements OnInit {
 
 
       this.accountManagementProxy
-      .saveMembre(this.userToAdd)
-      .pipe(
-        finalize(() => console.log(this.userToAdd))
-      )
-      .subscribe(
-        externalUserResponse => {
-          this.currentUserService.emitCurrentUser(externalUserResponse);
-          this.toastNotificationService.notify({
-            type: 'success',
-            message: 'votre inscription est validée'
-          });
-          this.router.navigate(['/']);
-        },
-        erreur => this.toastNotificationService.notifyHttpError(erreur)
-      );
+        .saveMembre(this.userToAdd)
+        .pipe(
+          finalize(() => console.log(this.userToAdd))
+        )
+        .subscribe(
+          externalUserResponse => {
+            this.currentUserService.emitCurrentUser(externalUserResponse);
+            this.toastNotificationService.notify({
+              type: 'success',
+              message: 'votre inscription est validée'
+            });
+            this.router.navigate(['/']);
+          },
+          erreur => this.toastNotificationService.notifyHttpError(erreur)
+        );
     }
   }
 }

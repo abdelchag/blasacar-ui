@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { Mask } from '../mask';
+import { MaskDirective } from '../mask.directive';
 
 @Component({
   selector: 'blasacar-date-mask',
@@ -12,7 +12,7 @@ import { Mask } from '../mask';
     multi: true
   }]
 })
-export class DateMaskComponent extends Mask {
+export class DateMaskComponent extends MaskDirective {
 
   textMaskConfig = {
     mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/],

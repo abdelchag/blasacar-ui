@@ -8,8 +8,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ArianeComponent } from './ariane/ariane.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 
+const exportImportComponents = [
+  ArianeComponent,
+  FooterComponent,
+  HeaderComponent,
+  MenuComponent
+]
 
 
 @NgModule({
@@ -20,14 +27,10 @@ import { MenuComponent } from './menu/menu.component';
     NgbModule
   ],
   declarations: [
-    ArianeComponent,
-    FooterComponent,
-    MenuComponent
+    ...exportImportComponents
   ],
   exports: [
-    ArianeComponent,
-    FooterComponent,
-    MenuComponent
+    ...exportImportComponents
   ]
 })
 export class LayoutModule { }

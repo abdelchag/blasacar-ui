@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { configuration } from 'src/app/configuration';
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 import { phoneValidator } from '../validators';
 
 @Component({
   selector: 'blasacar-phone',
   templateUrl: './phone.component.html'
 })
-export class PhoneComponent extends BaseSimpleComponent implements OnInit {
+export class PhoneComponent extends BaseSimpleDirective implements OnInit {
 
   constructor(
     validationMessageService: ValidationMessageService

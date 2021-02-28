@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { defineLocale, frLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ValidationMessageService } from 'src/app/core/services';
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-datepicker-form',
@@ -11,7 +11,7 @@ import { BaseSimpleComponent } from '../base-simple.component';
   styleUrls: ['./datepicker-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DatepickerFormComponent extends BaseSimpleComponent implements OnInit {
+export class DatepickerFormComponent extends BaseSimpleDirective implements OnInit {
 
   @Input()
   placeholder = '';

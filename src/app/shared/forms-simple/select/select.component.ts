@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ValidationMessageService } from 'src/app/core/services';
 
 import { ListItemModel } from '../../models';
-import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
+import { BaseWithoutDebounceDirective } from '../base-without-debounce.directive';
 
 @Component({
   selector: 'blasacar-select',
@@ -11,7 +11,7 @@ import { BaseWithoutDebounceComponent } from '../base-without-debounce.component
   styles: []
 })
 
-export class SelectComponent extends BaseWithoutDebounceComponent implements OnInit {
+export class SelectComponent extends BaseWithoutDebounceDirective implements OnInit {
 
   @Input() options: any[] | ListItemModel[];
 

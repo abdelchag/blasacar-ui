@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
+import { BaseWithoutDebounceDirective } from '../base-without-debounce.directive';
 
 @Component({
   selector: 'blasacar-toggle-button',
   templateUrl: './toggle-button.component.html',
   styles: []
 })
-export class ToggleButtonComponent extends BaseWithoutDebounceComponent implements OnInit {
+export class ToggleButtonComponent extends BaseWithoutDebounceDirective implements OnInit {
 
   set disabled(disabled: boolean) {
     if (disabled) {

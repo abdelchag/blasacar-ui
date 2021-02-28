@@ -2,7 +2,7 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { AfterViewInit, Directive } from '@angular/core';
 
 @Directive()
-export abstract class Mask implements ControlValueAccessor, AfterViewInit {
+export abstract class MaskDirective implements ControlValueAccessor, AfterViewInit {
 
   control = new FormControl();
   onChange = (phone: any) => { };

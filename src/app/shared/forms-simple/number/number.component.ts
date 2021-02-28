@@ -5,13 +5,13 @@ import { configuration } from 'src/app/configuration';
 import { ValidationMessageService } from 'src/app/core/services';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
   selector: 'blasacar-number',
   templateUrl: './number.component.html'
 })
-export class NumberComponent extends BaseSimpleComponent implements OnInit {
+export class NumberComponent extends BaseSimpleDirective implements OnInit {
 
   @Input()
   maxValue: number;

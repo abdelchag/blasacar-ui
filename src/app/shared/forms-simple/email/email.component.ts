@@ -4,7 +4,7 @@ import { Validators } from '@angular/forms';
 import { configuration } from 'src/app/configuration';
 import { ValidationMessageService } from 'src/app/core/services';
 
-import { BaseSimpleComponent } from '../base-simple.component';
+import { BaseSimpleDirective } from '../base-simple.directive';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -13,7 +13,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
   templateUrl: './email.component.html',
   styles: []
 })
-export class EmailComponent extends BaseSimpleComponent implements OnInit {
+export class EmailComponent extends BaseSimpleDirective implements OnInit {
 
   constructor(
     validationMessageService: ValidationMessageService
@@ -23,6 +23,7 @@ export class EmailComponent extends BaseSimpleComponent implements OnInit {
 
   ngOnInit(): void {
     this.validationMessages = configuration.validationMessages.email;
+    // tslint:disable-next-line
     this.validators.push(Validators.email);
 
     super.ngOnInit();
