@@ -19,10 +19,8 @@ export class PhoneComponent extends BaseSimpleDirective implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.validators.push(phoneValidator());
     this.validationMessages.pattern = configuration.validationMessages.telephone.pattern;
-
     super.ngOnInit();
 
   }

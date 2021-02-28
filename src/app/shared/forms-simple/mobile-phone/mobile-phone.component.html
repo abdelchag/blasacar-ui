@@ -3,6 +3,6 @@
     {{label}}
     <span *ngIf="!required"> (facultatif)</span>
   </label>
-  <app-phone-mask [formControl]="formControl"></app-phone-mask>
+  <blasacar-phone-mask [formControl]="formControl"></blasacar-phone-mask>
   <span class="error-block" *ngIf="error && (formControl.dirty || formControl.touched)">{{error}}</span>
 </div>
