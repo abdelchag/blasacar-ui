@@ -21,12 +21,19 @@ export class MemberFormComponent implements OnInit {
 
   formGroup: FormGroup;
   user: UserModel;
-  step = 0;
+  step: number;
   form: FormGroup;
   civilites: ListItemModel[] = [];
   userToAdd: UserModel = new UserModel();
   labelBtn: string;
   isBirthDateValid = true;
+  stepNomPrenom = false;
+  stepBirthDate = false;
+  stepEmail = true;
+  stepTelephone = false;
+  stepAdresse = false;
+  stepGender = false;
+  stepPassword = false;
 
   constructor(
     private readonly membreService: MembreService,
@@ -37,78 +44,11 @@ export class MemberFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.formGroup = new FormGroup({
-      lastName: new FormControl(''),
-      firstName: new FormControl(''),
-      gender: new FormControl(''),
-      birthDate: new FormControl(''),
-      telephone: new FormControl(''),
-      address: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-    });
+
     this.form = new FormGroup({});
     this.civilites = civilites;
     this.labelBtn = 'Suivant';
-  }
-
-  get disableSubmit() {
-
-    if (this.step === 0 && this.formControlEmail.invalid) {
-      return true;
-    }
-
-    if (this.step === 2 && this.formControlDateNaissance.invalid ) {
-      return true;
-    }
-
-    if (this.step === 3 && this.formControlTelephone.invalid ) {
-      return true;
-    }
-
-    if (this.step === 4 && this.formControlAdresse.invalid ) {
-      return true;
-    }
-
-    if (this.step === 6 && this.formControlmotDePasse.invalid ) {
-      return true;
-    }
-    if (this.step === 1 && (this.formControlNom.invalid || this.formControlPrenom.invalid)) {
-      return true;
-    }
-    return false;
-  }
-
-  get formControlEmail() {
-    return this.form.get('email');
-  }
-
-  get formControlNom() {
-    return this.form.get('lastName');
-  }
-
-  get formControlPrenom() {
-    return this.form.get('firstName');
-  }
-
-  get formControlDateNaissance() {
-    return this.form.get('birthDate');
-  }
-
-  get formControlTelephone() {
-    return this.form.get('telephone');
-  }
-
-  get formControlAdresse() {
-    return this.form.get('address');
-  }
-
-  get formControlmotDePasse() {
-    return this.form.get('password');
-  }
-
-  get formControlGender() {
-    return this.form.get('gender');
+    this.step = 0;
   }
 
   putBirthDate(birthDate: Date): void {
@@ -117,40 +57,124 @@ export class MemberFormComponent implements OnInit {
   }
 
   retour(): void {
-    console.log(this.step);
-    this.step = this.step - 1;
-    console.log(this.step);
+
+    if (this.stepNomPrenom) {
+      this.disableForm();
+      this.stepEmail = true;
+      return;
+    }
+
+    if (this.stepBirthDate) {
+      this.disableForm();
+      this.stepNomPrenom = true;
+      return;
+    }
+
+    if (this.stepTelephone) {
+      // this.disableForm();
+      this.stepBirthDate = true;
+      return;
+    }
+
+    if (this.stepAdresse) {
+      this.disableForm();
+      this.stepTelephone = true;
+      return;
+    }
+
+    if (this.stepGender) {
+      this.disableForm();
+      this.stepAdresse = true;
+      return;
+    }
+
+    if (this.stepPassword) {
+      this.disableForm();
+      this.stepGender = true;
+      return;
+    }
+  }
+
+  disableForm(): void {
+    this.stepNomPrenom = false;
+    this.stepBirthDate = false;
+    this.stepEmail = false;
+
+    this.stepTelephone = false;
+    this.stepAdresse = false;
+    this.stepGender = false;
+    this.stepPassword = false;
+
   }
 
   submit(): void {
-
-
 
     if (this.form.invalid) {
       Helpers.showErrors(this.form);
       return;
     }
 
-      this.isBirthDateValid = this.step === 2 && !!this.userToAdd.birthDate;
-    if(this.step === 2 && !this.isBirthDateValid){
+    this.isBirthDateValid = this.stepBirthDate === true && !!this.userToAdd.birthDate;
+    if (this.stepBirthDate && !this.isBirthDateValid) {
       return;
     }
 
-    this.step++;
+    // this.step++;
+
+    if (this.stepEmail) {
+      this.disableForm();
+      this.stepNomPrenom = true;
+      return;
+    }
+    if (this.stepNomPrenom) {
+
+      this.disableForm();
+      this.stepBirthDate = true;
+      return;
+    }
+
+    if (this.stepBirthDate) {
+      this.disableForm();
+      this.stepTelephone = true;
+      return;
+    }
+
+    if (this.stepTelephone) {
+
+      this.disableForm();
+      this.stepAdresse = true;
+      return;
+    }
+
+    if (this.stepAdresse) {
+
+      this.disableForm();
+      this.stepGender = true;
+      return;
+    }
+
+    if (this.stepGender) {
+
+      this.disableForm();
+      this.stepPassword = true;
+      return;
+    }
 
     switch (this.step) {
       case 1:
         this.userToAdd.email = this.form.value.email;
+        this.stepNomPrenom = true;
         break;
       case 2:
         this.userToAdd.firstName = this.form.value.firstName;
         this.userToAdd.lastName = this.form.value.lastName;
+        this.stepBirthDate = true;
         break;
       case 4:
         this.userToAdd.telephone = this.form.value.telephone;
         break;
       case 5:
-        let adressePrincipale: AdresseModel = new AdresseModel();
+        const adressePrincipale: AdresseModel = new AdresseModel();
 
         Object.assign(adressePrincipale, this.form.value.adresse);
         this.userToAdd.address = adressePrincipale.adresse;
@@ -165,8 +189,6 @@ export class MemberFormComponent implements OnInit {
         break;
 
     }
-
-
 
     if (this.step === 6) {
       this.labelBtn = 'Terminer l\'inscription';
@@ -196,8 +218,5 @@ export class MemberFormComponent implements OnInit {
         erreur => this.toastNotificationService.notifyHttpError(erreur)
       );
     }
-
-
   }
-
 }

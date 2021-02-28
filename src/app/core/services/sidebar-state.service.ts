@@ -15,7 +15,7 @@ export class SidebarStateService {
     return this._currentContrat.asObservable();
   }
 
-  setCurrentContrat(currentContrat: ContratModel) {
+  setCurrentContrat(currentContrat: ContratModel): void {
     this.contratModel = currentContrat;
     this._currentContrat.next(currentContrat);
 

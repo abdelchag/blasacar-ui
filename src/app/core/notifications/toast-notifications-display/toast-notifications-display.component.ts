@@ -4,7 +4,7 @@ import { globalError } from 'src/app/global-error-constants';
 import { ToastNotificationModel } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-toast-notifications-display',
+  selector: 'blasacar-toast-notifications-display',
   templateUrl: './toast-notifications-display.component.html',
   styles: []
 })
@@ -13,7 +13,7 @@ export class ToastNotificationDisplayComponent {
   @Input() notification: ToastNotificationModel;
   @Output() notifyParent = new EventEmitter<boolean>(true);
 
-  get message() {
+  get message(): any {
     let message = globalError[this.notification.code];
     if (!message) {
       message = this.notification.message;

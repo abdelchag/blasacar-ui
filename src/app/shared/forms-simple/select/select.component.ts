@@ -6,7 +6,7 @@ import { ListItemModel } from '../../models';
 import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
 
 @Component({
-  selector: 'app-select',
+  selector: 'blasacar-select',
   templateUrl: './select.component.html',
   styles: []
 })
@@ -21,7 +21,7 @@ export class SelectComponent extends BaseWithoutDebounceComponent implements OnI
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     super.ngOnInit();
   }
 

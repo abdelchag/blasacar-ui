@@ -23,7 +23,7 @@ export class DialogComponent implements OnInit {
     this.isSuccess = this.typeDialog === typeDialog.SUCCESS;
   }
 
-  close() {
+  close(): void {
     this.activeModal.close();
   }
 

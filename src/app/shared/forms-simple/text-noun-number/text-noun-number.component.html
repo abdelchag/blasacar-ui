@@ -2,8 +2,8 @@
   <label>
     {{ label }}
     <span *ngIf="!required"> (facultatif)</span>
-    <app-icon *ngIf="popoverContent" klass="icon icon-small icon-info icon-popover" name="infos"
-      [ngbPopover]="popoverContent" triggers="click hover"></app-icon>
+    <blasacar-icon *ngIf="popoverContent" klass="icon icon-small icon-info icon-popover" name="infos"
+      [ngbPopover]="popoverContent" triggers="click hover"></blasacar-icon>
   </label>
   <input type="text" class="form-control" [formControl]="formControl" [required]="required">
   <span class="error-block" *ngIf="error && formControl.touched">{{ error }}</span>

@@ -22,7 +22,7 @@ export class MenuService {
     this.isMenuDisabled.next(value);
   }
 
-  notify(value: MenuItemModel[]) {
+  notify(value: MenuItemModel[]): void {
     this.menuItems.next(value);
   }
 

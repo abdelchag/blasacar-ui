@@ -7,7 +7,7 @@ import { ToastNotificationService } from 'src/app/core/services';
 import { ToastNotificationModel } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-toast-notifications',
+  selector: 'blasacar-toast-notifications',
   templateUrl: './toast-notifications.component.html',
   styles: []
 })
@@ -20,7 +20,7 @@ export class ToastNotificationComponent implements OnInit, OnDestroy {
 
   constructor(private toastNotificationService: ToastNotificationService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.toastNotificationService.notification$
       .subscribe(notification => {
 
@@ -41,11 +41,11 @@ export class ToastNotificationComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  delete(error: ToastNotificationModel) {
+  delete(error: ToastNotificationModel): void {
     this.notifications = this.notifications.filter(o => o !== error);
   }
 

@@ -1,8 +1,6 @@
 export * from './adhesion-tns.model';
-export * from './adhesion.model';
 export * from './adresse.model';
 export * from './affiliation-tns.model';
-export * from './affiliation.model';
 export * from './affilie-criteria.model';
 export * from './apporteur-position.model';
 export * from './apporteur.model';
@@ -55,7 +53,6 @@ export * from './personne-search.model';
 export * from './personne.model';
 export * from './piece-dossier.model';
 export * from './prelevement-form.model';
-export * from './prime-contrat.model';
 export * from './prime.model';
 export * from './profil.model';
 export * from './projet.model';

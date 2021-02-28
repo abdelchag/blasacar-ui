@@ -2,45 +2,30 @@
   [required]="isPaysRequired" (valueChanged)="paysChanges(pays.value)">
 </app-pays> -->
 
-<app-text [formGroup]="formGroup" controlName="adresse" [initialValue]="initialValue?.adresse"
+<blasacar-text [formGroup]="formGroup" controlName="adresse" [initialValue]="initialValue?.adresse"
   label="Numéro et nom de la voie" [required]="isAdresseRequired" [disabled]="disabled" [nbrMaxCaractere]="38"
   [toUpperNormalize]="true">
-</app-text>
+</blasacar-text>
 
 <div class="row">
   <div class="col-md-6">
-    <app-text [formGroup]="formGroup" controlName="complementAdresse1" [initialValue]="initialValue?.complementAdresse1"
+    <blasacar-text [formGroup]="formGroup" controlName="complementAdresse1" [initialValue]="initialValue?.complementAdresse1"
       label="Complément d'adresse 1" [required]="isComplementAdresse1Required" [disabled]="disabled"
-      [toUpperNormalize]="true"></app-text>
+      [toUpperNormalize]="true"></blasacar-text>
   </div>
   <div class="col-md-6">
-    <app-text [formGroup]="formGroup" controlName="complementAdresse2" [initialValue]="initialValue?.complementAdresse2"
+    <blasacar-text [formGroup]="formGroup" controlName="complementAdresse2" [initialValue]="initialValue?.complementAdresse2"
       label="Complément d'adresse 2" [required]="isComplementAdresse2Required" [disabled]="disabled"
-      [toUpperNormalize]="true"></app-text>
+      [toUpperNormalize]="true"></blasacar-text>
   </div>
 </div>
 
 <div class="row">
 
   <div class="col-md-6">
-    <app-text [formGroup]="formGroup" controlName="lieuDit" [initialValue]="initialValue?.lieuDit" label="Lieu-dit"
+    <blasacar-text [formGroup]="formGroup" controlName="lieuDit" [initialValue]="initialValue?.lieuDit" label="Lieu-dit"
       [disabled]="!isFrenchAdress" [required]="isLieuDitRequired" [toUpperNormalize]="true">
-    </app-text>
-  </div>
-
-  <div class="col-md-6">
-
-    <app-cp-ville [formGroup]="formGroup" controlName="codePostalVille" [initialValue]="initialValue?.codePostalVille"
-      label="Code postal, ville"  [inputReadonly]="disabled || disableCodePostalVille"
-      [disableCodePostalVille]="disableCodePostalVille" [hidden]="!isFrenchAdress">
-    </app-cp-ville>
-
-    <!-- <app-text-noun-number [formGroup]="formGroup" controlName="codePostalVilleAdresseEtrangere"
-      label="Code postal, ville" [required]="!isFrenchAdress"
-      [initialValue]="initialValue?.codePostalVilleAdresseEtrangere" [hidden]="isFrenchAdress"
-      popoverContent="Les caractères spéciaux autorisés sont : le tiret, l'apostrophe, l'espace et le point.">
-    </app-text-noun-number> -->
-
+    </blasacar-text>
   </div>
 
 </div>

@@ -10,9 +10,9 @@ export class ContratInscriptionDateValidator {
         const date = new Date(control.value);
 
         if (date < dateEntree) {
-          return { 'lowerThenDateEntree': true };
+          return { lowerThenDateEntree: true };
         } else if (date < currentDate) {
-          return { 'lowerThenCurrentDate': true };
+          return { lowerThenCurrentDate: true };
         }
 
         return null;

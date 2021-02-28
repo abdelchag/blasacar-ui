@@ -3,6 +3,6 @@
     {{ label }}
     <span *ngIf="!required"> (facultatif)</span>
   </label>
-  <app-number-mask [maxValue]="maxValue" [formControl]="formControl"></app-number-mask>
+  <blasacar-number-mask [maxValue]="maxValue" [minValue]="minValue" [formControl]="formControl"></blasacar-number-mask>
   <span class="error-block" *ngIf="hadError">{{ error }}</span>
 </div>

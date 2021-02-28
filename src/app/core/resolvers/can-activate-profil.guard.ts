@@ -27,10 +27,6 @@ export class CanActivateProfil implements CanActivate {
         .getProfil(grcId)
         .pipe(
           tap(profil => {
-
-
-            
-
           }),
           mapTo(true)
         );

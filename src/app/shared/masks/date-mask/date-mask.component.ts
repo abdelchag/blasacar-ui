@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Mask } from '../mask';
 
 @Component({
-  selector: 'app-date-mask',
+  selector: 'blasacar-date-mask',
   templateUrl: './date-mask.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -19,11 +19,11 @@ export class DateMaskComponent extends Mask {
     guide: false
   };
 
-  transformValueOnWrite(value: any) {
+  transformValueOnWrite(value: any): void {
     return value;
   }
 
-  transformValueOnChanges(value: any) {
+  transformValueOnChanges(value: any): void {
     return value;
   }
 

@@ -20,16 +20,16 @@
                         <div class="justify-content-md-center col-sm-6">
                             <ng-container [ngSwitch]="currentStep.element.code">
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_CITY">
-                                    <app-text [formGroup]="form" controlName="departureCity"
+                                    <blasacar-text [formGroup]="form" controlName="departureCity"
                                         [initialValue]="travel.departureCity" [required]="true"
                                         (valueChanged)="departureCityChanged($event)">
-                                    </app-text>
+                                    </blasacar-text>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.ARRIVAL_CITY">
-                                    <app-text [formGroup]="form" controlName="arrivalCity"
+                                    <blasacar-text [formGroup]="form" controlName="arrivalCity"
                                         [initialValue]="travel.arrivalCity" [required]="true"
                                         (valueChanged)="arrivalCityChanged($event)">
-                                    </app-text>
+                                    </blasacar-text>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_DATE">
                                     <blasacar-datepicker-form [formGroup]="form" controlName="departureDate"
@@ -42,25 +42,26 @@
                                     </blasacar-timepicker>
                                 </div>-->
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.NUMBER_PLACE">
-                                    <app-number [formGroup]="form" controlName="numberPlace"
+                                    <blasacar-number [formGroup]="form" controlName="numberPlace"
                                         [initialValue]="travel.numberPlace" [maxValue]="4" [minValue]="1"
-                                        [required]="true" (valueChanged)="numberPlaceChanged($event)"></app-number>
+                                        [required]="true" (valueChanged)="numberPlaceChanged($event)"></blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.AUTOMATIQUE_ACCEPTANCE">
-                                    <app-radio [formGroup]="form" controlName="numberPlace"
+                                    <blasacar-radio [formGroup]="form" controlName="numberPlace"
                                         [initialValue]="travel.automatiqueAcceptance"
                                         [options]="automatiqueAcceptanceOptions" [required]="true"
                                         (valueChanged)="automatiqueAcceptanceChanged($event)">
-                                    </app-radio>
+                                    </blasacar-radio>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PRICE">
-                                    <app-number [formGroup]="form" controlName="price" [initialValue]="travel.price"
-                                        [required]="true" (valueChanged)="priceChanged($event)"></app-number>
+                                    <blasacar-number [formGroup]="form" controlName="price"
+                                        [initialValue]="travel.price" [required]="true"
+                                        (valueChanged)="priceChanged($event)"></blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PHONE_NUMBER">
-                                    <app-phone [formGroup]="form" controlName="phoneNumber"
+                                    <blasacar-phone [formGroup]="form" controlName="phoneNumber"
                                         [initialValue]="travel.phoneNumber" [required]="true"
-                                        (valueChanged)="phoneNumberChanged($event)"></app-phone>
+                                        (valueChanged)="phoneNumberChanged($event)"></blasacar-phone>
                                 </div>
                             </ng-container>
                         </div>

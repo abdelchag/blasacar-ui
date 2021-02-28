@@ -2,13 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { DialogService } from './dialog.service';
-import { ExcelService } from './excel.service';
-import { FaqService } from './faq.service';
 import { MenuService } from './menu.service';
-import { ParametrageService } from './parametrage.service';
-import { PersonneService } from './personne.service';
 import { SidebarStateService } from './sidebar-state.service';
-import { SignatureService } from './signature.service';
 import { TnsService } from './tns.service';
 import { ToastNotificationService } from './toast-notification.service';
 import { UtilisateurService } from './utilisateur.service';
@@ -29,13 +24,8 @@ export class ServicesModule {
       ngModule: ServicesModule,
       providers: [
         DialogService,
-        ExcelService,
-        FaqService,
         MenuService,
-        ParametrageService,
-        PersonneService,
         SidebarStateService,
-        SignatureService,
         TnsService,
         ToastNotificationService,
         UtilisateurService,

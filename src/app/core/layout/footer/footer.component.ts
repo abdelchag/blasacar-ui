@@ -7,7 +7,7 @@ import { footerLinksByReseaux } from './footer-constants';
 
 
 @Component({
-  selector: 'app-footer',
+  selector: 'blasacar-footer',
   templateUrl: './footer.component.html',
   styles: []
 })
@@ -15,7 +15,7 @@ export class FooterComponent {
 
   constructor() { }
 
-  get footerLinks$() {
+  get footerLinks$(): any {
 
     return null;
 

@@ -5,7 +5,7 @@ import { merge, Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
 import { profil } from 'src/app/constants';
-import { PersonneService, ToastNotificationService, UtilisateurService } from 'src/app/core/services';
+import { ToastNotificationService, UtilisateurService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
 import { ApporteurPositionModel, UtilisateurModel } from 'src/app/shared/models';
 
@@ -19,7 +19,6 @@ export class PageNotFoundGuard implements CanActivate, OnDestroy {
   utilisateur: UtilisateurModel;
 
   constructor(
-    private personneService: PersonneService,
     private router: Router,
     private toastNotificationService: ToastNotificationService,
     private utilisateurService: UtilisateurService

@@ -3,7 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'blasacar-modal',
   template: ''
 })
 export class ModalComponent {

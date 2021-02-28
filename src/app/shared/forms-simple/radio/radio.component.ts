@@ -6,7 +6,7 @@ import { ListItemModel } from 'src/app/shared/models';
 import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
 
 @Component({
-  selector: 'app-radio',
+  selector: 'blasacar-radio',
   templateUrl: './radio.component.html'
 })
 export class RadioComponent extends BaseWithoutDebounceComponent implements OnInit {
@@ -22,7 +22,7 @@ export class RadioComponent extends BaseWithoutDebounceComponent implements OnIn
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     super.ngOnInit();
   }
 }

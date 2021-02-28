@@ -34,7 +34,8 @@ export class ToastNotificationService {
     } else if (httpErrorResponse.status === httpErrorCode.NotFound) {
       this.notify({ code: '', message: globalError.NOT_FOUND, type: notificationType.Error });
     } else {
-      this.notify({ code: '', message: httpErrorResponse.message, type: notificationType.Error, listMessages: httpErrorResponse.error !== undefined ? httpErrorResponse.error.listMessages : null });
+      this.notify({ code: '', message: httpErrorResponse.message, type: notificationType.Error,
+      listMessages: httpErrorResponse.error !== undefined ? httpErrorResponse.error.listMessages : null });
     }
   }
 

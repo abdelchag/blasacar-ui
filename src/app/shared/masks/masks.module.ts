@@ -4,13 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 
 import { DateMaskComponent } from './date-mask/date-mask.component';
-import { IbanMaskComponent } from './iban-mask/iban-mask.component';
 import { NumberMaskComponent } from './number-mask/number-mask.component';
 import { PhoneMaskComponent } from './phone-mask/phone-mask.component';
 
 const components = [
   DateMaskComponent,
-  IbanMaskComponent,
   PhoneMaskComponent,
   NumberMaskComponent
 ];

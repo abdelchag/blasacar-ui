@@ -8,7 +8,7 @@ import { BlasaUtils } from 'src/utils/blasa-utils';
 import { BaseSimpleComponent } from '../base-simple.component';
 
 @Component({
-  selector: 'app-number',
+  selector: 'blasacar-number',
   templateUrl: './number.component.html'
 })
 export class NumberComponent extends BaseSimpleComponent implements OnInit {

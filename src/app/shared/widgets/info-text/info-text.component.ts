@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-info-text',
+  selector: 'blasacar-info-text',
   templateUrl: './info-text.component.html',
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -29,7 +29,7 @@ import {
 
 export class Helpers {
 
-  static showErrors(formGroup: FormGroup) {
+  static showErrors(formGroup: FormGroup): void {
     // TODO Yannick Utiliser formGroug.markAllAsTouched() après la migration vers Angular 10
     this.markAllAsTouched(formGroup);
 
@@ -38,7 +38,7 @@ export class Helpers {
     }, 100);
   }
 
-  static markAllAsTouched(control: AbstractControl) {
+  static markAllAsTouched(control: AbstractControl): void {
     control.markAsTouched({ onlySelf: true });
     control.updateValueAndValidity({ onlySelf: true, emitEvent: true });
 
@@ -56,7 +56,7 @@ export class Helpers {
 
   }
 
-  static scrollToFirstError() {
+  static scrollToFirstError(): void {
     // TODO : JEDE 18/06/2020 - Prendre en compte les champs avec masque de saisie
     const firstElementWithError = document.querySelector('input.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid, select.ng-touched.ng-invalid');
     if (firstElementWithError) {
@@ -214,7 +214,7 @@ export class Helpers {
     }
   }
 
-  static isAuthorizedProfile(profilTypeCode: string) {
+  static isAuthorizedProfile(profilTypeCode: string): boolean {
     return profilTypeCode === profil.ENTREPRISE || profilTypeCode === profil.TNS
       || profilTypeCode === profil.SALARIE || profilTypeCode === profil.APPORTEUR
       || profilTypeCode === profil.AYANTDROIT;
@@ -305,36 +305,8 @@ export class Helpers {
 
   }
 
-  static reloadPage() {
+  static reloadPage(): void {
     window.location.href = `/?c=${Date.now()}`;
-  }
-
-  static hasAyantDroitDateRadiationValide(ayantDroit: AyantDroitModel): boolean {
-
-    if (!Boolean(ayantDroit.dateRadiation)) {
-      return false;
-    }
-
-    const dateRadiation = moment(ayantDroit.dateRadiation, 'DD/MM/YYYY', true);
-    if (!dateRadiation.isValid) {
-      return false;
-    }
-
-    // Quand on envoie 01/01/n+1 dans dateSortieProgramme, Cleva retourne 31/12/n*, d'où le double test
-    const isEnfant = ayantDroit.qualite === ayantDroitQualite.ENFANT;
-    const isStartOfYear = dateRadiation.format('DD/MM') === '01/01';
-    const isEndOfYear = dateRadiation.format('DD/MM') === '31/12';
-
-    if (isEnfant && (isStartOfYear || isEndOfYear)) {
-      return moment().isSameOrAfter(dateRadiation.clone().subtract(1, 'month'));
-    }
-
-    return true;
-  }
-
-  static hasAyantDroitSortieProgrammee(ayantDroit: AyantDroitModel): boolean {
-    return Helpers.hasAyantDroitDateRadiationValide(ayantDroit)
-      && (ayantDroit.statut === ayantDroitStatut.EstAjouteAuContrat || ayantDroit.statut === ayantDroitStatut.EstAjouteAuContratSansPj);
   }
 
   static hasAyantDroitSortieDemandee(ayantDroit: AyantDroitModel): boolean {
@@ -347,7 +319,7 @@ export class Helpers {
       || Helpers.compareDate(moment(a.dateCreation, 'DD/MM/YYYY', true), moment(b.dateCreation, 'DD/MM/YYYY', true));
   }
 
-  static compareDate(a: moment.Moment, b: moment.Moment) {
+  static compareDate(a: moment.Moment, b: moment.Moment): number {
     if (a.isAfter(b)) {
       return -1;
     }
@@ -367,7 +339,7 @@ export class Helpers {
     });
   }
 
-  static sortAyantDroit(a: AyantDroitModel, b: AyantDroitModel) {
+  static sortAyantDroit(a: AyantDroitModel, b: AyantDroitModel): number {
     if (a.qualite === ayantDroitQualite.CONJOINT) {
       return -1;
     }
@@ -397,7 +369,8 @@ export class Helpers {
     }
   }
 
-  static doShowNotification(information: InformationModel, contrats: ContratModel[], currentURL: string, currentEntite: string): boolean {
+  static doShowNotification(information: InformationModel, contrats: ContratModel[],
+    currentURL: string, currentEntite: string): boolean {
     const hasContratAFN = contrats.some(c => !c.isFromMigration);
     const hasContratMigre = contrats.some(c => c.isFromMigration);
     const hasContratSante = contrats.some(c => c.codeRisque === risque.SANTE);
@@ -441,7 +414,7 @@ export class Helpers {
     return total;
   }
 
-  static getRegroupementTauxItem(code: string) {
+  static getRegroupementTauxItem(code: string): any {
     return regroupementTauxItems
       .find(item => item.code === code);
   }
@@ -478,19 +451,19 @@ export class Helpers {
   }
 }
 
-export function isConjoint(qualite: string) {
+export function isConjoint(qualite: string): boolean {
   return qualite.toUpperCase() === ayantDroitQualite.CONJOINT;
 }
 
-export function isEnfant(qualite: string) {
+export function isEnfant(qualite: string): boolean {
   return qualite.toUpperCase() === ayantDroitQualite.ENFANT;
 }
 
-export function frenchDateToISO(date: string) {
+export function frenchDateToISO(date: string): string {
   return moment(date, 'DD/MM/YYYY', true).toISOString();
 }
 
-export function isOffreDediee(contrat: ContratModel) {
+export function isOffreDediee(contrat: ContratModel): boolean {
   return contrat.description && contrat.codeProduit.includes('CCN');
 }
 

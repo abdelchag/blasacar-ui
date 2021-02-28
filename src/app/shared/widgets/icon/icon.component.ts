@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'blasacar-icon',
   templateUrl: './icon.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -10,7 +10,7 @@ export class IconComponent {
   @Input() klass: string;
   @Input() name: string;
 
-  get src() {
+  get src(): string {
     return this.name ? `assets/images/icons/${this.name}.svg` : null;
   }
 

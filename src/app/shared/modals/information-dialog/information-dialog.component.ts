@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-information-dialog',
+  selector: 'blasacar-information-dialog',
   templateUrl: './information-dialog.component.html',
   styles: []
 })
@@ -12,7 +12,7 @@ export class InformationDialogComponent {
   constructor(public activeModal: NgbActiveModal) {
   }
 
-  close() {
+  close(): void {
     this.activeModal.close();
   }
 

@@ -5,7 +5,7 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseWithoutDebounceComponent } from '../base-without-debounce.component';
 
 @Component({
-  selector: 'app-checkbox',
+  selector: 'blasacar-checkbox',
   templateUrl: './checkbox.component.html',
   styles: []
 })
@@ -19,7 +19,7 @@ export class CheckboxComponent extends BaseWithoutDebounceComponent implements O
     super(validationMessageService);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     super.ngOnInit();
   }
 

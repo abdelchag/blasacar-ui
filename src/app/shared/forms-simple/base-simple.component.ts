@@ -44,9 +44,9 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
 
   @Input()
   set required(value) { this._required.next(value); }
-  get required() { return this._required.getValue(); }
+  get required(): boolean { return this._required.getValue(); }
 
-  get value() { return this.formControl ? this.formControl.value : null; }
+  get value(): any { return this.formControl ? this.formControl.value : null; }
 
   @Output() valueChanged = new EventEmitter<string>();
 
@@ -54,7 +54,7 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
     private _validationMessageService: ValidationMessageService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formGroup.setControl(this.controlName, this.formControl);
 
     this.subscriptions.push(
@@ -91,7 +91,7 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
     return this.error && (this.formControl.dirty || this.formControl.touched);
   }
 
-  protected updateValidator(isRequired: boolean) {
+  protected updateValidator(isRequired: boolean): void {
 
     const newvalidators = this.validators ? [...this.validators] : [];
 
@@ -115,7 +115,7 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
     return null;
   }
 
-  protected configureConvertToUpper() {
+  protected configureConvertToUpper(): void {
     const subscriptionErrorMessage = this.formControl.valueChanges.pipe(
       debounceTime(this.debounceTime))
       .subscribe(value => {
@@ -128,7 +128,7 @@ export class BaseSimpleComponent implements OnInit, OnDestroy {
     this.subscriptions.push(subscriptionErrorMessage);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.formGroup.removeControl(this.controlName);
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }

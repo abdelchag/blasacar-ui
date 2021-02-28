@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-page-unavailable',
+  selector: 'blasacar-page-unavailable',
   templateUrl: './page-unavailable.component.html',
   styles: []
 })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-box-loader',
+  selector: 'blasacar-box-loader',
   templateUrl: './box-loader.component.html',
   styles: []
 })

@@ -4,12 +4,10 @@ import { NgModule } from '@angular/core';
 import { AffilieTypePipe } from './affilie-type.pipe';
 import { AgePipe } from './age.pipe';
 import { CivilitePipe } from './civilite.pipe';
-import { ClauseBeneficiairePipe } from './clause-beneficiaire.pipe';
 import { CollegePipe } from './college.pipe';
 import { ContratLabelPipe } from './contrat-label.pipe';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
 import { DateFrenchPipe } from './date-french.pipe';
-import { EtatPaimentPipe } from './etat-paiement.pipe';
 import { FileSizePipe } from './file-size.pipe';
 import { FormulePipe } from './formule.pipe';
 import { GenrePipe } from './genre.pipe';
@@ -37,7 +35,6 @@ const pipes = [
   AffilieTypePipe,
   AgePipe,
   CivilitePipe,
-  ClauseBeneficiairePipe,
   CollegePipe,
   ContratLabelPipe,
   CurrencyEuroPipe,
@@ -64,8 +61,7 @@ const pipes = [
   SiretPipe,
   SituationFamilialePipe,
   StatutAyantDroitPipe,
-  TeletransmissionPipe,
-  EtatPaimentPipe
+  TeletransmissionPipe
 ];
 
 @NgModule({

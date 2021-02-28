@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-base-modal',
+  selector: 'blasacar-base-modal',
   templateUrl: './base-modal.component.html',
 })
 export class BaseModalComponent {
@@ -15,11 +15,11 @@ export class BaseModalComponent {
   @Output() sendClose = new EventEmitter<boolean>();
   @Output() sendIsLoading = new EventEmitter<boolean>();
 
-  validate() {
+  validate(): void {
     this.notifyParent.emit(true);
   }
 
-  close() {
+  close(): void {
     this.sendClose.emit(true);
   }
 
