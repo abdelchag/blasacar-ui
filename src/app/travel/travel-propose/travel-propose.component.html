@@ -22,46 +22,48 @@
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_CITY">
                                     <blasacar-text [formGroup]="form" controlName="departureCity"
                                         [initialValue]="travel.departureCity" [required]="true"
-                                        (valueChanged)="departureCityChanged($event)">
+                                        (valueChanged)="travel.departureCity= $event">
                                     </blasacar-text>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.ARRIVAL_CITY">
                                     <blasacar-text [formGroup]="form" controlName="arrivalCity"
                                         [initialValue]="travel.arrivalCity" [required]="true"
-                                        (valueChanged)="arrivalCityChanged($event)">
+                                        (valueChanged)="travel.arrivalCity= $event">
                                     </blasacar-text>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_DATE">
                                     <blasacar-datepicker-form [formGroup]="form" controlName="departureDate"
                                         [initialValue]="travel.departureDate" [showBeforeDates]="false"
-                                        [required]="true" (valueChanged)="deparatureDateChanged($event)">
+                                        [required]="true" (valueChanged)="travel.departureDate= $event">
                                     </blasacar-datepicker-form>
                                 </div>
-                                <!--<div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_HOUR">
-                                    <blasacar-timepicker [required]="required" [showMeridian]="false">
-                                    </blasacar-timepicker>
-                                </div>-->
+                                <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_HOUR">
+                                    <blasacar-timepicker [formGroup]="form" controlName="departureHour"
+                                        [initialValue]="travel.departureHour" [required]="true"
+                                        (valueChanged)="travel.departureHour= $event"></blasacar-timepicker>
+                                </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.NUMBER_PLACE">
                                     <blasacar-number [formGroup]="form" controlName="numberPlace"
                                         [initialValue]="travel.numberPlace" [maxValue]="4" [minValue]="1"
-                                        [required]="true" (valueChanged)="numberPlaceChanged($event)"></blasacar-number>
+                                        [required]="true" (valueChanged)="travel.numberPlace= $event">
+                                    </blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.AUTOMATIQUE_ACCEPTANCE">
                                     <blasacar-radio [formGroup]="form" controlName="numberPlace"
-                                        [initialValue]="travel.automatiqueAcceptance"
+                                        [initialValue]="getAutomatiqueAcceptance()"
                                         [options]="automatiqueAcceptanceOptions" [required]="true"
-                                        (valueChanged)="automatiqueAcceptanceChanged($event)">
+                                        (valueChanged)="changeAutomatiqueAcceptance($event)">
                                     </blasacar-radio>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PRICE">
                                     <blasacar-number [formGroup]="form" controlName="price"
                                         [initialValue]="travel.price" [required]="true"
-                                        (valueChanged)="priceChanged($event)"></blasacar-number>
+                                        (valueChanged)="travel.price= $event"></blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PHONE_NUMBER">
                                     <blasacar-phone [formGroup]="form" controlName="phoneNumber"
                                         [initialValue]="travel.phoneNumber" [required]="true"
-                                        (valueChanged)="phoneNumberChanged($event)"></blasacar-phone>
+                                        (valueChanged)="travel.phoneNumber= $event"></blasacar-phone>
                                 </div>
                             </ng-container>
                         </div>
@@ -72,7 +74,7 @@
                             {{'travel-propose.previous-step' | translate}}
                         </button>
                         <button (click)="nextStep()" class="btn btn-primary">
-                            {{'travel-propose.next-step' | translate}}
+                            {{nextStepButtonLabel() | translate}}
                         </button>
                     </div>
 

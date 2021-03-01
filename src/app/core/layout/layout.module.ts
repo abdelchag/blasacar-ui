@@ -16,7 +16,7 @@ const exportImportComponents = [
   FooterComponent,
   HeaderComponent,
   MenuComponent
-]
+];
 
 
 @NgModule({

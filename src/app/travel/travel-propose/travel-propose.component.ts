@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { Helpers } from 'src/app/helpers';
@@ -25,6 +25,8 @@ export class TravelProposeComponent implements OnInit {
   travelProposeStepCodeEnum = TravelProposeStepCode;
 
   automatiqueAcceptanceOptions = [];
+  readonly AA_YES_CODE = 'Y';
+  readonly AA_NO_CODE = 'N';
 
   constructor(
     private readonly translateService: TranslateService,
@@ -36,32 +38,15 @@ export class TravelProposeComponent implements OnInit {
     this.buildAutomatiqueAcceptanceOptions();
   }
 
-  departureCityChanged(value: string): void {
-    this.travel.departureCity = value;
+  changeAutomatiqueAcceptance(code: string): void {
+    this.travel.automatiqueAcceptance = code === this.AA_YES_CODE;
   }
 
-  arrivalCityChanged(value: string): void {
-    this.travel.arrivalCity = value;
-  }
-
-  deparatureDateChanged(value: Date): void {
-    this.travel.departureDate = value;
-  }
-
-  numberPlaceChanged(value: number): void {
-    this.travel.numberPlace = value;
-  }
-
-  automatiqueAcceptanceChanged(value: boolean): void {
-    this.travel.automatiqueAcceptance = value;
-  }
-
-  priceChanged(value: number): void {
-    this.travel.price = value;
-  }
-
-  phoneNumberChanged(value: string): void {
-    this.travel.phoneNumber = value;
+  getAutomatiqueAcceptance(): string {
+    if (BlasaUtils.isNullOrUndefined(this.travel.automatiqueAcceptance)) {
+      return null;
+    }
+    return this.travel.automatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
   nextStep(): void {
@@ -84,14 +69,20 @@ export class TravelProposeComponent implements OnInit {
     }
   }
 
+  nextStepButtonLabel(): string {
+    return !BlasaUtils.isNullOrUndefined(this.currentStep.next)
+      ? 'travel-propose.next-step'
+      : 'travel-propose.propose-travel';
+  }
+
   private buildAutomatiqueAcceptanceOptions(): void {
     forkJoin([
       this.translateService.get('travel-propose.automatique-acceptance.yes'),
       this.translateService.get('travel-propose.automatique-acceptance.no')
     ]).subscribe((results: string[]) => {
       this.automatiqueAcceptanceOptions = [
-        { code: true, libelle: results[0] },
-        { code: false, libelle: results[1] }
+        { code: this.AA_YES_CODE, libelle: results[0] },
+        { code: this.AA_NO_CODE, libelle: results[1] }
       ];
     });
   }

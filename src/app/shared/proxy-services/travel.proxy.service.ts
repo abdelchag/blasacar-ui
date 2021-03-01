@@ -14,7 +14,6 @@ export class TravelProxyService {
   }
 
   public createTravel(travel: Travel): Observable<Travel> {
-    travel.departureHour = new Date();
     return this.http.post<Travel>(`${this.TRAVEL_URL}`, travel);
   }
 

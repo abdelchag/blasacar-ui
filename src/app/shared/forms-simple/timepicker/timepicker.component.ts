@@ -8,20 +8,9 @@ import { BaseSimpleDirective } from '../base-simple.directive';
   styleUrls: ['./timepicker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimepickerComponent extends BaseSimpleDirective implements OnInit, OnChanges {
-
-  valueTP: Date;
+export class TimepickerComponent extends BaseSimpleDirective implements OnInit {
 
   constructor(private readonly validationMessageService: ValidationMessageService) {
     super(validationMessageService);
   }
-
-  ngOnInit(): void {
-    console.log('timepicker init');
-  }
-
-  ngOnChanges(): void {
-    console.log('timepicker changed');
-  }
-
 }

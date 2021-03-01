@@ -1,6 +1,6 @@
-<div class="form-group" [class.form-error]="error && formControl.touched">
-    <timepicker class="form-control" [formControl]="formControl" [required]="required" [showMeridian]="false"
-        [(ngModel)]="valueTP">
+<div class="form-group" [class.form-error]="hadError">
+    <timepicker [formControl]="formControl"
+        [required]="required" [showMeridian]="false">
     </timepicker>
-    <span *ngIf="error && formControl.touched" class="error-block">{{ error }}</span>
+    <span *ngIf="hadError" class="error-block">{{ error }}</span>
 </div>
