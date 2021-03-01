@@ -369,35 +369,6 @@ export class Helpers {
     }
   }
 
-  static doShowNotification(
-    information: InformationModel,
-    contrats: ContratModel[],
-    currentURL: string,
-    currentEntite: string): boolean {
-    const hasContratAFN = contrats.some(c => !c.isFromMigration);
-    const hasContratMigre = contrats.some(c => c.isFromMigration);
-    const hasContratSante = contrats.some(c => c.codeRisque === risque.SANTE);
-    const hasContratPrev = contrats.some(c => c.codeRisque === risque.PREVOYANCE);
-
-    const isNatureContratOk = ((information.isContratAFN && hasContratAFN)
-      || (information.isContratMigre && hasContratMigre))
-      || (!information.isContratMigre && !information.isContratAFN);
-
-    const isPageOk = information.pages.some(p => currentURL.includes(p.toLocaleLowerCase()))
-      || information.pages.some(p => p.toLocaleLowerCase() === 'all');
-
-    const isRisqueOk = (((hasContratSante && information.risqueCible === risque.SANTE)
-      || (hasContratPrev && information.risqueCible === risque.PREVOYANCE))
-      || !information.risqueCible);
-
-    // Les Dates sont formatés en amont au format ISO.
-    const datePublication = moment(information.dateDebutPublication);
-    const dateFinPublication = moment(information.dateFinPublication);
-    const today = moment();
-
-    return isRisqueOk && isPageOk && isNatureContratOk && today.isBetween(datePublication, dateFinPublication, null, '()');
-  }
-
   static scrollTo(el: Element): void {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });

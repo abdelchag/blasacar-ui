@@ -1,0 +1,14 @@
+{
+    "next-step": "Suivant",
+    "confirm-registration": "Valider l'inscription",
+    "previous-step": "Précédent",
+    "question": {
+        "email": "Votre e-mail ?",
+        "nom-prenom": "Votre nom et prénom ?",
+        "birth-date": "Quelle est votre date de naissance ?",
+        "telephone": "Quel est votre numéro de téléphone ?",
+        "adresse": "Quel est votre adresse domicile ?",
+        "gender": "Comment préférez-vous qu'on vous appelle ?",
+        "password": "Choisissez votre mot de passe"
+    }
+}

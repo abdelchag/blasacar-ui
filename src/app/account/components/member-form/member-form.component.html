@@ -1,7 +1,7 @@
 <div class="view-content">
   <div class="view-title">
   </div>
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form" >
     <fieldset>
       <div class="card mb-0">
         <div class="card-header">
@@ -12,159 +12,72 @@
           </div>
         </div>
         <div class="card-body">
-
-          <ng-container  *ngIf="stepEmail===true">
-
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Votre e-mail ?</h1>
-              </div>
+          <div class="col text-center">
+            <div>
+                <h1 class="title">{{currentStep.element.title | translate}}</h1>
             </div>
-            <br>
-
-            <div class="container">
-              <div class="justify-content-md-center">
-                  <div class="col-sm-6">
-                    <blasacar-email [formGroup]="form" controlName="email" [required]="true" label="E-mail" [initialValue]="userToAdd.email"
-                    ></blasacar-email>
-                  </div>
-              </div>
-            </div>
-          </ng-container>
-
-          <ng-container *ngIf="stepNomPrenom===true">
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Votre nom et prénom ?</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                  <div class="col-sm-6">
-                    <blasacar-text-noun [formGroup]="form" controlName="lastName" label="Nom" [required]="true" [initialValue]="userToAdd.lastName"
-                      >
-                    </blasacar-text-noun>
-                  </div>
-                  <div class="col-sm-6">
-                    <blasacar-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [required]="true" [initialValue]="userToAdd.firstName"
-                      >
-                    </blasacar-text-noun>
-                  </div>
-
-              </div>
-            </div>
-          </ng-container>
-
-          <ng-container *ngIf="stepBirthDate===true">
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Quelle est votre date de naissance ?</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                <div class="col-6">
-                  <div class="form-group">
-                    <blasacar-date-picker id="birthday" [isBirthDate]="true" controlName="birthDate" [placeholder]="'account.birthday-date' | translate"
-                    (dateSelected)="putBirthDate($event)"></blasacar-date-picker>
-                    <span class="error-block" *ngIf="!isBirthDateValid">Votre date de naissance n'est pas valide</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="stepTelephone===true">
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Quel est votre numéro de téléphone ?</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                <!-- <div class="col-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" formControlName="telephone"  placeholder="mon numéro de téléphone" form="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlTelephone.invalid">Votre numéro de téléphone n'est pas valide</span>
-                  </div>
-                </div> -->
-                <div class="col-md-6">
-                  <app-phone label="Téléphone" controlName="telephone" [formGroup]="form" [initialValue]="userToAdd.telephone">
-                  </app-phone>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-
-          <ng-container *ngIf="stepAdresse===true">
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Quel est votre adresse domicile ?</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                <div class="col-6">
-                  <!-- <div class="form-group">
-                    <input type="text" class="form-control" formControlName="address"  placeholder="mon adresse domicile" form="formGroup" required="required">
-                    <span class="error-block" *ngIf="formControlAdresse.invalid">Votre numéro de téléphone n'est pas valide</span>
-                  </div> -->
-                  <div class="row">
-                    <div class="col">
-                      <app-adresse controlName="adresse" [parentformGroup]="form" [isAdresseRequired]="false" [initialValue]="userToAdd.address"
-                        >
-                      </app-adresse>
+          </div>
+          <div class="container">
+            <div class="justify-content-md-center col-sm-6">
+                <ng-container [ngSwitch]="currentStep.element.code">
+                    <div *ngSwitchCase="memberStepCode.EMAIL">
+                        <blasacar-email [formGroup]="form" controlName="email"
+                            [initialValue]="userToAdd.email" [required]="true"
+                            (valueChanged)="userToAdd.email= $event">
+                        </blasacar-email>
                     </div>
+                    <div *ngSwitchCase="memberStepCode.FIRST_LAST_NAME">
+                      <div>
+                        <blasacar-text-noun [formGroup]="form" controlName="lastName" label="Nom" [initialValue]="userToAdd.lastName" [required]="true"
+                        (valueChanged)="userToAdd.lastName = $event">
+                    </blasacar-text-noun>
+                      </div>
+                      <div>
+                        <blasacar-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [initialValue]="userToAdd.firstName" [required]="true"
+                        (valueChanged)="userToAdd.firstName = $event">
+                        </blasacar-text-noun>
+                      </div>
                   </div>
+                  <div *ngSwitchCase="memberStepCode.BIRTHDATE">
+                    <blasacar-datepicker-form [formGroup]="form" controlName="birthDate" [isBirthDate]="true" [placeholder]="'account.birthday-date' | translate"
+                    [initialValue]="userToAdd.birthDate"
+                    [required]="true" (valueChanged)="userToAdd.birthDate= $event">
+                    </blasacar-datepicker-form>
                 </div>
-              </div>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="stepGender===true">
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Comment préférez-vous qu'on vous appelle ?</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                <div class="col-6">
-                  <app-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites" [initialValue]="userToAdd.gender"
-                   >
-                </app-radio>
-                </div>
-              </div>
-            </div>
+                <div *ngSwitchCase="memberStepCode.TELEPHONE">
 
-          </ng-container>
-          <ng-container *ngIf="stepPassword===true">
-            <div class="col text-center">
-              <div>
-                <h1 class="title">Choisissez votre mot de passe</h1>
-              </div>
-            </div>
-            <br>
-            <div class="container">
-              <div class="justify-content-md-center">
-                <div class="col-6">
-                  <app-password [formGroup]="form" controlName="password" label="Mot de passe" [required]="true">
-                </app-password>
+                  <blasacar-phone label="Téléphone" controlName="telephone" [formGroup]="form" [initialValue]="userToAdd.telephone"
+                    (valueChanged)="userToAdd.telephone= $event"></blasacar-phone>
 
                 </div>
-              </div>
-            </div>
-          </ng-container>
+                <div *ngSwitchCase="memberStepCode.ADRESS">
 
+                  <blasacar-text-noun [formGroup]="form" controlName="address" label="Adresse" [initialValue]="userToAdd.address"
+                  (valueChanged)="userToAdd.address = $event">
+                  </blasacar-text-noun>
+
+
+                </div>
+                <div *ngSwitchCase="memberStepCode.GENDER">
+                  
+                  <blasacar-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites"
+                    [initialValue]="userToAdd.gender" (valueChanged)="userToAdd.gender= $event"></blasacar-radio>
+
+                </div>
+                <div *ngSwitchCase="memberStepCode.PASSWORD">
+                  <blasacar-password [formGroup]="form" controlName="password" label="Mot de passe" [required]="true"
+                  [initialValue]="userToAdd.password"  (valueChanged)="userToAdd.password= $event"> </blasacar-password>
+                </div>
+                </ng-container>
+
+            </div>
+          </div>
           <div class="d-flex justify-content-between">
-            <button class="btn btn-secondary" (click)="retour()" *ngIf="stepEmail===false">
-              Précedent
+            <button class="btn btn-secondary" (click)="previousStep()" *ngIf="currentStep.previous">
+                {{'travel-propose.previous-step' | translate}}
             </button>
-            <button type="submit" class="btn btn-primary"  >
-              {{ labelBtn }}
+            <button (click)="nextStep()" class="btn btn-primary">
+                {{nextStepButtonLabel() | translate }}
             </button>
           </div>
 

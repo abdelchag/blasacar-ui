@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { ExternalUserResponse } from 'src/app/account/models/blasa-car-user';
 import { BlasacarSocialUser } from 'src/app/account/models/blasacar-social-user';
 import { UserModel } from 'src/app/account/models/user.model';
+import { LoginModel } from 'src/app/account/models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,11 @@ export class AccountManagementProxyService {
 
   public saveMembre(user: UserModel): Observable<any> {
     const url = `${this.ACCOUNT_MANAGEMENT_URL}/User/register`;
+    return this.http.post<ExternalUserResponse>(url, user);
+  }
+
+  public loginMembre(user: LoginModel): Observable<any> {
+    const url = `${this.ACCOUNT_MANAGEMENT_URL}/User/login`;
     return this.http.post<ExternalUserResponse>(url, user);
   }
 

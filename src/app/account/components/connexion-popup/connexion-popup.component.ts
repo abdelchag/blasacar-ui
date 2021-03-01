@@ -49,6 +49,8 @@ export class ConnexionPopupComponent implements OnInit {
   public launchEmailAction(): void {
     switch (this.action.actionCode) {
       case ActionCodeEnum.CONNEXION:
+        this.router.navigate(['/connexion-membre']);
+        break;
       case ActionCodeEnum.INSCRIPTION:
         this.router.navigate(['/membre']);
         break;
