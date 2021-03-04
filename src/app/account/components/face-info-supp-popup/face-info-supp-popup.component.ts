@@ -40,8 +40,8 @@ export class FaceInfoSuppPopupComponent implements OnInit {
       this.errors.push('shared.error.birthday-mondatory');
     }
     if (BlasaUtils.isArrayEmpty(this.errors)) {
-      this.facebookService.facebookInscription(this.user);
-      this.modalRef.hide();
+      this.facebookService.facebookInscription(this.user)
+        .subscribe(() => this.closeModal());
     }
   }
 

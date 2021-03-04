@@ -63,20 +63,26 @@
           </li>
 
           <li class="nav-item">
-            <a routerLink="/contact" class="text-center">
+            <a class="text-center">
               <blasacar-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="faq"></blasacar-icon>
               {{'header.need-info-question' | translate}}
             </a>
           </li>
 
+          <li class="nav-item">
+            <a routerLink="/travel-propose" class="text-center">
+              {{'header.travel.propose' | translate}}
+            </a>
+          </li>
+
           <li class="nav-item" *ngIf="!isUserConnected">
-            <a routerLink="/contact" class="text-center" (click)="openConnexionPopup(action_inscription)">
+            <a class="text-center" (click)="openConnexionPopup(action_inscription)">
               {{'header.inscription' | translate}}
             </a>
           </li>
 
           <li class="nav-item" *ngIf="!isUserConnected">
-            <a routerLink="/contact" class="text-center" (click)="openConnexionPopup(action_connexion)">
+            <a class="text-center" (click)="openConnexionPopup(action_connexion)">
               {{'header.connexion' | translate}}
             </a>
 

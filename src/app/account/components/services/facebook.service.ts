@@ -1,8 +1,11 @@
-import {Injectable} from '@angular/core';
-import {FacebookLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
-import {AccountManagementProxyService} from 'src/app/shared/proxy-services/account-management.proxy.service';
-import {CurrentUserService} from 'src/app/shared/services/current-user.service';
-import {BlasacarSocialUser} from '../../models/blasacar-social-user';
+import { Injectable } from '@angular/core';
+import { FacebookLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import { from, Observable, of } from 'rxjs';
+import { flatMap, mergeMap } from 'rxjs/operators';
+import { AccountManagementProxyService } from 'src/app/shared/proxy-services/account-management.proxy.service';
+import { CurrentUserService } from 'src/app/shared/services/current-user.service';
+import { ExternalUserResponse } from '../../models/blasa-car-user';
+import { BlasacarSocialUser } from '../../models/blasacar-social-user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,28 +19,33 @@ export class FacebookService {
   ) {
   }
 
-  public facebookConnexion(): void {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(faceUser => {
-      return this.accountManagementProxy.connectFacebookUser(faceUser).subscribe(externalUserResponse => {
+  public facebookConnexion(): Observable<ExternalUserResponse> {
+    return this.getFacebookUser().pipe(
+      mergeMap(faceUser => this.accountManagementProxy.connectFacebookUser(faceUser)),
+      mergeMap(externalUserResponse => {
         this.currentUserService.emitCurrentUser(externalUserResponse);
-      });
-    });
+        return of(externalUserResponse);
+      })
+    );
   }
 
-  public facebookInscription(faceUser: BlasacarSocialUser): void {
-    this.accountManagementProxy.registerFacebookUser(faceUser).subscribe(externalUserResponse => {
-      this.currentUserService.emitCurrentUser(externalUserResponse);
-    });
+  public facebookInscription(faceUser: BlasacarSocialUser): Observable<ExternalUserResponse> {
+    return this.accountManagementProxy.registerFacebookUser(faceUser).pipe(
+      mergeMap(externalUserResponse => {
+        this.currentUserService.emitCurrentUser(externalUserResponse);
+        return of(externalUserResponse);
+      })
+    );
   }
 
-  public facebookDeconnexion(): void {
-    this.accountManagementProxy.deconnectFacebookUser().subscribe(() => {
-      this.currentUserService.deconnectCurrentUser();
-    });
+  public facebookDeconnexion(): Observable<void> {
+    return this.accountManagementProxy.deconnectFacebookUser().pipe(
+      mergeMap(() => of(this.currentUserService.deconnectCurrentUser()))
+    );
   }
 
-  public getFacebookUser(): Promise<SocialUser> {
-    return this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  public getFacebookUser(): Observable<SocialUser> {
+    return from(this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID));
   }
 
 }

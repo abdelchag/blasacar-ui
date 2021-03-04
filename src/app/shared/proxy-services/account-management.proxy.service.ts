@@ -45,7 +45,6 @@ export class AccountManagementProxyService {
   }
 
   public deconnectFacebookUser(): Observable<any> {
-    console.log('deconnecte');
     return of(null);
   }
 

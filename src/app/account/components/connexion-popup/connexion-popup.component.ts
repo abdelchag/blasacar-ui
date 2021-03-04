@@ -1,11 +1,14 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {SocialUser} from 'angularx-social-login';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {StringUtils} from 'src/utils/string-utils';
-import {ACTION_CONNEXION_LIST, ActionCodeEnum, ConnexionAction} from '../../models/connexion-action';
-import {FaceInfoSuppPopupComponent} from '../face-info-supp-popup/face-info-supp-popup.component';
-import {FacebookService} from '../services/facebook.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SocialUser } from 'angularx-social-login';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { StringUtils } from 'src/utils/string-utils';
+import { ACTION_CONNEXION_LIST, ActionCodeEnum, ConnexionAction } from '../../models/connexion-action';
+import { FaceInfoSuppPopupComponent } from '../face-info-supp-popup/face-info-supp-popup.component';
+import { FacebookService } from '../services/facebook.service';
+import { Location } from '@angular/common';
+import * as EventEmitter from 'events';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'blasacar-connexion-popup',
@@ -14,6 +17,8 @@ import {FacebookService} from '../services/facebook.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConnexionPopupComponent implements OnInit {
+
+  hideEvent = new Subject<boolean>();
 
   action: ConnexionAction;
 
@@ -28,22 +33,24 @@ export class ConnexionPopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  closeModal(): void {
+  closeModal(onlyClose: boolean = false): void {
+    this.hideEvent.next(onlyClose);
     this.modalRef.hide();
   }
 
   public launchFacebookAction(): void {
     switch (this.action.actionCode) {
       case ActionCodeEnum.CONNEXION:
-        this.facebookService.facebookConnexion();
+        this.facebookService.facebookConnexion()
+          .subscribe(() => this.closeModal());
         break;
       case ActionCodeEnum.INSCRIPTION:
-        this.facebookService.getFacebookUser().then(user => {
+        this.facebookService.getFacebookUser().subscribe(user => {
           this.openFaceInfoSupp(user);
+          this.closeModal();
         });
         break;
     }
-    this.modalRef.hide();
   }
 
   public launchEmailAction(): void {
@@ -55,7 +62,7 @@ export class ConnexionPopupComponent implements OnInit {
         this.router.navigate(['/membre']);
         break;
     }
-    this.modalRef.hide();
+    this.closeModal();
   }
 
   public switchAction(): void {
@@ -65,15 +72,15 @@ export class ConnexionPopupComponent implements OnInit {
   private openFaceInfoSupp(socialUser: SocialUser): void {
     this.modalService.show(
       FaceInfoSuppPopupComponent, {
-        animated: true,
-        initialState: {
-          user: {
-            ...socialUser,
-            birthDate: null,
-            gender: null
-          },
-        }
-      });
+      animated: true,
+      initialState: {
+        user: {
+          ...socialUser,
+          birthDate: null,
+          gender: null
+        },
+      }
+    });
   }
 
 }

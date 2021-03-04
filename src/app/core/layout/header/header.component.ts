@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConnexionPopupComponent } from 'src/app/account/components/connexion-popup/connexion-popup.component';
 import { FacebookService } from 'src/app/account/components/services/facebook.service';
@@ -27,7 +28,8 @@ export class HeaderComponent implements OnInit {
     private readonly changeDetectorRef: ChangeDetectorRef,
     private readonly modalService: BsModalService,
     private readonly facebookService: FacebookService,
-    private readonly currentUserService: CurrentUserService
+    private readonly currentUserService: CurrentUserService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -52,7 +54,7 @@ export class HeaderComponent implements OnInit {
   }
 
   deconnexion(): void {
-    this.facebookService.facebookDeconnexion();
+    this.facebookService.facebookDeconnexion().subscribe(() => this.router.navigate(['/']));
   }
 
 }
