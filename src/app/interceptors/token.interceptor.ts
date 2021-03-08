@@ -17,7 +17,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (this.currentUserService.isUserConnected) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.currentUserService.currentUser.token}`
+          Authorization: `Bearer ${this.currentUserService.currentUserAllInfos.token}`
         }
       });
     }

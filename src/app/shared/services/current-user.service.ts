@@ -15,25 +15,29 @@ export class CurrentUserService {
   constructor() { }
 
   get isUserConnected(): boolean {
-    return !BlasaUtils.isNullOrUndefined(this.currentUser);
+    return !BlasaUtils.isNullOrUndefined(this.currentUserAllInfos);
   }
 
-  get currentUser(): ExternalUserResponse {
+  get currentUserAllInfos(): ExternalUserResponse {
     return JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER));
+  }
+
+  get currentUser(): BlasaCarUser {
+    return this.currentUserAllInfos.data;
   }
 
   public emitCurrentUser(user: ExternalUserResponse): void {
     localStorage.setItem(this.SESSION_CURRENT_USER, JSON.stringify(user));
-    this.currentUserSubject.next(this.currentUser);
+    this.currentUserSubject.next(this.currentUserAllInfos);
   }
 
   public performCurrentUser(): void {
-    this.currentUserSubject.next(this.currentUser);
+    this.currentUserSubject.next(this.currentUserAllInfos);
   }
 
   public deconnectCurrentUser(): void {
     localStorage.removeItem(this.SESSION_CURRENT_USER);
-    this.currentUserSubject.next(this.currentUser);
+    this.currentUserSubject.next(this.currentUserAllInfos);
   }
 
   public currentUserSubscription(): Observable<ExternalUserResponse> {

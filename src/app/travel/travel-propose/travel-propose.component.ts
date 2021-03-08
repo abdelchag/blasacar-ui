@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { Helpers } from 'src/app/helpers';
+import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 import { Travel } from '../model/travel.model';
 import { TravelService } from '../service/travel.service';
@@ -30,11 +31,13 @@ export class TravelProposeComponent implements OnInit {
 
   constructor(
     private readonly translateService: TranslateService,
+    private readonly currentUserService: CurrentUserService,
     private readonly travelService: TravelService) {
   }
 
   ngOnInit(): void {
     this.form = new FormGroup({});
+    this.travel.phoneNumber = this.currentUserService.currentUser.telephone;
     this.buildAutomatiqueAcceptanceOptions();
   }
 
