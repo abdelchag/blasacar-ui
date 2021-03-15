@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { Helpers } from 'src/app/helpers';
@@ -42,14 +42,14 @@ export class TravelProposeComponent implements OnInit {
   }
 
   changeAutomatiqueAcceptance(code: string): void {
-    this.travel.automatiqueAcceptance = code === this.AA_YES_CODE;
+    this.travel.isAutomatiqueAcceptance = code === this.AA_YES_CODE;
   }
 
   getAutomatiqueAcceptance(): string {
-    if (BlasaUtils.isNullOrUndefined(this.travel.automatiqueAcceptance)) {
+    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomatiqueAcceptance)) {
       return null;
     }
-    return this.travel.automatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
+    return this.travel.isAutomatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
   nextStep(): void {

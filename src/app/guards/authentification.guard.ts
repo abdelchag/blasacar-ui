@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs';
 import { ConnexionPopupComponent } from '../account/components/connexion-popup/connexion-popup.component';
 import { ACTION_CONNEXION } from '../account/models/connexion-action';
 import { CurrentUserService } from '../shared/services/current-user.service';
@@ -33,7 +32,8 @@ export class AuthentificationGuard implements CanActivate {
       ConnexionPopupComponent, {
       animated: true,
       initialState: {
-        action: ACTION_CONNEXION
+        action: ACTION_CONNEXION,
+        origin: origineRoute
       }
     }
     );

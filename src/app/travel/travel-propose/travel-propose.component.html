@@ -39,13 +39,13 @@
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_HOUR">
                                     <blasacar-timepicker [formGroup]="form" controlName="departureHour"
-                                        [initialValue]="travel.departureHour" [required]="true"
-                                        (valueChanged)="travel.departureHour= $event"></blasacar-timepicker>
+                                        [initialValue]="travel.departureTime" [required]="true"
+                                        (valueChanged)="travel.departureTime= $event"></blasacar-timepicker>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.NUMBER_PLACE">
                                     <blasacar-number [formGroup]="form" controlName="numberPlace"
-                                        [initialValue]="travel.numberPlace" [maxValue]="4" [minValue]="1"
-                                        [required]="true" (valueChanged)="travel.numberPlace= $event">
+                                        [initialValue]="travel.numberPlaces" [maxValue]="4" [minValue]="1"
+                                        [required]="true" (valueChanged)="travel.numberPlaces= $event">
                                     </blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.AUTOMATIQUE_ACCEPTANCE">

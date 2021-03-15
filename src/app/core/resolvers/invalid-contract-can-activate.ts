@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-
-import { forkJoin } from 'rxjs';
-import { first, map, take } from 'rxjs/operators';
-
 import { Helpers } from 'src/app/helpers';
-import { ContratModel, UtilisateurModel } from 'src/app/shared/models';
+import { UtilisateurModel } from 'src/app/shared/models';
+import { profil } from '../../constants';
 
-import { profil, risque } from '../../constants';
+
+
 
 
 

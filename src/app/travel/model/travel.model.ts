@@ -2,9 +2,9 @@ export class Travel {
     departureCity: string;
     arrivalCity: string;
     departureDate: Date;
-    departureHour: Date;
-    numberPlace: number;
-    automatiqueAcceptance: boolean;
+    departureTime: Date;
+    numberPlaces: number;
+    isAutomatiqueAcceptance: boolean;
     price: number;
     phoneNumber: string;
 }

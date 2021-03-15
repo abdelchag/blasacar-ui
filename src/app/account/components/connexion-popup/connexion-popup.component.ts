@@ -2,13 +2,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialUser } from 'angularx-social-login';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs';
 import { StringUtils } from 'src/utils/string-utils';
-import { ACTION_CONNEXION_LIST, ActionCodeEnum, ConnexionAction } from '../../models/connexion-action';
+import { ActionCodeEnum, ACTION_CONNEXION_LIST, ConnexionAction } from '../../models/connexion-action';
 import { FaceInfoSuppPopupComponent } from '../face-info-supp-popup/face-info-supp-popup.component';
 import { FacebookService } from '../services/facebook.service';
-import { Location } from '@angular/common';
-import * as EventEmitter from 'events';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'blasacar-connexion-popup',
@@ -21,6 +19,7 @@ export class ConnexionPopupComponent implements OnInit {
   hideEvent = new Subject<boolean>();
 
   action: ConnexionAction;
+  origin: string;
 
   constructor(
     private readonly modalRef: BsModalRef,
@@ -56,13 +55,18 @@ export class ConnexionPopupComponent implements OnInit {
   public launchEmailAction(): void {
     switch (this.action.actionCode) {
       case ActionCodeEnum.CONNEXION:
-        this.router.navigate(['/connexion-membre']);
+        this.router.navigate(['/connexion-membre'],
+          {
+            queryParams: {
+              origin: this.origin
+            }
+          });
         break;
       case ActionCodeEnum.INSCRIPTION:
         this.router.navigate(['/membre']);
         break;
     }
-    this.closeModal();
+    this.modalRef.hide();
   }
 
   public switchAction(): void {
