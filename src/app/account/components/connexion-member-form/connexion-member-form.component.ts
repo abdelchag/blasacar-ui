@@ -59,7 +59,7 @@ export class ConnexionMemberFormComponent implements OnInit {
         })
       ).subscribe(params => {
         const originParam = !BlasaUtils.isNullOrUndefined(params['origin']) ? params['origin'] : '';
-        this.router.navigate(['/'.concat(originParam)]);
+        this.router.navigate([`/${originParam}`]);
       });
 
   }

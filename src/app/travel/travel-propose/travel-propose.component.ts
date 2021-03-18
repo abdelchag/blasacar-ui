@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
+import { ToastNotificationService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 import { BlasaUtils } from 'src/utils/blasa-utils';
@@ -30,8 +32,10 @@ export class TravelProposeComponent implements OnInit {
   readonly AA_NO_CODE = 'N';
 
   constructor(
+    private readonly router: Router,
     private readonly translateService: TranslateService,
     private readonly currentUserService: CurrentUserService,
+    private readonly toastNotificationService: ToastNotificationService,
     private readonly travelService: TravelService) {
   }
 
@@ -60,7 +64,14 @@ export class TravelProposeComponent implements OnInit {
 
     if (BlasaUtils.isNullOrUndefined(this.currentStep.next)) {
       this.travelService.proposeTravel(this.travel)
-        .subscribe();
+        .subscribe(() => {
+          this.router.navigate([`/travel-consult`]);
+          this.toastNotificationService.notify({
+            type: 'success',
+            message: 'votre voyage est créé'
+          })
+        });
+
     } else {
       this.currentStep = this.currentStep.next;
     }

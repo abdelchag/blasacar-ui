@@ -45,7 +45,7 @@
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.NUMBER_PLACE">
                                     <blasacar-number [formGroup]="form" controlName="numberPlace"
                                         [initialValue]="travel.numberPlaces" [maxValue]="4" [minValue]="1"
-                                        [required]="true" (valueChanged)="travel.numberPlaces= $event">
+                                        [required]="true" (valueChanged)="travel.numberPlaces= +$event">
                                     </blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.AUTOMATIQUE_ACCEPTANCE">
@@ -58,7 +58,7 @@
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PRICE">
                                     <blasacar-number [formGroup]="form" controlName="price"
                                         [initialValue]="travel.price" [required]="true"
-                                        (valueChanged)="travel.price= $event"></blasacar-number>
+                                        (valueChanged)="travel.price= +$event"></blasacar-number>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PHONE_NUMBER">
                                     <blasacar-phone [formGroup]="form" controlName="phoneNumber"
