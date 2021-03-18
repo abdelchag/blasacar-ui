@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
-import { notificationType } from 'src/app/constants';
+import { NotificationType } from 'src/app/constants';
 import { ToastNotificationService } from 'src/app/core/services';
 import { ToastNotificationModel } from 'src/app/shared/models';
 
@@ -24,13 +24,13 @@ export class ToastNotificationComponent implements OnInit, OnDestroy {
     this.toastNotificationService.notification$
       .subscribe(notification => {
 
-        if (notification.type === notificationType.Clear) {
+        if (notification.type === NotificationType.Clear) {
           this.notifications = [];
           return;
         }
 
-        if (notification.code || notification.type === notificationType.Error) {
-          notification.type = notificationType.Error;
+        if (notification.code || notification.type === NotificationType.Error) {
+          notification.type = NotificationType.Error;
           notification.isSelfClosing = false;
         } else {
           notification.isSelfClosing = true;

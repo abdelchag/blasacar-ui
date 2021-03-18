@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import { civilites } from 'src/app/constants';
+import { civilites, NotificationType } from 'src/app/constants';
 import { ToastNotificationService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
 import { ROUTING_PATH } from 'src/app/routing-constants';
@@ -71,8 +71,8 @@ export class MemberFormComponent implements OnInit {
           externalUserResponse => {
             this.currentUserService.emitCurrentUser(externalUserResponse);
             this.toastNotificationService.notify({
-              type: 'success',
-              message: 'votre inscription est validée'
+              type: NotificationType.Success,
+              message: 'toast-notifications.validated-inscription'
             });
             this.router.navigate([ROUTING_PATH.ROOT]);
           },

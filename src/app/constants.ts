@@ -360,12 +360,12 @@ export const themeCode = {
   GANASS: 'theme-ganass'
 };
 
-export const notificationType = {
-  Error: 'danger',
-  Success: 'success',
-  Information: 'info',
-  Attention: 'warning',
-  Clear: 'clear'
+export enum NotificationType {
+  Error = 'danger',
+  Success = 'success',
+  Information = 'info',
+  Attention = 'warning',
+  Clear = 'clear'
 };
 
 export const modeleAdhesion = {

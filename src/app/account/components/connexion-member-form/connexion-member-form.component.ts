@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
+import { NotificationType } from 'src/app/constants';
 import { ToastNotificationService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
 import { AccountManagementProxyService } from 'src/app/shared/proxy-services/account-management.proxy.service';
@@ -52,8 +53,8 @@ export class ConnexionMemberFormComponent implements OnInit {
         mergeMap(externalUserResponse => {
           this.currentUserService.emitCurrentUser(externalUserResponse);
           this.toastNotificationService.notify({
-            type: 'success',
-            message: 'Bienvenue, vous étes connectés'
+            type: NotificationType.Success,
+            message: 'toast-notifications.you-are-connected'
           });
           return this.activatedRoute.queryParams;
         })

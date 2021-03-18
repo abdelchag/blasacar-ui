@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
+import { NotificationType } from 'src/app/constants';
 import { ToastNotificationService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
 import { ROUTING_PATH } from 'src/app/routing-constants';
@@ -68,8 +69,8 @@ export class TravelProposeComponent implements OnInit {
         .subscribe(() => {
           this.router.navigate([ROUTING_PATH.TRAVEL_CONSULT]);
           this.toastNotificationService.notify({
-            type: 'success',
-            message: 'votre voyage est créé'
+            type: NotificationType.Success,
+            message: 'toast-notifications.travel-proposed'
           })
         });
 
