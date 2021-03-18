@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Helpers } from 'src/app/helpers';
+import { ROUTING_PATH } from 'src/app/routing-constants';
 import { UtilisateurModel } from 'src/app/shared/models';
 import { profil } from '../../constants';
 
@@ -43,7 +44,7 @@ export class InvalidContratCanActivate implements CanActivate {
 
       this.router.navigate(commands, { queryParams: route.queryParams });
     } else {
-      this.router.navigate(['/404']);
+      this.router.navigate([ROUTING_PATH.ERROR_404]);
     }
 
   }

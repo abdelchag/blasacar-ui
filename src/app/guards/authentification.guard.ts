@@ -41,7 +41,7 @@ export class AuthentificationGuard implements CanActivate {
     this.modalRef.content.hideEvent
       .subscribe(onlyClose => {
         if (!onlyClose) {
-          this.router.navigate(['/'.concat(origineRoute)]);
+          this.router.navigate([origineRoute]);
         }
       });
   }

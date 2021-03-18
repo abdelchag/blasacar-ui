@@ -5,6 +5,7 @@ import { ConnexionPopupComponent } from 'src/app/account/components/connexion-po
 import { FacebookService } from 'src/app/account/components/services/facebook.service';
 import { BlasaCarUser } from 'src/app/account/models/blasa-car-user';
 import { ACTION_CONNEXION, ACTION_INSCRIPTION, ConnexionAction } from 'src/app/account/models/connexion-action';
+import { ROUTING_PATH } from 'src/app/routing-constants';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 
@@ -54,7 +55,7 @@ export class HeaderComponent implements OnInit {
   }
 
   deconnexion(): void {
-    this.facebookService.facebookDeconnexion().subscribe(() => this.router.navigate(['/']));
+    this.facebookService.facebookDeconnexion().subscribe(() => this.router.navigate([ROUTING_PATH.ROOT]));
   }
 
 }

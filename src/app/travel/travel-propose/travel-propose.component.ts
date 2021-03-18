@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { ToastNotificationService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
+import { ROUTING_PATH } from 'src/app/routing-constants';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 import { Travel } from '../model/travel.model';
@@ -65,7 +66,7 @@ export class TravelProposeComponent implements OnInit {
     if (BlasaUtils.isNullOrUndefined(this.currentStep.next)) {
       this.travelService.proposeTravel(this.travel)
         .subscribe(() => {
-          this.router.navigate([`/travel-consult`]);
+          this.router.navigate([ROUTING_PATH.TRAVEL_CONSULT]);
           this.toastNotificationService.notify({
             type: 'success',
             message: 'votre voyage est créé'

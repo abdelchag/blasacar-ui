@@ -5,6 +5,7 @@ import { finalize } from 'rxjs/operators';
 import { civilites } from 'src/app/constants';
 import { ToastNotificationService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
+import { ROUTING_PATH } from 'src/app/routing-constants';
 import { ListItemModel } from 'src/app/shared/models';
 import { AccountManagementProxyService } from 'src/app/shared/proxy-services/account-management.proxy.service';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
@@ -73,7 +74,7 @@ export class MemberFormComponent implements OnInit {
               type: 'success',
               message: 'votre inscription est validée'
             });
-            this.router.navigate(['/']);
+            this.router.navigate([ROUTING_PATH.ROOT]);
           },
           erreur => this.toastNotificationService.notifyHttpError(erreur)
         );

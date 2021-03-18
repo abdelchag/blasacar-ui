@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SocialUser } from 'angularx-social-login';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { ROUTING_PATH } from 'src/app/routing-constants';
 import { StringUtils } from 'src/utils/string-utils';
 import { ActionCodeEnum, ACTION_CONNEXION_LIST, ConnexionAction } from '../../models/connexion-action';
 import { FaceInfoSuppPopupComponent } from '../face-info-supp-popup/face-info-supp-popup.component';
@@ -55,7 +56,7 @@ export class ConnexionPopupComponent implements OnInit {
   public launchEmailAction(): void {
     switch (this.action.actionCode) {
       case ActionCodeEnum.CONNEXION:
-        this.router.navigate(['/connexion-membre'],
+        this.router.navigate([ROUTING_PATH.CONNEXION_MEMBER],
           {
             queryParams: {
               origin: this.origin
@@ -63,7 +64,7 @@ export class ConnexionPopupComponent implements OnInit {
           });
         break;
       case ActionCodeEnum.INSCRIPTION:
-        this.router.navigate(['/membre']);
+        this.router.navigate([ROUTING_PATH.MEMBER]);
         break;
     }
     this.modalRef.hide();
