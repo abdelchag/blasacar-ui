@@ -1,11 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { Observable, Subject } from 'rxjs';
-
 import { httpErrorCode, NotificationType } from 'src/app/constants';
-import { globalError } from 'src/app/global-error-constants';
 import { ToastNotificationModel } from 'src/app/shared/models';
+
+
 
 @Injectable()
 export class ToastNotificationService {
@@ -18,26 +17,18 @@ export class ToastNotificationService {
   }
 
   notifyHttpError(httpErrorResponse: HttpErrorResponse): void {
-
+    const messageCodeSuffix = 'toast-notifications.error.';
+    let errorMessage: string;
     if (httpErrorResponse.status === httpErrorCode.BadRequest) {
-
-      let error: ToastNotificationModel;
-      if (typeof httpErrorResponse.error === 'string') {
-        error = this.parseError(httpErrorResponse.error);
-      } else {
-        error = httpErrorResponse.error;
-      }
-      error.type = NotificationType.Error;
-      this.notify(error);
-    } else if (httpErrorResponse.status === httpErrorCode.InternalServerError) {
-      this.notify({ message: globalError.TECHNICAL_ERROR, type: NotificationType.Error });
-    } else if (httpErrorResponse.status === httpErrorCode.NotFound) {
-      this.notify({ message: globalError.NOT_FOUND, type: NotificationType.Error });
+      errorMessage = `${messageCodeSuffix}bad-request`;
+    } else if (typeof httpErrorResponse.error === 'string') {
+      errorMessage = `${messageCodeSuffix}technical`;
     } else {
-      this.notify({ message: httpErrorResponse.message, type: NotificationType.Error,
-      listMessages: httpErrorResponse.error !== undefined ? httpErrorResponse.error.listMessages : null });
+      errorMessage = `${messageCodeSuffix}${httpErrorResponse.error.code}`;
     }
+    this.notify({ message: errorMessage, type: NotificationType.Error });
   }
+  // }
 
   buildNotification(error: any, type: NotificationType): ToastNotificationModel {
     const notificationModel = new ToastNotificationModel();

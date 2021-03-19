@@ -71,7 +71,7 @@ export class TravelProposeComponent implements OnInit {
           this.toastNotificationService.notify({
             type: NotificationType.Success,
             message: 'toast-notifications.travel-proposed'
-          })
+          });
         });
 
     } else {

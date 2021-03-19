@@ -75,8 +75,7 @@ export class MemberFormComponent implements OnInit {
               message: 'toast-notifications.validated-inscription'
             });
             this.router.navigate([ROUTING_PATH.ROOT]);
-          },
-          erreur => this.toastNotificationService.notifyHttpError(erreur)
+          }
         );
     } else {
       this.currentStep = this.currentStep.next;

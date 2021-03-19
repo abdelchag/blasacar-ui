@@ -1,5 +1,13 @@
 {
     "you-are-connected": "Bienvenue, vous étes connectés",
     "validated-inscription": "Votre inscription est validée",
-    "travel-proposed": "votre voyage est créé"
+    "travel-proposed": "votre voyage est créé",
+    "error": {
+        "technical": "Le service est momentanément indisponible, veuillez réessayer ultérieurement",
+        "not-found": "Le service est momentanément indisponible, veuillez réessayer ultérieurement",
+        "bad-request": "Un ou plusieurs champs est manquant ou n'est pas valide",
+        "BLASACAR_LOGIN_FAILED_USER_NOT_EXISTE": "Erreur d'authentification, login ou mot de passe incorrecte",
+        "BLASACAR_LOGIN_FAILED_WRONG_PASSWORD": "Erreur d'authentification, mot de passe incorrecte",
+        "BLASACAR_EXISTING_ACCOUNT": "Vous avez déjà un compte chez nous. Veuiller vous connecter avec"
+    }
 }

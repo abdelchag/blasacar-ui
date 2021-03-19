@@ -366,7 +366,7 @@ export enum NotificationType {
   Information = 'info',
   Attention = 'warning',
   Clear = 'clear'
-};
+}
 
 export const modeleAdhesion = {
   ASSOCIATION: 'ASSOCIATION',
