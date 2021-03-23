@@ -1,0 +1,60 @@
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md">
+          <blasacar-info-text label="Date depart" ></blasacar-info-text>
+        </div>
+        <div class="col-md">
+          <blasacar-info-text label="heure depart" ></blasacar-info-text>
+        </div>
+        <div class="col-md text-right" >
+            <a class="link" title="Détails" [class.active]="extended" (click)="extended = !extended">
+                Détails
+              </a>
+        </div>
+      </div>
+    </li>
+    <ng-container *ngIf="extended">
+      <li class="list-group-item">
+        <h3 class="card-title text-primary">
+          <blasacar-icon klass="icon icon-small" name="assurance-vie"></blasacar-icon>
+          passages
+        </h3>
+        <blasacar-info-text label="nom prenom" >
+        </blasacar-info-text>
+        <div  class="row">
+          <div class="col-md">
+            <blasacar-info-text label="nom prenom">
+            </blasacar-info-text>
+          </div>
+          <div class="col-md">
+            <blasacar-info-text label="nom prenom"
+              >
+            </blasacar-info-text>
+          </div>
+        </div>
+        <ng-container >
+          <div>
+          </div>
+          <div>
+          </div>
+        </ng-container>
+      </li>
+      <li class="list-group-item">
+        <h3 class="card-title text-primary">
+          <blasacar-icon klass="icon icon-small" name="coordonnees"></blasacar-icon>
+          autres info voyage
+        </h3>
+        <div class="row">
+          <div class="col-md-6">
+            <blasacar-info-text label="autres info voyage" ></blasacar-info-text>
+          </div>
+          <div class="col-md-6">
+            <blasacar-info-text label="autres info voyage" ></blasacar-info-text>
+          </div>
+        </div>
+      </li>
+    </ng-container>
+  
+  </ul>
