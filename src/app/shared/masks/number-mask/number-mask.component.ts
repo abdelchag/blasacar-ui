@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BlasaUtils } from 'src/utils/blasa-utils';
+import { StringUtils } from 'src/utils/string-utils';
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
@@ -29,11 +31,13 @@ export class NumberMaskComponent extends MaskDirective {
 
   textMaskConfig = { mask: numberMask, keepCharPositions: true, guide: false };
 
-  transformValueOnWrite(number: number | string): number | string {
-    return number ? number.toString().split(' ').join('') : number;
+  transformValueOnWrite(number: number): string {
+    const numberString = String(number);
+    return numberString ? numberString.toString().split(' ').join('') : numberString;
   }
 
-  transformValueOnChanges(number: number | string): number | string {
-    return number ? number.toString().split(' ').join('') : number;
+  transformValueOnChanges(number: string): number {
+    const formatted = number ? number.toString().split(' ').join('') : number;
+    return StringUtils.isEmpty(formatted) ? null : +formatted;
   }
 }

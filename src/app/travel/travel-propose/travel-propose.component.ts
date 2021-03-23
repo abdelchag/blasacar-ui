@@ -16,8 +16,7 @@ import { TravelProposeStepCode, TRAVEL_PROPOSE_WORKFLOW } from './model/travel-p
 @Component({
   selector: 'blasacar-travel-propose',
   templateUrl: './travel-propose.component.html',
-  styleUrls: ['./travel-propose.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./travel-propose.component.scss']
 })
 export class TravelProposeComponent implements OnInit {
 
@@ -89,6 +88,10 @@ export class TravelProposeComponent implements OnInit {
     return !BlasaUtils.isNullOrUndefined(this.currentStep.next)
       ? 'travel-propose.next-step'
       : 'travel-propose.propose-travel';
+  }
+
+  ngModelChange(valeur: any): void {
+    console.log(valeur);
   }
 
   private buildAutomatiqueAcceptanceOptions(): void {
