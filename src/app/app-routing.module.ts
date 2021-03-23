@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '',
     children: [
       {
-        path: 'travel',
+        path: ROUTING_PATH.TRAVEL,
           loadChildren: () => import('src/app/travel/travel-routed.module').then(m => m.TravelRoutedModule),
           canActivate: [AuthentificationGuard]
       },

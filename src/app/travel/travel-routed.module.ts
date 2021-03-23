@@ -4,34 +4,35 @@ import { RouterModule, Routes } from '@angular/router';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { TravelProposeComponent } from './travel-propose/travel-propose.component';
 import { TravelComponent } from './travel.component';
+import { ROUTING_PATH } from '../routing-constants';
 
 const routes: Routes = [
   {
-    path: 'travel',
+    path: ROUTING_PATH.TRAVEL,
     component: TravelComponent,
-  
-  children: [
-    { path: 'travel-propose', component: TravelProposeComponent},
-    { path: 'travel-list', component: TravelListComponent},
-    {
+
+    children: [
+      { path: ROUTING_PATH.TRAVEL_PROPOSE, component: TravelProposeComponent },
+      { path: ROUTING_PATH.TRAVEL_LIST, component: TravelListComponent },
+      {
         path: '',
-        redirectTo: 'travel-list',
+        redirectTo: ROUTING_PATH.TRAVEL_LIST,
         pathMatch: 'full'
       }
     ]
-    }
+  }
 ]
 
 
-  @NgModule({
-    imports: [
-      RouterModule.forChild(routes),
-      CommonModule
-    ],
-    exports: [
-      RouterModule
-    ]
-  })
+@NgModule({
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule
+  ],
+  exports: [
+    RouterModule
+  ]
+})
 
 
 export class TravelRoutedModule { }
