@@ -14,6 +14,12 @@ import { BaseSimpleDirective } from '../base-simple.directive';
 export class NumberComponent extends BaseSimpleDirective implements OnInit {
 
   @Input()
+  decimal = false;
+
+  @Input()
+  suffix = '';
+
+  @Input()
   maxValue: number;
 
   @Input()

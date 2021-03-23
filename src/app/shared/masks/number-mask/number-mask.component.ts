@@ -1,16 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BlasaUtils } from 'src/utils/blasa-utils';
 import { StringUtils } from 'src/utils/string-utils';
-
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-
 import { MaskDirective } from '../mask.directive';
-
-const numberMask = createNumberMask({
-  prefix: '',
-  thousandsSeparatorSymbol: ' '
-});
 
 @Component({
   selector: 'blasacar-number-mask',
@@ -21,7 +13,13 @@ const numberMask = createNumberMask({
     multi: true
   }]
 })
-export class NumberMaskComponent extends MaskDirective {
+export class NumberMaskComponent extends MaskDirective implements OnInit {
+
+  @Input()
+  decimal: boolean;
+
+  @Input()
+  suffix: string;
 
   @Input()
   maxValue: number;
@@ -29,7 +27,24 @@ export class NumberMaskComponent extends MaskDirective {
   @Input()
   minValue: number;
 
-  textMaskConfig = { mask: numberMask, keepCharPositions: true, guide: false };
+  textMaskConfig: any;
+
+  ngOnInit(): void {
+    const numberMaskCreated = this.decimal ? {
+      prefix: '',
+      suffix: ' ' + this.suffix,
+      thousandsSeparatorSymbol: ' ',
+      allowDecimal: true,
+      decimalSymbol: '.',
+      decimalLimit: 2
+    } : {
+      prefix: '',
+      suffix: ' ' + this.suffix,
+      thousandsSeparatorSymbol: ' '
+    };
+    const numberMask = createNumberMask(numberMaskCreated);
+    this.textMaskConfig = { mask: numberMask, keepCharPositions: true, guide: false };
+  }
 
   transformValueOnWrite(number: number): string {
     const numberString = String(number);
@@ -37,7 +52,8 @@ export class NumberMaskComponent extends MaskDirective {
   }
 
   transformValueOnChanges(number: string): number {
-    const formatted = number ? number.toString().split(' ').join('') : number;
+    let formatted = number ? number.replace(this.suffix, '') : number;
+    formatted = formatted ? formatted.toString().split(' ').join('') : formatted;
     return StringUtils.isEmpty(formatted) ? null : +formatted;
   }
 }
