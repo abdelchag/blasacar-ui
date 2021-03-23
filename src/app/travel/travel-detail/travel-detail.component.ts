@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'blasacar-travel-detail',
-  templateUrl: './blasacar-travel-detail.component.html',
+  templateUrl: './travel-detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TravelDetailComponent implements OnInit {
@@ -13,15 +13,15 @@ export class TravelDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cancelEditing() {
+  cancelEditing(): void {
     this.showDetail();
   }
 
-  startEditing() {
+  startEditing(): void {
     this.editing = true;
   }
 
-  private showDetail() {
+  private showDetail(): void {
     this.editing = false;
   }
 

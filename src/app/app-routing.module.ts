@@ -20,7 +20,8 @@ const routes: Routes = [
       },
     ]
   }
-]
+];
+
 @NgModule({
   imports: [SharedModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]

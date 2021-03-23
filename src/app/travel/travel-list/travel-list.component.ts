@@ -14,15 +14,15 @@ export class TravelListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cancelEditing() {
+  cancelEditing(): void {
     this.showDetail();
   }
 
-  startEditing() {
+  startEditing(): void {
     this.editing = true;
   }
 
-  private showDetail() {
+  private showDetail(): void {
     this.editing = false;
   }
 

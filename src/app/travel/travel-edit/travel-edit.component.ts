@@ -3,12 +3,11 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'blasacar-travel-edit',
-  templateUrl: './blasacar-travel-edit.component.html',
+  templateUrl: './travel-edit.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TravelEditComponent implements OnInit {
 
-    
   formEdit: FormGroup;
   isProcessing: boolean;
 
@@ -18,7 +17,7 @@ export class TravelEditComponent implements OnInit {
     this.formEdit = new FormGroup({});
   }
 
-  update(): void {}
+  update(): void { }
 
   triggerDelete(): void {
   }

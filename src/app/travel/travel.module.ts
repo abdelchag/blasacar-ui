@@ -1,8 +1,8 @@
 
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { TravelDetailComponent } from './blasacar-travel-detail/blasacar-travel-detail.component';
-import { TravelEditComponent } from './blasacar-travel-edit/blasacar-travel-edit.component';
+import { TravelDetailComponent } from './travel-detail/travel-detail.component';
+import { TravelEditComponent } from './travel-edit/travel-edit.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { TravelProposeComponent } from './travel-propose/travel-propose.component';
 import { TravelRoutedModule } from './travel-routed.module';

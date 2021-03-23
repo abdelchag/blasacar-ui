@@ -12,7 +12,7 @@ export class TravelComponent implements OnInit {
   constructor(
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }
