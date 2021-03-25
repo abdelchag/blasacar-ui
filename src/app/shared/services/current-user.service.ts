@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BlasaCarUser, ExternalUserResponse} from 'src/app/account/models/blasa-car-user';
+import { BlasaCarUser, emptyBlasaCarUser, ExternalUserResponse } from 'src/app/account/models/blasa-car-user';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 
@@ -19,11 +19,12 @@ export class CurrentUserService {
   }
 
   get currentUserAllInfos(): ExternalUserResponse {
-    return JSON.parse(localStorage.getItem(this.SESSION_CURRENT_USER));
+    const currentUserStorage = localStorage.getItem(this.SESSION_CURRENT_USER);
+    return !BlasaUtils.isNullOrUndefined(currentUserStorage) ? JSON.parse(currentUserStorage) : null;
   }
 
   get currentUser(): BlasaCarUser {
-    return this.currentUserAllInfos.data;
+    return !BlasaUtils.isNullOrUndefined(this.currentUserAllInfos) ? this.currentUserAllInfos.data : emptyBlasaCarUser;
   }
 
   public emitCurrentUser(user: ExternalUserResponse): void {

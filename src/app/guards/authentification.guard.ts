@@ -22,7 +22,7 @@ export class AuthentificationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     if (!this.currentUserService.isUserConnected) {
-      this.openConnexionPopup(route.url[0].path);
+      this.openConnexionPopup(state.url);
     }
     return this.currentUserService.isUserConnected;
   }

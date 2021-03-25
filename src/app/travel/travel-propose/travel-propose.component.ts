@@ -66,7 +66,7 @@ export class TravelProposeComponent implements OnInit {
     if (BlasaUtils.isNullOrUndefined(this.currentStep.next)) {
       this.travelService.proposeTravel(this.travel)
         .subscribe(() => {
-          this.router.navigate([ROUTING_PATH.TRAVEL_LIST]);
+          this.router.navigate([`${ROUTING_PATH.TRAVEL}/${ROUTING_PATH.TRAVEL_LIST}`]);
           this.toastNotificationService.notify({
             type: NotificationType.Success,
             message: 'toast-notifications.travel-proposed'
