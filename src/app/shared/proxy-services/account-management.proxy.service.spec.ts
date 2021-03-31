@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AccountManagement.ProxyService } from './account-management.proxy.service';
+import { AccountManagementProxyService } from './account-management.proxy.service';
 
-describe('AccountManagement.ProxyService', () => {
-  let service: AccountManagement.ProxyService;
+describe('AccountManagementProxyService', () => {
+  let service: AccountManagementProxyService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AccountManagement.ProxyService);
+    service = TestBed.inject(AccountManagementProxyService);
   });
 
   it('should be created', () => {

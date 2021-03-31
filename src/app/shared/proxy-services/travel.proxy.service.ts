@@ -17,7 +17,7 @@ export class TravelProxyService {
     return this.http.post<Travel>(`${this.TRAVEL_URL}`, travel);
   }
 
-  public getTravels() {
+  public getTravels(): Observable<Travel[]> {
     return this.http.get<Travel[]>(`${this.TRAVEL_URL}/getall`);
   }
 
