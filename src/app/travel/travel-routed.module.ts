@@ -15,7 +15,7 @@ const routes: Routes = [
     path: ROUTING_PATH.TRAVEL,
     component: TravelComponent,
     // canActivate: [AuthentificationGuard],
-    children: [ 
+    children: [
       {path: ROUTING_PATH.TRAVEL_PROPOSE, component: TravelProposeComponent},
       {
         path: ROUTING_PATH.TRAVEL_LIST,
