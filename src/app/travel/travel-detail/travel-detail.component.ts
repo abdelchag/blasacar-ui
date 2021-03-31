@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Travel } from '../model/travel.model';
 
 @Component({
   selector: 'blasacar-travel-detail',
@@ -8,6 +9,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 export class TravelDetailComponent implements OnInit {
   extended = false;
   editing = false;
+  @Input() travel: Travel;
   constructor() { }
 
   ngOnInit(): void {

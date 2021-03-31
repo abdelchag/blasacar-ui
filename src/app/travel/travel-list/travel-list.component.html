@@ -1,7 +1,7 @@
 <div class="card border-grey mb-0 p-0" >
     <div class="card-header">
       <h3 class="float-left text-primary">
-        Tanger
+        {{ travel.departureCity }}
         <span class="badge badge-information">
           Statut
         </span>
@@ -33,13 +33,14 @@
       </span>
     </div>
     <div class="card-body p-0">
-        <blasacar-travel-detail *ngIf="!editing" >
+        <blasacar-travel-detail *ngIf="!editing" [travel] = "travel">
         </blasacar-travel-detail>
         <blasacar-travel-edit *ngIf="editing" >
         </blasacar-travel-edit>
     </div>  
 </div>
 <br><br>
+<!-- <br><br>
 <div class="card border-grey mb-0 p-0" >
     <div class="card-header">
       <h3 class="float-left text-primary">
@@ -122,4 +123,4 @@
         <blasacar-travel-edit *ngIf="editing" >
         </blasacar-travel-edit>
     </div>  
-</div>
+</div> -->

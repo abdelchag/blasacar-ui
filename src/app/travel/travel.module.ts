@@ -1,6 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
+import { TravelConsultComponent } from './travel-consult/travel-consult.component';
 import { TravelDetailComponent } from './travel-detail/travel-detail.component';
 import { TravelEditComponent } from './travel-edit/travel-edit.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
@@ -13,7 +14,8 @@ const components = [
   TravelListComponent,
   TravelDetailComponent,
   TravelEditComponent,
-  TravelComponent
+  TravelComponent,
+  TravelConsultComponent
 ];
 
 @NgModule({

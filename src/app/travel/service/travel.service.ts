@@ -14,4 +14,8 @@ export class TravelService {
     return this.travelProxyService.createTravel(travel);
   }
 
+  public getTravels() {
+    return this.travelProxyService.getTravels();
+  }
+
 }

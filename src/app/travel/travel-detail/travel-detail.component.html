@@ -3,7 +3,7 @@
     <li class="list-group-item">
       <div class="row">
         <div class="col-md">
-          <blasacar-info-text label="Date depart" ></blasacar-info-text>
+          <blasacar-info-text label="Date depart" [value] = travel.departureDate></blasacar-info-text>
         </div>
         <div class="col-md">
           <blasacar-info-text label="heure depart" ></blasacar-info-text>
@@ -21,16 +21,15 @@
           <blasacar-icon klass="icon icon-small" name="assurance-vie"></blasacar-icon>
           passages
         </h3>
-        <blasacar-info-text label="nom prenom" >
+        <blasacar-info-text label="nombre place" [value] = travel.numberPlaces >
         </blasacar-info-text>
         <div  class="row">
           <div class="col-md">
-            <blasacar-info-text label="nom prenom">
+            <blasacar-info-text label="prix" [value] = travel.price>
             </blasacar-info-text>
           </div>
           <div class="col-md">
-            <blasacar-info-text label="nom prenom"
-              >
+            <blasacar-info-text label="Telephone" [value] = travel.phoneNumber>
             </blasacar-info-text>
           </div>
         </div>
