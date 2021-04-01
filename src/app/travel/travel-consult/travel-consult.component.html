@@ -1,2 +1,5 @@
-<blasacar-travel-list *ngFor="let travel of travels" [travel] = "travel"></blasacar-travel-list>
+<blasacar-travel-list *ngFor="let travel of travels"
+                      [travel]="travel"
+                      (delete)="deleteTravel($event)"
+></blasacar-travel-list>
 

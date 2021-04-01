@@ -1,17 +1,17 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { forkJoin } from 'rxjs';
-import { NotificationType } from 'src/app/constants';
-import { ToastNotificationService } from 'src/app/core/services';
-import { Helpers } from 'src/app/helpers';
-import { ROUTING_PATH } from 'src/app/routing-constants';
-import { CurrentUserService } from 'src/app/shared/services/current-user.service';
-import { BlasaUtils } from 'src/utils/blasa-utils';
-import { Travel } from '../model/travel.model';
-import { TravelService } from '../service/travel.service';
-import { TravelProposeStepCode, TRAVEL_PROPOSE_WORKFLOW } from './model/travel-propose-step.model';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {forkJoin} from 'rxjs';
+import {NotificationType} from 'src/app/constants';
+import {ToastNotificationService} from 'src/app/core/services';
+import {Helpers} from 'src/app/helpers';
+import {ROUTING_PATH} from 'src/app/routing-constants';
+import {CurrentUserService} from 'src/app/shared/services/current-user.service';
+import {BlasaUtils} from 'src/utils/blasa-utils';
+import {Travel} from '../model/travel.model';
+import {TravelService} from '../service/travel.service';
+import {TRAVEL_PROPOSE_WORKFLOW, TravelProposeStepCode} from './model/travel-propose-step.model';
 
 @Component({
   selector: 'blasacar-travel-propose',
@@ -88,10 +88,6 @@ export class TravelProposeComponent implements OnInit {
     return !BlasaUtils.isNullOrUndefined(this.currentStep.next)
       ? 'travel-propose.next-step'
       : 'travel-propose.propose-travel';
-  }
-
-  ngModelChange(valeur: any): void {
-    console.log(valeur);
   }
 
   private buildAutomatiqueAcceptanceOptions(): void {

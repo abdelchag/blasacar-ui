@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy, OnDestroy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -30,11 +30,14 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
           this.travels = travels;
         })
     );
-
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  deleteTravel(travel: Travel): void {
+    this.travels.splice(this.travels.map(t => t.id).indexOf(travel.id), 1);
   }
 
 }
