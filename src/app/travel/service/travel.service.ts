@@ -15,8 +15,8 @@ export class TravelService {
     return this.travelProxyService.createTravel(travel);
   }
 
-  public getTravels(): Observable<Travel[]> {
-    return this.travelProxyService.getTravels();
+  public getUserTravels(): Observable<Travel[]> {
+    return this.travelProxyService.getUserTravels();
   }
 
   public deleteTravel(travel: Travel): Observable<Travel> {

@@ -18,6 +18,6 @@ export class TravelListResolver implements Resolve<Travel[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Travel[]> {
-    return this.travelService.getTravels();
+    return this.travelService.getUserTravels();
   }
 }
