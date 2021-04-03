@@ -1,12 +1,12 @@
-import {Directive, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
-import {BehaviorSubject, Subscription} from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
-import {configuration} from 'src/app/configuration';
-import {ValidationMessageService} from 'src/app/core/services';
-import {Helpers} from 'src/app/helpers';
+import { configuration } from 'src/app/configuration';
+import { ValidationMessageService } from 'src/app/core/services';
+import { Helpers } from 'src/app/helpers';
 
 @Directive()
 export class BaseSimpleDirective implements OnInit, OnDestroy {
@@ -33,9 +33,9 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
   @Input()
   set disabled(disabled: boolean) {
     if (disabled) {
-      this.formControl.disable({onlySelf: true});
+      this.formControl.disable({ onlySelf: true });
     } else {
-      this.formControl.enable({onlySelf: true});
+      this.formControl.enable({ onlySelf: true });
     }
   }
 
@@ -73,7 +73,7 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
     this.subscriptions.push(
       this._validationMessageService.showMessages$
         .subscribe(() => {
-          this.formControl.markAsTouched({onlySelf: true});
+          this.formControl.markAsTouched({ onlySelf: true });
         }));
 
     this.subscriptions.push(
@@ -88,8 +88,8 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
     }
 
     if (this.initialValue) {
-      this.formControl.setValue(this.initialValue, {onlySelf: true, emitEvent: false});
-      this.formControl.markAsTouched({onlySelf: true});
+      this.formControl.setValue(this.initialValue, { onlySelf: true, emitEvent: false });
+      this.formControl.markAsTouched({ onlySelf: true });
       this.error = this.getError();
     }
 
