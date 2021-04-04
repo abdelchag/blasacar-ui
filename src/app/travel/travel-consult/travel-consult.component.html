@@ -1,2 +1,2 @@
-<blasacar-travel-list *ngFor="let travel of travels" [travel] = "travel"></blasacar-travel-list>
+<blasacar-travel-list *ngFor="let travel of travels" [travel] = "travel" (save)="save($event)"></blasacar-travel-list>
 

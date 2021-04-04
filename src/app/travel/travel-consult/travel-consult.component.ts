@@ -2,7 +2,10 @@ import {Component, OnInit, ChangeDetectionStrategy, OnDestroy} from '@angular/co
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { NotificationType } from 'src/app/constants';
+import { ToastNotificationService } from 'src/app/core/services';
 import {Travel} from '../model/travel.model';
+import { TravelService } from '../service/travel.service';
 
 @Component({
   selector: 'blasacar-travel-consult',
@@ -15,7 +18,9 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
   travels: Travel[] = [];
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private readonly travelService: TravelService,
+    private toastNotificationService: ToastNotificationService,
   ) {
   }
 
@@ -29,6 +34,21 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
         .subscribe(travels => {
           this.travels = travels;
         })
+    );
+
+  }
+
+  save(travel): void {
+
+    this.subscription.add(
+      this.travelService.editTravel(travel)
+        .subscribe(travels => {
+          window.location.reload();
+        },
+        error => {
+          this.toastNotificationService.notifyHttpError(error);
+          },
+        )
     );
 
   }

@@ -21,7 +21,6 @@ import { UserModel } from '../../models/user.model';
 })
 export class MemberFormComponent implements OnInit {
 
-  formGroup: FormGroup;
   user: UserModel;
   step: number;
   form: FormGroup;

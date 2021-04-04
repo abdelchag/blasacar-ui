@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Travel } from '../model/travel.model';
 
 @Component({
@@ -10,6 +10,7 @@ import { Travel } from '../model/travel.model';
 export class TravelListComponent implements OnInit {
   extended = false;
   editing = false;
+  @Output() save = new EventEmitter<Travel>();
 
 
   @Input() travel: Travel;

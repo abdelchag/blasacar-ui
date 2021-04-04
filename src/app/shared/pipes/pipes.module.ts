@@ -29,7 +29,7 @@ import { SecuriteSocialePipe } from './securite-sociale.pipe';
 import { SiretPipe } from './siret.pipe';
 import { SituationFamilialePipe } from './situation-familiale.pipe';
 import { StatutAyantDroitPipe } from './statut-ayantdroit.pipe';
-import { TeletransmissionPipe } from './teletransmission.pipe';
+import { BooleanToOuiNonPipe } from './boolean-to-oui-non.pipe';
 
 const pipes = [
   AffilieTypePipe,
@@ -61,7 +61,7 @@ const pipes = [
   SiretPipe,
   SituationFamilialePipe,
   StatutAyantDroitPipe,
-  TeletransmissionPipe
+  BooleanToOuiNonPipe
 ];
 
 @NgModule({

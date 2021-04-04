@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TravelListResolver } from './travek-list.resolver';
+import { TravelListResolver } from './travel-list.resolver';
 
 
 

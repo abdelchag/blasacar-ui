@@ -1,5 +1,6 @@
 
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { TravelConsultComponent } from './travel-consult/travel-consult.component';
 import { TravelDetailComponent } from './travel-detail/travel-detail.component';
@@ -22,7 +23,11 @@ const components = [
   declarations: components,
   imports: [
     SharedModule,
-    TravelRoutedModule
+    TravelRoutedModule,
+    TranslateModule,
+  ],
+  exports: [
+  TranslateModule,
   ]
 })
 export class TravelModule { }
