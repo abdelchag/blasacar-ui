@@ -1,5 +1,7 @@
 <blasacar-travel-list *ngFor="let travel of travels"
                       [travel]="travel"
                       (delete)="deleteTravel($event)"
+                      (save)="save($event)" 
 ></blasacar-travel-list>
+
 

@@ -12,6 +12,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class TravelListComponent implements OnInit {
   extended = false;
   editing = false;
+  @Output() save = new EventEmitter<Travel>();
 
 
   @Input() travel: Travel;

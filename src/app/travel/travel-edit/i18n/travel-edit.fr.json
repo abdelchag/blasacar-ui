@@ -1,0 +1,12 @@
+{
+    "departure-city":"Ville départ",
+    "arrival-city":"Ville Arrivée",
+    "departure-date":"Date Départ",
+    "departure-hour":"A quelle heure ?",
+    "number-place":"Nombre place",
+    "automatique-acceptance":"Acceptation Automatique",
+    "price":"Prix",
+    "phone-number":"Numéro de téléphone",
+    "cancel-travel":"Annuler trajet",
+    "save-travel":"Appliquer les modifications"
+}

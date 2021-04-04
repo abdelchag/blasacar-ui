@@ -1,4 +1,5 @@
 export class Travel {
+
   id: number;
   departureCity: string;
   arrivalCity: string;
@@ -8,4 +9,6 @@ export class Travel {
   isAutomatiqueAcceptance: boolean;
   price: number;
   phoneNumber: string;
+  created: Date;
+
 }

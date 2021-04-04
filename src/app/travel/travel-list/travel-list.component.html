@@ -10,11 +10,12 @@
     </h3>
     <span class="float-right">
         <ng-container>
+
             <button *ngIf="editing" class="btn btn-sm btn-grey" type="button" (click)="cancelEditing()">
                 Annuler
               </button>
               <button *ngIf="!editing" class="btn btn-link text-primary" type="button" (click)="startEditing()">
-                <blasacar-icon klass="icon icon-small" name="esdit"></blasacar-icon>
+                <blasacar-icon klass="icon icon-small" name="edit"></blasacar-icon>
               </button>
         </ng-container>
         <ng-container>
@@ -33,96 +34,13 @@
           </ng-template>
         </ng-container>
       </span>
-  </div>
-  <div class="card-body p-0">
-    <blasacar-travel-detail *ngIf="!editing" [travel]="travel">
-    </blasacar-travel-detail>
-    <blasacar-travel-edit *ngIf="editing">
-    </blasacar-travel-edit>
-  </div>
-</div>
-<br><br>
-<!-- <br><br>
-<div class="card border-grey mb-0 p-0" >
-    <div class="card-header">
-      <h3 class="float-left text-primary">
-        bnimlal
-        <span class="badge badge-information">
-          Statut
-        </span>
-      </h3>
-      <span class="float-right">
-        <ng-container >
-            <button *ngIf="editing" class="btn btn-sm btn-grey" type="button" (click)="cancelEditing()">
-                Annuler
-              </button>
-              <button *ngIf="!editing" class="btn btn-link text-primary" type="button" (click)="startEditing()">
-                <blasacar-icon klass="icon icon-small" name="edit"></blasacar-icon>
-              </button>
-        </ng-container>
-        <ng-container >
-            <button class="btn btn-link text-primary ml-2" type="button" >
-                <blasacar-icon klass="icon icon-small" name="annule"></blasacar-icon>
-              </button>
-        </ng-container>
-        <ng-container >
-          <button class="btn btn-link text-grey" type="button" placement="auto"  container="body">
-            <blasacar-icon klass="icon icon-medium icon-info" name="infos"></blasacar-icon>
-          </button>
-          <ng-template #popInput>
-            <p>
-              Si vous souhaitez modifier ou annuler la demande en cours, veuillez
-            </p>
-          </ng-template>
-        </ng-container>
-      </span>
+
     </div>
     <div class="card-body p-0">
-        <blasacar-travel-detail *ngIf="!editing" >
+        <blasacar-travel-detail *ngIf="!editing" [travel] = "travel">
         </blasacar-travel-detail>
-        <blasacar-travel-edit *ngIf="editing" >
+        <blasacar-travel-edit *ngIf="editing" [travel] = "travel" (save)="save.emit($event)">
         </blasacar-travel-edit>
     </div>
 </div>
 <br><br>
-<div class="card border-grey mb-0 p-0" >
-    <div class="card-header">
-      <h3 class="float-left text-primary">
-        7dswalem
-        <span class="badge badge-information">
-          Statut
-        </span>
-      </h3>
-      <span class="float-right">
-        <ng-container >
-            <button *ngIf="editing" class="btn btn-sm btn-grey" type="button" (click)="cancelEditing()">
-                Annuler
-              </button>
-              <button *ngIf="!editing" class="btn btn-link text-primary" type="button" (click)="startEditing()">
-                <blasacar-icon klass="icon icon-small" name="edit"></blasacar-icon>
-              </button>
-        </ng-container>
-        <ng-container >
-            <button class="btn btn-link text-primary ml-2" type="button" >
-                <blasacar-icon klass="icon icon-small" name="annule"></blasacar-icon>
-              </button>
-        </ng-container>
-        <ng-container >
-          <button class="btn btn-link text-grey" type="button" placement="auto"  container="body">
-            <blasacar-icon klass="icon icon-medium icon-info" name="infos"></blasacar-icon>
-          </button>
-          <ng-template #popInput>
-            <p>
-              Si vous souhaitez modifier ou annuler la demande en cours, veuillez
-            </p>
-          </ng-template>
-        </ng-container>
-      </span>
-    </div>
-    <div class="card-body p-0">
-        <blasacar-travel-detail *ngIf="!editing" >
-        </blasacar-travel-detail>
-        <blasacar-travel-edit *ngIf="editing" >
-        </blasacar-travel-edit>
-    </div>
-</div> -->
