@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {TravelProxyService} from 'src/app/shared/proxy-services/travel.proxy.service';
-import {Travel} from '../model/travel.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TravelProxyService } from 'src/app/shared/proxy-services/travel.proxy.service';
+import { TravelFilter } from '../model/travel-filter';
+import { Travel } from '../model/travel.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class TravelService {
     return this.travelProxyService.createTravel(travel);
   }
 
-  public getUserTravels(): Observable<Travel[]> {
-    return this.travelProxyService.getUserTravels();
+  public getTravels(travelFilter: TravelFilter): Observable<Travel[]> {
+    return this.travelProxyService.getTravels(travelFilter);
   }
 
   public deleteTravel(travel: Travel): Observable<Travel> {
