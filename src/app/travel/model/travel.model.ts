@@ -7,4 +7,5 @@ export class Travel {
     isAutomatiqueAcceptance: boolean;
     price: number;
     phoneNumber: string;
+    created: Date;
 }

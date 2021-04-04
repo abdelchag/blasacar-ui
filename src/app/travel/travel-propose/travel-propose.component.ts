@@ -90,10 +90,6 @@ export class TravelProposeComponent implements OnInit {
       : 'travel-propose.propose-travel';
   }
 
-  ngModelChange(valeur: any): void {
-    console.log(valeur);
-  }
-
   private buildAutomatiqueAcceptanceOptions(): void {
     forkJoin([
       this.translateService.get('travel-propose.automatique-acceptance.yes'),
