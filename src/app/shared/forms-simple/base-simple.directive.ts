@@ -1,4 +1,4 @@
-import { EventEmitter, Input, OnDestroy, OnInit, Output, Directive } from '@angular/core';
+import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -38,21 +38,30 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
       this.formControl.enable({ onlySelf: true });
     }
   }
+
   get disabled(): boolean {
     return this.formControl.disabled;
   }
 
   @Input()
-  set required(value) { this._required.next(value); }
-  get required(): boolean { return this._required.getValue(); }
+  set required(value) {
+    this._required.next(value);
+  }
 
-  get value(): any { return this.formControl ? this.formControl.value : null; }
+  get required(): boolean {
+    return this._required.getValue();
+  }
 
-  @Output() valueChanged = new EventEmitter<string>();
+  get value(): any {
+    return this.formControl ? this.formControl.value : null;
+  }
+
+  @Output() valueChanged = new EventEmitter<any>();
 
   constructor(
     private _validationMessageService: ValidationMessageService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.formGroup.setControl(this.controlName, this.formControl);
@@ -63,7 +72,7 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
 
     this.subscriptions.push(
       this._validationMessageService.showMessages$
-        .subscribe(value => {
+        .subscribe(() => {
           this.formControl.markAsTouched({ onlySelf: true });
         }));
 
@@ -111,7 +120,7 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
   protected getError(): string {
     const errors = this.formControl.errors;
     if (errors && (this.formControl.touched || this.formControl.dirty)) {
-      return Object.keys(errors).map(key => this.validationMessages[key]).find(x => x ? true : false);
+      return Object.keys(errors).map(key => this.validationMessages[key]).find(x => !!x);
     }
     return null;
   }
@@ -135,7 +144,7 @@ export class BaseSimpleDirective implements OnInit, OnDestroy {
   }
 
   onChanges(): void {
-    this.formControl.valueChanges.subscribe(val => {
+    this.formControl.valueChanges.subscribe(() => {
       this.displayErase = true;
     });
   }

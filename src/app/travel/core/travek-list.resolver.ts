@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 
 import { Observable } from 'rxjs';
+import { TravelFilter } from '../model/travel-filter';
 import { Travel } from '../model/travel.model';
 import { TravelService } from '../service/travel.service';
 
@@ -18,6 +19,9 @@ export class TravelListResolver implements Resolve<Travel[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Travel[]> {
-    return this.travelService.getTravels();
+    const travelFilter: TravelFilter = {
+      onlyUser: true
+    };
+    return this.travelService.getTravels(travelFilter);
   }
 }

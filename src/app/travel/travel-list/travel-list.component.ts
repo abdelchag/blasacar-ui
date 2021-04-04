@@ -1,5 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Travel } from '../model/travel.model';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Travel} from '../model/travel.model';
+import {TravelService} from '../service/travel.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'blasacar-travel-list',
@@ -14,8 +16,13 @@ export class TravelListComponent implements OnInit {
 
   @Input() travel: Travel;
 
+  @Output()
+  delete = new EventEmitter<Travel>();
 
-  constructor() { }
+
+  constructor(private readonly travelService: TravelService,
+              private readonly translateService: TranslateService) {
+  }
 
   ngOnInit(): void {
 
@@ -27,6 +34,13 @@ export class TravelListComponent implements OnInit {
 
   startEditing(): void {
     this.editing = true;
+  }
+
+  deleteTravel(): void {
+    if (confirm(this.translateService.instant('travel-list.delete-travel-confirmation'))) {
+      this.travelService.deleteTravel(this.travel).subscribe(travel => this.delete.emit(travel));
+      // of(this.travel).subscribe(travel => this.delete.emit(travel));
+    }
   }
 
   private showDetail(): void {
