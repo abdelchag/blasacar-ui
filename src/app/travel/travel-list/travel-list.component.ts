@@ -13,11 +13,11 @@ import { NotificationType } from 'src/app/constants';
 })
 export class TravelListComponent implements OnInit {
   extended = false;
-  editing = false;
 
+  @Input() editing: boolean;
+  @Output() save = new EventEmitter<Travel>();
 
   @Input() travel: Travel;
-
   @Output()
   delete = new EventEmitter<Travel>();
 
@@ -50,6 +50,11 @@ export class TravelListComponent implements OnInit {
         });
       });
     }
+  }
+
+  update(travel): void {
+    this.save.emit(travel);
+    this.editing = false;
   }
 
   private showDetail(): void {

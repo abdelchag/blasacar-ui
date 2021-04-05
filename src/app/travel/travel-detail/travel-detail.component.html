@@ -2,10 +2,10 @@
   <li class="list-group-item">
     <div class="row">
       <div class="col-md">
-        <blasacar-info-text label="Date depart" [value]=travel.departureDate></blasacar-info-text>
+        <blasacar-info-text label="Date depart" [value]="departureDate"></blasacar-info-text>
       </div>
       <div class="col-md">
-        <blasacar-info-text label="heure depart"></blasacar-info-text>
+        <blasacar-info-text label="heure depart" [value]=departureTime></blasacar-info-text>
       </div>
       <div class="col-md text-right">
         <a class="link" title="Détails" [class.active]="extended" (click)="extended = !extended">
@@ -20,15 +20,24 @@
         <blasacar-icon klass="icon icon-small" name="assurance-vie"></blasacar-icon>
         passages
       </h3>
-      <blasacar-info-text label="nombre place" [value]=travel.numberPlaces>
-      </blasacar-info-text>
+
       <div class="row">
         <div class="col-md">
-          <blasacar-info-text label="prix" [value]=travel.price>
+          <blasacar-info-text label="prix" [value]="travel.price">
           </blasacar-info-text>
         </div>
         <div class="col-md">
-          <blasacar-info-text label="Telephone" [value]=travel.phoneNumber>
+          <blasacar-info-text label="nombre place" [value]="travel.numberPlaces">
+          </blasacar-info-text>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <blasacar-info-text label="Ville départ" [value]="travel.departureCity">
+          </blasacar-info-text>
+        </div>
+        <div class="col-md">
+          <blasacar-info-text label="Acceptation automatique" [value]="travel.isAutomaticAcceptance | booleanToOuiNon | translate">
           </blasacar-info-text>
         </div>
       </div>
@@ -47,10 +56,11 @@
       </h3>
       <div class="row">
         <div class="col-md-6">
-          <blasacar-info-text label="autres info voyage"></blasacar-info-text>
+          <blasacar-info-text label="date création" [value]="creationDate"></blasacar-info-text>
         </div>
-        <div class="col-md-6">
-          <blasacar-info-text label="autres info voyage"></blasacar-info-text>
+        <div class="col-md">
+          <blasacar-info-text label="Telephone" [value]=travel.phoneNumber>
+          </blasacar-info-text>
         </div>
       </div>
     </li>

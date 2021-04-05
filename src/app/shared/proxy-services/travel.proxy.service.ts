@@ -26,5 +26,8 @@ export class TravelProxyService {
   public deleteTravel(id: number): Observable<Travel> {
     return this.http.delete<Travel>(`${this.TRAVEL_URL}/${id}`);
   }
+  public editTravel(travel: Travel): Observable<Travel> {
+    return this.http.put<Travel>(`${this.TRAVEL_URL}`, travel);
+  }
 
 }
