@@ -6,6 +6,7 @@ import { forkJoin } from 'rxjs';
 import { Helpers } from 'src/app/helpers';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 import { Travel } from '../model/travel.model';
+import { TravelService } from '../service/travel.service';
 
 @Component({
   selector: 'blasacar-travel-edit',
@@ -36,6 +37,7 @@ export class TravelEditComponent implements OnInit {
 
   constructor(
     private readonly translateService: TranslateService,
+    private readonly travelService: TravelService,
   ) { }
 
   ngOnInit(): void {
@@ -53,14 +55,20 @@ export class TravelEditComponent implements OnInit {
     return this.travel.isAutomatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
+
   update(): void {
-    // if (this.form.invalid) {
-    //   Helpers.showErrors(this.form);
-    //   return;
-    // }
-    this.isProcessing=true;
-    this.save.emit(this.travel);
-   }
+    if (this.form.invalid) {
+      Helpers.showErrors(this.form);
+      return;
+    }
+
+    this.travelService.editTravel(this.travel)
+      .subscribe(travels => {
+        this.isProcessing = true;
+        this.save.emit(this.travel);
+      }
+      );
+  }
 
   triggerDelete(): void {
   }
