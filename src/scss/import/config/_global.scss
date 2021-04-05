@@ -12,7 +12,7 @@ body {
   padding: 0;
   font-size: 16px;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: $dark-grey;
 }
 
@@ -63,14 +63,14 @@ main {
 
       span {
         font-size: 1rem;
-        margin-top: .6rem;
+        margin-top: 0.6rem;
       }
     }
 
     .subtitle {
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       margin-bottom: 1rem;
     }
 
@@ -79,15 +79,15 @@ main {
         &:before {
           content: "";
           display: inline-block;
-          vertical-align: -.2rem;
-          width: .5rem;
-          height: .5rem;
-          border-top: .14rem solid $orange;
-          border-right: .14rem solid $orange;
-          border-radius: .1rem;
+          vertical-align: -0.2rem;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-top: 0.14rem solid $orange;
+          border-right: 0.14rem solid $orange;
+          border-radius: 0.1rem;
           -webkit-transform: translate3d(0, -50%, 0) rotate(-135deg);
           transform: translate3d(0, -50%, 0) rotate(-135deg);
-          margin-left: .5rem;
+          margin-left: 0.5rem;
         }
       }
     }
@@ -237,17 +237,17 @@ main {
     }
 
     &:first-child {
-      margin-top: .4rem;
+      margin-top: 0.4rem;
     }
 
     &:last-child {
-      margin-bottom: .4rem;
+      margin-bottom: 0.4rem;
     }
   }
 
   &.list-contrat {
     li {
-      margin: 0 0 .5rem 0;
+      margin: 0 0 0.5rem 0;
 
       &:first-child {
         margin-top: 0;
@@ -266,7 +266,7 @@ main {
   &.list-compact {
     li {
       display: block;
-      margin: .8rem 0;
+      margin: 0.8rem 0;
 
       a {
         .icon-medium {
@@ -275,16 +275,16 @@ main {
         }
 
         &:before {
-          margin-right: .5rem;
+          margin-right: 0.5rem;
         }
       }
 
       &:first-child {
-        margin-top: .8rem;
+        margin-top: 0.8rem;
       }
 
       &:last-child {
-        margin-bottom: .8rem;
+        margin-bottom: 0.8rem;
       }
     }
   }
@@ -294,15 +294,15 @@ main {
   &:after {
     content: "";
     display: inline-block;
-    vertical-align: -.25rem;
-    width: .6rem;
-    height: .6rem;
-    border-top: .15rem solid #ff7400;
-    border-right: .15rem solid #ff7400;
-    border-radius: .1rem;
+    vertical-align: -0.25rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-top: 0.15rem solid #ff7400;
+    border-right: 0.15rem solid #ff7400;
+    border-radius: 0.1rem;
     -webkit-transform: translate3d(0, -50%, 0) rotate(45deg);
     transform: translate3d(0, -50%, 0) rotate(45deg);
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 
   &.active {
@@ -310,14 +310,14 @@ main {
       content: "";
       display: inline-block;
       vertical-align: middle;
-      width: .6rem;
-      height: .6rem;
-      border-top: .15rem solid #ff7400;
-      border-right: .15rem solid #ff7400;
-      border-radius: .1rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-top: 0.15rem solid #ff7400;
+      border-right: 0.15rem solid #ff7400;
+      border-radius: 0.1rem;
       -webkit-transform: translate3d(0, -50%, 0) rotate(135deg);
       transform: translate3d(0, -50%, 0) rotate(135deg);
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 }
@@ -328,8 +328,8 @@ main {
     display: inline-block;
     color: $principale-groupama;
     font: normal normal normal 14px/1 FontAwesome;
-    width: .6rem;
-    height: .6rem;
+    width: 0.6rem;
+    height: 0.6rem;
     margin-right: 1rem;
   }
 }
@@ -342,7 +342,7 @@ app-affiliations {
   .box {
     .box-content {
       .box-inner {
-        padding: .5rem;
+        padding: 0.5rem;
       }
     }
   }
@@ -350,23 +350,23 @@ app-affiliations {
 
 app-sidebar {
   .box {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
 
     .box-title {
       margin-top: 0;
 
-      ~.box-content {
+      ~ .box-content {
         margin-top: 0;
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
 
         .list-block {
           li {
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
           }
         }
 
         p {
-          margin-bottom: .5rem;
+          margin-bottom: 0.5rem;
 
           span {
             font-weight: 600;
@@ -380,7 +380,7 @@ app-sidebar {
 app-assistance-sante {
   .box-accordeon {
     .box-content {
-      padding: .3rem 1rem;
+      padding: 0.3rem 1rem;
     }
   }
 }
@@ -416,7 +416,7 @@ app-mon-compte {
       .box-inner {
         padding: 1rem;
 
-        ~.row {
+        ~ .row {
           margin-top: 0;
         }
       }
@@ -462,7 +462,7 @@ app-faq {
 }
 
 .align-middle {
-  margin-top: .9rem;
+  margin-top: 0.9rem;
 }
 
 .padding-top {
@@ -575,7 +575,7 @@ app-faq {
 }
 
 .text-small {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .text-uppercase {
@@ -596,21 +596,21 @@ a {
   color: $link-blue;
   text-decoration: none;
   cursor: pointer;
-  @include transition(all .5s);
+  @include transition(all 0.5s);
 
   &.arrow-left {
     &:before {
       content: "";
       display: inline-block;
-      vertical-align: -.25rem;
-      width: .6rem;
-      height: .6rem;
-      border-top: .15rem solid #ff7400;
-      border-right: .15rem solid #ff7400;
-      border-radius: .1rem;
+      vertical-align: -0.25rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-top: 0.15rem solid #ff7400;
+      border-right: 0.15rem solid #ff7400;
+      border-radius: 0.1rem;
       -webkit-transform: translate3d(0, -50%, 0) rotate(45deg);
       transform: translate3d(0, -50%, 0) rotate(45deg);
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 
@@ -625,7 +625,7 @@ a {
 }
 
 .disabled {
-  opacity: .5;
+  opacity: 0.5;
   pointer-events: none;
   cursor: default;
 }
@@ -668,19 +668,19 @@ a {
     z-index: 57;
     bottom: 0;
     left: 50%;
-    margin: 0 0 -.5rem 0;
-    padding: 1rem .5rem;
+    margin: 0 0 -0.5rem 0;
+    padding: 1rem 0.5rem;
     font-size: 1rem;
     color: #000;
     background-color: $lighter-grey;
     text-align: left;
     border: 1px solid $border-light-grey;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     transform: translate(-19%, 100%);
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     p {
-      font-size: .85rem;
+      font-size: 0.85rem;
       color: $dark-grey;
       line-height: 1.3;
       margin: 0;
@@ -813,26 +813,26 @@ h6 {
   display: block;
   width: 3rem;
   height: 1.8rem;
-  margin: 0 0 .5rem;
+  margin: 0 0 0.5rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image:url('../../../assets/images/switch-on.png');
+  background-image: url("../../../assets/images/switch-on.png");
 }
 
 body.theme-ganass .switch-bg {
-  background-image:url('../../../assets/images/switch-on-ganass.png');
+  background-image: url("../../../assets/images/switch-on-ganass.png");
 }
 
 .switch-off-bg {
   display: block;
   width: 3rem;
   height: 1.8rem;
-  margin: 0 0 .5rem;
+  margin: 0 0 0.5rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image:url('../../../assets/images/switch-off.png');
+  background-image: url("../../../assets/images/switch-off.png");
 }
 
 app-toutes-mes-factures .list-block {
@@ -870,7 +870,7 @@ blasacar-text-display p {
   }
 
   .notification svg.icon {
-    padding-right: .8rem;
+    padding-right: 0.8rem;
   }
 
   .nav.nav-pills .nav-link {
@@ -894,9 +894,8 @@ blasacar-text-display p {
 // ***************************************
 //          correctif bugs IE10 & 11
 // ***************************************
-@media screen and (-ms-high-contrast: active),
-(-ms-high-contrast: none) {
-  .nav>a {
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .nav > a {
     flex: 1 0 0%;
   }
 
@@ -928,8 +927,8 @@ blasacar-text-display p {
 
     &.arrow-left {
       &:before {
-        border-top: .15rem solid $ganeur-arrow;
-        border-right: .15rem solid $ganeur-arrow;
+        border-top: 0.15rem solid $ganeur-arrow;
+        border-right: 0.15rem solid $ganeur-arrow;
       }
     }
 
@@ -943,8 +942,8 @@ blasacar-text-display p {
       a {
         &.subtitle {
           &:before {
-            border-top: .14rem solid $ganeur-arrow;
-            border-right: .14rem solid $ganeur-arrow;
+            border-top: 0.14rem solid $ganeur-arrow;
+            border-right: 0.14rem solid $ganeur-arrow;
           }
         }
       }
@@ -983,8 +982,8 @@ blasacar-text-display p {
 
   .link {
     &:after {
-      border-top: .15rem solid $ganeur-arrow;
-      border-right: .15rem solid $ganeur-arrow;
+      border-top: 0.15rem solid $ganeur-arrow;
+      border-right: 0.15rem solid $ganeur-arrow;
     }
   }
 
@@ -1029,8 +1028,8 @@ blasacar-text-display p {
 
     &.arrow-left {
       &:before {
-        border-top: .15rem solid $ganass-arrow;
-        border-right: .15rem solid $ganass-arrow;
+        border-top: 0.15rem solid $ganass-arrow;
+        border-right: 0.15rem solid $ganass-arrow;
       }
     }
 
@@ -1044,8 +1043,8 @@ blasacar-text-display p {
       a {
         &.subtitle {
           &:before {
-            border-top: .14rem solid $ganass-arrow;
-            border-right: .14rem solid $ganass-arrow;
+            border-top: 0.14rem solid $ganass-arrow;
+            border-right: 0.14rem solid $ganass-arrow;
           }
         }
       }
@@ -1084,8 +1083,8 @@ blasacar-text-display p {
 
   .link {
     &:after {
-      border-top: .15rem solid $ganass-arrow;
-      border-right: .15rem solid $ganass-arrow;
+      border-top: 0.15rem solid $ganass-arrow;
+      border-right: 0.15rem solid $ganass-arrow;
     }
   }
 

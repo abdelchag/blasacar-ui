@@ -8,9 +8,9 @@ describe('FaceInfoSuppPopupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FaceInfoSuppPopupComponent ]
+      declarations: [FaceInfoSuppPopupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

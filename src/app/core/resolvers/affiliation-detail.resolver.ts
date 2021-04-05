@@ -11,7 +11,7 @@ import { AffiliationTnsModel } from 'src/app/shared/models';
 export class AffiliationDetailResolver implements Resolve<AffiliationTnsModel> {
 
   constructor(
-    
+
   ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<AffiliationTnsModel> {

@@ -6,7 +6,7 @@ describe('ErrorResponseInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
       ErrorResponseInterceptor
-      ]
+    ]
   }));
 
   it('should be created', () => {

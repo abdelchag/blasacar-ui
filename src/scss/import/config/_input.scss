@@ -6,14 +6,14 @@
     font-size: 1.4rem;
     font-weight: 600;
     color: $light-black;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
   label {
     position: relative;
     .btn.info {
       position: absolute;
-      top:-0.5rem;
-      right:-2.5rem;
+      top: -0.5rem;
+      right: -2.5rem;
     }
   }
   .form-control {
@@ -25,7 +25,7 @@
     }
   }
   .form-control-plaintext {
-    ~.input-group-append {
+    ~ .input-group-append {
       display: none;
     }
   }
@@ -40,12 +40,12 @@
         box-shadow: none;
       }
       &[disabled] {
-        ~.input-group-append {
+        ~ .input-group-append {
           background-color: #eee;
         }
       }
       &[readonly] {
-        ~.input-group-append {
+        ~ .input-group-append {
           .input-group-text {
             background-color: $input-readonly;
           }
@@ -78,30 +78,30 @@
     }
   }
   .form-check-inline {
-    input[type=radio] {
+    input[type="radio"] {
       opacity: 0;
       z-index: 1;
       cursor: pointer;
       &:checked {
-        +label::before {
+        + label::before {
           border-width: 4px;
           border-color: $water-green;
         }
-        +label::after {
+        + label::after {
           color: $white;
         }
       }
     }
-    input[type=checkbox] {
+    input[type="checkbox"] {
       opacity: 0;
       z-index: 1;
       cursor: pointer;
       &:checked {
-        +label::before {
+        + label::before {
           background-color: #337ab7;
           border-color: #337ab7;
         }
-        +label::after {
+        + label::after {
           color: $white;
         }
       }
@@ -118,7 +118,7 @@
         width: 1rem;
         height: 1rem;
         left: 0;
-        top: .1rem;
+        top: 0.1rem;
         margin-left: 0;
         border: 1px solid #cccccc;
         border-radius: 50%;
@@ -138,12 +138,12 @@
   }
   .form-check {
     padding-left: 0;
-    input[type=checkbox] {
+    input[type="checkbox"] {
       opacity: 0;
       z-index: 1;
       cursor: pointer;
       &:checked {
-        +label {
+        + label {
           &:before {
             border-color: $water-green;
           }
@@ -155,7 +155,7 @@
         }
       }
       &:disabled {
-        +label {
+        + label {
           &:before {
             border-color: #a39d9d !important;
           }
@@ -180,7 +180,7 @@
         width: 1rem;
         height: 1rem;
         left: 0;
-        top: .3rem;
+        top: 0.3rem;
         margin-left: 0;
         border: 1px solid #cccccc;
         background-color: $white;
@@ -196,7 +196,7 @@
         top: 2px;
         padding-left: 2px;
         padding-top: 1px;
-        font-size: .8rem;
+        font-size: 0.8rem;
         color: #495057;
       }
     }
@@ -230,33 +230,33 @@
     cursor: pointer;
     outline: none;
     user-select: none;
-    margin: .5rem 1rem;
+    margin: 0.5rem 1rem;
     color: $light-black;
   }
   .input-wrapper {
     display: flex;
     justify-content: center;
-    margin: .1rem 1rem 0;
+    margin: 0.1rem 1rem 0;
     .toggle-checkbox-left {
       align-self: flex-start;
-      padding: 0 .7rem 0;
+      padding: 0 0.7rem 0;
     }
     .toggle-checkbox-right {
       align-self: flex-end;
-      padding: 0 0 0 .7rem;
+      padding: 0 0 0 0.7rem;
     }
   }
   .toggle-round {
     height: 0px;
     position: absolute;
     &:checked {
-      ~.toggle-text {
+      ~ .toggle-text {
         background: $water-green;
       }
-      ~.toggle-text:before {
-        content: '';
+      ~ .toggle-text:before {
+        content: "";
       }
-      ~.toggle-text:after {
+      ~ .toggle-text:after {
         left: 100%;
         margin-left: -1.2rem;
         @include box-shadow(-1px, 1px, 3px, 1px, $input-toggle-green-shadow);
@@ -268,7 +268,7 @@
     position: relative;
     text-transform: uppercase;
     border: 1px solid $input-button-light-grey;
-    padding: .25rem .5rem .25rem 2rem;
+    padding: 0.25rem 0.5rem 0.25rem 2rem;
     border-radius: 2rem;
     width: 2.3rem;
     height: 1.5rem;
@@ -276,10 +276,10 @@
     cursor: pointer;
     transition: background-color 0.15s;
     &:before {
-      content: '';
+      content: "";
     }
     &:after {
-      content: ' ';
+      content: " ";
       display: block;
       background: $white;
       border: 1px solid $input-button-light-grey;
@@ -287,7 +287,7 @@
       height: 1.3rem;
       border-radius: 50%;
       position: absolute;
-      left: .1rem;
+      left: 0.1rem;
       top: 0rem;
       transition: left 0.15s, margin-left 0.15s;
       box-shadow: 0 3px 6px #bdbdbc;
@@ -297,14 +297,14 @@
 
 .upload {
   .box {
-    padding: .5rem;
+    padding: 0.5rem;
     border: 4px dashed $border-lighter-grey !important;
     .box-title {
       color: $medium-grey;
       font-weight: 700;
     }
     .box-content {
-      padding: .5rem;
+      padding: 0.5rem;
       .icon {
         use {
           fill: $medium-grey;
@@ -312,7 +312,7 @@
       }
     }
     .box-footer {
-      padding: .5rem;
+      padding: 0.5rem;
       color: $medium-grey;
     }
   }
@@ -322,7 +322,7 @@
   &.uploading {
     .box {
       .box-footer {
-        padding: .6rem 5rem;
+        padding: 0.6rem 5rem;
       }
     }
     .box-progress {
@@ -357,7 +357,7 @@
       }
     }
   }
-  ~.error {
+  ~ .error {
     ul {
       list-style: none;
       margin: 0;
@@ -367,7 +367,7 @@
         margin: 0;
         padding: 0;
         color: $error-typo;
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: 600;
       }
     }
@@ -395,7 +395,7 @@ app-toggle-button {
 /* checkbox */
 
 .form-group {
-  &.checkbox{
+  &.checkbox {
     display: inline-block;
   }
   .checkbox {
@@ -408,7 +408,7 @@ app-toggle-button {
       height: 0;
       width: 0;
       &:checked {
-        ~.checkmark {
+        ~ .checkmark {
           border-color: $water-green;
           background-color: $water-green;
           &:after {
@@ -417,7 +417,7 @@ app-toggle-button {
         }
       }
       &:disabled {
-        ~.checklabel {
+        ~ .checklabel {
           color: $light-grey;
         }
       }
@@ -428,16 +428,16 @@ app-toggle-button {
       width: 1.5rem;
       background-color: #fbfbfb;
       border: 1px solid #cccccc;
-      border-radius: .25rem;
-      @include transition(all .5s);
+      border-radius: 0.25rem;
+      @include transition(all 0.5s);
       &:after {
         content: "";
         position: absolute;
         display: none;
-        left: .5rem;
-        top: .3rem;
-        width: .4rem;
-        height: .8rem;
+        left: 0.5rem;
+        top: 0.3rem;
+        width: 0.4rem;
+        height: 0.8rem;
         border: solid white;
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
@@ -449,7 +449,7 @@ app-toggle-button {
     &.checkbox-card {
       input {
         &:checked {
-          ~.card {
+          ~ .card {
             border-color: $water-green;
             .card-title {
               color: $water-green;
@@ -457,7 +457,7 @@ app-toggle-button {
           }
         }
         &:disabled {
-          ~.card {
+          ~ .card {
             color: $light-grey;
           }
         }
@@ -467,10 +467,10 @@ app-toggle-button {
         left: 1rem;
       }
       .card {
-        @include transition(all .5s);
+        @include transition(all 0.5s);
         background-color: transparent;
         .card-title {
-          @include transition(all .5s);
+          @include transition(all 0.5s);
         }
         .card-body {
           padding: 1rem 1rem 1rem 3.5rem;
@@ -567,7 +567,8 @@ app-toggle-button {
   }
 }
 
-.check-valid-c, .check-invalid-c {
+.check-valid-c,
+.check-invalid-c {
   position: relative;
   top: 0;
   left: 0;
@@ -577,23 +578,24 @@ app-toggle-button {
   background-color: $label-check-color;
   border: 1px solid $label-check-color;
   border-radius: 50%;
-  .check-valid, .check-invalid {
+  .check-valid,
+  .check-invalid {
     position: absolute;
-    top: .1rem;
-    left: .1rem;
+    top: 0.1rem;
+    left: 0.1rem;
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       background: transparent;
       width: 1.1rem;
-      height: .5rem;
-      top: .5rem;
-      left: .2rem;
+      height: 0.5rem;
+      top: 0.5rem;
+      left: 0.2rem;
       border: 1.5px solid $white;
       border-top: none;
       border-right: none;
       transform: rotate(-45deg);
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 }
@@ -604,7 +606,7 @@ app-toggle-button {
     display: none;
   }
   p {
-    font-size: .9rem;
+    font-size: 0.9rem;
     text-align: left;
     padding: 1.5rem 0 0;
     line-height: 1.5;
@@ -618,7 +620,7 @@ app-toggle-button {
     cursor: pointer;
     border: 1px solid $placeholder;
     border-radius: 3px;
-    transition: all .5s;
+    transition: all 0.5s;
     .label-round {
       position: absolute;
       top: 1rem;
@@ -631,8 +633,8 @@ app-toggle-button {
     }
     .label-check {
       position: absolute;
-      top: .1rem;
-      left: .1rem;
+      top: 0.1rem;
+      left: 0.1rem;
     }
     .label-icon {
       width: 100%;
@@ -640,26 +642,26 @@ app-toggle-button {
     }
     .label-text {
       width: 100%;
-      margin: .5rem 0;
+      margin: 0.5rem 0;
       font-size: 1.2rem;
     }
   }
-  input:checked+.label-container {
+  input:checked + .label-container {
     background-color: $accordeon-bg;
     border: 1px solid $dark-grey;
     .label-check:after {
-      content: '';
+      content: "";
       position: absolute;
       background: transparent;
       width: 1.1rem;
-      height: .5rem;
-      top: .5rem;
-      left: .2rem;
+      height: 0.5rem;
+      top: 0.5rem;
+      left: 0.2rem;
       border: 1.5px solid $label-check-color;
       border-top: none;
       border-right: none;
       transform: rotate(-45deg);
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 }
@@ -696,7 +698,7 @@ app-toggle-button {
               margin: 0;
               padding: 0;
               &:nth-of-type(1) {
-                padding: .2rem 0 0;
+                padding: 0.2rem 0 0;
               }
             }
           }
@@ -705,7 +707,7 @@ app-toggle-button {
     }
   }
   &.current-iban {
-    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     margin: 1rem auto;
     .label-title {
       font-weight: 600;
@@ -714,18 +716,18 @@ app-toggle-button {
     }
     .label-check {
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         background: transparent;
         width: 1.1rem;
-        height: .5rem;
-        top: .5rem;
-        left: .2rem;
+        height: 0.5rem;
+        top: 0.5rem;
+        left: 0.2rem;
         border: 1.5px solid $dark-grey;
         border-top: none;
         border-right: none;
         transform: rotate(-45deg);
-        transition: all .3s;
+        transition: all 0.3s;
       }
     }
   }
@@ -740,11 +742,11 @@ app-toggle-button {
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    background: rgba($scroll-color, .8);
+    background: rgba($scroll-color, 0.8);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0);
   }
   &::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba($scroll-color, .8);
+    background: rgba($scroll-color, 0.8);
   }
 }
 
@@ -807,7 +809,7 @@ app-ayant-droit-list {
       }
     }
     .form-check {
-      input[type=checkbox]:checked+label {
+      input[type="checkbox"]:checked + label {
         &:before {
           border-color: $ganeur-arrow;
         }
@@ -817,7 +819,7 @@ app-ayant-droit-list {
       }
     }
     .form-check-inline {
-      input[type=radio]:checked+label::before {
+      input[type="radio"]:checked + label::before {
         border-width: 4px;
         border-color: $ganeur-arrow;
       }
@@ -825,7 +827,7 @@ app-ayant-droit-list {
     .checkbox {
       input {
         &:checked {
-          ~.checkmark {
+          ~ .checkmark {
             border-color: $button-default-ganeur;
             background-color: $button-default-ganeur;
           }
@@ -834,7 +836,7 @@ app-ayant-droit-list {
       &.checkbox-card {
         input {
           &:checked {
-            ~.card {
+            ~ .card {
               border-color: $button-default-ganeur;
               .card-title {
                 color: $button-default-ganeur;
@@ -848,10 +850,10 @@ app-ayant-droit-list {
   .toggle-checkbox {
     .toggle-round {
       &:checked {
-        ~.toggle-text {
+        ~ .toggle-text {
           background: $ganeur-arrow;
         }
-        ~.toggle-text:after {
+        ~ .toggle-text:after {
           @include box-shadow(-1px, 1px, 3px, 1px, $input-toggle-blue-shadow);
         }
       }
@@ -867,7 +869,7 @@ app-ayant-droit-list {
     background-color: $ganeur-label-check-color;
     border: 1px solid $ganeur-label-check-color;
   }
-  .cotisation{
+  .cotisation {
     .check-invalid-c {
       .check-invalid:after {
         border: 1px solid $ganeur-label-check-color;
@@ -884,23 +886,23 @@ app-ayant-droit-list {
         }
         .label-check {
           &::after {
-            content: '';
+            content: "";
             position: absolute;
             background: transparent;
             width: 1.1rem;
-            height: .5rem;
-            top: .5rem;
-            left: .2rem;
+            height: 0.5rem;
+            top: 0.5rem;
+            left: 0.2rem;
             border: 1.5px solid $ganeur-label-check-color;
             border-top: none;
             border-right: none;
             transform: rotate(-45deg);
-            transition: all .3s;
+            transition: all 0.3s;
           }
         }
       }
     }
-    input:checked+.label-container {
+    input:checked + .label-container {
       .label-check:after {
         border-color: $ganeur-label-check-color;
       }
@@ -909,11 +911,11 @@ app-ayant-droit-list {
   .label-list-c {
     &::-webkit-scrollbar-thumb {
       border-radius: 15px;
-      background: rgba($ganeur-scroll-color, .8);
+      background: rgba($ganeur-scroll-color, 0.8);
       box-shadow: inset 0 0 3px rgba(0, 0, 0, 0);
     }
     &::-webkit-scrollbar-thumb:window-inactive {
-      background: rgba($ganeur-scroll-color, .8);
+      background: rgba($ganeur-scroll-color, 0.8);
     }
   }
 }
@@ -940,7 +942,7 @@ app-ayant-droit-list {
       }
     }
     .form-check {
-      input[type=checkbox]:checked+label {
+      input[type="checkbox"]:checked + label {
         &:before {
           border-color: $ganass-arrow;
         }
@@ -950,7 +952,7 @@ app-ayant-droit-list {
       }
     }
     .form-check-inline {
-      input[type=radio]:checked+label::before {
+      input[type="radio"]:checked + label::before {
         border-width: 4px;
         border-color: $ganass-arrow;
       }
@@ -958,7 +960,7 @@ app-ayant-droit-list {
     .checkbox {
       input {
         &:checked {
-          ~.checkmark {
+          ~ .checkmark {
             border-color: $button-default-ganass;
             background-color: $button-default-ganass;
           }
@@ -967,7 +969,7 @@ app-ayant-droit-list {
       &.checkbox-card {
         input {
           &:checked {
-            ~.card {
+            ~ .card {
               border-color: $button-default-ganass;
               .card-title {
                 color: $button-default-ganass;
@@ -981,10 +983,10 @@ app-ayant-droit-list {
   .toggle-checkbox {
     .toggle-round {
       &:checked {
-        ~.toggle-text {
+        ~ .toggle-text {
           background: $ganass-arrow;
         }
-        ~.toggle-text:after {
+        ~ .toggle-text:after {
           @include box-shadow(-1px, 1px, 3px, 1px, $input-toggle-blue-shadow);
         }
       }
@@ -999,13 +1001,13 @@ app-ayant-droit-list {
     background-color: $ganass-label-check-color;
     border: 1px solid $ganass-label-check-color;
   }
-  .cotisation{
+  .cotisation {
     .check-invalid-c {
       .check-invalid:after {
         border: 1px solid $ganass-label-check-color;
       }
     }
-}
+  }
   .label-custom {
     .label-container {
       &.current-iban {
@@ -1016,23 +1018,23 @@ app-ayant-droit-list {
         }
         .label-check {
           &::after {
-            content: '';
+            content: "";
             position: absolute;
             background: transparent;
             width: 1.1rem;
-            height: .5rem;
-            top: .5rem;
-            left: .2rem;
+            height: 0.5rem;
+            top: 0.5rem;
+            left: 0.2rem;
             border: 1.5px solid $ganass-label-check-color;
             border-top: none;
             border-right: none;
             transform: rotate(-45deg);
-            transition: all .3s;
+            transition: all 0.3s;
           }
         }
       }
     }
-    input:checked+.label-container {
+    input:checked + .label-container {
       .label-check:after {
         border-color: $ganass-label-check-color;
       }
@@ -1041,11 +1043,11 @@ app-ayant-droit-list {
   .label-list-c {
     &::-webkit-scrollbar-thumb {
       border-radius: 15px;
-      background: rgba($ganass-scroll-color, .8);
+      background: rgba($ganass-scroll-color, 0.8);
       box-shadow: inset 0 0 3px rgba(0, 0, 0, 0);
     }
     &::-webkit-scrollbar-thumb:window-inactive {
-      background: rgba($ganass-scroll-color, .8);
+      background: rgba($ganass-scroll-color, 0.8);
     }
   }
 }

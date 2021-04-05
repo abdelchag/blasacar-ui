@@ -1,11 +1,11 @@
 .modal-backdrop.show {
- opacity:.3;
+  opacity: 0.3;
 }
 
 .modal {
   .modal-content {
     border: none;
-    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, .15);
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
     .modal-dialog {
       margin-top: 0;
       margin-bottom: 0;
@@ -76,7 +76,7 @@
         }
       }
       .spinner {
-        >div {
+        > div {
           background-color: $ganeur-arrow;
         }
       }
@@ -112,7 +112,7 @@
         }
       }
       .spinner {
-        >div {
+        > div {
           background-color: $ganass-arrow;
         }
       }

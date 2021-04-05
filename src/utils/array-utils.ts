@@ -1,4 +1,4 @@
-import {BlasaUtils} from './blasa-utils';
+import { BlasaUtils } from './blasa-utils';
 
 export class ArrayUtils {
 

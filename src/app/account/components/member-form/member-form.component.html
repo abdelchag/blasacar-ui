@@ -1,7 +1,7 @@
 <div class="view-content">
   <div class="view-title">
   </div>
-  <form [formGroup]="form" >
+  <form [formGroup]="form">
     <fieldset>
       <div class="card mb-0">
         <div class="card-header">
@@ -14,70 +14,73 @@
         <div class="card-body">
           <div class="col text-center">
             <div>
-                <h1 class="title">{{currentStep.element.title | translate}}</h1>
+              <h1 class="title">{{currentStep.element.title | translate}}</h1>
             </div>
           </div>
           <div class="container">
             <div class="justify-content-md-center col-sm-6">
-                <ng-container [ngSwitch]="currentStep.element.code">
-                    <div *ngSwitchCase="memberStepCode.EMAIL">
-                        <blasacar-email [formGroup]="form" controlName="email"
-                            [initialValue]="userToAdd.email" [required]="true"
-                            (valueChanged)="userToAdd.email= $event">
-                        </blasacar-email>
-                    </div>
-                    <div *ngSwitchCase="memberStepCode.FIRST_LAST_NAME">
-                      <div>
-                        <blasacar-text-noun [formGroup]="form" controlName="lastName" label="Nom" [initialValue]="userToAdd.lastName" [required]="true"
-                        (valueChanged)="userToAdd.lastName = $event">
+              <ng-container [ngSwitch]="currentStep.element.code">
+                <div *ngSwitchCase="memberStepCode.EMAIL">
+                  <blasacar-email [formGroup]="form" controlName="email" [initialValue]="userToAdd.email"
+                    [required]="true" (valueChanged)="userToAdd.email= $event">
+                  </blasacar-email>
+                </div>
+                <div *ngSwitchCase="memberStepCode.FIRST_LAST_NAME">
+                  <div>
+                    <blasacar-text-noun [formGroup]="form" controlName="lastName" label="Nom"
+                      [initialValue]="userToAdd.lastName" [required]="true"
+                      (valueChanged)="userToAdd.lastName = $event">
                     </blasacar-text-noun>
-                      </div>
-                      <div>
-                        <blasacar-text-noun [formGroup]="form" controlName="firstName" label="Prénom" [initialValue]="userToAdd.firstName" [required]="true"
-                        (valueChanged)="userToAdd.firstName = $event">
-                        </blasacar-text-noun>
-                      </div>
                   </div>
-                  <div *ngSwitchCase="memberStepCode.BIRTHDATE">
-                    <blasacar-datepicker-form [formGroup]="form" controlName="birthDate" [isBirthDate]="true" [placeholder]="'account.birthday-date' | translate"
-                    [initialValue]="userToAdd.birthDate"
+                  <div>
+                    <blasacar-text-noun [formGroup]="form" controlName="firstName" label="Prénom"
+                      [initialValue]="userToAdd.firstName" [required]="true"
+                      (valueChanged)="userToAdd.firstName = $event">
+                    </blasacar-text-noun>
+                  </div>
+                </div>
+                <div *ngSwitchCase="memberStepCode.BIRTHDATE">
+                  <blasacar-datepicker-form [formGroup]="form" controlName="birthDate" [isBirthDate]="true"
+                    [placeholder]="'account.birthday-date' | translate" [initialValue]="userToAdd.birthDate"
                     [required]="true" (valueChanged)="userToAdd.birthDate= $event">
-                    </blasacar-datepicker-form>
+                  </blasacar-datepicker-form>
                 </div>
                 <div *ngSwitchCase="memberStepCode.TELEPHONE">
 
-                  <blasacar-phone label="Téléphone" controlName="telephone" [formGroup]="form" [initialValue]="userToAdd.telephone"
-                    (valueChanged)="userToAdd.telephone= $event"></blasacar-phone>
+                  <blasacar-phone label="Téléphone" controlName="telephone" [formGroup]="form"
+                    [initialValue]="userToAdd.telephone" (valueChanged)="userToAdd.telephone= $event"></blasacar-phone>
 
                 </div>
                 <div *ngSwitchCase="memberStepCode.ADRESS">
 
-                  <blasacar-text-noun [formGroup]="form" controlName="address" label="Adresse" [initialValue]="userToAdd.address"
-                  (valueChanged)="userToAdd.address = $event">
+                  <blasacar-text-noun [formGroup]="form" controlName="address" label="Adresse"
+                    [initialValue]="userToAdd.address" (valueChanged)="userToAdd.address = $event">
                   </blasacar-text-noun>
 
 
                 </div>
                 <div *ngSwitchCase="memberStepCode.GENDER">
-                  
-                  <blasacar-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true" [options]="civilites"
-                    [initialValue]="userToAdd.gender" (valueChanged)="userToAdd.gender= $event"></blasacar-radio>
+
+                  <blasacar-radio [formGroup]="form" controlName="gender" label="Statut" [required]="true"
+                    [options]="civilites" [initialValue]="userToAdd.gender" (valueChanged)="userToAdd.gender= $event">
+                  </blasacar-radio>
 
                 </div>
                 <div *ngSwitchCase="memberStepCode.PASSWORD">
                   <blasacar-password [formGroup]="form" controlName="password" label="Mot de passe" [required]="true"
-                  [initialValue]="userToAdd.password"  (valueChanged)="userToAdd.password= $event"> </blasacar-password>
+                    [initialValue]="userToAdd.password" (valueChanged)="userToAdd.password= $event">
+                  </blasacar-password>
                 </div>
-                </ng-container>
+              </ng-container>
 
             </div>
           </div>
           <div class="d-flex justify-content-between">
             <button class="btn btn-secondary" (click)="previousStep()" *ngIf="currentStep.previous">
-                {{'travel-propose.previous-step' | translate}}
+              {{'travel-propose.previous-step' | translate}}
             </button>
             <button (click)="nextStep()" class="btn btn-primary">
-                {{nextStepButtonLabel() | translate }}
+              {{nextStepButtonLabel() | translate }}
             </button>
           </div>
 

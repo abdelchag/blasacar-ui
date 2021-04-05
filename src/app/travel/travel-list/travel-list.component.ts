@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Travel} from '../model/travel.model';
-import {TravelService} from '../service/travel.service';
-import {TranslateService} from '@ngx-translate/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Travel } from '../model/travel.model';
+import { TravelService } from '../service/travel.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'blasacar-travel-list',
@@ -21,7 +21,7 @@ export class TravelListComponent implements OnInit {
 
 
   constructor(private readonly travelService: TravelService,
-              private readonly translateService: TranslateService) {
+    private readonly translateService: TranslateService) {
   }
 
   ngOnInit(): void {

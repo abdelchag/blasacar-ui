@@ -6,7 +6,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'blasacar-message-splash-screen-dialog',
   templateUrl: './message-splash-screen-dialog.component.html',
-  styles : []
+  styles: []
 })
 export class MessageSplashScreenDialogComponent {
 

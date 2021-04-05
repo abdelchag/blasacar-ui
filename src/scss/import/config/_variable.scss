@@ -1,5 +1,5 @@
-@import 'reseaux/variable-ganeur';
-@import 'reseaux/variable-ganass';
+@import "reseaux/variable-ganeur";
+@import "reseaux/variable-ganass";
 //primary
 $principale-groupama: #006a53;
 $principale-groupama-hover: #005240;
@@ -20,11 +20,11 @@ $light-red: #efdbdb;
 $light-black: #434343;
 $light-grey: #b2b2b2;
 $lighter-grey: #f5f5f5;
-$medium-grey:#999999;
+$medium-grey: #999999;
 $medium-black: #989898;
-$normal-grey: #9B9B9B;
+$normal-grey: #9b9b9b;
 $dark-grey: #444444;
-$link-blue: #0765A8;
+$link-blue: #0765a8;
 $link-blue-hover: #0056b3;
 $card-selected: azure;
 $card-hover: azure;
@@ -58,14 +58,14 @@ $border-grey: #d2d2d0;
 $border-light-grey: #dddddd;
 $border-lighter-grey: #d6d6d5;
 //button
-$button-default: #FC8C44;
-$button-default-hover: #EE7400;
-$button-default-focus: rgba(255, 116, 0, .7);
+$button-default: #fc8c44;
+$button-default-hover: #ee7400;
+$button-default-focus: rgba(255, 116, 0, 0.7);
 $button-primary: #009e7c;
 $button-primary-hover: #008468;
 $button-primary-focus: rgba(0, 132, 104, 0.7);
-$button-grey: #B5B5B5;
-$button-grey-hover: #9B9B9B;
+$button-grey: #b5b5b5;
+$button-grey-hover: #9b9b9b;
 $button-grey-focus: rgba(181, 181, 181, 0.7);
 //progress
 $background-progress: #e3e2de;
@@ -73,8 +73,8 @@ $h1-font-size: 2rem;
 $h2-font-size: 1.375rem;
 $h3-font-size: 1.125rem;
 $h4-font-size: 1rem;
-$h5-font-size: .75rem;
-$h6-font-size: .625rem;
+$h5-font-size: 0.75rem;
+$h6-font-size: 0.625rem;
 $label-check-color: #009e7c;
 $scroll-color: #009e7c;
 //table
