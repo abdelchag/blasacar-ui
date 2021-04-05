@@ -1,10 +1,10 @@
 {
     "/api/access-management": {
-        "target": "https://localhost:44388",
+        "target": "http://localhost:58157",
         "secure": false
     },
     "/api/travel": {
-        "target": "https://localhost:44387",
+        "target": "http://localhost:51309",
         "secure": false
     }
 }
