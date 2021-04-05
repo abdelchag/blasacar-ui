@@ -16,6 +16,7 @@ import { TravelService } from '../service/travel.service';
 export class TravelConsultComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   travels: Travel[] = [];
+  editing = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +34,7 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
       travels$
         .subscribe(travels => {
           this.travels = travels;
+          console.log(this.travels);
         })
     );
   }
@@ -42,7 +44,8 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.travelService.editTravel(travel)
         .subscribe(travels => {
-          window.location.reload();
+          this.travels = travels;
+          this.editing=false;
         },
         error => {
           this.toastNotificationService.notifyHttpError(error);

@@ -23,7 +23,7 @@ export class TravelService {
   public deleteTravel(travel: Travel): Observable<Travel> {
     return this.travelProxyService.deleteTravel(travel.id);
   }
-  public editTravel(travel: Travel): Observable<Travel> {
+  public editTravel(travel: Travel): Observable<Travel[]> {
     return this.travelProxyService.editTravel(travel);
   }
 

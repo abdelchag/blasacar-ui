@@ -58,6 +58,7 @@ export class TravelEditComponent implements OnInit {
     //   Helpers.showErrors(this.form);
     //   return;
     // }
+    this.isProcessing=true;
     this.save.emit(this.travel);
    }
 

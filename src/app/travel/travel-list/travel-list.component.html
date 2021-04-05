@@ -39,7 +39,7 @@
     <div class="card-body p-0">
         <blasacar-travel-detail *ngIf="!editing" [travel] = "travel">
         </blasacar-travel-detail>
-        <blasacar-travel-edit *ngIf="editing" [travel] = "travel" (save)="save.emit($event)">
+        <blasacar-travel-edit *ngIf="editing" [travel] = "travel" (save)="update($event)">
         </blasacar-travel-edit>
     </div>
 </div>
