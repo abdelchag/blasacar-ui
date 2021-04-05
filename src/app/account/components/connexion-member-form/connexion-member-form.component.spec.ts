@@ -8,9 +8,9 @@ describe('ConnexionMemberFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConnexionMemberFormComponent ]
+      declarations: [ConnexionMemberFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

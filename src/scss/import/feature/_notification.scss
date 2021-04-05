@@ -80,7 +80,7 @@
 .notification-none {
   height: 9rem;
   position: relative;
-  background: transparenturl('../../images/smiley.png') no-repeat right top;
+  background: transparenturl("../../images/smiley.png") no-repeat right top;
   background-size: contain;
   p {
     text-align: center;
@@ -121,17 +121,17 @@ app-notification {
       margin-left: -2.2rem;
       border-radius: 50%;
       background-color: $orange;
-      padding: .1rem .3rem .3rem .35rem;
+      padding: 0.1rem 0.3rem 0.3rem 0.35rem;
       position: relative;
-      top: -.4rem;
-      margin-right: .8rem;
+      top: -0.4rem;
+      margin-right: 0.8rem;
       height: 20px;
       width: 20px;
       .number {
         color: $white;
-        font-size: .9rem;
+        font-size: 0.9rem;
         position: relative;
-        top: -.2rem;
+        top: -0.2rem;
       }
     }
   }
@@ -147,26 +147,22 @@ app-ayant-droit-detail {
   .notification {
     &.notification-success {
       .icon {
-        @include icon-colors($ganeur-green !important,
-        $white !important);
+        @include icon-colors($ganeur-green !important, $white !important);
       }
     }
     &.notification-danger {
       .icon {
-        @include icon-colors($ganeur-red !important,
-        $white !important);
+        @include icon-colors($ganeur-red !important, $white !important);
       }
     }
     &.notification-information {
       .icon {
-        @include icon-colors($ganeur-yellow !important,
-        $white !important);
+        @include icon-colors($ganeur-yellow !important, $white !important);
       }
     }
     &.notification-warning {
       .icon {
-        @include icon-colors($ganeur-red !important,
-        $white !important);
+        @include icon-colors($ganeur-red !important, $white !important);
       }
     }
   }
@@ -176,26 +172,22 @@ app-ayant-droit-detail {
   .notification {
     &.notification-success {
       .icon {
-        @include icon-colors($ganass-green !important,
-        $white !important);
+        @include icon-colors($ganass-green !important, $white !important);
       }
     }
     &.notification-danger {
       .icon {
-        @include icon-colors($ganass-red !important,
-        $white !important);
+        @include icon-colors($ganass-red !important, $white !important);
       }
     }
     &.notification-information {
       .icon {
-        @include icon-colors($ganass-yellow !important,
-        $white !important);
+        @include icon-colors($ganass-yellow !important, $white !important);
       }
     }
     &.notification-warning {
       .icon {
-        @include icon-colors($ganass-yellow !important,
-        $white !important);
+        @include icon-colors($ganass-yellow !important, $white !important);
       }
     }
   }

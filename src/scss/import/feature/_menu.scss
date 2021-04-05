@@ -14,36 +14,36 @@
         color: $white;
         transition: all 0.5s;
         .menu-arrow {
-          content: '';
+          content: "";
           position: relative;
           top: -0.8vh;
           right: -6vw;
           margin: auto;
           display: block;
-          width: .6rem;
-          height: .6rem;
-          border-top: .1rem solid $white;
-          border-right: .1rem solid $white;
+          width: 0.6rem;
+          height: 0.6rem;
+          border-top: 0.1rem solid $white;
+          border-right: 0.1rem solid $white;
           transform: translate3d(0, -50%, 0) rotate(45deg);
           border-radius: 0;
-          transition: all .2s;
+          transition: all 0.2s;
         }
         &:hover {
           background-color: $principale-groupama;
         }
         &.nav-arrow {
           &:after {
-            content: '';
+            content: "";
             position: relative;
             float: right;
-            top: .7rem;
-            width: .6rem;
-            height: .6rem;
-            border-top: .1rem solid $white;
-            border-right: .1rem solid $white;
+            top: 0.7rem;
+            width: 0.6rem;
+            height: 0.6rem;
+            border-top: 0.1rem solid $white;
+            border-right: 0.1rem solid $white;
             transform: translate3d(0, -50%, 0) rotate(45deg);
             border-radius: 0;
-            transition: all .2s;
+            transition: all 0.2s;
           }
         }
       }
@@ -60,7 +60,7 @@
         background: -webkit-linear-gradient(left, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
         background: linear-gradient(to right, rgba(0, 109, 82, 1) 0%, rgba(0, 133, 97, 1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006d52', endColorstr='#008561', GradientType=1);
-        transform: translateX(-.1rem);
+        transform: translateX(-0.1rem);
         .nav-item {
           .nav {
             height: 100%;
@@ -82,12 +82,12 @@
       }
       &.nav-item-sub {
         &:hover {
-          >.nav {
+          > .nav {
             display: block;
             .nav-item {
               &.nav-item-sub {
                 &:hover {
-                  >.nav {
+                  > .nav {
                     display: block;
                   }
                 }
@@ -132,7 +132,7 @@
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$ganeur-gradient-first', endColorstr='$ganeur-gradient-second', GradientType=1);
         }
         button {
-          @include transition(all .5s);
+          @include transition(all 0.5s);
           &:hover {
             background-color: $principale-ganeur;
           }
@@ -164,7 +164,7 @@
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$ganass-gradient-first', endColorstr='$ganass-gradient-second', GradientType=1);
         }
         button {
-          @include transition(all .5s);
+          @include transition(all 0.5s);
           &:hover {
             background-color: $principale-ganass;
           }

@@ -4,19 +4,19 @@
 
 .alert.alert-icon svg {
   position: absolute;
-  top: .25rem;
-  left: .5rem;
+  top: 0.25rem;
+  left: 0.5rem;
 }
 
 .alert.alert-sm {
-	font-size: 80%;
-	font-weight: 400;
+  font-size: 80%;
+  font-weight: 400;
 }
 
 .alert.alert-sm.alert-icon svg {
   position: absolute;
-  top: .1rem;
-  left: .5rem;
+  top: 0.1rem;
+  left: 0.5rem;
 }
 
 /** Temporaire **/
@@ -25,7 +25,7 @@
   top: -0.5rem;
 }
 
-.alert.alert-stack{
+.alert.alert-stack {
   margin-bottom: 0;
   border-radius: 0;
 }

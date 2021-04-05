@@ -1,13 +1,13 @@
 .iban-show {
   p {
-    margin-bottom: .1rem;
+    margin-bottom: 0.1rem;
   }
   .iban-card {
     background-color: $lighter-grey;
     border-radius: 5px;
-    padding: .5rem;
+    padding: 0.5rem;
     p {
-      margin-bottom: .2rem;
+      margin-bottom: 0.2rem;
     }
   }
 }
@@ -26,7 +26,7 @@
     position: relative;
     min-height: 5rem;
     p {
-      margin-bottom: .2rem;
+      margin-bottom: 0.2rem;
       margin-left: 1rem;
     }
     .fa {
@@ -39,7 +39,7 @@
   }
   input[type="radio"] {
     display: none;
-    +.card-detail {
+    + .card-detail {
       p {
         margin-left: 2.5rem;
       }
@@ -49,7 +49,7 @@
         content: "";
         font-size: 16px;
         position: absolute;
-        top: .5rem;
+        top: 0.5rem;
         left: 1.2rem;
         transform: translateX(-50%);
         height: 1.5rem;
@@ -61,18 +61,18 @@
         @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out);
       }
     }
-    &:not(:disabled)~label {
+    &:not(:disabled) ~ label {
       cursor: pointer;
     }
-    &:not(:disabled)~label:hover {
+    &:not(:disabled) ~ label:hover {
       background-color: #f0f2f4;
     }
-    &:disabled~label {
+    &:disabled ~ label {
       cursor: not-allowed;
     }
   }
   input[type="radio"]:checked {
-    +label {
+    + label {
       &::after {
         border: 4px solid #24ad94;
       }
@@ -97,7 +97,7 @@
       background-color: $lighter-grey;
       border-radius: 0;
       margin-bottom: -1px;
-      @include transition(all .5s);
+      @include transition(all 0.5s);
       .fa {
         font-size: 2rem;
       }
@@ -131,12 +131,12 @@
 app-facture-prelevement-form {
   .box {
     .box-title {
-      ~.box-content {
+      ~ .box-content {
         margin-top: 0;
       }
     }
     &.box-inner {
-      padding: .5rem;
+      padding: 0.5rem;
     }
   }
   .view-content {
@@ -157,12 +157,12 @@ app-facture-prelevement-form {
 app-facture-prelevement-form {
   .box {
     .box-title {
-      ~.box-content {
+      ~ .box-content {
         margin-top: 0;
       }
     }
     &.box-inner {
-      padding: .5rem;
+      padding: 0.5rem;
     }
   }
   .view-content {
@@ -182,7 +182,7 @@ app-facture-prelevement-form {
 
 app-facture-list {
   .view-content {
-    >.box {
+    > .box {
       display: none;
       &.active {
         display: block;
@@ -193,7 +193,7 @@ app-facture-list {
     .box-title {
       margin-top: 0;
       padding: 1rem;
-      ~.box-content {
+      ~ .box-content {
         margin-top: 0;
       }
     }
@@ -215,20 +215,20 @@ app-facture-list {
       .box-carousel-item {
         background-color: $lighter-grey;
         margin-right: 1rem;
-        margin-bottom: .5rem;
-        padding: .8rem;
+        margin-bottom: 0.5rem;
+        padding: 0.8rem;
         min-width: 18rem;
         max-width: 18rem;
         height: 5rem;
       }
       &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .1);
-        box-shadow: inset 0 0 1px rgba(0, 0, 0, .1);
+        -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
         background-color: $lighter-grey;
       }
       &::-webkit-scrollbar {
-        width: .5rem;
-        height: .5rem;
+        width: 0.5rem;
+        height: 0.5rem;
         background-color: $lighter-grey;
       }
       &::-webkit-scrollbar-thumb {
@@ -274,7 +274,7 @@ app-facture-detail {
       padding: 3rem 4rem;
       text-align: center;
       cursor: pointer;
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-size: 1.6rem;
       font-weight: 600;
       background: $lighter-grey;
@@ -284,7 +284,7 @@ app-facture-detail {
       border-bottom: 1px solid #d6d6d5;
       color: #989898;
       z-index: 0;
-      transition: all .3s;
+      transition: all 0.3s;
       &:hover {
         background-color: #cdcdcd;
         color: $dark-grey;
@@ -301,7 +301,7 @@ app-facture-detail {
           height: 5px;
           margin: auto;
           background-color: #b2b2b2;
-          transition: all .5s ease;
+          transition: all 0.5s ease;
         }
       }
       &.active {
@@ -325,13 +325,13 @@ app-facture-detail {
           height: 5px;
           margin: auto;
           background-color: $principale-groupama;
-          transition: all .5s ease;
+          transition: all 0.5s ease;
         }
       }
       i:before {
         color: #cdcdcd;
         font-size: 3.8rem;
-        margin-right: .1rem;
+        margin-right: 0.1rem;
       }
     }
   }
@@ -356,7 +356,7 @@ app-facture-detail {
 
 .theme-ganeur {
   .card-iban {
-    input[type="radio"]:checked+label {
+    input[type="radio"]:checked + label {
       &::after {
         border: 7px solid $ganeur-arrow;
       }
@@ -388,7 +388,7 @@ app-facture-detail {
 
 .theme-ganass {
   .card-iban {
-    input[type="radio"]:checked+label {
+    input[type="radio"]:checked + label {
       &::after {
         border: 7px solid $ganass-arrow;
       }

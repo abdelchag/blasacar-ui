@@ -28,7 +28,7 @@
             "aot": true,
             "allowedCommonJsDependencies": [
               "angular2-text-mask"
-           ],
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

@@ -1,12 +1,12 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {ROUTING_PATH} from '../routing-constants';
-import {TravelListResolver} from './core/travek-list.resolver';
-import {TravelCoreModule} from './core/travel-core.module';
-import {TravelConsultComponent} from './travel-consult/travel-consult.component';
-import {TravelProposeComponent} from './travel-propose/travel-propose.component';
-import {TravelComponent} from './travel.component';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ROUTING_PATH } from '../routing-constants';
+import { TravelListResolver } from './core/travek-list.resolver';
+import { TravelCoreModule } from './core/travel-core.module';
+import { TravelConsultComponent } from './travel-consult/travel-consult.component';
+import { TravelProposeComponent } from './travel-propose/travel-propose.component';
+import { TravelComponent } from './travel.component';
 
 const routes: Routes = [
   {
@@ -25,7 +25,7 @@ const routes: Routes = [
           travels: TravelListResolver
         }
       },
-      {path: '', redirectTo: ROUTING_PATH.TRAVEL_LIST, pathMatch: 'full'}
+      { path: '', redirectTo: ROUTING_PATH.TRAVEL_LIST, pathMatch: 'full' }
     ]
   }
 ];

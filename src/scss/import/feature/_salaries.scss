@@ -1,17 +1,17 @@
 .bordered {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .btn-bottom-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .container {
-    justify-content: space-between;
-    flex-direction: column;
-    display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
 }
 
 .container .btn-holder {
@@ -20,41 +20,41 @@
 }
 
 .white-icon-btn svg.icon {
-    fill: white !important;
-    --main-color: white !important;
+  fill: white !important;
+  --main-color: white !important;
 }
 
 .btn-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .my-2p-2n {
-    margin-top: 2px;
-    margin-bottom: -2px;
+  margin-top: 2px;
+  margin-bottom: -2px;
 }
 
 .mb-last-child {
-  margin-bottom: 1.75rem!important;
+  margin-bottom: 1.75rem !important;
 }
 
 .mb-last-child:last-child {
-  margin-bottom: .25rem!important;
+  margin-bottom: 0.25rem !important;
 }
 
 .page-item.active .page-link {
-    z-index: 1;
-    color: #fff;
-    border-color: #1f7db0;
-    background-color: #1f7db0;
+  z-index: 1;
+  color: #fff;
+  border-color: #1f7db0;
+  background-color: #1f7db0;
 }
 
 .right-pagination {
-    float: right !important;
+  float: right !important;
 }
 
-@media(max-width: 932px) {
+@media (max-width: 932px) {
   .right-pagination {
     margin-top: 10px;
   }
@@ -69,14 +69,14 @@
   padding: 1rem 0rem;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .popover-container .popover-body {
     width: 350px;
   }
 
   .custom-col-12-filter {
     flex: 0 0 100% !important;
-      max-width: 100% !important;
+    max-width: 100% !important;
   }
 
   .custom-mb-5px-filter {
@@ -85,10 +85,9 @@
 }
 
 .format-text-filter {
-    overflow: inherit;
-    white-space: nowrap;
+  overflow: inherit;
+  white-space: nowrap;
 }
-
 
 .fill-gray svg {
   fill: #444444;

@@ -21,22 +21,22 @@ header {
         height: 5rem;
         border-left: 1px solid $white;
         max-width: 13rem;
-        @include transition(all .5s);
-        >a {
+        @include transition(all 0.5s);
+        > a {
           height: 5rem;
           color: inherit;
           display: block;
-          padding: .6rem 1rem;
+          padding: 0.6rem 1rem;
           .icon {
             display: block;
           }
         }
         .dropdown {
-          >a {
+          > a {
             height: 5rem;
             color: inherit;
             display: block;
-            padding: .6rem 1rem;
+            padding: 0.6rem 1rem;
             text-align: center;
             .icon {
               display: block;
@@ -47,14 +47,14 @@ header {
             padding: 0;
             color: $white;
             border: 0;
-            border-top: 1px solid rgba(0, 0, 0, .15);
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 0;
             background-color: $principale-groupama-hover;
             a {
               display: block;
               color: inherit;
               padding: 1rem 2rem;
-              @include transition(all .5s);
+              @include transition(all 0.5s);
               &:last-child {
                 background-color: #004536;
               }
@@ -67,7 +67,7 @@ header {
               color: inherit;
               padding: 1rem 2rem;
               text-align: left;
-              @include transition(all .5s);
+              @include transition(all 0.5s);
               &:last-child {
                 background-color: #004536;
               }
@@ -82,14 +82,14 @@ header {
         }
         &.user-info {
           padding: 0;
-          .user-name{
+          .user-name {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             width: 15ch;
             display: inline-block;
           }
-          .dropdown-toggle::after{
+          .dropdown-toggle::after {
             vertical-align: 0.565em;
           }
         }
@@ -115,17 +115,17 @@ header {
           color: $white;
           &.nav-arrow {
             &:after {
-              content: '';
+              content: "";
               position: relative;
               float: right;
               top: 0.7rem;
-              width: .6rem;
-              height: .6rem;
-              border-top: .1rem solid $white;
-              border-right: .1rem solid $white;
+              width: 0.6rem;
+              height: 0.6rem;
+              border-top: 0.1rem solid $white;
+              border-right: 0.1rem solid $white;
               transform: translate3d(0, -50%, 0) rotate(45deg);
               border-radius: 0;
-              transition: all .2s;
+              transition: all 0.2s;
             }
           }
         }
@@ -168,7 +168,7 @@ header {
         .logo-desktop {
           img {
             box-sizing: border-box;
-            background: transparenturl('../../images/logo/logo-ganeur.png') left center no-repeat;
+            background: transparenturl("../../images/logo/logo-ganeur.png") left center no-repeat;
             width: 13.2rem;
             height: 5rem;
             padding-left: 13.2rem;
@@ -177,7 +177,7 @@ header {
         .logo-mobile {
           img {
             box-sizing: border-box;
-            background: transparenturl('../../images/logo/logo-ganeur-mobile.png') left center no-repeat;
+            background: transparenturl("../../images/logo/logo-ganeur-mobile.png") left center no-repeat;
             width: 0.2rem;
             height: 6rem;
             padding-left: 8.2rem;
@@ -225,7 +225,7 @@ header {
         .logo-desktop {
           img {
             box-sizing: border-box;
-            background: transparent url('../../images/logo/logo-ganass.png') left center no-repeat;
+            background: transparent url("../../images/logo/logo-ganass.png") left center no-repeat;
             width: 13.2rem;
             height: 5rem;
             padding-left: 13.2rem;
@@ -234,7 +234,7 @@ header {
         .logo-mobile {
           img {
             box-sizing: border-box;
-            background: transparenturl('../../images/logo/logo-ganass-mobile.png') left center no-repeat;
+            background: transparenturl("../../images/logo/logo-ganass-mobile.png") left center no-repeat;
             width: 0.2rem;
             height: 6rem;
             padding-left: 8.2rem;

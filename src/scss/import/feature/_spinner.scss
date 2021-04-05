@@ -6,8 +6,8 @@ app-loader {
   .card-loader {
     width: 50vw;
     background: $white;
-    -webkit-box-shadow: 0 10px 20px 0 rgba(34, 34, 34, .5);
-    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, .5);
+    -webkit-box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.5);
+    box-shadow: 0 10px 20px 0 rgba(34, 34, 34, 0.5);
 
     .progress {
       height: 0.2rem;
@@ -33,7 +33,7 @@ app-page-loader {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -65,7 +65,7 @@ app-page-loader {
       top: 0;
 
       &:before {
-        content: '';
+        content: "";
         display: block;
         margin: 0 auto;
         width: 1rem;
@@ -228,7 +228,7 @@ app-box-loader {
     text-align: center;
     padding: 0;
 
-    &>div {
+    & > div {
       width: 1rem;
       height: 1rem;
       background-color: $water-green;
@@ -255,7 +255,7 @@ app-sidebar {
 
   &.hidden {
     &::before {
-      content: '';
+      content: "";
       background: $white;
       height: 100%;
       position: absolute;
@@ -292,8 +292,8 @@ app-sidebar {
   animation: loadingCircle 1s infinite linear;
 }
 
-.small-loader{
-  &>.box-small-spinner {
+.small-loader {
+  & > .box-small-spinner {
     position: unset !important;
   }
 }
@@ -309,7 +309,7 @@ app-sidebar {
   padding: 9px;
   z-index: 2;
 
-  &>div {
+  & > div {
     width: 1rem;
     height: 1rem;
     background-color: $water-green;
@@ -336,7 +336,7 @@ app-sidebar {
       .logo-desktop {
         img {
           box-sizing: border-box;
-          background: transparenturl('../../images/logo/ganeur-loader.png') left center no-repeat;
+          background: transparenturl("../../images/logo/ganeur-loader.png") left center no-repeat;
           width: 4rem;
           height: 4rem;
           padding-left: 4rem;
@@ -363,7 +363,7 @@ app-sidebar {
 
   app-box-loader {
     .spinner {
-      &>div {
+      & > div {
         background-color: $ganeur-arrow;
       }
     }
@@ -372,7 +372,7 @@ app-sidebar {
   app-page-small-loader {
     .sk-fading-circle {
       .sk-circle {
-          &:before {
+        &:before {
           background-color: $principale-ganeur;
         }
       }
@@ -380,7 +380,7 @@ app-sidebar {
   }
 
   .box-small-spinner {
-    &>div {
+    & > div {
       background-color: $ganeur-arrow;
     }
   }
@@ -392,7 +392,7 @@ app-sidebar {
       .logo-desktop {
         img {
           box-sizing: border-box;
-          background: transparenturl('../../images/logo/ganass-loader.png') left center no-repeat;
+          background: transparenturl("../../images/logo/ganass-loader.png") left center no-repeat;
           width: 4rem;
           height: 4rem;
           padding-left: 4rem;
@@ -419,14 +419,14 @@ app-sidebar {
 
   app-box-loader {
     .spinner {
-      &>div {
+      & > div {
         background-color: $ganass-arrow;
       }
     }
   }
 
   .box-small-spinner {
-    &>div {
+    & > div {
       background-color: $ganass-arrow;
     }
   }

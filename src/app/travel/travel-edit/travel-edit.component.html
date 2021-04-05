@@ -1,59 +1,56 @@
 <form [formGroup]="formEdit" (ngSubmit)="update()">
-    <fieldset [disabled]="isProcessing">
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <blasacar-text-display label="info voyage" > info voyage</blasacar-text-display>
-          </div>
-          <div class="col">
-            <blasacar-text-display label="info voyage" > info voyage</blasacar-text-display>
-          </div>
+  <fieldset [disabled]="isProcessing">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <blasacar-text-display label="info voyage"> info voyage</blasacar-text-display>
         </div>
-  
-    </div>
-      <div class="card-header card-header-inner border-top-grey">
-        <div class="card-title">
-          <h3 class="">
-            info voyage
-          </h3>
+        <div class="col">
+          <blasacar-text-display label="info voyage"> info voyage</blasacar-text-display>
         </div>
       </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <blasacar-mobile-phone [formGroup]="formEdit" label="info voyage" 
-              >
-            </blasacar-mobile-phone>
-          </div>
-          <div class="col">
-            <blasacar-email [formGroup]="formEdit" label="info voyage" 
-              >
-            </blasacar-email>
-          </div>
-        </div>
-      </div>
-      <div class="card-header card-header-inner border-top-grey">
-        <div class="card-title">
-          <h3 class="">
 
-            info voyage
-          </h3>
+    </div>
+    <div class="card-header card-header-inner border-top-grey">
+      <div class="card-title">
+        <h3 class="">
+          info voyage
+        </h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <blasacar-mobile-phone [formGroup]="formEdit" label="info voyage">
+          </blasacar-mobile-phone>
+        </div>
+        <div class="col">
+          <blasacar-email [formGroup]="formEdit" label="info voyage">
+          </blasacar-email>
         </div>
       </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col text-left" >
-            <button type="button" class="btn btn-default-reverse" (click)="triggerDelete()">
-              Annuler trajet
-            </button>
-          </div>
-          <div class="col text-right">
-            <button type="submit" class="btn btn-default" [class.btn-loading]="isProcessing" [disabled]="isProcessing">
-              Appliquer les modifications
-            </button>
-          </div>
+    </div>
+    <div class="card-header card-header-inner border-top-grey">
+      <div class="card-title">
+        <h3 class="">
+
+          info voyage
+        </h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col text-left">
+          <button type="button" class="btn btn-default-reverse" (click)="triggerDelete()">
+            Annuler trajet
+          </button>
+        </div>
+        <div class="col text-right">
+          <button type="submit" class="btn btn-default" [class.btn-loading]="isProcessing" [disabled]="isProcessing">
+            Appliquer les modifications
+          </button>
         </div>
       </div>
-    </fieldset>
-  </form>
-  
+    </div>
+  </fieldset>
+</form>

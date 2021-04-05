@@ -1,4 +1,4 @@
-import {NotificationType} from 'src/app/constants';
+import { NotificationType } from 'src/app/constants';
 
 export class ToastNotificationModel {
   code?: string;
