@@ -2,7 +2,10 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { NotificationType } from 'src/app/constants';
+import { ToastNotificationService } from 'src/app/core/services';
 import { Travel } from '../model/travel.model';
+import { TravelService } from '../service/travel.service';
 
 @Component({
   selector: 'blasacar-travel-consult',
@@ -13,9 +16,12 @@ import { Travel } from '../model/travel.model';
 export class TravelConsultComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   travels: Travel[] = [];
+  editing = false;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private readonly travelService: TravelService,
+    private toastNotificationService: ToastNotificationService,
   ) {
   }
 
@@ -28,8 +34,16 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
       travels$
         .subscribe(travels => {
           this.travels = travels;
+          console.log(this.travels);
         })
     );
+  }
+// TODO mettre dans travel-edit comme delete
+  save(travel): void {
+
+    const index = this.travels.map(t => t.id).indexOf(travel.id);
+    this.travels[index] = travel;
+
   }
 
   ngOnDestroy(): void {

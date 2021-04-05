@@ -11,16 +11,16 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TravelListComponent implements OnInit {
   extended = false;
-  editing = false;
 
+  @Input() editing: boolean;
+  @Output() save = new EventEmitter<Travel>();
 
   @Input() travel: Travel;
-
   @Output()
   delete = new EventEmitter<Travel>();
 
-
-  constructor(private readonly travelService: TravelService,
+  constructor(
+    private readonly travelService: TravelService,
     private readonly translateService: TranslateService) {
   }
 
@@ -39,8 +39,12 @@ export class TravelListComponent implements OnInit {
   deleteTravel(): void {
     if (confirm(this.translateService.instant('travel-list.delete-travel-confirmation'))) {
       this.travelService.deleteTravel(this.travel).subscribe(travel => this.delete.emit(travel));
-      // of(this.travel).subscribe(travel => this.delete.emit(travel));
     }
+  }
+
+  update(travel): void {
+    this.save.emit(travel);
+    this.editing = false;
   }
 
   private showDetail(): void {
