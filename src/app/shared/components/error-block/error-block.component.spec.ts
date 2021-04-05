@@ -8,9 +8,9 @@ describe('ErrorBlockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorBlockComponent ]
+      declarations: [ErrorBlockComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -19,6 +19,7 @@ export class PageLoaderComponent implements OnInit {
     this._isLoading = value;
   }
 
-  ngOnInit(): void { { }
+  ngOnInit(): void {
+    { }
   }
 }

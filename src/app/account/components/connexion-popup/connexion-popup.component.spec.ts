@@ -8,9 +8,9 @@ describe('ConnexionPopupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConnexionPopupComponent ]
+      declarations: [ConnexionPopupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

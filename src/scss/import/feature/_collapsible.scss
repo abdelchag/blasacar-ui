@@ -12,9 +12,9 @@
   .collapsible-content {
     max-height: 0px;
     overflow: hidden;
-    transition: max-height .25s ease-in-out;
+    transition: max-height 0.25s ease-in-out;
     .content-inner {
-      border: .1rem solid #dcdcdc;
+      border: 0.1rem solid #dcdcdc;
       padding: 2rem;
     }
   }

@@ -16,7 +16,7 @@ export class ModePaiementPipe implements PipeTransform {
       case modePaiement.PRELEVEMENT:
         return 'Prélèvement';
       case modePaiement.PRELEVEMENT_AUTOMATIQUE:
-          return 'Prélèvement automatique';
+        return 'Prélèvement automatique';
       case modePaiement.VIREMENT_AUTOMATIQUE:
         return 'Virement automatique';
       case modePaiement.VIREMENT_PONCTUEL:
