@@ -1,7 +1,10 @@
 {
     "you-are-connected": "Bienvenue, vous étes connectés",
     "validated-inscription": "Votre inscription est validée",
-    "travel-proposed": "votre voyage est créé",
+    "travel": {
+        "travel-proposed": "votre voyage est créé",
+        "travel-deleted": "Le voyage a été supprimé"
+    },
     "error": {
         "technical": "Le service est momentanément indisponible, veuillez réessayer ultérieurement",
         "not-found": "Le service est momentanément indisponible, veuillez réessayer ultérieurement",

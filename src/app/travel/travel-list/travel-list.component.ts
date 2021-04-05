@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { Travel } from '../model/travel.model';
 import { TravelService } from '../service/travel.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastNotificationService } from 'src/app/core/services';
+import { NotificationType } from 'src/app/constants';
 
 @Component({
   selector: 'blasacar-travel-list',
@@ -20,7 +22,9 @@ export class TravelListComponent implements OnInit {
   delete = new EventEmitter<Travel>();
 
 
-  constructor(private readonly travelService: TravelService,
+  constructor(
+    private readonly travelService: TravelService,
+    private readonly toastNotificationService: ToastNotificationService,
     private readonly translateService: TranslateService) {
   }
 
@@ -38,8 +42,13 @@ export class TravelListComponent implements OnInit {
 
   deleteTravel(): void {
     if (confirm(this.translateService.instant('travel-list.delete-travel-confirmation'))) {
-      this.travelService.deleteTravel(this.travel).subscribe(travel => this.delete.emit(travel));
-      // of(this.travel).subscribe(travel => this.delete.emit(travel));
+      this.travelService.deleteTravel(this.travel).subscribe(travel => {
+        this.delete.emit(travel);
+        this.toastNotificationService.notify({
+          type: NotificationType.Success,
+          message: 'toast-notifications.travel.travel-deleted'
+        });
+      });
     }
   }
 

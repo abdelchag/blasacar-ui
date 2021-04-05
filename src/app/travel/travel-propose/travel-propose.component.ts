@@ -69,7 +69,7 @@ export class TravelProposeComponent implements OnInit {
           this.router.navigate([`${ROUTING_PATH.TRAVEL}/${ROUTING_PATH.TRAVEL_LIST}`]);
           this.toastNotificationService.notify({
             type: NotificationType.Success,
-            message: 'toast-notifications.travel-proposed'
+            message: 'toast-notifications.travel.travel-proposed'
           });
         });
 
