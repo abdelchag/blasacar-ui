@@ -4,6 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BooleanToOuiNonPipe implements PipeTransform {
 
   transform(value: boolean): string {
-    return value ? 'Oui' : 'Non';
+    return value ? 'travel-propose.automatique-acceptance.yes' : 'travel-propose.automatique-acceptance.no';
   }
 }
