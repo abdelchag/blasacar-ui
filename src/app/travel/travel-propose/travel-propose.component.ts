@@ -28,7 +28,7 @@ export class TravelProposeComponent implements OnInit {
   currentStep = TRAVEL_PROPOSE_WORKFLOW.head;
   travelProposeStepCodeEnum = TravelProposeStepCode;
 
-  automatiqueAcceptanceOptions = [];
+  automaticAcceptanceOptions = [];
   readonly AA_YES_CODE = 'Y';
   readonly AA_NO_CODE = 'N';
 
@@ -43,18 +43,18 @@ export class TravelProposeComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({});
     this.travel.phoneNumber = this.currentUserService.currentUser.telephone;
-    this.buildAutomatiqueAcceptanceOptions();
+    this.buildAutomaticAcceptanceOptions();
   }
 
-  changeAutomatiqueAcceptance(code: string): void {
-    this.travel.isAutomatiqueAcceptance = code === this.AA_YES_CODE;
+  changeAutomaticAcceptance(code: string): void {
+    this.travel.isAutomaticAcceptance = code === this.AA_YES_CODE;
   }
 
-  getAutomatiqueAcceptance(): string {
-    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomatiqueAcceptance)) {
+  getAutomaticAcceptance(): string {
+    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomaticAcceptance)) {
       return null;
     }
-    return this.travel.isAutomatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
+    return this.travel.isAutomaticAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
   nextStep(): void {
@@ -90,12 +90,12 @@ export class TravelProposeComponent implements OnInit {
       : 'travel-propose.propose-travel';
   }
 
-  private buildAutomatiqueAcceptanceOptions(): void {
+  private buildAutomaticAcceptanceOptions(): void {
     forkJoin([
       this.translateService.get('travel-propose.automatique-acceptance.yes'),
       this.translateService.get('travel-propose.automatique-acceptance.no')
     ]).subscribe((results: string[]) => {
-      this.automatiqueAcceptanceOptions = [
+      this.automaticAcceptanceOptions = [
         { code: this.AA_YES_CODE, libelle: results[0] },
         { code: this.AA_NO_CODE, libelle: results[1] }
       ];

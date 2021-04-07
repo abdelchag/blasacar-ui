@@ -50,9 +50,9 @@
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.AUTOMATIQUE_ACCEPTANCE">
                                     <blasacar-radio [formGroup]="form" controlName="numberPlace"
-                                        [initialValue]="getAutomatiqueAcceptance()"
-                                        [options]="automatiqueAcceptanceOptions" [required]="true"
-                                        (valueChanged)="changeAutomatiqueAcceptance($event)">
+                                        [initialValue]="getAutomaticAcceptance()"
+                                        [options]="automaticAcceptanceOptions" [required]="true"
+                                        (valueChanged)="changeAutomaticAcceptance($event)">
                                     </blasacar-radio>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.PRICE">

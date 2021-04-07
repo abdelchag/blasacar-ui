@@ -6,7 +6,7 @@ export class Travel {
   departureDate: Date;
   departureTime: Date;
   numberPlaces: number;
-  isAutomatiqueAcceptance: boolean;
+  isAutomaticAcceptance: boolean;
   price: number;
   phoneNumber: string;
   created: Date;

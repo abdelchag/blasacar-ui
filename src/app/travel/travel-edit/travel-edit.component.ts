@@ -19,9 +19,9 @@ export class TravelEditComponent implements OnInit {
   isProcessing: boolean;
   @Input() travel: Travel;
   @Output() save = new EventEmitter<Travel>();
-  AA_YES_CODE: string;
-  AA_NO_CODE: string;
-  automatiqueAcceptanceOptions = [];
+  readonly AA_YES_CODE = 'Y';
+  readonly AA_NO_CODE = 'N';
+  automaticAcceptanceOptions = [];
 
   get price(): any {
     return this.form.get('price');
@@ -41,18 +41,18 @@ export class TravelEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.buildAutomatiqueAcceptanceOptions();
+    this.buildAutomaticAcceptanceOptions();
   }
 
-  changeAutomatiqueAcceptance(code: string): void {
-    this.travel.isAutomatiqueAcceptance = code === this.AA_YES_CODE;
+  changeAutomaticAcceptance(code: string): void {
+    this.travel.isAutomaticAcceptance = code === this.AA_YES_CODE;
   }
 
-  getAutomatiqueAcceptance(): string {
-    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomatiqueAcceptance)) {
+  getAutomaticAcceptance(): string {
+    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomaticAcceptance)) {
       return null;
     }
-    return this.travel.isAutomatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
+    return this.travel.isAutomaticAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
 
@@ -61,7 +61,6 @@ export class TravelEditComponent implements OnInit {
       Helpers.showErrors(this.form);
       return;
     }
-
     this.travelService.editTravel(this.travel)
       .subscribe(travels => {
         this.isProcessing = true;
@@ -70,15 +69,14 @@ export class TravelEditComponent implements OnInit {
       );
   }
 
-  triggerDelete(): void {
-  }
+  triggerDelete(): void { }
 
-  private buildAutomatiqueAcceptanceOptions(): void {
+  private buildAutomaticAcceptanceOptions(): void {
     forkJoin([
       this.translateService.get('travel-propose.automatique-acceptance.yes'),
       this.translateService.get('travel-propose.automatique-acceptance.no')
     ]).subscribe((results: string[]) => {
-      this.automatiqueAcceptanceOptions = [
+      this.automaticAcceptanceOptions = [
         { code: this.AA_YES_CODE, libelle: results[0] },
         { code: this.AA_NO_CODE, libelle: results[1] }
       ];
