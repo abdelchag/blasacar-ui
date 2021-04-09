@@ -8,6 +8,7 @@ import {TravelConsultComponent} from './travel-consult/travel-consult.component'
 import {TravelProposeComponent} from './travel-propose/travel-propose.component';
 import {TravelComponent} from './travel.component';
 import { AuthentificationGuard } from '../guards/authentification.guard';
+import { WidgetsModule } from './widgets/widgets.module';
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    TravelCoreModule
+    TravelCoreModule,
+    WidgetsModule,
   ],
   exports: [
     RouterModule
