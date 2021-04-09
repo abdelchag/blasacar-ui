@@ -18,6 +18,7 @@ export class TravelEditComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   isProcessing: boolean;
   @Input() travel: Travel;
+  travelToEdited: Travel = new Travel();
   @Output() save = new EventEmitter<Travel>();
   readonly AA_YES_CODE = 'Y';
   readonly AA_NO_CODE = 'N';
@@ -42,17 +43,18 @@ export class TravelEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildAutomaticAcceptanceOptions();
+    Object.assign(this.travelToEdited,this.travel);
   }
 
   changeAutomaticAcceptance(code: string): void {
-    this.travel.isAutomaticAcceptance = code === this.AA_YES_CODE;
+    this.travelToEdited.isAutomaticAcceptance = code === this.AA_YES_CODE;
   }
 
   getAutomaticAcceptance(): string {
-    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomaticAcceptance)) {
+    if (BlasaUtils.isNullOrUndefined(this.travelToEdited.isAutomaticAcceptance)) {
       return null;
     }
-    return this.travel.isAutomaticAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
+    return this.travelToEdited.isAutomaticAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
 
@@ -62,10 +64,10 @@ export class TravelEditComponent implements OnInit {
       return;
     }
     this.isProcessing = true;
-    this.travelService.editTravel(this.travel)
-      .subscribe(travels => {
+    this.travelService.editTravel(this.travelToEdited)
+      .subscribe(travel => {
         this.isProcessing = false;
-        this.save.emit(this.travel);
+        this.save.emit(travel);
       }
       );
   }
