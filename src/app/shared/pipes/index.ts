@@ -1,4 +1,3 @@
-export * from './affilie-type.pipe';
 export * from './age.pipe';
 export * from './civilite.pipe';
 export * from './college.pipe';
@@ -9,7 +8,6 @@ export * from './iban.pipe';
 export * from './ordinal.pipe';
 export * from './phone.pipe';
 export * from './pipes.module';
-export * from './regroupement-taux.pipe';
 export * from './risque.pipe';
 export * from './securite-sociale.pipe';
 export * from './siret.pipe';

@@ -1,3 +1,23 @@
+<ng-container *ngIf="initialNavigation">
+
+  <header>
+    <nav class="navbar navbar-expand">
+
+    </nav>
+  </header>
+
+  <main role="main">
+    <blasacar-loader [isLoading]="true"></blasacar-loader>
+  </main>
+
+  <div class="footer-loading">
+    
+  </div>
+
+</ng-container>
+
+<ng-container *ngIf="!initialNavigation">
+
 <blasacar-header></blasacar-header>
 
 
@@ -11,6 +31,8 @@
 
       <div class="col-sm-12 col-md-12 col-xl-7 mb-2 main-content">
 
+        <blasacar-page-loader [class.hidden]="!isLoading"></blasacar-page-loader>
+
         <blasacar-toast-notifications></blasacar-toast-notifications>
 
         <router-outlet></router-outlet>
@@ -20,5 +42,5 @@
     </div>
   </div>
 </main>
-
+</ng-container>
 <!--<blasacar-footer></blasacar-footer>-->
