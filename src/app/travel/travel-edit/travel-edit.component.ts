@@ -45,14 +45,14 @@ export class TravelEditComponent implements OnInit {
   }
 
   changeAutomatiqueAcceptance(code: string): void {
-    this.travel.isAutomatiqueAcceptance = code === this.AA_YES_CODE;
+    this.travel.isAutomaticAcceptance = code === this.AA_YES_CODE;
   }
 
   getAutomatiqueAcceptance(): string {
-    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomatiqueAcceptance)) {
+    if (BlasaUtils.isNullOrUndefined(this.travel.isAutomaticAcceptance)) {
       return null;
     }
-    return this.travel.isAutomatiqueAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
+    return this.travel.isAutomaticAcceptance ? this.AA_YES_CODE : this.AA_NO_CODE;
   }
 
 
@@ -61,10 +61,10 @@ export class TravelEditComponent implements OnInit {
       Helpers.showErrors(this.form);
       return;
     }
-
+    this.isProcessing = true;
     this.travelService.editTravel(this.travel)
       .subscribe(travels => {
-        this.isProcessing = true;
+        this.isProcessing = false;
         this.save.emit(this.travel);
       }
       );

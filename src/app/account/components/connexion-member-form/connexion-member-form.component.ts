@@ -23,6 +23,7 @@ export class ConnexionMemberFormComponent implements OnInit {
   user: UserModel;
   form: FormGroup;
   loginModel: LoginModel = new LoginModel();
+  isLoading = false;
 
   constructor(
     private readonly currentUserService: CurrentUserService,
@@ -44,13 +45,14 @@ export class ConnexionMemberFormComponent implements OnInit {
       Helpers.showErrors(this.form);
       return;
     }
-
+    this.isLoading = true;
     const loginModelToConnect = new LoginModel();
     Object.assign(loginModelToConnect, this.form.value);
 
     this.accountManagementProxy.loginMembre(loginModelToConnect)
       .pipe(
         mergeMap(externalUserResponse => {
+          this.isLoading = false;
           this.currentUserService.emitCurrentUser(externalUserResponse);
           this.toastNotificationService.notify({
             type: NotificationType.Success,

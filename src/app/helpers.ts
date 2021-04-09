@@ -22,7 +22,6 @@ import {
   genre,
   profil,
   rattachements,
-  regroupementTauxItems,
   reseauCode,
   risque
 } from './constants';
@@ -388,41 +387,6 @@ export class Helpers {
     return total;
   }
 
-  static getRegroupementTauxItem(code: string): any {
-    return regroupementTauxItems
-      .find(item => item.code === code);
-  }
-
-  static getStructuresCotisation(structuresCotisation: StructureCotisationModel[], withNonPrecompte: boolean): StructureCotisationModel[] {
-
-    const structures: StructureCotisationModel[] = [];
-
-    structuresCotisation.forEach(str => {
-
-      const structure: StructureCotisationModel = { ...str };
-
-      structure.regroupementsTaux = str.regroupementsTaux
-        .filter(r => withNonPrecompte || !r.hasNonPrecompte);
-
-      if (!!structure.regroupementsTaux.length) {
-        structure.regroupementsTaux
-          .sort((a, b) => {
-            const itemA = this.getRegroupementTauxItem(a.code);
-            const itemB = this.getRegroupementTauxItem(b.code);
-
-            if (!itemA || !itemB) {
-              return 0;
-            }
-
-            return itemA.ordre - itemB.ordre;
-          });
-
-        structures.push(structure);
-      }
-    });
-
-    return structures;
-  }
 }
 
 export function isConjoint(qualite: string): boolean {

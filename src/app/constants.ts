@@ -368,63 +368,6 @@ export enum NotificationType {
   Clear = 'clear'
 }
 
-export const modeleAdhesion = {
-  ASSOCIATION: 'ASSOCIATION',
-  ISOLE_TNS: 'ISOLE_TNS',
-  FAMILLE_MADELIN_PARTIEL_TNS: 'FAMILLE_MADELIN_PARTIEL_TNS',
-  FAMILLE_MADELIN_TOTAL_TNS: 'FAMILLE_MADELIN_TOTAL_TNS',
-  FAMILLE_TNS: 'FAMILLE_TNS'
-};
-
-export const regroupementTaux = {
-  SALARIE: 'A',
-  SALARIE_SEUL: 'SALARIE_SEUL',
-  CONJOINT: 'C',
-  ENFANT_0: 'E/0',
-  ENFANT_1: 'E/1',
-  ENFANT_2: 'E/2',
-  ISOLE: 'ISOLE',
-  DUO: 'DUO',
-  FAMILLE: 'FAMILLE',
-  salarie_1E: '1E',
-  salarie_2E: '2E',
-  salarie_Conjoint_2E: 'C2E',
-  FAMILLE_SANS_CONJOINT: 'FAMILLE_SANS_CONJOINT',
-  TRANCHE_A: 'SAR_SAL_A_TRA_A',
-  TRANCHE_B: 'SAR_SAL_A_TRA_B',
-  TRANCHE_C: 'SAR_SAL_A_TRA_C'
-};
-
-export const regroupement = {
-  ISOLE_DUO_FAMILLE_SOCLE: 'SSES1_ISOLE_DUO_FAMILLE',
-  ISOLE_DUO_FAMILLE_OPTION: 'SSEO1_ISOLE_DUO_FAMILLE',
-  SALARIE_CONJOINT_ENFANT_SOCLE: 'SSES1_SALARIE_CONJOINT_ENFANT',
-  SALARIE_CONJOINT_ENFANT_OPTION: 'SSEO1_SALARIE_CONJOINT_ENFANT',
-  SSCS1_FAMILLE_SANS_CONJOINT: 'SSCS1_FAMILLE_SANS_CONJOINT',
-  SSCO1_SYNTEC: 'SSCO1_SYNTEC'
-};
-
-export const regroupementTauxItems = [
-  { code: regroupementTaux.SALARIE, libelle: 'Salarié', ordre: 1 },
-  { code: regroupementTaux.CONJOINT, libelle: 'Conjoint', ordre: 2 },
-  { code: regroupementTaux.ENFANT_0, libelle: 'Enfant', ordre: 3 },
-  { code: regroupementTaux.ENFANT_1, libelle: 'Enfant', ordre: 3 },
-  { code: regroupementTaux.ENFANT_2, libelle: 'Enfant 2', ordre: 4 },
-  { code: regroupementTaux.ISOLE, libelle: 'Isolé', ordre: 5 },
-  { code: regroupementTaux.DUO, libelle: 'Duo', ordre: 6 },
-  { code: regroupementTaux.FAMILLE, libelle: 'Famille', ordre: 7 },
-  { code: regroupementTaux.FAMILLE_SANS_CONJOINT, libelle: 'Famille sans conjoint', ordre: 8 },
-  { code: regroupementTaux.TRANCHE_A, libelle: 'Tranche A', ordre: 9 },
-  { code: regroupementTaux.TRANCHE_B, libelle: 'Tranche B', ordre: 10 },
-  { code: regroupementTaux.TRANCHE_C, libelle: 'Tranche C', ordre: 11 }
-];
-
-export const faqFiltreAffichage = {
-  TOUS: 'TOUS',
-  SANTE: 'SANTE',
-  PREVOYANCE: 'PREVOYANCE'
-};
-
 export const allowedContentType = [
   {
     type: 'application/pdf',
@@ -472,22 +415,6 @@ export const allowedContentType = [
   }
 ];
 
-export const jourPrelevement = {
-  LE5: 5,
-  LE20: 20
-};
-
-export const jourPrelevementOptions = [
-  { code: jourPrelevement.LE5, libelle: 'Le 5 du mois' },
-  { code: jourPrelevement.LE20, libelle: 'Le 20 du mois' }
-];
-
-export const regleCollecteJustificatif = {
-  RECTO: 'RECTO',
-  VERSO: 'VERSO',
-  RECTOVERSO: 'RECTOVERSO'
-};
-
 export const localStorage = {
   AFFILIATION_SALARIE: 'AFFILIATION_SALARIE'
 };
@@ -507,94 +434,13 @@ export const isoCountryCodes = {
   MONACO: 'MC'
 };
 
-export const salarieStatut = {
-  Affilie: 'AFFILIE',
-  Complet: 'COMPLET',
-  Doublon: 'DOUBLON',
-  EnAttente: 'EN_ATTENTE',
-  Brouillon: 'BROUILLON',
-  EnAttenteComplet: 'EN_ATTENTE_COMPLET',
-  EnAttenteForcage: 'EN_ATTENTE_FORCAGE',
-  EnAttentePj: 'EN_ATTENTE_PJ',
-  EnAttenteSignatureSalarie: 'EN_ATTENTE_SIGNATURE_SALARIE',
-  EnAttenteSignature: 'EN_ATTENTE_SIGNATURE',
-  EnAttenteAffiliationSalarie: 'EN_ATTENTE_AFFILIATION_SALARIE',
-  EnGrcCleva: 'EN_GRC_CLEVA',
-  Radie: 'RADIE',
-  PrevoyanceEnAttenteSignature: 'PREV_ATTENTE_SIGNATURE',
-  PrevoyanceEnAttenteTraitementCleva: 'PREV_ATTENTE_TRAITEMENT_CLEVA',
-  PrevoyanceEnAttenteTraitementGed: 'PREV_ATTENTE_TRAITEMENT_GED',
-  SanteEnAttenteSignature: 'SANTE_EN_ATTENTE_SIGNATURE',
-  SanteEnAttenteTraitementCleva: 'SANTE_ATTENTE_TRAITEMENT_CLEVA',
-  SanteEnAttenteTraitementGed: 'SANTE_ATTENTE_TRAITEMENT_GED',
-  TransmisAuSalarie: 'TRANSMIS_AU_SALARIE',
-  changementFormuleCotisation: 'CHANGEMENT_FORMULE_COTISATION'
-};
-
-
-export const salarieStatutFiltre = {
-  Affilie: 'AFFILIE',
-  Brouillon: 'BROUILLON',
-  EnAttenteSignature: 'EN_ATTENTE_SIGNATURE',
-  Radie: 'RADIE',
-  TransmisAuSalarie: 'TRANSMIS_AU_SALARIE'
-};
-
-export const salarieStatutFiltres = [
-  { code: salarieStatutFiltre.Affilie, libelle: 'Affilié' },
-  { code: salarieStatutFiltre.Brouillon, libelle: 'Brouillon' },
-  // { code: salarieStatutFiltre.EnAttenteSignature, libelle: 'En attente signature' },
-  { code: salarieStatutFiltre.TransmisAuSalarie, libelle: 'Transmis salarié' },
-  { code: salarieStatutFiltre.Radie, libelle: 'Résilié' }
-];
-
 export const isoCountrylibelle = {
   FRANCE: 'FRANCE'
 };
 
-export const affilieTypes = [
-  { id: 1, code: 'S', libelle: 'Salarié', ordre: 1 },
-  { id: 2, code: 'P', libelle: 'Portabilité', ordre: 2 },
-  { id: 3, code: 'R', libelle: 'Retraité', ordre: 3 },
-  { id: 4, code: 'RE', libelle: 'Résilié', ordre: 4 }
-];
-
 export const successMessage = {
   SUCCESS_MAIL_RELANCE: 'Votre relance a bien été effectuée'
 };
-
-export const salarieAffiliationStatut = {
-  EnAttente: 0,
-  Affilie: 1,
-  Radie: 2,
-};
-
-export const motifRadiation = {
-  RAS_RET_01: 'RAS_RET_01',
-  RAS_RET_02: 'RAS_RET_02',
-  RAS_RET_03: 'RAS_RET_03',
-  RAS_RET_04: 'RAS_RET_04',
-  RAS_RET_05: 'RAS_RET_05',
-  RAS_RET_06: 'RAS_RET_06',
-  RAS_RET_07: 'RAS_RET_07',
-  RAS_RET_08: 'RAS_RET_08',
-  RAS_RET_09: 'RAS_RET_09',
-  RAS_RET_10: 'RAS_RET_10',
-  RAS_RET_11: 'RAS_RET_11'
-};
-
-export const motifsRadiation = [
-  { code: motifRadiation.RAS_RET_07, libelle: 'Autre motif de fin de contrat' },
-  { code: motifRadiation.RAS_RET_01, libelle: 'Changement de collège' },
-  { code: motifRadiation.RAS_RET_11, libelle: 'Décès' },
-  { code: motifRadiation.RAS_RET_05, libelle: 'Démission' },
-  { code: motifRadiation.RAS_RET_10, libelle: 'Dispense d’affiliation' },
-  { code: motifRadiation.RAS_RET_02, libelle: 'Licenciement' },
-  { code: motifRadiation.RAS_RET_03, libelle: 'Licenciement pour faute lourde' },
-  { code: motifRadiation.RAS_RET_09, libelle: 'Mutation' },
-  { code: motifRadiation.RAS_RET_08, libelle: 'Retraite' },
-  { code: motifRadiation.RAS_RET_04, libelle: 'Rupture conventionnelle' },
-];
 
 export const parcoursEtats = {
   EN_COURS: 'ENC',
@@ -622,4 +468,12 @@ export const showValidationSansSignature = true;
 export const typeDialog = {
   SUCCESS: 'SUCCESS',
   ERROR: 'ERROR'
+};
+
+export const notificationType = {
+  Error: 'danger',
+  Success: 'success',
+  Information: 'info',
+  Attention: 'warning',
+  Clear: 'clear'
 };
