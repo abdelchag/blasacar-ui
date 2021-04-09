@@ -2,7 +2,7 @@
   <div class="view-title">
   </div>
   <form [formGroup]="form" (ngSubmit)="submit()">
-    <fieldset>
+    <fieldset [disabled]="isLoading">
       <div class="card mb-0">
         <div class="card-header">
           <div class="card-title">
@@ -36,7 +36,7 @@
           </div>
           <div class="d-flex justify-content-between">
 
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary"  [class.btn-loading]="isLoading" [disabled]="isLoading">
               Connexion
             </button>
           </div>

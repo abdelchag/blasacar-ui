@@ -61,9 +61,10 @@ export class TravelEditComponent implements OnInit {
       Helpers.showErrors(this.form);
       return;
     }
+    this.isProcessing = true;
     this.travelService.editTravel(this.travel)
       .subscribe(travels => {
-        this.isProcessing = true;
+        this.isProcessing = false;
         this.save.emit(this.travel);
       }
       );

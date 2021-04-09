@@ -1,4 +1,4 @@
-app-loader {
+blasacar-loader {
   position: absolute;
   top: 30vh;
   left: 25vw;
@@ -27,7 +27,7 @@ app-loader {
   }
 }
 
-app-page-loader {
+blasacar-page-loader {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,7 +331,7 @@ app-sidebar {
 }
 
 .theme-ganeur {
-  app-loader {
+  blasacar-loader {
     .card-loader {
       .logo-desktop {
         img {
@@ -351,7 +351,7 @@ app-sidebar {
     }
   }
 
-  app-page-loader {
+  blasacar-page-loader {
     .sk-fading-circle {
       .sk-circle {
         &:before {
@@ -387,7 +387,7 @@ app-sidebar {
 }
 
 .theme-ganass {
-  app-loader {
+  blasacar-loader {
     .card-loader {
       .logo-desktop {
         img {
@@ -407,7 +407,7 @@ app-sidebar {
     }
   }
 
-  app-page-loader {
+  blasacar-page-loader {
     .sk-fading-circle {
       .sk-circle {
         &:before {

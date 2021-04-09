@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AffilieTypePipe } from './affilie-type.pipe';
 import { AgePipe } from './age.pipe';
 import { CivilitePipe } from './civilite.pipe';
 import { CollegePipe } from './college.pipe';
@@ -13,7 +12,6 @@ import { FormulePipe } from './formule.pipe';
 import { GenrePipe } from './genre.pipe';
 import { IbanAcountPipe, IbanPipe } from './iban.pipe';
 import { ModePaiementPipe } from './mode-paiement.pipe';
-import { ModeleAdhesionPipe } from './modele-adhesion.pipe';
 import { OrdinalPipe } from './ordinal.pipe';
 import { OrganismeRattachementPipe } from './organisme-rattachement.pipe';
 import { PercentFrenchPipe } from './percent-french.pipe';
@@ -22,7 +20,6 @@ import { PeriodicitePipe } from './periodicite.pipe';
 import { PhonePipe } from './phone.pipe';
 import { QualitePipe } from './qualite.pipe';
 import { RattachementPipe } from './rattachement.pipe';
-import { RegroupementTauxPipe } from './regroupement-taux.pipe';
 import { RisqueIconPipe } from './risque-icon.pipe';
 import { RisquePipe } from './risque.pipe';
 import { SecuriteSocialePipe } from './securite-sociale.pipe';
@@ -32,7 +29,6 @@ import { StatutAyantDroitPipe } from './statut-ayantdroit.pipe';
 import { BooleanToOuiNonPipe } from './boolean-to-oui-non.pipe';
 
 const pipes = [
-  AffilieTypePipe,
   AgePipe,
   CivilitePipe,
   CollegePipe,
@@ -44,7 +40,6 @@ const pipes = [
   GenrePipe,
   IbanAcountPipe,
   IbanPipe,
-  ModeleAdhesionPipe,
   ModePaiementPipe,
   OrdinalPipe,
   OrganismeRattachementPipe,
@@ -54,7 +49,6 @@ const pipes = [
   PhonePipe,
   QualitePipe,
   RattachementPipe,
-  RegroupementTauxPipe,
   RisqueIconPipe,
   RisquePipe,
   SecuriteSocialePipe,
