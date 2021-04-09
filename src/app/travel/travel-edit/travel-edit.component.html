@@ -1,94 +1,97 @@
 <form [formGroup]="form" (ngSubmit)="update()">
-  <fieldset [disabled]="isProcessing">
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <blasacar-datepicker-form [formGroup]="form" controlName="departureDate" label="travel-edit.departure-date"
-            [initialValue]="departureDate" [showBeforeDates]="false" [required]="true"
-            (valueChanged)="travel.departureDate= $event">
-          </blasacar-datepicker-form>
+    <fieldset [disabled]="isProcessing">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <blasacar-datepicker-form [formGroup]="form" label="travel-edit.departure-date" 
+            [initialValue]="departureDate" [showBeforeDates]="false"
+            [required]="true" (valueChanged)="travelToEdited.departureDate= $event">
+        </blasacar-datepicker-form>
+          </div>
+          <div class="col">
+            <blasacar-timepicker [formGroup]="form" label="heure depart"
+            [initialValue]="travelToEdited.departureTime" [required]="true"
+            (valueChanged)="travelToEdited.departureTime= $event"></blasacar-timepicker>
+          </div>
         </div>
-        <div class="col">
-          <blasacar-timepicker [formGroup]="form" controlName="departureHour" label="heure depart"
-            [initialValue]="travel.departureTime" [required]="true" (valueChanged)="travel.departureTime= $event">
-          </blasacar-timepicker>
-        </div>
-      </div>
+  
     </div>
-    <div class="card-header card-header-inner border-top-grey">
-      <div class="card-title">
-        <h3 class="">
-          info voyage
-        </h3>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <blasacar-number [formGroup]="form" controlName="price" [label]="'travel-edit.price'  | translate"
-            [initialValue]="travel.price" [required]="true" [decimal]="true" (valueChanged)="travel.price= $event">
-          </blasacar-number>
-        </div>
-        <div class="col">
-          <blasacar-number [formGroup]="form" controlName="numberPlace"
-            [label]="'travel-edit.number-place'  | translate" [initialValue]="travel.numberPlaces" [maxValue]="4"
-            [minValue]="1" [required]="true" (valueChanged)="travel.numberPlaces= $event">
-          </blasacar-number>
+      <div class="card-header card-header-inner border-top-grey">
+        <div class="card-title">
+          <h3 class="">
+            info voyage
+          </h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <blasacar-text [formGroup]="form" controlName="departureCity"
-            [label]="'travel-edit.departure-city'  | translate" [initialValue]="travel.departureCity" [required]="true"
-            (valueChanged)="travel.departureCity= $event">
-          </blasacar-text>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <blasacar-number [formGroup]="form"  [label]="'travel-edit.price'  | translate"
+                                        [initialValue]="travelToEdited.price" [required]="true" [decimal]="true"
+                                        (valueChanged)="travelToEdited.price= $event"></blasacar-number>
+          </div>
+          <div class="col">
+            <blasacar-number [formGroup]="form" [label]="'travel-edit.number-place'  | translate"
+            [initialValue]="travelToEdited.numberPlaces" [maxValue]="4" [minValue]="1"
+            [required]="true" (valueChanged)="travelToEdited.numberPlaces= $event">
+        </blasacar-number>
+          </div>
         </div>
-        <div class="col">
-          <blasacar-text [formGroup]="form" controlName="departureCity"
-            [label]="'travel-edit.arrival-city'  | translate" [initialValue]="travel.arrivalCity" [required]="true"
-            (valueChanged)="travel.arrivalCity= $event">
-          </blasacar-text>
+        <div class="row">
+          <div class="col">
+            <blasacar-text [formGroup]="form"  [label]="'travel-edit.departure-city'  | translate"
+            [initialValue]="travelToEdited.departureCity" [required]="true"
+            (valueChanged)="travelToEdited.departureCity= $event">
+        </blasacar-text>
+          </div>
+          <div class="col">
+            <blasacar-text [formGroup]="form" [label]="'travel-edit.arrival-city'  | translate"
+            [initialValue]="travelToEdited.arrivalCity" [required]="true"
+            (valueChanged)="travelToEdited.arrivalCity= $event">
+        </blasacar-text>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <blasacar-radio [formGroup]="form"  
+            [initialValue]="getAutomaticAcceptance()" [label]="'travel-edit.automatique-acceptance'  | translate"
+            [options]="automaticAcceptanceOptions" [required]="true"
+            (valueChanged)="changeAutomaticAcceptance($event)">
+        </blasacar-radio>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <blasacar-radio [formGroup]="form" [initialValue]="getAutomaticAcceptance()"
-            [label]="'travel-edit.automatique-acceptance'  | translate" [options]="automaticAcceptanceOptions"
-            [required]="true" (valueChanged)="changeAutomaticAcceptance($event)">
-          </blasacar-radio>
-        </div>
-      </div>
-    </div>
-    <div class="card-header card-header-inner border-top-grey">
-      <div class="card-title">
-        <h3 class="">
+      <div class="card-header card-header-inner border-top-grey">
+        <div class="card-title">
+          <h3 class="">
 
-          info voyage
-        </h3>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <blasacar-phone [formGroup]="form" controlName="phoneNumber" [label]="'travel-edit.phone-number'  | translate"
-            [initialValue]="travel.phoneNumber" [required]="true" (valueChanged)="travel.phoneNumber= $event">
-          </blasacar-phone>
-        </div>
-        <div class="col">
+            info voyage
+          </h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col text-left">
-          <button type="button" class="btn btn-default-reverse" (click)="triggerDelete()">
-            {{ 'travel-edit.cancel-travel' | translate }}
-          </button>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <blasacar-phone [formGroup]="form" [label]="'travel-edit.phone-number'  | translate"
+            [initialValue]="travelToEdited.phoneNumber" [required]="true"
+            (valueChanged)="travelToEdited.phoneNumber= $event"></blasacar-phone>
+          </div>
+          <div class="col">
+          </div>
         </div>
-        <div class="col text-right">
-          <button type="submit" class="btn btn-default" [class.btn-loading]="isProcessing" [disabled]="isProcessing">
-            {{ 'travel-edit.save-travel' | translate }}
-          </button>
+        <div class="row">
+          <div class="col text-left" >
+            <button type="button" class="btn btn-default-reverse" (click)="triggerDelete()">
+              {{ 'travel-edit.cancel-travel' | translate }}
+            </button>
+          </div>
+          <div class="col text-right">
+            <button type="submit" class="btn btn-default" [class.btn-loading]="isProcessing" [disabled]="isProcessing">
+              {{ 'travel-edit.save-travel' | translate }}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </fieldset>
-</form>
+    </fieldset>
+  </form>
+  

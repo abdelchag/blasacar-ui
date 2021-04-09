@@ -34,7 +34,6 @@ export class TravelConsultComponent implements OnInit, OnDestroy {
       travels$
         .subscribe(travels => {
           this.travels = travels;
-          console.log(this.travels);
         })
     );
   }
