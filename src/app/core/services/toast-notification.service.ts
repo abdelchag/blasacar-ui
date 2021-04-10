@@ -18,9 +18,6 @@ export class ToastNotificationService {
 
   notifyHttpError(httpErrorResponse: HttpErrorResponse): void {
     const messageCodeSuffix = 'toast-notifications.error.';
-    if (httpErrorResponse.error instanceof Array) {
-      alert('yes');
-    }
     const errorMessages: string[] = [];
     if (httpErrorResponse.status === httpErrorCode.BadRequest) {
       errorMessages.push(`${messageCodeSuffix}bad-request`);
