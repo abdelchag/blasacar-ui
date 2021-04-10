@@ -24,7 +24,7 @@ export class ToastNotificationService {
     } else if (typeof httpErrorResponse.error === 'string') {
       errorMessage = `${messageCodeSuffix}technical`;
     } else {
-      errorMessage = `${messageCodeSuffix}${httpErrorResponse.error.code}`;
+      errorMessage = `${messageCodeSuffix}${httpErrorResponse.error.message}`;
     }
     this.notify({ message: errorMessage, type: NotificationType.Error });
   }

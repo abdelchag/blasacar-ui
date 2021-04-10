@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import * as moment from 'moment';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Travel } from '../model/travel.model';
 
 @Component({
@@ -12,18 +11,6 @@ export class TravelDetailComponent implements OnInit {
   editing = false;
   @Input() travel: Travel;
   constructor() { }
-
-  get departureTime(): string {
-    return moment(this.travel.departureTime).format('HH:mm');
-  }
-
-  get departureDate(): string {
-    return moment(this.travel.departureDate).format('DD/MM/YYYY');
-  }
-
-  get creationDate(): string {
-    return moment(this.travel.created).format('DD/MM/YYYY');
-  }
 
   ngOnInit(): void {
   }

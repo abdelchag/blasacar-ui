@@ -62,19 +62,14 @@ export class MemberFormComponent implements OnInit {
 
     if (BlasaUtils.isNullOrUndefined(this.currentStep.next)) {
       this.accountManagementProxy
-        .saveMembre(this.userToAdd)
-        .pipe(
-          finalize(() => console.log(this.userToAdd))
-        )
-        .subscribe(
-          externalUserResponse => {
-            this.currentUserService.emitCurrentUser(externalUserResponse);
-            this.toastNotificationService.notify({
-              type: NotificationType.Success,
-              message: 'toast-notifications.validated-inscription'
-            });
-            this.router.navigate([ROUTING_PATH.ROOT]);
-          }
+        .saveMembre(this.userToAdd).subscribe(externalUserResponse => {
+          this.currentUserService.emitCurrentUser(externalUserResponse);
+          this.toastNotificationService.notify({
+            type: NotificationType.Success,
+            message: 'toast-notifications.validated-inscription'
+          });
+          this.router.navigate([ROUTING_PATH.ROOT]);
+        }
         );
     } else {
       this.currentStep = this.currentStep.next;
