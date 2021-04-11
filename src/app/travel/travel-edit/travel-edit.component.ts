@@ -43,7 +43,7 @@ export class TravelEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildAutomaticAcceptanceOptions();
-    Object.assign(this.travelToEdited,this.travel);
+    Object.assign(this.travelToEdited, this.travel);
   }
 
   changeAutomaticAcceptance(code: string): void {

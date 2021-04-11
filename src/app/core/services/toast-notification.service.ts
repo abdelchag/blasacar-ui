@@ -18,15 +18,17 @@ export class ToastNotificationService {
 
   notifyHttpError(httpErrorResponse: HttpErrorResponse): void {
     const messageCodeSuffix = 'toast-notifications.error.';
-    let errorMessage: string;
+    const errorMessages: string[] = [];
     if (httpErrorResponse.status === httpErrorCode.BadRequest) {
-      errorMessage = `${messageCodeSuffix}bad-request`;
+      errorMessages.push(`${messageCodeSuffix}bad-request`);
     } else if (typeof httpErrorResponse.error === 'string') {
-      errorMessage = `${messageCodeSuffix}technical`;
+      errorMessages.push(`${messageCodeSuffix}technical`);
+    } else if (httpErrorResponse.error instanceof Array) {
+      httpErrorResponse.error.forEach(err => errorMessages.push(err.message));
     } else {
-      errorMessage = `${messageCodeSuffix}${httpErrorResponse.error.code}`;
+      errorMessages.push(`${messageCodeSuffix}${httpErrorResponse.error.message}`);
     }
-    this.notify({ message: errorMessage, type: NotificationType.Error });
+    errorMessages.forEach(errorMessage => this.notify({ message: errorMessage, type: NotificationType.Error }));
   }
   // }
 

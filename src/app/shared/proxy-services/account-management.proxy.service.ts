@@ -19,29 +19,10 @@ export class AccountManagementProxyService {
 
   public connectFacebookUser(socialLoginUser: SocialUser): Observable<ExternalUserResponse> {
     return this.http.post<ExternalUserResponse>(`${this.ACCOUNT_MANAGEMENT_URL}/external-user/login`, socialLoginUser);
-    /*console.log('connect : ', socialLoginUser);
-    return of({
-      data: {
-        firstName: socialLoginUser.firstName,
-        lastName: socialLoginUser.lastName,
-        email: socialLoginUser.email
-      },
-      token: socialLoginUser.authToken
-    }
-    );*/
   }
 
   public registerFacebookUser(socialUser: BlasacarSocialUser): Observable<ExternalUserResponse> {
     return this.http.post<ExternalUserResponse>(`${this.ACCOUNT_MANAGEMENT_URL}/external-user/register`, socialUser);
-    /*return of({
-      data: {
-        firstName: socialUser.firstName,
-        lastName: socialUser.lastName,
-        email: socialUser.email
-      },
-      token: socialUser.authToken
-    }
-    );*/
   }
 
   public deconnectFacebookUser(): Observable<any> {

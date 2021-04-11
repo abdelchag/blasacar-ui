@@ -52,18 +52,18 @@ export class TravelListComponent implements OnInit {
       .subscribe(
         () => {
           component.isLoading = true;
-              this.travelService.deleteTravel(this.travel)
-              .pipe(
-                finalize(() => {
-                  component.isLoading = false;
-                  component.isProcessed = true;
-                    })).subscribe(travel => {
-              this.delete.emit(travel);
-              this.toastNotificationService.notify({
-                type: NotificationType.Success,
-                message: 'toast-notifications.travel.travel-deleted'
+          this.travelService.deleteTravel(this.travel)
+            .pipe(
+              finalize(() => {
+                component.isLoading = false;
+                component.isProcessed = true;
+              })).subscribe(travel => {
+                this.delete.emit(travel);
+                this.toastNotificationService.notify({
+                  type: NotificationType.Success,
+                  message: 'toast-notifications.travel.travel-deleted'
+                });
               });
-            });
         });
   }
 

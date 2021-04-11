@@ -2,10 +2,10 @@
   <li class="list-group-item">
     <div class="row">
       <div class="col-md">
-        <blasacar-info-text label="Date depart" [value]="departureDate"></blasacar-info-text>
+        <blasacar-info-text label="Date depart" [value]="travel.departureDate | date:'dd/MM/yyyy'"></blasacar-info-text>
       </div>
       <div class="col-md">
-        <blasacar-info-text label="heure depart" [value]=departureTime></blasacar-info-text>
+        <blasacar-info-text label="heure depart" [value]="travel.departureTime | date:'HH:mm'"></blasacar-info-text>
       </div>
       <div class="col-md text-right">
         <a class="link" title="Détails" [class.active]="extended" (click)="extended = !extended">
@@ -37,7 +37,8 @@
           </blasacar-info-text>
         </div>
         <div class="col-md">
-          <blasacar-info-text label="Acceptation automatique" [value]="travel.isAutomaticAcceptance | booleanToOuiNon | translate">
+          <blasacar-info-text label="Acceptation automatique"
+            [value]="travel.isAutomaticAcceptance | booleanToOuiNon | translate">
           </blasacar-info-text>
         </div>
       </div>
@@ -56,7 +57,8 @@
       </h3>
       <div class="row">
         <div class="col-md-6">
-          <blasacar-info-text label="date création" [value]="creationDate"></blasacar-info-text>
+          <blasacar-info-text label="date création" [value]="travel.creationDate | date:'dd/MM/yyyy'">
+          </blasacar-info-text>
         </div>
         <div class="col-md">
           <blasacar-info-text label="Telephone" [value]=travel.phoneNumber>
