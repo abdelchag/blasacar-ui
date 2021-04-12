@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
@@ -26,10 +26,6 @@ export class TravelEditComponent implements OnInit {
 
   get price(): any {
     return this.form.get('price');
-  }
-
-  get departureTime(): any {
-    return moment(this.travel.departureTime).format('HH:mm');
   }
 
   get departureDate(): any {
