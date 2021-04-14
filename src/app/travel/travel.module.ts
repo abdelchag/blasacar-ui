@@ -24,10 +24,10 @@ const components = [
   imports: [
     SharedModule,
     TravelRoutedModule,
-    TranslateModule,
+    TranslateModule
   ],
   exports: [
-  TranslateModule,
+    TranslateModule
   ]
 })
 export class TravelModule { }

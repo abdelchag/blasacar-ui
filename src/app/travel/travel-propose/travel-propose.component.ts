@@ -11,7 +11,7 @@ import { CurrentUserService } from 'src/app/shared/services/current-user.service
 import { BlasaUtils } from 'src/utils/blasa-utils';
 import { Travel } from '../model/travel.model';
 import { TravelService } from '../service/travel.service';
-import { TRAVEL_PROPOSE_WORKFLOW, TravelProposeStepCode } from './model/travel-propose-step.model';
+import { TravelProposeStepCode, TRAVEL_PROPOSE_WORKFLOW } from './model/travel-propose-step.model';
 
 @Component({
   selector: 'blasacar-travel-propose',
