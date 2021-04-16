@@ -4,8 +4,10 @@ import { ConnexionMemberFormComponent } from './account/components/connexion-mem
 import { MemberFormComponent } from './account/components/member-form/member-form.component';
 import { ROUTING_PATH } from './routing-constants';
 import { SharedModule } from './shared/shared.module';
+import { TravelSearchComponent } from './travel/travel-search/travel-search.component';
 
 const routes: Routes = [
+  { path: ROUTING_PATH.ROOT, component: TravelSearchComponent },
   { path: ROUTING_PATH.MEMBER, component: MemberFormComponent },
   { path: ROUTING_PATH.CONNEXION_MEMBER, component: ConnexionMemberFormComponent },
   {

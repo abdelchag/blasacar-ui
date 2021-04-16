@@ -17,12 +17,12 @@ import { finalize } from 'rxjs/operators';
 export class TravelListComponent implements OnInit {
   extended = false;
 
-  @Input() editing: boolean;
-  @Output() save = new EventEmitter<Travel>();
-
+  @Input() editing = false;
+  @Input() editModeActive = false;
   @Input() travel: Travel;
-  @Output()
-  delete = new EventEmitter<Travel>();
+
+  @Output() save = new EventEmitter<Travel>();
+  @Output() delete = new EventEmitter<Travel>();
 
 
   constructor(

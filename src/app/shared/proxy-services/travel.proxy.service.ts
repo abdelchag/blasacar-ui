@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TravelFilter } from 'src/app/travel/model/travel-filter';
 import { Travel } from 'src/app/travel/model/travel.model';
+import { StringUtils } from 'src/utils/string-utils';
+import { HttpParamsBuilder } from './builder/http-params-builder';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,9 @@ export class TravelProxyService {
   }
 
   public getTravels(travelFilter: TravelFilter): Observable<Travel[]> {
-    const params = new HttpParams().set('onlyUser', String(travelFilter.onlyUser));
+    const params: HttpParams = HttpParamsBuilder.builder()
+      .appendIfNotNull('onlyUser', String(travelFilter.onlyUser || StringUtils.EMPTY))
+      .build();
     return this.http.get<Travel[]>(`${this.TRAVEL_URL}`, { params });
   }
 
