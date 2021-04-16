@@ -5,18 +5,17 @@
     <blasacar-error-block [errors]="errors"></blasacar-error-block>
     <form [formGroup]="form">
         <div class="form-group">
-            <label for="inputGender">{{'face-info-supp.gender' | translate}} : </label><br />
             <span>
-                <blasacar-radio [formGroup]="form" controlName="gender" [initialValue]="getGender()"
-                    [options]="genderOptions" [required]="true" (valueChanged)="putGender($event)">
+                <blasacar-radio [formGroup]="form" [label]="'face-info-supp.gender' | translate" controlName="gender"
+                    [initialValue]="getGender()" [options]="genderOptions" [required]="true"
+                    (valueChanged)="putGender($event)">
                 </blasacar-radio>
             </span>
         </div>
         <div class="form-group">
-            <label for="birthday">{{'face-info-supp.birthday-date' | translate}} : </label><br />
-            <blasacar-datepicker [formGroup]="form" [placeholder]="'face-info-supp.birthday-date' | translate"
-                controlName="birthDate" [initialValue]="null" [showAfterDates]="false" [required]="true"
-                (valueChanged)="putBirthDate($event)">
+            <blasacar-datepicker [formGroup]="form" [label]="'face-info-supp.birthday-date' | translate"
+                [placeholder]="'face-info-supp.birthday-date' | translate" controlName="birthDate" [initialValue]="null"
+                [showAfterDates]="false" [required]="true" (valueChanged)="putBirthDate($event)">
             </blasacar-datepicker>
 
         </div>
