@@ -8,6 +8,7 @@ import { TravelEditComponent } from './travel-edit/travel-edit.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { TravelProposeComponent } from './travel-propose/travel-propose.component';
 import { TravelRoutedModule } from './travel-routed.module';
+import { TravelSearchComponent } from './travel-search/travel-search.component';
 import { TravelComponent } from './travel.component';
 
 const components = [
@@ -16,7 +17,8 @@ const components = [
   TravelDetailComponent,
   TravelEditComponent,
   TravelComponent,
-  TravelConsultComponent
+  TravelConsultComponent,
+  TravelSearchComponent
 ];
 
 @NgModule({

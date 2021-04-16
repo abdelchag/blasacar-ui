@@ -1,3 +1,3 @@
 export interface TravelFilter {
-    onlyUser: boolean;
+    onlyUser?: boolean;
 }
