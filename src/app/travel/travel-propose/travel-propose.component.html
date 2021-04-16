@@ -32,10 +32,10 @@
                                     </blasacar-text>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_DATE">
-                                    <blasacar-datepicker-form [formGroup]="form" controlName="departureDate"
+                                    <blasacar-datepicker [formGroup]="form" controlName="departureDate"
                                         [initialValue]="travel.departureDate" [showBeforeDates]="false"
                                         [required]="true" (valueChanged)="travel.departureDate= $event">
-                                    </blasacar-datepicker-form>
+                                    </blasacar-datepicker>
                                 </div>
                                 <div *ngSwitchCase="travelProposeStepCodeEnum.DEPARTURE_HOUR">
                                     <blasacar-timepicker [formGroup]="form" controlName="departureHour"

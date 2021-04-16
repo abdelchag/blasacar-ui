@@ -6,12 +6,12 @@ import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleDirective } from '../base-simple.directive';
 
 @Component({
-  selector: 'blasacar-datepicker-form',
-  templateUrl: './datepicker-form.component.html',
-  styleUrls: ['./datepicker-form.component.scss'],
+  selector: 'blasacar-datepicker',
+  templateUrl: './datepicker.component.html',
+  styleUrls: ['./datepicker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DatepickerFormComponent extends BaseSimpleDirective implements OnInit {
+export class DatepickerComponent extends BaseSimpleDirective implements OnInit {
 
   @Input()
   placeholder = '';

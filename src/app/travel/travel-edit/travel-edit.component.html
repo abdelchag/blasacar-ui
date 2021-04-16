@@ -3,10 +3,10 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <blasacar-datepicker-form [formGroup]="form" label="travel-edit.departure-date" 
+            <blasacar-datepicker [formGroup]="form" label="travel-edit.departure-date" 
             [initialValue]="departureDate" [showBeforeDates]="false"
             [required]="true" (valueChanged)="travelToEdited.departureDate= $event">
-        </blasacar-datepicker-form>
+        </blasacar-datepicker>
           </div>
           <div class="col">
             <blasacar-timepicker [formGroup]="form" label="heure depart"

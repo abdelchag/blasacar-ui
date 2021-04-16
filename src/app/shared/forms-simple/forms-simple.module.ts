@@ -15,7 +15,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { CiviliteComponent } from './civilite/civilite.component';
 import { DateNaissanceComponent } from './date-naissance/date-naissance.component';
 import { DateComponent } from './date/date.component';
-import { DatepickerFormComponent } from './datepicker-form/datepicker-form.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 import { EmailComponent } from './email/email.component';
 import { GenreComponent } from './genre/genre.component';
 import { MobilePhoneComponent } from './mobile-phone/mobile-phone.component';
@@ -56,7 +56,7 @@ const components = [
   TextDisplayComponent,
   ToggleButtonComponent,
   CiviliteComponent,
-  DatepickerFormComponent,
+  DatepickerComponent,
   TimepickerComponent
 ];
 

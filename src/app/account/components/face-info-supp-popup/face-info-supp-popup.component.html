@@ -3,23 +3,24 @@
         <span aria-hidden="true">&times;</span>
     </button>
     <blasacar-error-block [errors]="errors"></blasacar-error-block>
-    <div class="form-group">
-        <label for="inputGender">{{'face-info-supp.gender' | translate}} : </label><br />
-        <span id="inputGender" class="btn-group" role="group" aria-label="gender">
-            <button type="button" class="btn btn-light"
-                (click)="putGender(genderEnum.Mrs)">{{'face-info-supp.gender-choice.mrs' | translate}}</button>
-            <button type="button" class="btn btn-light"
-                (click)="putGender(genderEnum.Mr)">{{'face-info-supp.gender-choice.mr' | translate}}</button>
-            <button type="button" class="btn btn-light"
-                (click)="putGender(genderEnum.Undefined)">{{'face-info-supp.gender-choice.other' | translate}}</button>
-        </span>
-    </div>
-    <div class="form-group">
-        <label for="birthday">{{'face-info-supp.birthday-date' | translate}} : </label><br />
-        <blasacar-date-picker id="birthday" [isBirthDate]="true"
-            [placeholder]="'face-info-supp.birthday-date' | translate" (dateSelected)="putBirthDate($event)">
-        </blasacar-date-picker>
-    </div>
-    <button class="btn btn-primary" (click)="registerFacebook()">{{'face-info-supp.validate' | translate}}</button>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="inputGender">{{'face-info-supp.gender' | translate}} : </label><br />
+            <span>
+                <blasacar-radio [formGroup]="form" controlName="gender" [initialValue]="getGender()"
+                    [options]="genderOptions" [required]="true" (valueChanged)="putGender($event)">
+                </blasacar-radio>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="birthday">{{'face-info-supp.birthday-date' | translate}} : </label><br />
+            <blasacar-datepicker [formGroup]="form" [placeholder]="'face-info-supp.birthday-date' | translate"
+                controlName="birthDate" [initialValue]="null" [showAfterDates]="false" [required]="true"
+                (valueChanged)="putBirthDate($event)">
+            </blasacar-datepicker>
+
+        </div>
+        <button class="btn btn-primary" (click)="registerFacebook()">{{'face-info-supp.validate' | translate}}</button>
+    </form>
 
 </div>

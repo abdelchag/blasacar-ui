@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgxBootstrapModule } from '../ngx-bootstrap.module';
-import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ErrorBlockComponent } from './components/error-block/error-block.component';
 import { DirectivesModule } from './directives';
 import { FormsComplexModule } from './forms-complex';
@@ -36,8 +35,7 @@ const importExportModules = [
 ];
 
 const component = [
-  ErrorBlockComponent,
-  DatePickerComponent
+  ErrorBlockComponent
 ];
 
 @NgModule({
