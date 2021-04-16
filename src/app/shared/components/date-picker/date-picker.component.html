@@ -1,8 +1,0 @@
-<div class="input-group">
-    <input type="text" class="form-control" bsDatepicker [bsConfig]="bsConfig" [placeholder]="placeholder"
-        #dp="bsDatepicker" (bsValueChange)="onDateSelected($event)" readonly>
-    <div class="input-group-btn">
-        <i class="fa fa-calendar clickable" aria-hidden="true" (click)="dp.toggle()"
-            [attr.aria-expanded]="dp.isOpen"></i>
-    </div>
-</div>

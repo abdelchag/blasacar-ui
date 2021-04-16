@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { forkJoin } from 'rxjs';
+import { Helpers } from 'src/app/helpers';
 import { GenderEnum } from 'src/app/shared/models/gender.enum';
 import { BlasaUtils } from 'src/utils/blasa-utils';
 import { BlasacarSocialUser } from '../../models/blasacar-social-user';
@@ -14,16 +18,22 @@ import { FacebookService } from '../services/facebook.service';
 export class FaceInfoSuppPopupComponent implements OnInit {
 
   errors: string[] = [];
+  form: FormGroup;
 
   genderEnum = GenderEnum;
   user: BlasacarSocialUser;
 
+  genderOptions = [];
+
   constructor(
     private readonly modalRef: BsModalRef,
-    private readonly facebookService: FacebookService
+    private readonly facebookService: FacebookService,
+    private readonly translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({});
+    this.buildGenders();
   }
 
   closeModal(): void {
@@ -31,18 +41,16 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   }
 
   registerFacebook(): void {
-    this.errors = [];
-    if (BlasaUtils.isNullOrUndefined(this.user.gender)) {
-      this.errors.push('shared.error.gender-mondatory');
+    if (this.form.invalid) {
+      Helpers.showErrors(this.form);
+      return;
     }
+    this.facebookService.facebookInscription(this.user)
+      .subscribe(() => this.closeModal());
+  }
 
-    if (BlasaUtils.isNullOrUndefined(this.user.birthDate)) {
-      this.errors.push('shared.error.birthday-mondatory');
-    }
-    if (BlasaUtils.isArrayEmpty(this.errors)) {
-      this.facebookService.facebookInscription(this.user)
-        .subscribe(() => this.closeModal());
-    }
+  getGender(): string {
+    return this.user.gender;
   }
 
   putGender(gender: GenderEnum): void {
@@ -52,4 +60,19 @@ export class FaceInfoSuppPopupComponent implements OnInit {
   putBirthDate(birthDate: Date): void {
     this.user.birthDate = birthDate;
   }
+
+  private buildGenders(): void {
+    forkJoin([
+      this.translateService.get('face-info-supp.gender-choice.mrs'),
+      this.translateService.get('face-info-supp.gender-choice.mr'),
+      this.translateService.get('face-info-supp.gender-choice.other')
+    ]).subscribe((results: string[]) => {
+      this.genderOptions = [
+        { code: GenderEnum.Mrs, libelle: results[0] },
+        { code: GenderEnum.Mr, libelle: results[1] },
+        { code: GenderEnum.Undefined, libelle: results[2] }
+      ];
+    });
+  }
+
 }

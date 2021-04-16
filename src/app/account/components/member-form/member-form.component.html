@@ -40,10 +40,10 @@
                   </div>
                 </div>
                 <div *ngSwitchCase="memberStepCode.BIRTHDATE">
-                  <blasacar-datepicker-form [formGroup]="form" controlName="birthDate" [isBirthDate]="true"
+                  <blasacar-datepicker [formGroup]="form" controlName="birthDate" [isBirthDate]="true"
                     [placeholder]="'account.birthday-date' | translate" [initialValue]="userToAdd.birthDate"
                     [required]="true" (valueChanged)="userToAdd.birthDate= $event">
-                  </blasacar-datepicker-form>
+                  </blasacar-datepicker>
                 </div>
                 <div *ngSwitchCase="memberStepCode.TELEPHONE">
 
