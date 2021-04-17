@@ -31,7 +31,7 @@
 
     <div class="mt-2">
 
-      <a *ngIf="criteria.colleges.length || criteria.etats.length || criteria.risques.length"
+      <a *ngIf="criteria.depart.length || criteria.depart.length || criteria.depart.length"
         (click)="removeAllCriteria()" class="mr-2" title="Effacer les filtres">
         <span class="badge badge-pill badge-info">
           Effacer les filtres
@@ -39,15 +39,15 @@
         </span>
       </a>
   
-      <a *ngFor="let college of criteria.colleges" (click)="removeCollegeCriteria(college)" class="mr-2"
-        title="Effacer le filtre {{ college | college }}">
+      <a *ngFor="let depart of criteria.depart" class="mr-2"
+        title="Effacer le filtre">
         <span class="badge badge-pill badge-info">
-          {{ college | college }}
+          
           <span aria-hidden="true">×</span>
         </span>
       </a>
   
-      <a *ngFor="let etat of criteria.etats" (click)="removeEtatCriteria(etat)" class="mr-2"
+      <a *ngFor="let etat of criteria.arrivee"  class="mr-2"
         title="Effacer le filtre ">
         <span class="badge badge-pill badge-info">
 
@@ -55,10 +55,10 @@
         </span>
       </a>
   
-      <a *ngFor="let risque of criteria.risques" (click)="removeRisqueCriteria(risque)" class="mr-2"
-        title="Effacer le filtre {{ risque | risque }}">
+      <a *ngFor="let risque of criteria.prix" class="mr-2"
+        title="Effacer le filtre">
         <span class="badge badge-pill badge-info">
-          {{ risque | risque }}
+
           <span aria-hidden="true">×</span>
         </span>
       </a>

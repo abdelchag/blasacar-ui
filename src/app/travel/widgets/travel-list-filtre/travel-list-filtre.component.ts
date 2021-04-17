@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AffilieCriteriaModel } from 'src/app/shared/models';
+import { TravelCriteriaModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'blasacar-travel-list-filtre',
