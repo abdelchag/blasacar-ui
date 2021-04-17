@@ -1,3 +1,77 @@
-<button (click)="search()">Search</button>
+<div class="row">
 
-<blasacar-travel-list *ngFor="let travel of travels" [travel]="travel" [editModeActive]="false"></blasacar-travel-list>
+    <div class="col-md-6">
+      <h1 class="mb-4">Trajets</h1>
+    </div>
+  </div>
+  <ng-container>
+
+    <div class="row align-items-center">
+        <div class="col-5 col-md-5 col-lg-5 col-xl-5">
+    
+          <div class="form-group mb-0">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Filtrer par ville d'arrivée"
+                >
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <blasacar-icon klass="icon icon-smallest fill-gray" name="search"></blasacar-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+        <div class="col-3 col-md-2 col-lg-2 col-xl-2">
+            <blasacar-travel-list-filtre [criteria]="this.criteria" (applyFilter)="onApplyFilter($event)">
+            </blasacar-travel-list-filtre>
+          </div>
+
+    </div>
+
+    <div class="mt-2">
+
+      <a *ngIf="criteria.colleges.length || criteria.etats.length || criteria.risques.length"
+        (click)="removeAllCriteria()" class="mr-2" title="Effacer les filtres">
+        <span class="badge badge-pill badge-info">
+          Effacer les filtres
+          <span aria-hidden="true">×</span>
+        </span>
+      </a>
+  
+      <a *ngFor="let college of criteria.colleges" (click)="removeCollegeCriteria(college)" class="mr-2"
+        title="Effacer le filtre {{ college | college }}">
+        <span class="badge badge-pill badge-info">
+          {{ college | college }}
+          <span aria-hidden="true">×</span>
+        </span>
+      </a>
+  
+      <a *ngFor="let etat of criteria.etats" (click)="removeEtatCriteria(etat)" class="mr-2"
+        title="Effacer le filtre ">
+        <span class="badge badge-pill badge-info">
+
+          <span aria-hidden="true">×</span>
+        </span>
+      </a>
+  
+      <a *ngFor="let risque of criteria.risques" (click)="removeRisqueCriteria(risque)" class="mr-2"
+        title="Effacer le filtre {{ risque | risque }}">
+        <span class="badge badge-pill badge-info">
+          {{ risque | risque }}
+          <span aria-hidden="true">×</span>
+        </span>
+      </a>
+  
+    </div>
+
+    <blasacar-travel-table [travels]="travelFiltered" (relance)="relance($event)" (sort)="sortBy($event)">
+    </blasacar-travel-table>
+
+
+  </ng-container>
+
+
+<!-- <button (click)="search()">Search</button> -->
+
+<!-- <blasacar-travel-list *ngFor="let travel of travels" [travel]="travel" [editModeActive]="false"></blasacar-travel-list> -->
