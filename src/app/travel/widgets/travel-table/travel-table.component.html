@@ -1,0 +1,93 @@
+<ng-container *ngIf="travels">
+    <div class="card border-0 mb-0">
+      <div class="card-body">
+  
+        <div class="row font-weight-bold align-items-center">
+  
+  
+          <div class="col-4 flex align-items-center">
+            Ville départ
+          </div>
+  
+          <div class="col-3 flex align-items-center">
+            Ville d'arrivée
+          </div>
+  
+          <div class="col-3 flex align-items-center">
+            Date, heure départ
+          </div>
+  
+          <div class="col-2 mr-0 ml-0 pr-0">
+            <nav class="right">
+              <ul class="pagination mb-0">
+                <li class="page-item" [ngClass]="{'active': this.pageSize == 10}"><a class="page-link"
+                    (click)="changePageSize(10)">10</a></li>
+                <li class="page-item" [ngClass]="{'active': this.pageSize == 15}"><a class="page-link"
+                    (click)="changePageSize(15);">15</a></li>
+                <li class="page-item" [ngClass]="{'active': this.pageSize == 20}"><a class="page-link"
+                    (click)="changePageSize(20)">20</a></li>
+              </ul>
+            </nav>
+          </div>
+  
+        </div>
+  
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngFor="let travel of paginatedTravels">
+  
+    <div class="card mb-1" (click)="toggle(travel)">
+      <div class="card-body">
+        <div class="row align-items-center">
+  
+          <div class="col-md-4">
+            {{ travel.arrivalCity }} {{ travel.departureCity }}
+          </div>
+  
+          <div class="col-md-3">
+            {{ travel.departureDate}}
+          </div>
+  
+          <div class="col-1">
+            <blasacar-icon name="{{ getTravelStatutIcon(travel) }}"
+              klass="icon icon-small {{ getTravelStatutIconColor(travel) }}"></blasacar-icon>
+          </div>
+  
+          <div class="col-md text-right">
+  
+            <ng-container *ngIf="selectedTravel !== travel">
+              <blasacar-icon name="chevron" klass="icon icon-small"></blasacar-icon>
+            </ng-container>
+  
+            <ng-container *ngIf="selectedTravel === travel">
+              <a  class="font-weight-normal" [routerLink]="['.', travel.id]">
+                Détail du trajet
+              </a>
+              <blasacar-icon name="chevron-down" klass="icon icon-small"></blasacar-icon>
+            </ng-container>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-container *ngIf="selectedTravel === travel">
+      <blasacar-travel-table-sub-detail [travel]="travel" ></blasacar-travel-table-sub-detail>
+    </ng-container>
+  
+  </ng-container>
+  
+  <div class="d-flex justify-content-between right-pagination">
+    <span>
+      <em>
+        {{ firstPageItem }}-{{ lastPageItem }}
+        sur
+        {{ travels.length }}
+      </em>
+      <blasacar-icon name="chevron-left" klass="icon icon-medium" (click)="previous()"></blasacar-icon>
+      <blasacar-icon name="chevron" klass="icon icon-medium" (click)="next()"></blasacar-icon>
+    </span>
+  </div>
+  

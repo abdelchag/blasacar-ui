@@ -10,6 +10,7 @@ import { TravelProposeComponent } from './travel-propose/travel-propose.componen
 import { TravelRoutedModule } from './travel-routed.module';
 import { TravelSearchComponent } from './travel-search/travel-search.component';
 import { TravelComponent } from './travel.component';
+import { TravelWidgetsModule } from './widgets/travel-widgets.module';
 
 const components = [
   TravelProposeComponent,
@@ -26,7 +27,8 @@ const components = [
   imports: [
     SharedModule,
     TravelRoutedModule,
-    TranslateModule
+    TranslateModule,
+    TravelWidgetsModule
   ],
   exports: [
     TranslateModule

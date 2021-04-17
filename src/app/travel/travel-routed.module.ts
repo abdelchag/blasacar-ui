@@ -8,7 +8,8 @@ import {TravelConsultComponent} from './travel-consult/travel-consult.component'
 import {TravelProposeComponent} from './travel-propose/travel-propose.component';
 import {TravelComponent} from './travel.component';
 import { AuthentificationGuard } from '../guards/authentification.guard';
-import { WidgetsModule } from './widgets/widgets.module';
+import { TravelWidgetsModule } from './widgets/travel-widgets.module';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     TravelCoreModule,
-    WidgetsModule,
+    TravelWidgetsModule,
+    SharedModule
   ],
   exports: [
     RouterModule
