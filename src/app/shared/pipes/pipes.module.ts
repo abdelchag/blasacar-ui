@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AgePipe } from './age.pipe';
 import { CivilitePipe } from './civilite.pipe';
 import { CollegePipe } from './college.pipe';
-import { ContratLabelPipe } from './contrat-label.pipe';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
 import { DateFrenchPipe } from './date-french.pipe';
 import { FileSizePipe } from './file-size.pipe';
@@ -13,7 +12,6 @@ import { GenrePipe } from './genre.pipe';
 import { IbanAcountPipe, IbanPipe } from './iban.pipe';
 import { ModePaiementPipe } from './mode-paiement.pipe';
 import { OrdinalPipe } from './ordinal.pipe';
-import { OrganismeRattachementPipe } from './organisme-rattachement.pipe';
 import { PercentFrenchPipe } from './percent-french.pipe';
 import { PeriodePipe } from './periode.pipe';
 import { PeriodicitePipe } from './periodicite.pipe';
@@ -32,7 +30,6 @@ const pipes = [
   AgePipe,
   CivilitePipe,
   CollegePipe,
-  ContratLabelPipe,
   CurrencyEuroPipe,
   DateFrenchPipe,
   FileSizePipe,
@@ -42,7 +39,6 @@ const pipes = [
   IbanPipe,
   ModePaiementPipe,
   OrdinalPipe,
-  OrganismeRattachementPipe,
   PercentFrenchPipe,
   PeriodePipe,
   PeriodicitePipe,

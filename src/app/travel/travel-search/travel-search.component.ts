@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { TravelCriteriaModel } from 'src/app/shared/models';
 import { TravelFilter } from '../model/travel-filter';
 import { Travel } from '../model/travel.model';
 import { TravelService } from '../service/travel.service';
@@ -12,10 +11,8 @@ import { TravelService } from '../service/travel.service';
 })
 export class TravelSearchComponent implements OnInit {
 
-  travelFilter: TravelFilter = {};
+  travelFilter: TravelFilter = new TravelFilter();
   travelFiltered: Travel[] = [];
-  travels: Travel[] = [];
-  criteria = new TravelCriteriaModel();
 
   constructor(
     private readonly travelService: TravelService,
@@ -25,7 +22,6 @@ export class TravelSearchComponent implements OnInit {
   ngOnInit(): void {
     this.travelService.getTravels(this.travelFilter)
     .subscribe(travels => {
-      this.travels = travels;
       this.travelFiltered = travels;
       this.changeDetector.detectChanges();
     });
@@ -34,13 +30,12 @@ export class TravelSearchComponent implements OnInit {
   search(): void {
     this.travelService.getTravels(this.travelFilter)
       .subscribe(travels => {
-        this.travels = travels;
         this.travelFiltered = travels;
         this.changeDetector.detectChanges();
       });
   }
 
-  onApplyFilter(criteria: TravelCriteriaModel) {
+  onApplyFilter(travelFilter: TravelFilter) {
 
   }
   removeCollegeCriteria(college: string) {

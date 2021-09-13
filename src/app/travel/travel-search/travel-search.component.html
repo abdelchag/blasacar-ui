@@ -1,7 +1,7 @@
 <div class="row">
 
     <div class="col-md-6">
-      <h1 class="mb-4">Trajets</h1>
+      <h1 class="mb-4">{{  'travel-search.trajets' | translate}}</h1>
     </div>
   </div>
   <ng-container>
@@ -11,7 +11,7 @@
     
           <div class="form-group mb-0">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Filtrer par ville d'arrivée"
+              <input type="text" class="form-control" [placeholder]="'travel-search.Filter-by-arrival-city' | translate"
                 >
               <div class="input-group-append">
                 <span class="input-group-text">
@@ -23,46 +23,10 @@
     
         </div>
         <div class="col-3 col-md-2 col-lg-2 col-xl-2">
-            <blasacar-travel-list-filtre [criteria]="this.criteria" (applyFilter)="onApplyFilter($event)">
+            <blasacar-travel-list-filtre [criteria]="this.travelFilter" (applyFilter)="onApplyFilter($event)">
             </blasacar-travel-list-filtre>
           </div>
 
-    </div>
-
-    <div class="mt-2">
-
-      <a *ngIf="criteria.depart.length || criteria.depart.length || criteria.depart.length"
-        (click)="removeAllCriteria()" class="mr-2" title="Effacer les filtres">
-        <span class="badge badge-pill badge-info">
-          Effacer les filtres
-          <span aria-hidden="true">×</span>
-        </span>
-      </a>
-  
-      <a *ngFor="let depart of criteria.depart" class="mr-2"
-        title="Effacer le filtre">
-        <span class="badge badge-pill badge-info">
-          
-          <span aria-hidden="true">×</span>
-        </span>
-      </a>
-  
-      <a *ngFor="let etat of criteria.arrivee"  class="mr-2"
-        title="Effacer le filtre ">
-        <span class="badge badge-pill badge-info">
-
-          <span aria-hidden="true">×</span>
-        </span>
-      </a>
-  
-      <a *ngFor="let risque of criteria.prix" class="mr-2"
-        title="Effacer le filtre">
-        <span class="badge badge-pill badge-info">
-
-          <span aria-hidden="true">×</span>
-        </span>
-      </a>
-  
     </div>
 
     <blasacar-travel-table [travels]="travelFiltered" (relance)="relance($event)" (sort)="sortBy($event)">

@@ -5,14 +5,11 @@ import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
 
 import {
-  AyantDroitModel,
-  ContratModel,
+  
+  
   DocumentModel,
-  EcheanceModel,
-  InformationModel,
-  JustificatifToUploadModel,
-  PersonneModel,
-  StructureCotisationModel
+  
+  PersonneModel
 } from 'src/app/shared/models';
 
 import {
@@ -239,13 +236,6 @@ export class Helpers {
     return [reseauCode.GANEURO, reseauCode.GANASS, reseauCode.GANPREV].some(o => o === code);
   }
 
-  static isJustificatifValid(justificatifToUpload: JustificatifToUploadModel): boolean {
-    if (justificatifToUpload.justificatif) {
-      return Boolean(justificatifToUpload.justificatif.data);
-    } else {
-      return false;
-    }
-  }
 
   static replaceAccents(str: string): string {
     if (str.search(/[\xC0-\xFF]/g) > -1) {
@@ -308,10 +298,6 @@ export class Helpers {
     window.location.href = `/?c=${Date.now()}`;
   }
 
-  static hasAyantDroitSortieDemandee(ayantDroit: AyantDroitModel): boolean {
-    return Boolean(ayantDroit.dateRadiation)
-      && ayantDroit.statut === ayantDroitStatut.SignatureInitie;
-  }
 
   static compareDocument(a: DocumentModel, b: DocumentModel): number {
     return a.libelle.localeCompare(b.libelle)
@@ -324,34 +310,6 @@ export class Helpers {
     }
     if (a.isBefore(b)) {
       return 1;
-    }
-    return 0;
-  }
-
-  static convertToJustificatifArray(pieces: any[]): JustificatifToUploadModel[] {
-    return pieces.map(groupePiece => {
-      const justificatif = new JustificatifToUploadModel();
-      justificatif.piecesPossibles = groupePiece.pieces;
-      justificatif.isObligatoire = groupePiece.pieces.some((y: { isObligatoire: boolean; }) => y.isObligatoire);
-      justificatif.titre = groupePiece.libelle;
-      return justificatif;
-    });
-  }
-
-  static sortAyantDroit(a: AyantDroitModel, b: AyantDroitModel): number {
-    if (a.qualite === ayantDroitQualite.CONJOINT) {
-      return -1;
-    }
-    if (b.qualite === ayantDroitQualite.CONJOINT) {
-      return 1;
-    }
-    if (a.qualite === ayantDroitQualite.ENFANT && b.qualite === ayantDroitQualite.ENFANT) {
-      const dateA = moment(a.dateNaissance, 'DD/MM/YYYY', true);
-      const dateB = moment(b.dateNaissance, 'DD/MM/YYYY', true);
-      if (dateA.isSame(dateB)) {
-        return;
-      }
-      return dateA.isSameOrAfter(dateB) ? 1 : -1;
     }
     return 0;
   }
@@ -374,18 +332,7 @@ export class Helpers {
     }
   }
 
-  static getTotalEcheances(echeances: EcheanceModel[], paiementStatus?: string): number {
-    const filteredEcheances = echeances
-      .filter(e => paiementStatus
-        ? e.paiementStatus === paiementStatus
-        : true);
 
-    let total = 0;
-    for (const echeance of filteredEcheances) {
-      total += echeance.montant;
-    }
-    return total;
-  }
 
 }
 
@@ -401,9 +348,6 @@ export function frenchDateToISO(date: string): string {
   return moment(date, 'DD/MM/YYYY', true).toISOString();
 }
 
-export function isOffreDediee(contrat: ContratModel): boolean {
-  return contrat.description && contrat.codeProduit.includes('CCN');
-}
 
 export function deepClone<T>(value: T): T {
   // TODO JEDE 03/12/2020 - NOVASFC-2110 - Etudier une meilleure solution pour la copie complète d'un objet
