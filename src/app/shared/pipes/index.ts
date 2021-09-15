@@ -1,7 +1,6 @@
 export * from './age.pipe';
 export * from './civilite.pipe';
 export * from './college.pipe';
-export * from './contrat-label.pipe';
 export * from './formule.pipe';
 export * from './genre.pipe';
 export * from './iban.pipe';

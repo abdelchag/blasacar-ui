@@ -7,7 +7,7 @@ import { filter, map, switchMap } from 'rxjs/operators';
 import { profil } from 'src/app/constants';
 import { ToastNotificationService, UtilisateurService } from 'src/app/core/services';
 import { Helpers } from 'src/app/helpers';
-import { ApporteurPositionModel, UtilisateurModel } from 'src/app/shared/models';
+import {  UtilisateurModel } from 'src/app/shared/models';
 
 
 @Injectable()

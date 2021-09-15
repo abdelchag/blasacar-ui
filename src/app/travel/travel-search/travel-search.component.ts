@@ -11,8 +11,8 @@ import { TravelService } from '../service/travel.service';
 })
 export class TravelSearchComponent implements OnInit {
 
-  travelFilter: TravelFilter = {};
-  travels: Travel[] = [];
+  travelFilter: TravelFilter = new TravelFilter();
+  travelFiltered: Travel[] = [];
 
   constructor(
     private readonly travelService: TravelService,
@@ -20,14 +20,46 @@ export class TravelSearchComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.travelService.getTravels(this.travelFilter)
+    .subscribe(travels => {
+      this.travelFiltered = travels;
+      this.changeDetector.detectChanges();
+    });
   }
 
   search(): void {
     this.travelService.getTravels(this.travelFilter)
       .subscribe(travels => {
-        this.travels = travels;
+        this.travelFiltered = travels;
         this.changeDetector.detectChanges();
       });
+  }
+
+  onApplyFilter(travelFilter: TravelFilter) {
+
+  }
+  removeCollegeCriteria(college: string) {
+
+  }
+
+  removeEtatCriteria(etat: string) {
+
+  }
+  removeRisqueCriteria(college: string) {
+
+  }
+
+  removeAllCriteria() {
+
+  }
+
+  relance(id: string) {
+
+
+  }
+
+  sortBy(column: { name: string, asc: boolean }) {
+
   }
 
 }
