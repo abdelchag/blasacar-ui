@@ -2,7 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { httpErrorCode, NotificationType } from 'src/app/constants';
+import { Helpers } from 'src/app/helpers';
 import { ToastNotificationModel } from 'src/app/shared/models';
+import { BlasaUtils } from 'src/utils/blasa-utils';
 
 
 
@@ -28,7 +30,9 @@ export class ToastNotificationService {
     } else {
       errorMessages.push(`${messageCodeSuffix}${httpErrorResponse.error.message}`);
     }
-    errorMessages.forEach(errorMessage => this.notify({ message: errorMessage, type: NotificationType.Error }));
+    errorMessages
+      .map(errorMessage => errorMessage || `${messageCodeSuffix}bad-request`)
+      .forEach(errorMessage => this.notify({ message: errorMessage, type: NotificationType.Error }));
   }
   // }
 
