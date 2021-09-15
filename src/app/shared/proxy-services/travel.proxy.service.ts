@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { TravelFilter } from 'src/app/travel/model/travel-filter';
 import { Travel } from 'src/app/travel/model/travel.model';
 import { StringUtils } from 'src/utils/string-utils';
@@ -21,6 +21,15 @@ export class TravelProxyService {
   }
 
   public getTravels(travelFilter: TravelFilter): Observable<Travel[]> {
+    // const travel: Travel = new Travel();
+    // travel.departureCity = 'Lille';
+    // travel.departureDate = new Date();
+    // travel.arrivalCity = "Paris";
+    // travel.numberPlaces = 2;
+    // travel.phoneNumber = "0665788985";
+    // travel.price = 20;
+    // travel.isAutomaticAcceptance = false;
+    // return of([travel]);
     const params: HttpParams = HttpParamsBuilder.builder()
       .appendIfNotNull('onlyUser', String(travelFilter.onlyUser || StringUtils.EMPTY))
       .build();
