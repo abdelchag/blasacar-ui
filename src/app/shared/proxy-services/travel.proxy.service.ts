@@ -27,6 +27,19 @@ export class TravelProxyService {
     return this.http.get<Travel[]>(`${this.TRAVEL_URL}`, { params });
   }
 
+  public search(travelFilter: TravelFilter): Observable<Travel[]> {
+    const params: HttpParams = HttpParamsBuilder.builder()
+      .appendIfNotNull('departureCity', String(travelFilter.departureCity))
+      .appendIfNotNull('arrivalCity', String(travelFilter.arrivalCity))
+      .appendIfNotNull('departureDate', String(travelFilter.departureDate))
+      .appendIfNotNull('departureTime', String(travelFilter.departureTime))
+      .appendIfNotNull('numberPlaces', String(travelFilter.numberPlaces))
+      .appendIfNotNull('isAutomaticAcceptance', String(travelFilter.isAutomaticAcceptance))
+      .appendIfNotNull('price', String(travelFilter.price))
+      .build();
+    return this.http.get<Travel[]>(`${this.TRAVEL_URL}/search`, { params });
+  }
+
   public deleteTravel(id: number): Observable<Travel> {
     return this.http.delete<Travel>(`${this.TRAVEL_URL}/${id}`);
   }
