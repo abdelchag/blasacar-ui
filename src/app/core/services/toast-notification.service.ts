@@ -28,7 +28,9 @@ export class ToastNotificationService {
     } else {
       errorMessages.push(`${messageCodeSuffix}${httpErrorResponse.error.message}`);
     }
-    errorMessages.forEach(errorMessage => this.notify({ message: errorMessage, type: NotificationType.Error }));
+    errorMessages
+      .map(errorMessage => errorMessage || `${messageCodeSuffix}bad-request`)
+      .forEach(errorMessage => this.notify({ message: errorMessage, type: NotificationType.Error }));
   }
   // }
 
