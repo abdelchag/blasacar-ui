@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { TravelFilter } from '../../model/travel-filter';
 
 @Component({
   selector: 'blasacar-travel-list-filtre',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class TravelListFiltreComponent implements OnInit {
 
-  @Input() criteria: any;
+  @Input() criteria: TravelFilter;
   @Output() applyFilter = new EventEmitter<any>();
 
   form = new FormGroup({});
@@ -17,6 +18,7 @@ export class TravelListFiltreComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
   apply() {
 

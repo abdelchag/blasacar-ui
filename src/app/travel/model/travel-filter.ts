@@ -6,4 +6,5 @@ export class TravelFilter {
     places?: string;
     sortColumn?: string;
     sortAsc?: boolean;
+    departureDate?: Date;
 }
