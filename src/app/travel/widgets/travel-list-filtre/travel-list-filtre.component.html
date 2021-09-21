@@ -49,7 +49,7 @@
               <div class="row">
                 <blasacar-datepicker [formGroup]="form" controlName="departureDate"
                 [initialValue]="criteria.departureDate" [showBeforeDates]="false"
-                [required]="true" (valueChanged)="criteria.departureDate= $event">
+                (valueChanged)="criteria.departureDate= $event">
             </blasacar-datepicker>
               </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="col-8">
               <div class="row">
                 <blasacar-number [formGroup]="form" controlName="prix"
-                [initialValue]="criteria.prix" [required]="true" [decimal]="true"></blasacar-number>
+                [initialValue]="criteria.prix" [decimal]="true"></blasacar-number>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
             <div class="col-7 right">
               <div class="btn-toolbar right" role="toolbar">
                 <div class="btn-group" role="group">
-                  <button class="btn btn-primary btn-sm" (click)="apply(); popoverFilter.close()">
+                  <button class="btn btn-primary btn-sm" (click)="apply(); ">
                     Appliquer
                   </button>
                 </div>
