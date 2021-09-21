@@ -1,10 +1,11 @@
 export class TravelFilter {
     onlyUser?: boolean;
-    depart?: string[];
-    arrivee?: string[];
-    prix?: string[];
-    places?: string;
-    sortColumn?: string;
-    sortAsc?: boolean;
+    departureCity?: string;
+    arrivalCity?: string;
     departureDate?: Date;
+    departureTime?: Date;
+    numberPlaces?: number;
+    isAutomaticAcceptance?: boolean;
+    price?: number;
+
 }
