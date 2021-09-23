@@ -27,4 +27,8 @@ export class TravelService {
     return this.travelProxyService.editTravel(travel);
   }
 
+  public search(travel: TravelFilter): Observable<Travel[]> {
+    return this.travelProxyService.search(travel);
+  }
+
 }
