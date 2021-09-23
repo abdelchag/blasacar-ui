@@ -20,4 +20,8 @@ export class StringUtils {
         return !this.isEmpty(value);
     }
 
+    public static convertToString(value: any, defaultValue: string = StringUtils.EMPTY): string {
+        return String(value || defaultValue);
+    }
+
 }
