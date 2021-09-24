@@ -5,100 +5,102 @@
 </button>
 
 <ng-template #popContent>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <div class="row px-2">
-            <div class="col-4">
-              <p class="h6 font-weight-bold">
-                ville départ
-              </p>
-            </div>
-            <div class="col-8">
-                <blasacar-text [formGroup]="form" [formGroup]="form" controlName="depart" [required]="true">
-                </blasacar-text>
-              
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="row px-2">
+          <div class="col-4">
+            <p class="h6 font-weight-bold">
+              ville départ
+            </p>
+          </div>
+          <div class="col-8">
+            <blasacar-text [formGroup]="form" controlName="depart" [required]="true" controlName="departureCity"
+              [initialValue]="travelFilter.departureCity" (valueChanged)="travelFilter.departureCity= $event">
+            </blasacar-text>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row px-2">
+          <div class="col-4">
+            <p class="h6 font-weight-bold">
+              ville arrivée
+            </p>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <blasacar-text [formGroup]="form" controlName="arrivee" [required]="true" controlName="arrivalCity"
+                [initialValue]="travelFilter.arrivalCity" (valueChanged)="travelFilter.arrivalCity= $event">
+              </blasacar-text>
             </div>
           </div>
         </div>
-        <div class="col-6">
-          <div class="row px-2">
-            <div class="col-4">
-              <p class="h6 font-weight-bold">
-                ville arrivée
-              </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row px-2">
+          <div class="col-4">
+            <p class="h6 font-weight-bold">
+              date
+            </p>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <blasacar-datepicker [formGroup]="form" controlName="departureDate"
+                [initialValue]="travelFilter.departureDate" [showBeforeDates]="false"
+                (valueChanged)="travelFilter.departureDate= $event">
+              </blasacar-datepicker>
             </div>
-            <div class="col-8">
-              <div class="row">
-                <blasacar-text [formGroup]="form" [formGroup]="form" controlName="arrivee" [required]="true">
-                </blasacar-text>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row px-2">
+          <div class="col-4">
+            <p class="h6 font-weight-bold">
+              Prix
+            </p>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <blasacar-number [formGroup]="form" controlName="price" [initialValue]="travelFilter.price"
+                [decimal]="true" (valueChanged)="travelFilter.price= $event">
+              </blasacar-number>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row pl-2">
+          <div class="col-7 right">
+            <div class="btn-toolbar right" role="toolbar">
+              <div class="btn-group" role="group">
+                <button class="btn btn-primary btn-sm" (click)="apply()">
+                  Appliquer
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="row px-2">
-            <div class="col-4">
-              <p class="h6 font-weight-bold">
-                date
-              </p>
-            </div>
-            <div class="col-8">
-              <div class="row">
-                <blasacar-datepicker [formGroup]="form" controlName="departureDate"
-                [initialValue]="criteria.departureDate" [showBeforeDates]="false"
-                (valueChanged)="criteria.departureDate= $event">
-            </blasacar-datepicker>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="row px-2">
-            <div class="col-4">
-              <p class="h6 font-weight-bold">
-                Prix
-              </p>
-            </div>
-            <div class="col-8">
-              <div class="row">
-                <blasacar-number [formGroup]="form" controlName="prix"
-                [initialValue]="criteria.prix" [decimal]="true"></blasacar-number>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="row pl-2">
-            <div class="col-7 right">
-              <div class="btn-toolbar right" role="toolbar">
-                <div class="btn-group" role="group">
-                  <button class="btn btn-primary btn-sm" (click)="apply(); ">
-                    Appliquer
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="row pl-2">
-            <div class="col-7 right">
-              <div class="btn-toolbar right" role="toolbar">
-                <div class="btn-group" role="group">
-                  <button class="btn btn-grey btn-sm" (click)="popoverFilter.close()">
-                    Fermer
-                  </button>
-                </div>
+      <div class="col-6">
+        <div class="row pl-2">
+          <div class="col-7 right">
+            <div class="btn-toolbar right" role="toolbar">
+              <div class="btn-group" role="group">
+                <button class="btn btn-grey btn-sm" (click)="popoverFilter.close()">
+                  Fermer
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </ng-template>
-  
+  </div>
+</ng-template>

@@ -22,20 +22,20 @@ export class TravelProxyService {
 
   public getTravels(travelFilter: TravelFilter): Observable<Travel[]> {
     const params: HttpParams = HttpParamsBuilder.builder()
-      .appendIfNotNull('onlyUser', String(travelFilter.onlyUser || StringUtils.EMPTY))
+      .appendIfNotNull('onlyUser', StringUtils.convertToString(travelFilter.onlyUser))
       .build();
     return this.http.get<Travel[]>(`${this.TRAVEL_URL}`, { params });
   }
 
   public search(travelFilter: TravelFilter): Observable<Travel[]> {
     const params: HttpParams = HttpParamsBuilder.builder()
-      .appendIfNotNull('departureCity', String(travelFilter.departureCity))
-      .appendIfNotNull('arrivalCity', String(travelFilter.arrivalCity))
-      .appendIfNotNull('departureDate', String(travelFilter.departureDate))
-      .appendIfNotNull('departureTime', String(travelFilter.departureTime))
-      .appendIfNotNull('numberPlaces', String(travelFilter.numberPlaces))
-      .appendIfNotNull('isAutomaticAcceptance', String(travelFilter.isAutomaticAcceptance))
-      .appendIfNotNull('price', String(travelFilter.price))
+      .appendIfNotNull('departureCity', travelFilter.departureCity)
+      .appendIfNotNull('arrivalCity', travelFilter.arrivalCity)
+      .appendIfNotNull('departureDate', StringUtils.convertToString(travelFilter.departureDate))
+      .appendIfNotNull('departureTime', StringUtils.convertToString(travelFilter.departureTime))
+      .appendIfNotNull('numberPlaces', StringUtils.convertToString(travelFilter.numberPlaces))
+      .appendIfNotNull('isAutomaticAcceptance', StringUtils.convertToString(travelFilter.isAutomaticAcceptance))
+      .appendIfNotNull('price', StringUtils.convertToString(travelFilter.price))
       .build();
     return this.http.get<Travel[]>(`${this.TRAVEL_URL}/search`, { params });
   }
