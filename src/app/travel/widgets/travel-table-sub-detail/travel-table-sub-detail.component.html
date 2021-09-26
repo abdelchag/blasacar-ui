@@ -7,15 +7,14 @@
           <ng-container>
             <div class="card mt-1 mb-last-child bg-light border-0">
               <div class="row">
-                <div class="col">
-                  <div>
-
-                    {{ travel.departureDate  }}
-                    {{ travel.isAutomaticAcceptance }}
-                    nombre place : {{ travel.numberPlaces }}
-                    nombre price : {{ travel.price }}
-                  </div>
+                <div class="col-6">
+                    <p>{{ travel.departureDate |dateTime }}</p>
+                    <p>{{ travel.isAutomaticAcceptance |booleanToOuiNon }}</p>
                 </div>
+                <div class="col-6">
+                  <p>nombre place : {{ travel.numberPlaces }}</p>
+                  <p>Prix : {{ travel.price | currencyEuro }}</p>
+              </div>
 
               </div>
             </div>

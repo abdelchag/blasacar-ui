@@ -6,6 +6,7 @@ import { CivilitePipe } from './civilite.pipe';
 import { CollegePipe } from './college.pipe';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
 import { DateFrenchPipe } from './date-french.pipe';
+import { DateTimePipe } from './date-time.pipe';
 import { FileSizePipe } from './file-size.pipe';
 import { FormulePipe } from './formule.pipe';
 import { GenrePipe } from './genre.pipe';
@@ -32,6 +33,7 @@ const pipes = [
   CollegePipe,
   CurrencyEuroPipe,
   DateFrenchPipe,
+  DateTimePipe,
   FileSizePipe,
   FormulePipe,
   GenrePipe,
