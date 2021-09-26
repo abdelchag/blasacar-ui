@@ -63,7 +63,7 @@
             </ng-container>
   
             <ng-container *ngIf="selectedTravel === travel">
-              <a  class="font-weight-normal" [routerLink]="['.', travel.id]">
+              <a  class="font-weight-normal" [routerLink]="['travel/travel-details', travel.id]">
                 Détail du trajet
               </a>
               <blasacar-icon name="chevron-down" klass="icon icon-small"></blasacar-icon>

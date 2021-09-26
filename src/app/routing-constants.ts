@@ -6,5 +6,6 @@ export const ROUTING_PATH = {
   TRAVEL: 'travel',
   TRAVEL_PROPOSE: 'travel-propose',
   TRAVEL_LIST: 'travel-list',
-  TRAVEL_SEARCH: 'travel-search'
+  TRAVEL_SEARCH: 'travel-search',
+  TRAVEL_DETAILS: 'travel-details',
 };

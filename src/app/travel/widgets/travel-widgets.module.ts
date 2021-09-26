@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TravelDeleteDialogComponent } from './travel-delete-dialog/travel-delete-dialog.component';
 import { TravelListFiltreComponent } from './travel-list-filtre/travel-list-filtre.component';
+import { TravelDetailComponent } from './travel-detail/travel-detail.component';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TravelTableComponent } from './travel-table/travel-table.component';
@@ -13,6 +14,7 @@ const components = [
   TravelListFiltreComponent,
   TravelTableComponent,
   TravelTableSubDetailComponent,
+  TravelDetailComponent
 ];
 @NgModule({
   imports: [

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Travel } from '../model/travel.model';
+import { Travel } from '../../model/travel.model';
 
 @Component({
   selector: 'blasacar-travel-detail',
@@ -10,9 +10,11 @@ export class TravelDetailComponent implements OnInit {
   extended = false;
   editing = false;
   @Input() travel: Travel;
+  @Input() fromSearch: false;
   constructor() { }
 
   ngOnInit(): void {
+    this.extended = this.fromSearch;
   }
 
   cancelEditing(): void {

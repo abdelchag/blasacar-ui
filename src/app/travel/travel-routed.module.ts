@@ -10,6 +10,8 @@ import {TravelComponent} from './travel.component';
 import { AuthentificationGuard } from '../guards/authentification.guard';
 import { TravelWidgetsModule } from './widgets/travel-widgets.module';
 import { SharedModule } from '../shared/shared.module';
+import { TravelDetailsComponent } from './travel-details/travel-details.component';
+import { TravelDetailsResolver } from './core/travel-details.resolver';
 
 const routes: Routes = [
   {
@@ -24,6 +26,18 @@ const routes: Routes = [
         resolve: {
           travels: TravelListResolver
         }
+      },
+      {
+        path: ROUTING_PATH.TRAVEL_DETAILS,
+        children: [
+          {
+            path: ':idTravel',
+            component: TravelDetailsComponent,
+            resolve: {
+              travels: TravelDetailsResolver
+            }
+          }
+        ]
       },
       {path: '', redirectTo: ROUTING_PATH.TRAVEL_LIST, pathMatch: 'full'}
     ]
