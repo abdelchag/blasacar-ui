@@ -5,15 +5,15 @@
         <div class="row font-weight-bold align-items-center">
   
   
-          <div class="col-4 flex align-items-center">
+          <div class="col-2 flex align-items-center">
             Ville départ
           </div>
   
-          <div class="col-3 flex align-items-center">
+          <div class="col-2 flex align-items-center">
             Ville d'arrivée
           </div>
   
-          <div class="col-3 flex align-items-center">
+          <div class="col-4 flex align-items-center">
             Date, heure départ
           </div>
   
@@ -42,17 +42,18 @@
       <div class="card-body">
         <div class="row align-items-center">
   
-          <div class="col-md-4">
-            {{ travel.arrivalCity }} {{ travel.departureCity }}
+          <div class="col-md-2">
+             {{ travel.departureCity }}
           </div>
   
-          <div class="col-md-3">
-            {{ travel.departureDate}}
+          <div class="col-md-2">
+            {{ travel.arrivalCity }}
           </div>
   
-          <div class="col-1">
-            <blasacar-icon name="{{ getTravelStatutIcon(travel) }}"
-              klass="icon icon-small {{ getTravelStatutIconColor(travel) }}"></blasacar-icon>
+          <div class="col-4">
+            {{ travel.departureDate | dateTime}}
+            <!-- <blasacar-icon name="{{ getTravelStatutIcon(travel) }}"
+              klass="icon icon-small {{ getTravelStatutIconColor(travel) }}"></blasacar-icon> -->
           </div>
   
           <div class="col-md text-right">
@@ -62,7 +63,7 @@
             </ng-container>
   
             <ng-container *ngIf="selectedTravel === travel">
-              <a  class="font-weight-normal" [routerLink]="['.', travel.id]">
+              <a  class="font-weight-normal" [routerLink]="['travel/travel-details', travel.id]">
                 Détail du trajet
               </a>
               <blasacar-icon name="chevron-down" klass="icon icon-small"></blasacar-icon>

@@ -7,7 +7,7 @@
       <div class="col-md">
         <blasacar-info-text label="heure depart" [value]="travel.departureTime | date:'HH:mm'"></blasacar-info-text>
       </div>
-      <div class="col-md text-right">
+      <div class="col-md text-right" *ngIf="!fromSearch">
         <a class="link" title="Détails" [class.active]="extended" (click)="extended = !extended">
           Détails
         </a>
@@ -61,7 +61,7 @@
           </blasacar-info-text>
         </div>
         <div class="col-md">
-          <blasacar-info-text label="Telephone" [value]=travel.phoneNumber>
+          <blasacar-info-text label="Telephone" [value]='travel.phoneNumber | phone'>
           </blasacar-info-text>
         </div>
       </div>

@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { TravelConsultComponent } from './travel-consult/travel-consult.component';
-import { TravelDetailComponent } from './travel-detail/travel-detail.component';
+import { TravelDetailsComponent } from './travel-details/travel-details.component';
+
 import { TravelEditComponent } from './travel-edit/travel-edit.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { TravelProposeComponent } from './travel-propose/travel-propose.component';
@@ -15,11 +16,11 @@ import { TravelWidgetsModule } from './widgets/travel-widgets.module';
 const components = [
   TravelProposeComponent,
   TravelListComponent,
-  TravelDetailComponent,
   TravelEditComponent,
   TravelComponent,
   TravelConsultComponent,
-  TravelSearchComponent
+  TravelSearchComponent,
+  TravelDetailsComponent
 ];
 
 @NgModule({

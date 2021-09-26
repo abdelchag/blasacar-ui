@@ -3,7 +3,6 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { DialogService } from './dialog.service';
 import { MenuService } from './menu.service';
-import { TnsService } from './tns.service';
 import { ToastNotificationService } from './toast-notification.service';
 import { UtilisateurService } from './utilisateur.service';
 import { ValidationMessageService } from './validation-message.service';
@@ -24,7 +23,6 @@ export class ServicesModule {
       providers: [
         DialogService,
         MenuService,
-        TnsService,
         ToastNotificationService,
         UtilisateurService,
         ValidationMessageService

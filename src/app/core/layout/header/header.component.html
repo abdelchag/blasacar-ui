@@ -33,6 +33,14 @@
           </li>
 
           <li class="nav-item">
+            <a routerLink="" class="text-center">
+              <blasacar-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="search">
+              </blasacar-icon>
+              {{'header.travel.reserve' | translate}}
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a routerLink="travel/travel-propose" class="text-center">
               <blasacar-icon klass="icon icon-white icon-medium ml-auto mr-auto mb-1" name="icons8-plus">
               </blasacar-icon>
@@ -62,10 +70,10 @@
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownMenuButton" class="mt-0">
                 <small>
-                  <a ngbDropdownItem routerLink="/mon-compte" title="Mon compte">
+                  <a ngbDropdownItem routerLink="/my-account" title="Mon compte">
                     {{'header.my-account' | translate}}
                   </a>
-                  <a ngbDropdownItem routerLink="/travel/travel-list" title="Mon compte">
+                  <a ngbDropdownItem routerLink="/travel/travel-list" title="{{'header.my-travels' | translate}}">
                     {{'header.my-travels' | translate}}
                   </a>
                   <a title="Me déconnecter" (click)="deconnexion()">{{'header.deconnexion' | translate}}</a>

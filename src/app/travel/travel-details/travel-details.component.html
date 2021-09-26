@@ -1,0 +1,39 @@
+<h1>
+    <blasacar-icon klass="icon icon-medium mr-3" name="user"></blasacar-icon>
+    <span class="text-primary">{{travel.departureCity}} => {{travel.arrivalCity}}</span>
+  </h1>
+
+<br>
+<div class="view-content">
+
+    <div class="card">
+      <h3 class="card-header text-primary">
+        <blasacar-icon klass="icon icon-medium mr-2" name="coordonnees"></blasacar-icon>
+        {{ 'travel-edit.travel.label'  | translate }}
+      </h3>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+
+            <blasacar-travel-detail [travel]="travel" [fromSearch]="true">
+            </blasacar-travel-detail>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div  class="col text-left">
+        <a class="btn btn-grey" [routerLink]="['']">
+          {{ 'travel-edit.travel.back'  | translate }}
+        </a>
+      </div>
+      <div  class="col text-right">
+        <a class="btn btn-default" (click)="reserver()">
+          {{ 'travel-edit.travel.reserve'  | translate }}
+        </a>
+      </div>
+    </div>
+  
+  </div>
+  

@@ -4,6 +4,7 @@ import { ConnexionPopupComponent } from './components/connexion-popup/connexion-
 import { FaceInfoSuppPopupComponent } from './components/face-info-supp-popup/face-info-supp-popup.component';
 import { MemberFormComponent } from './components/member-form/member-form.component';
 import { ConnexionMemberFormComponent } from './components/connexion-member-form/connexion-member-form.component';
+import { MonCompteComponent } from './components/mon-compte/mon-compte.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ConnexionMemberFormComponent } from './components/connexion-member-form
     ConnexionPopupComponent,
     MemberFormComponent,
     FaceInfoSuppPopupComponent,
-    ConnexionMemberFormComponent
+    ConnexionMemberFormComponent,
+    MonCompteComponent
   ],
   imports: [
     SharedModule

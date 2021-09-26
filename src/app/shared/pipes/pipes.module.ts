@@ -6,6 +6,7 @@ import { CivilitePipe } from './civilite.pipe';
 import { CollegePipe } from './college.pipe';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
 import { DateFrenchPipe } from './date-french.pipe';
+import { DateTimePipe } from './date-time.pipe';
 import { FileSizePipe } from './file-size.pipe';
 import { FormulePipe } from './formule.pipe';
 import { GenrePipe } from './genre.pipe';
@@ -17,13 +18,10 @@ import { PeriodePipe } from './periode.pipe';
 import { PeriodicitePipe } from './periodicite.pipe';
 import { PhonePipe } from './phone.pipe';
 import { QualitePipe } from './qualite.pipe';
-import { RattachementPipe } from './rattachement.pipe';
-import { RisqueIconPipe } from './risque-icon.pipe';
 import { RisquePipe } from './risque.pipe';
 import { SecuriteSocialePipe } from './securite-sociale.pipe';
 import { SiretPipe } from './siret.pipe';
 import { SituationFamilialePipe } from './situation-familiale.pipe';
-import { StatutAyantDroitPipe } from './statut-ayantdroit.pipe';
 import { BooleanToOuiNonPipe } from './boolean-to-oui-non.pipe';
 
 const pipes = [
@@ -32,6 +30,7 @@ const pipes = [
   CollegePipe,
   CurrencyEuroPipe,
   DateFrenchPipe,
+  DateTimePipe,
   FileSizePipe,
   FormulePipe,
   GenrePipe,
@@ -44,13 +43,10 @@ const pipes = [
   PeriodicitePipe,
   PhonePipe,
   QualitePipe,
-  RattachementPipe,
-  RisqueIconPipe,
   RisquePipe,
   SecuriteSocialePipe,
   SiretPipe,
   SituationFamilialePipe,
-  StatutAyantDroitPipe,
   BooleanToOuiNonPipe
 ];
 
