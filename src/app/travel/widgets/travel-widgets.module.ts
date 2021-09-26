@@ -7,6 +7,7 @@ import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TravelTableComponent } from './travel-table/travel-table.component';
 import { TravelTableSubDetailComponent } from './travel-table-sub-detail/travel-table-sub-detail.component';
+import { ReserveConfirmDialogComponent } from './reserve-confirm-dialog/reserve-confirm-dialog.component';
 
 
 const components = [
@@ -14,7 +15,8 @@ const components = [
   TravelListFiltreComponent,
   TravelTableComponent,
   TravelTableSubDetailComponent,
-  TravelDetailComponent
+  TravelDetailComponent,
+  ReserveConfirmDialogComponent
 ];
 @NgModule({
   imports: [

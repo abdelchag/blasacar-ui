@@ -7,6 +7,7 @@
     "inscription": "Inscription",
     "deconnexion": "Me déconnecter",
     "travel": {
-        "propose": "Proposer un voyage"
+        "propose": "Proposer un voyage",
+        "reserve": "Réserver un voyage"
     }
 }

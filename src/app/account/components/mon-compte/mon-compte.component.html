@@ -1,0 +1,119 @@
+<h1>Mon compte</h1>
+
+<div class="card">
+
+  <h2 class="card-header text-primary">
+    <blasacar-icon klass="icon icon-medium" name="user"></blasacar-icon>
+    Mes informations
+  </h2>
+
+  <ul class="list-group list-group-flush">
+
+    <!-- Nom et prénom -->
+    <li class="list-group-item">
+
+      <h3 class="card-title text-primary">
+        <!-- {{ user.codeCivilite }} {{ user.prenom }} {{ user.nom }} -->
+      </h3>
+
+    </li>
+
+    <!-- Coordonnées -->
+    <li class="list-group-item">
+
+      <h3 class="card-title text-primary">
+        <blasacar-icon klass="icon icon-medium mr-2" name="coordonnees"></blasacar-icon>
+        Coordonnées
+      </h3>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <!-- <blasacar-info-text label="E-mail" [value]="personne?.mailPersonnel"></blasacar-info-text> -->
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-link text-primary float-right" (click)="editContact()" *ngIf="canEdit">
+            <blasacar-icon klass="icon icon-small" name="edit"></blasacar-icon>
+          </button>
+          <!-- <blasacar-info-text label="Téléphone portable" [value]="personne?.telephonePortable | phone">
+          </blasacar-info-text> -->
+        </div>
+
+      </div>
+
+      <form *ngIf="isContactEdited" [formGroup]="informationPersonnelForm" (ngSubmit)="saveContact()">
+        <fieldset [disabled]="isContactUpdating">
+
+          <div class="row">
+            <div class="col-md-6">
+              <!-- <app-email label="E-mail" [formGroup]="informationPersonnelForm" controlName="email" [required]="true"
+                [initialValue]="personne?.mailPersonnel"></app-email> -->
+            </div>
+            <div class="col-md-6">
+              <!-- <app-mobile-phone label="Téléphone portable" [formGroup]="informationPersonnelForm"
+                controlName="telephone" [required]="true" [initialValue]="personne?.telephonePortable">
+              </app-mobile-phone> -->
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="d-flex justify-content-between flex-wrap">
+            <button type="button" class="btn btn-grey" (click)="cancelContactEditing()">
+              Annuler
+            </button>
+            <button type="submit" class="btn btn-default" [class.btn-loading]="isContactUpdating"
+              [disabled]="!isContactValid">
+              Appliquer
+            </button>
+          </div>
+
+        </fieldset>
+      </form>
+
+      <hr>
+
+      <div *ngIf="!isAdresseEdited">
+        <button class="btn btn-link text-primary float-right" (click)="editAdresse()" *ngIf="canEdit">
+          <app-icon klass="icon icon-small" name="edit"></app-icon>
+        </button>
+        <app-info-adresse label="Adresse du domicile" [adresse]="adresseDomicile"></app-info-adresse>
+      </div>
+
+      <form *ngIf="isAdresseEdited" [formGroup]="informationPersonnelForm" (ngSubmit)="saveAdresse()">
+        <fieldset [disabled]="isAdresseUpdating">
+          <div class="row">
+            <div class="col">
+              <p>Adresse de domicile</p>
+              <app-adresse controlName="adresseDomicile" [parentformGroup]="informationPersonnelForm"
+                [initialValue]="adresseDomicile" [isAdresseRequired]="true" [isPaysRequired]="true">
+              </app-adresse>
+            </div>
+            <div class="col" *ngIf="!isAdresseDomicilePrincipale">
+              <p>Adresse de corespondance</p>
+              <app-adresse controlName="adresseCorrespondance" [parentformGroup]="informationPersonnelForm"
+                [initialValue]="adresseCorrespondance" [isAdresseRequired]="true" [isPaysRequired]="true">
+              </app-adresse>
+            </div>
+          </div>
+          <div class="row border-top-grey padding-top">
+            <div class="col-sm-3 order-2 order-sm-1">
+              <button type="button" class="btn btn-grey" (click)="cancelAdresseEditing()">
+                Annuler
+              </button>
+            </div>
+            <div class="col-sm-3 offset-sm-6 mb-2 order-1 order-sm-2">
+              <button type="submit" class="btn btn-default" [class.btn-loading]="isAdresseUpdating"
+                [disabled]="!isAdressesValid">
+                Appliquer
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+    </li>
+
+  </ul>
+
+</div>

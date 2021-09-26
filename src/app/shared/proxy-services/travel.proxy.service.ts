@@ -33,6 +33,10 @@ export class TravelProxyService {
     return this.http.get<Travel>(`${this.TRAVEL_URL}/${id}`);
   }
 
+  public reserve(id: String): Observable<Travel> {
+    return this.http.get<Travel>(`${this.TRAVEL_URL}/search/${id}`);
+  }
+
   public search(travelFilter: TravelFilter): Observable<Travel[]> {
     const params: HttpParams = HttpParamsBuilder.builder()
       .appendIfNotNull('departureCity', travelFilter.departureCity)

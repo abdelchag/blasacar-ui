@@ -3,28 +3,21 @@
   
       <div class="row">
         <div class="col-9 col-lg-10">
-  
           <ng-container>
             <div class="card mt-1 mb-last-child bg-light border-0">
               <div class="row">
                 <div class="col-6">
                     <p>{{ travel.departureDate |dateTime }}</p>
-                    <p>{{ travel.isAutomaticAcceptance |booleanToOuiNon }}</p>
+                    <p>{{'travel-edit.automatique-acceptance'  | translate}} : {{ travel.isAutomaticAcceptance | booleanToOuiNon | translate }}</p>
                 </div>
                 <div class="col-6">
-                  <p>nombre place : {{ travel.numberPlaces }}</p>
-                  <p>Prix : {{ travel.price | currencyEuro }}</p>
+                  <p>{{'travel-edit.number-place'  | translate}} : {{ travel.numberPlaces }}</p>
+                  <p>{{'travel-edit.price'  | translate}} : {{ travel.price | currencyEuro }}</p>
               </div>
-
               </div>
             </div>
           </ng-container>
-  
         </div>
-
       </div>
-  
-
-  
     </div>
   </div>

@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h2 class="modal-title">{{ 'travel-edit.travel.titleConfirm'  | translate }}</h2>
+  <button type="button" class="close" (click)="close()" aria-label="Close" [disabled]="isFormLoading">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="notification notification-warning d-flex align-items-center">
+        <blasacar-icon klass="icon icon-large mr-3" name="infos"></blasacar-icon>
+        {{ 'travel-edit.travel.confirm'  | translate }}
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-grey" (click)="close()" [disabled]="isFormLoading">Annuler</button>
+    <button type="button" class="btn btn-default" [class.btn-loading]="isFormLoading" [disabled]="isFormLoading"
+      (click)="validate()">{{ 'travel-edit.travel.validate'  | translate }}</button> 
+  </div>

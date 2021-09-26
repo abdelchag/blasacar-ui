@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { combineLatest, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NotificationType } from 'src/app/constants';
 import { ToastNotificationService } from 'src/app/core/services';
 import { Travel } from '../model/travel.model';
 import { TravelService } from '../service/travel.service';
+import { ReserveConfirmDialogComponent } from '../widgets/reserve-confirm-dialog/reserve-confirm-dialog.component';
 
 @Component({
   selector: 'blasacar-travel-details',
@@ -23,6 +25,7 @@ export class TravelDetailsComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private readonly travelService: TravelService,
     private toastNotificationService: ToastNotificationService,
+    private modalService: NgbModal,
   ) {
   }
 
@@ -37,10 +40,13 @@ export class TravelDetailsComponent implements OnInit, OnDestroy {
           this.travel = travel;
         })
     );
-
-    
+   
   }
 
+  reserver(): void {
+    const modalRef = this.modalService.open(ReserveConfirmDialogComponent);
+    modalRef.componentInstance.idTravel = this.travel.id;
+  }
 
   ngOnDestroy(): void {
     

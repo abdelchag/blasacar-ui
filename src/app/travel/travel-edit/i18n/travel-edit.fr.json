@@ -8,5 +8,15 @@
     "price":"Prix",
     "phone-number":"Numéro de téléphone",
     "cancel-travel":"Annuler trajet",
-    "save-travel":"Appliquer les modifications"
+    "save-travel":"Appliquer les modifications",
+    "travel":
+    {
+        "reserve" : "Réserver ce trajet",
+        "back" : "Retour",
+        "confirm" : "Vous êtes sur le point de valider la réservation, souhaitez-vous continuer ?",
+        "titleConfirm" : "Valider Réservation",
+        "validate" : "Valider",
+        "label" : "Trajet"
+    }
+
 }
