@@ -89,12 +89,6 @@
                 [initialValue]="adresseDomicile" [isAdresseRequired]="true" [isPaysRequired]="true">
               </app-adresse>
             </div>
-            <div class="col" *ngIf="!isAdresseDomicilePrincipale">
-              <p>Adresse de corespondance</p>
-              <app-adresse controlName="adresseCorrespondance" [parentformGroup]="informationPersonnelForm"
-                [initialValue]="adresseCorrespondance" [isAdresseRequired]="true" [isPaysRequired]="true">
-              </app-adresse>
-            </div>
           </div>
           <div class="row border-top-grey padding-top">
             <div class="col-sm-3 order-2 order-sm-1">
