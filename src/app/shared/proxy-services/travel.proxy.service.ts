@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TravelFilter } from 'src/app/travel/model/travel-filter';
 import { Travel } from 'src/app/travel/model/travel.model';
+import { DateUtils } from 'src/utils/date-utils';
 import { StringUtils } from 'src/utils/string-utils';
 import { HttpParamsBuilder } from './builder/http-params-builder';
 
@@ -12,6 +13,7 @@ import { HttpParamsBuilder } from './builder/http-params-builder';
 export class TravelProxyService {
 
   TRAVEL_URL = '/api/travel';
+  private readonly DATE_FORMAT = 'yyyy-MM-DD';
 
   constructor(private readonly http: HttpClient) {
   }
@@ -31,7 +33,7 @@ export class TravelProxyService {
     const params: HttpParams = HttpParamsBuilder.builder()
       .appendIfNotNull('departureCity', travelFilter.departureCity)
       .appendIfNotNull('arrivalCity', travelFilter.arrivalCity)
-      .appendIfNotNull('departureDate', StringUtils.convertToString(travelFilter.departureDate))
+      .appendIfNotNull('departureDate', DateUtils.transform(travelFilter.departureDate, this.DATE_FORMAT))
       .appendIfNotNull('departureTime', StringUtils.convertToString(travelFilter.departureTime))
       .appendIfNotNull('numberPlaces', StringUtils.convertToString(travelFilter.numberPlaces))
       .appendIfNotNull('isAutomaticAcceptance', StringUtils.convertToString(travelFilter.isAutomaticAcceptance))
