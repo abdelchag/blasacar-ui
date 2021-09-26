@@ -11,5 +11,4 @@ export * from './risque.pipe';
 export * from './securite-sociale.pipe';
 export * from './siret.pipe';
 export * from './situation-familiale.pipe';
-export * from './statut-ayantdroit.pipe';
 export * from './boolean-to-oui-non.pipe';

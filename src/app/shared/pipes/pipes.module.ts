@@ -18,13 +18,10 @@ import { PeriodePipe } from './periode.pipe';
 import { PeriodicitePipe } from './periodicite.pipe';
 import { PhonePipe } from './phone.pipe';
 import { QualitePipe } from './qualite.pipe';
-import { RattachementPipe } from './rattachement.pipe';
-import { RisqueIconPipe } from './risque-icon.pipe';
 import { RisquePipe } from './risque.pipe';
 import { SecuriteSocialePipe } from './securite-sociale.pipe';
 import { SiretPipe } from './siret.pipe';
 import { SituationFamilialePipe } from './situation-familiale.pipe';
-import { StatutAyantDroitPipe } from './statut-ayantdroit.pipe';
 import { BooleanToOuiNonPipe } from './boolean-to-oui-non.pipe';
 
 const pipes = [
@@ -46,13 +43,10 @@ const pipes = [
   PeriodicitePipe,
   PhonePipe,
   QualitePipe,
-  RattachementPipe,
-  RisqueIconPipe,
   RisquePipe,
   SecuriteSocialePipe,
   SiretPipe,
   SituationFamilialePipe,
-  StatutAyantDroitPipe,
   BooleanToOuiNonPipe
 ];
 
