@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { BlasaCarUser } from '../../models/blasa-car-user';
 import { ConnexionAction } from '../../models/connexion-action';
 
 @Component({
@@ -16,18 +17,14 @@ export class MonCompteComponent implements OnInit {
   isAdresseEdited = false;
   action: ConnexionAction;
   origin: string;
+  user: BlasaCarUser;
 
   constructor(
-    private readonly modalRef: BsModalRef
   ) {
   }
 
   ngOnInit(): void {
   }
 
-  closeModal(onlyClose: boolean = false): void {
-    this.hideEvent.next(onlyClose);
-    this.modalRef.hide();
-  }
 
 }
