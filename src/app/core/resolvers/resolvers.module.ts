@@ -4,7 +4,6 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { CanActivateProfil } from './can-activate-profil.guard';
 import { CguGuard } from './cgu.guard';
-import { InvalidContratCanActivate } from './invalid-contract-can-activate';
 import { PageNotFoundGuard } from './page-not-found-guard';
 import { PersonneAsTnsResolver } from './personne-as-tns.resolver';
 import { UtilisateurGuard } from './utilisateur.guard';
@@ -12,7 +11,6 @@ import { UtilisateurGuard } from './utilisateur.guard';
 const resolvers = [
   CanActivateProfil,
   CguGuard,
-  InvalidContratCanActivate,
   PageNotFoundGuard,
   PersonneAsTnsResolver,
   UtilisateurGuard
