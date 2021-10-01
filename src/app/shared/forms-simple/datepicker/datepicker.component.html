@@ -4,13 +4,15 @@
         {{ label }}
         <span *ngIf="!required"> (facultatif)</span>
     </label>
-
-    <input type="text" class="form-control" bsDatepicker [bsConfig]="bsConfig" [formControl]="formControl"
-        [required]="required" [placeholder]="placeholder" #dp="bsDatepicker" (bsValueChange)="onDateSelected($event)"
-        readonly>
-    <div class="input-group-btn">
-        <i class="fa fa-calendar clickable" aria-hidden="true" (click)="dp.toggle()"
-            [attr.aria-expanded]="dp.isOpen"></i>
+    <div class="input-group date">
+        <input type="text" class="form-control" bsDatepicker [bsConfig]="bsConfig" [formControl]="formControl"
+            [required]="required" [placeholder]="placeholder" #dp="bsDatepicker"
+            (bsValueChange)="onDateSelected($event)">
+        <span class="input-group-addon">
+            <i class="fa fa-calendar clickable" aria-hidden="true" (click)="dp.toggle()"
+                [attr.aria-expanded]="dp.isOpen"></i>
+            <i class="fa fa-times clickable" aria-hidden="true" (click)="formControl.setValue(null)"></i>
+        </span>
     </div>
     <span *ngIf="hadError" class="error-block">{{ error }}</span>
 </div>
