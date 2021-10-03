@@ -20,11 +20,6 @@ export class TravelSearchComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.travelService.getTravels(this.travelFilter)
-    .subscribe(travels => {
-      this.travelFiltered = travels;
-      this.changeDetector.detectChanges();
-    });
   }
 
   search(): void {
@@ -37,10 +32,10 @@ export class TravelSearchComponent implements OnInit {
 
   onApplyFilter(travelFilter: TravelFilter) {
     this.travelService.search(travelFilter)
-    .subscribe(travels => {
-      this.travelFiltered = travels;
-      this.changeDetector.detectChanges();
-    });
+      .subscribe(travels => {
+        this.travelFiltered = travels;
+        this.changeDetector.detectChanges();
+      });
   }
   removeCollegeCriteria(college: string) {
 

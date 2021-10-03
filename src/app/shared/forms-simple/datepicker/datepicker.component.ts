@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { defineLocale, frLocale } from 'ngx-bootstrap/chronos';
-import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerDirective, BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { configuration } from 'src/app/configuration';
 import { ValidationMessageService } from 'src/app/core/services';
 import { BaseSimpleDirective } from '../base-simple.directive';
 
@@ -41,6 +42,7 @@ export class DatepickerComponent extends BaseSimpleDirective implements OnInit {
     this.bsConfig.maxDate = this.showAfterDates ? null : new Date();
     this.bsConfig.minDate = this.showBeforeDates ? null : new Date();
     super.ngOnInit();
+    this.validationMessages['bsDate'] = configuration.validationMessages.date.valid;
   }
 
   onDateSelected(date: Date): void {
