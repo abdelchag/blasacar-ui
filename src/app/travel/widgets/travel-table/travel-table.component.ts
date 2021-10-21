@@ -41,10 +41,19 @@ export class TravelTableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  next(): void {
+
+  next() {
+    this.pageCount = (this.travels.length / this.pageSize);
+    if (this.page >= this.pageCount) {
+      return;
+    }
+    this.page++;
   }
 
-  previous(): void {
+  previous() {
+    if (this.page > 1) {
+      this.page--;
+    }
   }
 
   changePageSize(pageSize: string) {
