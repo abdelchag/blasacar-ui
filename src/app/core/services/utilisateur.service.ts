@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 
 import { ProfilModel, UtilisateurModel } from 'src/app/shared/models';
 import { ReseauModel } from 'src/app/shared/models/reseau.model';
+import { UserModel } from 'src/app/account/models/user.model';
 
 @Injectable()
 export class UtilisateurService {
@@ -17,6 +18,13 @@ export class UtilisateurService {
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  ACCOUNT_MANAGEMENT_URL = '/api/access-management';
+
+  getById(userId: string): Observable<UserModel> {
+    const url = `${this.ACCOUNT_MANAGEMENT_URL}/User/get-by-id/${userId}`;
+    return this.httpClient.get<UserModel>(url);
+  }
 
   get(): Observable<UtilisateurModel> {
     const url = `${environment.apiUrl}/utilisateurs`;

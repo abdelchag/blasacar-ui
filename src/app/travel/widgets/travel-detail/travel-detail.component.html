@@ -50,18 +50,18 @@
       </ng-container>
     </li>
 
-    <li class="list-group-item">
+    <li class="list-group-item" *ngIf="fromSearch">
       <h3 class="card-title text-primary">
-        <blasacar-icon klass="icon icon-small" name="coordonnees"></blasacar-icon>
+        <blasacar-icon klass="icon icon-small" name="user"></blasacar-icon>
         autres info voyage
       </h3>
       <div class="row">
         <div class="col-md-6">
-          <blasacar-info-text label="date création" [value]="travel.creationDate | date:'dd/MM/yyyy'">
+          <blasacar-info-text label="Nom et Prénom Conducteur" [value]="getLastFirtNameDriver">
           </blasacar-info-text>
         </div>
         <div class="col-md">
-          <blasacar-info-text label="Telephone" [value]='travel.phoneNumber | phone'>
+          <blasacar-info-text label="Telephone" [value]='driver.telephone | phone'>
           </blasacar-info-text>
         </div>
       </div>

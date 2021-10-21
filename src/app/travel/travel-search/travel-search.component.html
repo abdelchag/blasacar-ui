@@ -7,6 +7,73 @@
 <ng-container>
 
   <div class="row align-items-center">
+    <!-- <div class="col-5 col-md-5 col-lg-5 col-xl-5">
+
+      <div class="form-group mb-0">
+        <div class="input-group">
+          <input type="text" class="form-control" [placeholder]="'travel-search.Filter-by-arrival-city' | translate">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <blasacar-icon klass="icon icon-smallest fill-gray" name="search" ></blasacar-icon>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+
+    <div class="row">
+      <div class="col-3">
+
+        <blasacar-text [formGroup]="form" controlName="depart" [required]="true" controlName="departureCity"
+          [label]="'travel-search.depart'  | translate" [initialValue]="travelFilter.departureCity"
+          (valueChanged)="travelFilter.departureCity= $event">
+        </blasacar-text>
+
+      </div>
+      <div class="col-3">
+
+        <blasacar-text [formGroup]="form" controlName="arrivee" [required]="true" controlName="arrivalCity"
+          [label]="'travel-search.destination'  | translate" [initialValue]="travelFilter.arrivalCity"
+          (valueChanged)="travelFilter.arrivalCity= $event">
+        </blasacar-text>
+
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label>
+            {{ 'travel-search.date' | translate }}
+          </label>
+          <blasacar-datepicker [formGroup]="form" controlName="departureDate" [initialValue]="travelFilter.departureDate"
+            [showBeforeDates]="false" (valueChanged)="travelFilter.departureDate= $event">
+          </blasacar-datepicker>
+        </div>
+      </div>
+      <div class="col-3">
+        <blasacar-number [formGroup]="form" controlName="price" [initialValue]="travelFilter.price" [label]="'travel-search.price'  | translate"
+        [decimal]="true" (valueChanged)="travelFilter.price= $event">
+      </blasacar-number>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 align-items-center">
+        <div class="btn-group" role="group">
+          <button class="btn btn-primary btn-sm" (click)="onApplyFilter()" >
+            Appliquer
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <div class="col-3 col-md-2 col-lg-2 col-xl-2">
+      <blasacar-travel-list-filtre [travelFilter]="travelFilter" (applyFilter)="onApplyFilter($event)">
+      </blasacar-travel-list-filtre>
+    </div> -->
+
+  </div>
+
+  <!-- <div class="row align-items-center">
     <div class="col-5 col-md-5 col-lg-5 col-xl-5">
 
       <div class="form-group mb-0">
@@ -26,7 +93,7 @@
       </blasacar-travel-list-filtre>
     </div>
 
-  </div>
+  </div> -->
 
   <blasacar-travel-table [travels]="travelFiltered" (relance)="relance($event)" (sort)="sortBy($event)">
   </blasacar-travel-table>

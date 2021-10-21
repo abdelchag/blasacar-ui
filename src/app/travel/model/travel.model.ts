@@ -10,5 +10,5 @@ export class Travel {
   price: number;
   phoneNumber: string;
   created: Date;
-
+  userid: string;
 }

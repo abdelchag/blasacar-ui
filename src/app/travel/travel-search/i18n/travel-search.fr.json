@@ -1,4 +1,9 @@
 {
     "Filter-by-arrival-city": "Filtrer par ville d'arrivée",
-    "trajets": "Trajets"
+    "trajets": "Trajets",
+    "depart": "Départ",
+    "destination": "Déstination",
+    "date": "Date",
+    "price": "Prix"
+    
 }

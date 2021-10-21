@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { DriverProvider } from 'protractor/built/driverProviders';
+import { UserModel } from 'src/app/account/models/user.model';
 import { Travel } from '../../model/travel.model';
 
 @Component({
@@ -10,8 +12,13 @@ export class TravelDetailComponent implements OnInit {
   extended = false;
   editing = false;
   @Input() travel: Travel;
-  @Input() fromSearch: false;
+  @Input() driver: UserModel;
+  @Input() fromSearch = false;
   constructor() { }
+
+  get getLastFirtNameDriver() {
+    return this.driver.lastName + " " + this.driver.firstName;
+  }
 
   ngOnInit(): void {
     this.extended = this.fromSearch;
